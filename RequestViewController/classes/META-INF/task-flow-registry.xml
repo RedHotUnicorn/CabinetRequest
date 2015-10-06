@@ -1,0 +1,6 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<task-flow-registry xmlns="http://xmlns.oracle.com/adf/controller/rc">
+   <task-flow-descriptor path="WEB-INF/request-tdf.xml" id="request-tdf" type="task-flow-definition" uses-page-fragments="true" library-internal="false" train="false" page-type="facelets">
+      <input-parameter name="IdWebUser"/>
+   </task-flow-descriptor>
+</task-flow-registry>

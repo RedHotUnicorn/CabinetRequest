@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="RequestView"
+  Version="11.1.2.62.76"
+  SelectList="Request.IDREQUEST, 
+       Request.IDEMPLOYEE, 
+       Request.IDREQUESTTYPE, 
+       Request.CREATIONDATE"
+  FromList="JUNIOR560704.REQUEST Request"
+  BindingStyle="OracleName"
+  CustomQuery="false"
+  RowClass="ru.miit.my.frameworkext.ViewRowImpl"
+  ComponentClass="ru.miit.my.frameworkext.ViewObjectImpl"
+  PageIterMode="Full"
+  UseGlueCode="false">
+  <EntityUsage
+    Name="Request"
+    Entity="ru.miit.my.cabinet.request.model.Request"/>
+  <ViewAttribute
+    Name="Idrequest"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="Idrequest"
+    EntityUsage="Request"
+    AliasName="IDREQUEST"/>
+  <ViewAttribute
+    Name="Idemployee"
+    PrecisionRule="true"
+    EntityAttrName="Idemployee"
+    EntityUsage="Request"
+    AliasName="IDEMPLOYEE"/>
+  <ViewAttribute
+    Name="Idrequesttype"
+    PrecisionRule="true"
+    EntityAttrName="Idrequesttype"
+    EntityUsage="Request"
+    AliasName="IDREQUESTTYPE"/>
+  <ViewAttribute
+    Name="Creationdate"
+    PrecisionRule="true"
+    EntityAttrName="Creationdate"
+    EntityUsage="Request"
+    AliasName="CREATIONDATE"/>
+</ViewObject>

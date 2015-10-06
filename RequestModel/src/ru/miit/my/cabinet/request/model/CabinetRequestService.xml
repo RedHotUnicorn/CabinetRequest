@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE AppModule SYSTEM "jbo_03_01.dtd">
+<!---->
+<AppModule
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="CabinetRequestService"
+  Version="11.1.2.62.76"
+  ComponentClass="ru.miit.my.frameworkext.ApplicationModuleImpl"
+  ClearCacheOnRollback="true">
+  <Properties>
+    <SchemaBasedProperties>
+      <LABEL
+        ResId="ru.miit.my.cabinet.request.model.CabinetRequestService_LABEL"/>
+    </SchemaBasedProperties>
+  </Properties>
+  <ViewUsage
+    Name="RequestView1"
+    ViewObjectName="ru.miit.my.cabinet.request.model.RequestView"/>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="ru.miit.my.cabinet.request.model.RequestModelBundle"/>
+  </ResourceBundle>
+</AppModule>

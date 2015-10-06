@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="11.1.2.62.76" id="requests_testPageDef"
+                Package="ru.miit.my.cabinet.request.view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <taskFlow id="requesttdf1" taskFlowId="/WEB-INF/request-tdf.xml#request-tdf" activation="deferred"
+              xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
+    <iterator Binds="RequestView1" RangeSize="25" DataControl="CabinetRequestServiceDataControl"
+              id="RequestView1Iterator"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="RequestView1Iterator" id="RequestView1">
+      <nodeDefinition DefName="ru.miit.my.cabinet.request.model.RequestView" Name="RequestView10">
+        <AttrNames>
+          <Item Value="Idrequest"/>
+          <Item Value="Idemployee"/>
+          <Item Value="Idrequesttype"/>
+          <Item Value="Creationdate"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+  </bindings>
+</pageDefinition>

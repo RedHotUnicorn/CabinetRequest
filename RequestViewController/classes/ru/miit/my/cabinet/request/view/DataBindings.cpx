@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Application xmlns="http://xmlns.oracle.com/adfm/application" version="11.1.2.62.76" id="DataBindings"
+             SeparateXMLFiles="false" Package="ru.miit.my.cabinet.request.view" ClientType="Generic">
+  <definitionFactories>
+    <factory nameSpace="http://xmlns.oracle.com/adf/controller/binding"
+             className="oracle.adf.controller.internal.binding.TaskFlowBindingDefFactoryImpl"/>
+    <dtfactory className="oracle.adf.controller.internal.dtrt.binding.BindingDTObjectFactory"/>
+  </definitionFactories>
+  <pageMap>
+    <page path="/requests-test.jsf" usageId="ru_miit_my_cabinet_request_view_requests_testPageDef"/>
+  </pageMap>
+  <pageDefinitionUsages>
+    <page id="ru_miit_my_cabinet_request_view_requests_testPageDef"
+          path="ru.miit.my.cabinet.request.view.pageDefs.requests_testPageDef"/>
+  </pageDefinitionUsages>
+  <dataControlUsages>
+    <BC4JDataControl id="CabinetRequestServiceDataControl" Package="ru.miit.my.cabinet.request.model"
+                     FactoryClass="oracle.adf.model.bc4j.DataControlFactoryImpl" SupportsTransactions="true"
+                     SupportsFindMode="true" SupportsRangesize="true" SupportsResetState="true"
+                     SupportsSortCollection="true" Configuration="CabinetRequestServiceLocal" syncMode="Immediate"
+                     xmlns="http://xmlns.oracle.com/adfm/datacontrol"/>
+  </dataControlUsages>
+</Application>

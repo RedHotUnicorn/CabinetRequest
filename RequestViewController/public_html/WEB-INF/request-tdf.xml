@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
+  <task-flow-definition id="request-tdf">
+    <template-reference>
+      <document>/WEB-INF/CabinetTaskflowTemplate.xml</document>
+      <id>CabinetTaskflowTemplate</id>
+    </template-reference>
+    <default-activity>userequests-list</default-activity>
+    <input-parameter-definition id="__1">
+      <name>IdWebUser</name>
+      <value>#{pageFlowScope.IdWebUser}</value>
+      <class>java.lang.Long</class>
+      <required/>
+    </input-parameter-definition>
+    <view id="userequests-list">
+      <page>/userequests-list.jsff</page>
+    </view>
+    <use-page-fragments/>
+  </task-flow-definition>
+</adfc-config>
