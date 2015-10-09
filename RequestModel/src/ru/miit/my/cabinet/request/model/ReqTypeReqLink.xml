@@ -3,20 +3,20 @@
 <!---->
 <ViewLink
   xmlns="http://xmlns.oracle.com/bc4j"
-  Name="SysC00188532Link"
+  Name="ReqTypeReqLink"
   Version="11.1.2.62.76"
-  EntityAssociation="ru.miit.my.cabinet.request.model.ReqEmpAssoc">
+  EntityAssociation="ru.miit.my.cabinet.request.model.ReqTypeReqAssoc">
   <ViewLinkDefEnd
-    Name="EmployeeView"
+    Name="RequestTypeView"
     Cardinality="1"
     Source="true"
-    Owner="ru.miit.my.cabinet.request.model.EmployeeView">
+    Owner="ru.miit.my.cabinet.request.model.RequestTypeView">
     <DesignTime>
-      <Attr Name="_finderName" Value="EmployeeView"/>
+      <Attr Name="_finderName" Value="RequestTypeView"/>
       <Attr Name="_isUpdateable" Value="true"/>
     </DesignTime>
     <AttrArray Name="Attributes">
-      <Item Value="ru.miit.my.cabinet.request.model.EmployeeView.Idemployee"/>
+      <Item Value="ru.miit.my.cabinet.request.model.RequestTypeView.Idrequesttype"/>
     </AttrArray>
   </ViewLinkDefEnd>
   <ViewLinkDefEnd
@@ -28,7 +28,7 @@
       <Attr Name="_isUpdateable" Value="true"/>
     </DesignTime>
     <AttrArray Name="Attributes">
-      <Item Value="ru.miit.my.cabinet.request.model.RequestView.Idemployee"/>
+      <Item Value="ru.miit.my.cabinet.request.model.RequestView.Idrequesttype"/>
     </AttrArray>
   </ViewLinkDefEnd>
 </ViewLink>

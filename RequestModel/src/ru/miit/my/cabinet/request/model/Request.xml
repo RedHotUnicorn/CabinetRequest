@@ -43,16 +43,16 @@
     TableName="JUNIOR560704.REQUEST"/>
   <AccessorAttribute
     Name="Employee"
-    Association="ru.miit.my.cabinet.request.model.SysC00188532Assoc"
-    AssociationEnd="ru.miit.my.cabinet.request.model.SysC00188532Assoc.Employee"
-    AssociationOtherEnd="ru.miit.my.cabinet.request.model.SysC00188532Assoc.Request"
+    Association="ru.miit.my.cabinet.request.model.ReqEmpAssoc"
+    AssociationEnd="ru.miit.my.cabinet.request.model.ReqEmpAssoc.Employee"
+    AssociationOtherEnd="ru.miit.my.cabinet.request.model.ReqEmpAssoc.Request"
     Type="ru.miit.my.frameworkext.EntityImpl"
     IsUpdateable="true"/>
   <AccessorAttribute
     Name="RequestType"
-    Association="ru.miit.my.cabinet.request.model.SysC00188531Assoc"
-    AssociationEnd="ru.miit.my.cabinet.request.model.SysC00188531Assoc.RequestType"
-    AssociationOtherEnd="ru.miit.my.cabinet.request.model.SysC00188531Assoc.Request"
+    Association="ru.miit.my.cabinet.request.model.ReqTypeReqAssoc"
+    AssociationEnd="ru.miit.my.cabinet.request.model.ReqTypeReqAssoc.RequestType"
+    AssociationOtherEnd="ru.miit.my.cabinet.request.model.ReqTypeReqAssoc.Request"
     Type="ru.miit.my.frameworkext.EntityImpl"
     IsUpdateable="true"/>
   <Key

@@ -34,9 +34,9 @@
   </Attribute>
   <AccessorAttribute
     Name="Request"
-    Association="ru.miit.my.cabinet.request.model.SysC00188532Assoc"
-    AssociationEnd="ru.miit.my.cabinet.request.model.SysC00188532Assoc.Request"
-    AssociationOtherEnd="ru.miit.my.cabinet.request.model.SysC00188532Assoc.Employee"
+    Association="ru.miit.my.cabinet.request.model.ReqEmpAssoc"
+    AssociationEnd="ru.miit.my.cabinet.request.model.ReqEmpAssoc.Request"
+    AssociationOtherEnd="ru.miit.my.cabinet.request.model.ReqEmpAssoc.Employee"
     Type="oracle.jbo.RowIterator"
     IsUpdateable="false"/>
   <Key

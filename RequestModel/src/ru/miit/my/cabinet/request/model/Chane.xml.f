@@ -5,7 +5,7 @@
   xmlns="http://xmlns.oracle.com/bc4j"
   Name="SysC00188532Link"
   Version="11.1.2.62.76"
-  EntityAssociation="ru.miit.my.cabinet.request.model.ReqEmpAssoc">
+  EntityAssociation="ru.miit.my.cabinet.request.model.SysC00188532Assoc">
   <ViewLinkDefEnd
     Name="EmployeeView"
     Cardinality="1"

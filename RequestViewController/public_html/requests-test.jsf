@@ -6,64 +6,7 @@
         <af:form id="f1">
             <af:pageTemplate viewId="/WEB-INF/templates/test-template.jsf" id="pt1">
                 <f:facet name="mainFacet">
-                    <af:group id="g1">
-                        <af:region value="#{bindings.requesttdf1.regionModel}" id="r1"/>
-                        <af:table value="#{bindings.RequestView1.collectionModel}" var="row"
-                                  rows="#{bindings.RequestView1.rangeSize}"
-                                  emptyText="#{bindings.RequestView1.viewable ? 'No data to display.' : 'Access Denied.'}"
-                                  fetchSize="#{bindings.RequestView1.rangeSize}" rowBandingInterval="0" id="t1">
-                            <af:column sortProperty="#{bindings.RequestView1.hints.Idrequest.name}" sortable="false"
-                                       headerText="#{bindings.RequestView1.hints.Idrequest.label}" id="c1">
-                                <af:inputText value="#{row.bindings.Idrequest.inputValue}"
-                                              label="#{bindings.RequestView1.hints.Idrequest.label}"
-                                              required="#{bindings.RequestView1.hints.Idrequest.mandatory}"
-                                              columns="#{bindings.RequestView1.hints.Idrequest.displayWidth}"
-                                              maximumLength="#{bindings.RequestView1.hints.Idrequest.precision}"
-                                              shortDesc="#{bindings.RequestView1.hints.Idrequest.tooltip}" id="it1">
-                                    <f:validator binding="#{row.bindings.Idrequest.validator}"/>
-                                    <af:convertNumber groupingUsed="false"
-                                                      pattern="#{bindings.RequestView1.hints.Idrequest.format}"/>
-                                </af:inputText>
-                            </af:column>
-                            <af:column sortProperty="#{bindings.RequestView1.hints.Idemployee.name}" sortable="false"
-                                       headerText="#{bindings.RequestView1.hints.Idemployee.label}" id="c2">
-                                <af:inputText value="#{row.bindings.Idemployee.inputValue}"
-                                              label="#{bindings.RequestView1.hints.Idemployee.label}"
-                                              required="#{bindings.RequestView1.hints.Idemployee.mandatory}"
-                                              columns="#{bindings.RequestView1.hints.Idemployee.displayWidth}"
-                                              maximumLength="#{bindings.RequestView1.hints.Idemployee.precision}"
-                                              shortDesc="#{bindings.RequestView1.hints.Idemployee.tooltip}" id="it2">
-                                    <f:validator binding="#{row.bindings.Idemployee.validator}"/>
-                                    <af:convertNumber groupingUsed="false"
-                                                      pattern="#{bindings.RequestView1.hints.Idemployee.format}"/>
-                                </af:inputText>
-                            </af:column>
-                            <af:column sortProperty="#{bindings.RequestView1.hints.Idrequesttype.name}" sortable="false"
-                                       headerText="#{bindings.RequestView1.hints.Idrequesttype.label}" id="c3">
-                                <af:inputText value="#{row.bindings.Idrequesttype.inputValue}"
-                                              label="#{bindings.RequestView1.hints.Idrequesttype.label}"
-                                              required="#{bindings.RequestView1.hints.Idrequesttype.mandatory}"
-                                              columns="#{bindings.RequestView1.hints.Idrequesttype.displayWidth}"
-                                              maximumLength="#{bindings.RequestView1.hints.Idrequesttype.precision}"
-                                              shortDesc="#{bindings.RequestView1.hints.Idrequesttype.tooltip}" id="it3">
-                                    <f:validator binding="#{row.bindings.Idrequesttype.validator}"/>
-                                    <af:convertNumber groupingUsed="false"
-                                                      pattern="#{bindings.RequestView1.hints.Idrequesttype.format}"/>
-                                </af:inputText>
-                            </af:column>
-                            <af:column sortProperty="#{bindings.RequestView1.hints.Creationdate.name}" sortable="false"
-                                       headerText="#{bindings.RequestView1.hints.Creationdate.label}" id="c4">
-                                <af:inputDate value="#{row.bindings.Creationdate.inputValue}"
-                                              label="#{bindings.RequestView1.hints.Creationdate.label}"
-                                              required="#{bindings.RequestView1.hints.Creationdate.mandatory}"
-                                              columns="#{bindings.RequestView1.hints.Creationdate.displayWidth}"
-                                              shortDesc="#{bindings.RequestView1.hints.Creationdate.tooltip}" id="id1">
-                                    <f:validator binding="#{row.bindings.Creationdate.validator}"/>
-                                    <af:convertDateTime pattern="#{bindings.RequestView1.hints.Creationdate.format}"/>
-                                </af:inputDate>
-                            </af:column>
-                        </af:table>
-                    </af:group>
+                    <af:region value="#{bindings.requesttdf1.regionModel}" id="r1"/>
                 </f:facet>
             </af:pageTemplate>
         </af:form>

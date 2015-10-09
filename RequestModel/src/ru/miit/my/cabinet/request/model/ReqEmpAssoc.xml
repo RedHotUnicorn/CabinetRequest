@@ -3,24 +3,24 @@
 <!---->
 <Association
   xmlns="http://xmlns.oracle.com/bc4j"
-  Name="SysC00188531Assoc"
+  Name="ReqEmpAssoc"
   Version="11.1.2.62.76">
   <DesignTime>
     <Attr Name="_isCodegen" Value="true"/>
   </DesignTime>
   <AssociationEnd
-    Name="RequestType"
+    Name="Employee"
     Cardinality="1"
     Source="true"
-    Owner="ru.miit.my.cabinet.request.model.RequestType">
+    Owner="ru.miit.my.cabinet.request.model.Employee">
     <DesignTime>
       <Attr Name="_aggregation" Value="0"/>
-      <Attr Name="_finderName" Value="RequestType"/>
-      <Attr Name="_foreignKey" Value="ru.miit.my.cabinet.request.model.RequestType.SysC00188526"/>
+      <Attr Name="_finderName" Value="Employee"/>
+      <Attr Name="_foreignKey" Value="ru.miit.my.cabinet.request.model.Employee.SysC00188529"/>
       <Attr Name="_isUpdateable" Value="true"/>
     </DesignTime>
     <AttrArray Name="Attributes">
-      <Item Value="ru.miit.my.cabinet.request.model.RequestType.Idrequesttype"/>
+      <Item Value="ru.miit.my.cabinet.request.model.Employee.Idemployee"/>
     </AttrArray>
   </AssociationEnd>
   <AssociationEnd
@@ -30,11 +30,11 @@
     <DesignTime>
       <Attr Name="_aggregation" Value="0"/>
       <Attr Name="_finderName" Value="Request"/>
-      <Attr Name="_foreignKey" Value="ru.miit.my.cabinet.request.model.Request.SysC00188531"/>
+      <Attr Name="_foreignKey" Value="ru.miit.my.cabinet.request.model.Request.SysC00188532"/>
       <Attr Name="_isUpdateable" Value="true"/>
     </DesignTime>
     <AttrArray Name="Attributes">
-      <Item Value="ru.miit.my.cabinet.request.model.Request.Idrequesttype"/>
+      <Item Value="ru.miit.my.cabinet.request.model.Request.Idemployee"/>
     </AttrArray>
   </AssociationEnd>
 </Association>
