@@ -1,0 +1,36 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+                xmlns:f="http://java.sun.com/jsf/core" xmlns:h="http://java.sun.com/jsf/html">
+  <af:panelGroupLayout id="pgl1" layout="vertical">
+    <af:outputText value="#{bindings.Idrequesttype1} #{bindings.Title}" id="ot1"/>
+    <af:commandButton text="commandButton 1" id="cb1" action="back"/>
+    <af:switcher id="s1" facetName="#{bindings.Idrequesttype1=='1'? 'a' : 'b'}">
+      <f:facet name="a">
+        <af:outputText value="Первый тип" id="ot2"/>
+      </f:facet>
+      <f:facet name="b">
+        <af:outputText value="Второй тип" id="ot3"/>
+      </f:facet>
+      <f:facet name="Def">
+        <af:outputText value="Fuck" id="ot4"/>
+      </f:facet>
+    </af:switcher>
+    <af:iterator id="i1">
+      <af:panelFormLayout id="pfl1">
+        <af:inputDate value="#{bindings.Creationdate.inputValue}" label="#{bindings.Creationdate.hints.label}"
+                      required="#{bindings.Creationdate.hints.mandatory}"
+                      columns="#{bindings.Creationdate.hints.displayWidth}"
+                      shortDesc="#{bindings.Creationdate.hints.tooltip}" id="id1">
+          <f:validator binding="#{bindings.Creationdate.validator}"/>
+          <af:convertDateTime pattern="#{bindings.Creationdate.format}"/>
+        </af:inputDate>
+        <af:inputText value="#{bindings.Text.inputValue}" label="#{bindings.Text.hints.label}"
+                      required="#{bindings.Text.hints.mandatory}" columns="#{bindings.Text.hints.displayWidth}"
+                      maximumLength="#{bindings.Text.hints.precision}" shortDesc="#{bindings.Text.hints.tooltip}"
+                      id="it1">
+          <f:validator binding="#{bindings.Text.validator}"/>
+        </af:inputText>
+      </af:panelFormLayout>
+    </af:iterator>
+  </af:panelGroupLayout>
+</ui:composition>

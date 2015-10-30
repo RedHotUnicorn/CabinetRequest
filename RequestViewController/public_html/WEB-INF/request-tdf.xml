@@ -15,6 +15,47 @@
     <view id="userequests-list">
       <page>/userequests-list.jsff</page>
     </view>
+    <view id="viewrequest">
+      <page>/viewrequest.jsff</page>
+    </view>
+    <router id="reqType">
+      <case id="__16">
+        <expression>#{bindings.Idrequesttype.inputValue=='1'}</expression>
+        <outcome>first</outcome>
+      </case>
+      <case id="__17">
+        <expression>#{bindings.Idrequesttype.inputValue=='2'}</expression>
+        <outcome>second</outcome>
+      </case>
+    </router>
+    <view id="createrequest">
+      <page>/createrequest.jsff</page>
+    </view>
+    <control-flow-rule id="__6">
+      <from-activity-id>viewrequest</from-activity-id>
+      <control-flow-case id="__7">
+        <from-outcome>Back</from-outcome>
+        <to-activity-id>userequests-list</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__10">
+      <from-activity-id>userequests-list</from-activity-id>
+      <control-flow-case id="__11">
+        <from-outcome>View</from-outcome>
+        <to-activity-id>viewrequest</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__12">
+        <from-outcome>go</from-outcome>
+        <to-activity-id>createrequest</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__2">
+      <from-activity-id>createrequest</from-activity-id>
+      <control-flow-case id="__3">
+        <from-outcome>back</from-outcome>
+        <to-activity-id>userequests-list</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
     <use-page-fragments/>
   </task-flow-definition>
 </adfc-config>

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="Typetest2View"
+  Version="11.1.2.62.76"
+  SelectList="Typetest2.IDTYPETEST2, 
+       Typetest2.IDEMPLOYEE, 
+       Typetest2.IDREQUEST, 
+       Typetest2.ADDCHAR"
+  FromList="TYPETEST2 Typetest2"
+  BindingStyle="OracleName"
+  CustomQuery="false"
+  RowClass="ru.miit.my.frameworkext.ViewRowImpl"
+  ComponentClass="ru.miit.my.frameworkext.ViewObjectImpl"
+  PageIterMode="Full"
+  UseGlueCode="false">
+  <EntityUsage
+    Name="Typetest2"
+    Entity="ru.miit.my.cabinet.request.model.Typetest2"/>
+  <ViewAttribute
+    Name="Idtypetest2"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="Idtypetest2"
+    EntityUsage="Typetest2"
+    AliasName="IDTYPETEST2"/>
+  <ViewAttribute
+    Name="Idemployee"
+    PrecisionRule="true"
+    EntityAttrName="Idemployee"
+    EntityUsage="Typetest2"
+    AliasName="IDEMPLOYEE"/>
+  <ViewAttribute
+    Name="Idrequest"
+    PrecisionRule="true"
+    EntityAttrName="Idrequest"
+    EntityUsage="Typetest2"
+    AliasName="IDREQUEST"/>
+  <ViewAttribute
+    Name="Addchar"
+    PrecisionRule="true"
+    EntityAttrName="Addchar"
+    EntityUsage="Typetest2"
+    AliasName="ADDCHAR"/>
+</ViewObject>

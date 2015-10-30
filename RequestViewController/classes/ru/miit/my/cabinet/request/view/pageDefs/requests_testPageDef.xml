@@ -5,20 +5,11 @@
   <executables>
     <variableIterator id="variables"/>
     <taskFlow id="requesttdf1" taskFlowId="/WEB-INF/request-tdf.xml#request-tdf" activation="deferred"
-              xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
-    <iterator Binds="RequestView1" RangeSize="25" DataControl="CabinetRequestServiceDataControl"
-              id="RequestView1Iterator"/>
+              xmlns="http://xmlns.oracle.com/adf/controller/binding">
+      <parameters>
+        <parameter id="IdWebUser" value="2"/>
+      </parameters>
+    </taskFlow>
   </executables>
-  <bindings>
-    <tree IterBinding="RequestView1Iterator" id="RequestView1">
-      <nodeDefinition DefName="ru.miit.my.cabinet.request.model.RequestView" Name="RequestView10">
-        <AttrNames>
-          <Item Value="Idrequest"/>
-          <Item Value="Idemployee"/>
-          <Item Value="Idrequesttype"/>
-          <Item Value="Creationdate"/>
-        </AttrNames>
-      </nodeDefinition>
-    </tree>
-  </bindings>
+  <bindings/>
 </pageDefinition>

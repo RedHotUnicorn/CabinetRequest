@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE ViewLink SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewLink
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="ReqType2viewtoRequestLink"
+  Version="11.1.2.62.76"
+  EntityAssociation="ru.miit.my.cabinet.request.model.ReqType2viewtoRequest">
+  <Properties>
+    <SchemaBasedProperties>
+      <LABEL
+        ResId="ru.miit.my.cabinet.request.model.ReqType2viewtoRequestLink_LABEL"/>
+    </SchemaBasedProperties>
+  </Properties>
+  <ViewLinkDefEnd
+    Name="RequestView"
+    Cardinality="1"
+    Source="true"
+    Owner="ru.miit.my.cabinet.request.model.RequestView">
+    <DesignTime>
+      <Attr Name="_finderName" Value="RequestView"/>
+      <Attr Name="_isUpdateable" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="ru.miit.my.cabinet.request.model.RequestView.Idrequest"/>
+    </AttrArray>
+  </ViewLinkDefEnd>
+  <ViewLinkDefEnd
+    Name="Typetest2View"
+    Cardinality="-1"
+    Owner="ru.miit.my.cabinet.request.model.Typetest2View">
+    <DesignTime>
+      <Attr Name="_finderName" Value="Typetest2View"/>
+      <Attr Name="_isUpdateable" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="ru.miit.my.cabinet.request.model.Typetest2View.Idrequest"/>
+    </AttrArray>
+  </ViewLinkDefEnd>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="ru.miit.my.cabinet.request.model.RequestModelBundle"/>
+  </ResourceBundle>
+</ViewLink>

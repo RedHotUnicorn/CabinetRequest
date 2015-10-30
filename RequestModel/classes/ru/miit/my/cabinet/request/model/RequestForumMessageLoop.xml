@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE Association SYSTEM "jbo_03_01.dtd">
+<!---->
+<Association
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="RequestForumMessageLoop"
+  Version="11.1.2.62.76">
+  <DesignTime>
+    <Attr Name="_isCodegen" Value="true"/>
+  </DesignTime>
+  <AssociationEnd
+    Name="IdrequestforumparentmessageRequestforummessage"
+    Cardinality="1"
+    Source="true"
+    Owner="ru.miit.my.cabinet.request.model.Requestforummessage">
+    <DesignTime>
+      <Attr Name="_aggregation" Value="0"/>
+      <Attr Name="_finderName" Value="IdrequestforumparentmessageRequestforummessage"/>
+      <Attr Name="_foreignKey" Value="ru.miit.my.cabinet.request.model.Requestforummessage.SysC00192065"/>
+      <Attr Name="_isUpdateable" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="ru.miit.my.cabinet.request.model.Requestforummessage.Idrequestforummessage"/>
+    </AttrArray>
+  </AssociationEnd>
+  <AssociationEnd
+    Name="Requestforummessage"
+    Cardinality="-1"
+    Owner="ru.miit.my.cabinet.request.model.Requestforummessage">
+    <DesignTime>
+      <Attr Name="_aggregation" Value="0"/>
+      <Attr Name="_finderName" Value="Requestforummessage"/>
+      <Attr Name="_foreignKey" Value="ru.miit.my.cabinet.request.model.Requestforummessage.SysC00192068"/>
+      <Attr Name="_isUpdateable" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="ru.miit.my.cabinet.request.model.Requestforummessage.Idrequestforumparentmessage"/>
+    </AttrArray>
+  </AssociationEnd>
+</Association>

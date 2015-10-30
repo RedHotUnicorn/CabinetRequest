@@ -14,8 +14,80 @@
     </SchemaBasedProperties>
   </Properties>
   <ViewUsage
+    Name="RequestTypeView1"
+    ViewObjectName="ru.miit.my.cabinet.request.model.RequestTypeView"/>
+  <ViewUsage
+    Name="EmployeeView1"
+    ViewObjectName="ru.miit.my.cabinet.request.model.EmployeeView"/>
+  <ViewUsage
+    Name="RequestView2"
+    ViewObjectName="ru.miit.my.cabinet.request.model.RequestView"/>
+  <ViewUsage
+    Name="RequestView3"
+    ViewObjectName="ru.miit.my.cabinet.request.model.RequestView"/>
+  <ViewUsage
     Name="RequestView1"
     ViewObjectName="ru.miit.my.cabinet.request.model.RequestView"/>
+  <ViewUsage
+    Name="RequestforummessagetypeView1"
+    ViewObjectName="ru.miit.my.cabinet.request.model.RequestforummessagetypeView"/>
+  <ViewUsage
+    Name="RequestforummessageView1"
+    ViewObjectName="ru.miit.my.cabinet.request.model.RequestforummessageView"/>
+  <ViewUsage
+    Name="RequestforummessageView2"
+    ViewObjectName="ru.miit.my.cabinet.request.model.RequestforummessageView"/>
+  <ViewUsage
+    Name="RequestforummessageView3"
+    ViewObjectName="ru.miit.my.cabinet.request.model.RequestforummessageView"/>
+  <ViewUsage
+    Name="Typetest1View1"
+    ViewObjectName="ru.miit.my.cabinet.request.model.Typetest1View_POCHTA"/>
+  <ViewUsage
+    Name="Typetest2View1"
+    ViewObjectName="ru.miit.my.cabinet.request.model.Typetest2View"/>
+  <ViewUsage
+    Name="Typetest2View2"
+    ViewObjectName="ru.miit.my.cabinet.request.model.Typetest2View"/>
+  <ViewUsage
+    Name="Typetest1View_POCHTA1"
+    ViewObjectName="ru.miit.my.cabinet.request.model.Typetest1View_POCHTA"/>
+  <ViewLinkUsage
+    Name="ReqEmpLink1"
+    ViewLinkObjectName="ru.miit.my.cabinet.request.model.ReqEmpLink"
+    SrcViewUsageName="ru.miit.my.cabinet.request.model.CabinetRequestService.EmployeeView1"
+    DstViewUsageName="ru.miit.my.cabinet.request.model.CabinetRequestService.RequestView2"
+    Reversed="false"/>
+  <ViewLinkUsage
+    Name="ReqTypeReqLink1"
+    ViewLinkObjectName="ru.miit.my.cabinet.request.model.ReqTypeReqLink"
+    SrcViewUsageName="ru.miit.my.cabinet.request.model.CabinetRequestService.RequestTypeView1"
+    DstViewUsageName="ru.miit.my.cabinet.request.model.CabinetRequestService.RequestView3"
+    Reversed="false"/>
+  <ViewLinkUsage
+    Name="SysC00192068Link1"
+    ViewLinkObjectName="ru.miit.my.cabinet.request.model.RequestForumMessageLoopLink"
+    SrcViewUsageName="ru.miit.my.cabinet.request.model.CabinetRequestService.RequestforummessageView1"
+    DstViewUsageName="ru.miit.my.cabinet.request.model.CabinetRequestService.RequestforummessageView2"
+    Reversed="false"/>
+  <ViewLinkUsage
+    Name="RequestRquestForumMessage1"
+    ViewLinkObjectName="ru.miit.my.cabinet.request.model.RequestRquestForumMessage"
+    SrcViewUsageName="ru.miit.my.cabinet.request.model.CabinetRequestService.RequestView1"
+    DstViewUsageName="ru.miit.my.cabinet.request.model.CabinetRequestService.RequestforummessageView3"
+    Reversed="false"/>
+  <ViewLinkUsage
+    Name="ReqType2viewtoRequestLink1"
+    ViewLinkObjectName="ru.miit.my.cabinet.request.model.ReqType2viewtoRequestLink"
+    SrcViewUsageName="ru.miit.my.cabinet.request.model.CabinetRequestService.RequestView1"
+    DstViewUsageName="ru.miit.my.cabinet.request.model.CabinetRequestService.Typetest2View2"
+    Reversed="false"/>
+  <ViewLinkUsage
+    Name="ReqType1viewtoRequestlink1"
+    ViewLinkObjectName="ru.miit.my.cabinet.request.model.ReqType1viewtoRequestlink"
+    SrcViewUsageName="ru.miit.my.cabinet.request.model.CabinetRequestService.RequestView1"
+    DstViewUsageName="ru.miit.my.cabinet.request.model.CabinetRequestService.Typetest1View_POCHTA1"
+    Reversed="false"/>
   <ResourceBundle>
     <PropertiesBundle
       PropertiesFile="ru.miit.my.cabinet.request.model.RequestModelBundle"/>

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="11.1.2.62.76" id="createrequestPageDef"
+                Package="ru.miit.my.cabinet.request.view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator id="RequestView1Iterator" DataControl="CabinetRequestServiceDataControl" RangeSize="25"
+              Binds="RequestTypeView1"/>
+    <iterator Binds="RequestforummessageView3" RangeSize="25" DataControl="CabinetRequestServiceDataControl"
+              id="RequestforummessageView3Iterator"/>
+  </executables>
+  <bindings>
+    <attributeValues IterBinding="RequestView1Iterator" id="Title">
+      <AttrNames>
+        <Item Value="Title"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="RequestView1Iterator" id="Idrequesttype1">
+      <AttrNames>
+        <Item Value="Idrequesttype"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="RequestforummessageView3Iterator" id="Creationdate">
+      <AttrNames>
+        <Item Value="Creationdate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="RequestforummessageView3Iterator" id="Text">
+      <AttrNames>
+        <Item Value="Text"/>
+      </AttrNames>
+    </attributeValues>
+  </bindings>
+</pageDefinition>

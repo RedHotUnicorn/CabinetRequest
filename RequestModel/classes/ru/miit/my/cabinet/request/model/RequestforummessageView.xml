@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="RequestforummessageView"
+  Version="11.1.2.62.76"
+  SelectList="Requestforummessage.IDREQUESTFORUMMESSAGE, 
+       Requestforummessage.IDREQUESTFORUMMESSAGETYPE, 
+       Requestforummessage.IDREQUESTFORUMPARENTMESSAGE, 
+       Requestforummessage.IDREQUEST, 
+       Requestforummessage.IDEMPLOYEE, 
+       Requestforummessage.CREATIONDATE, 
+       Requestforummessage.TEXT"
+  FromList="REQUESTFORUMMESSAGE Requestforummessage"
+  BindingStyle="OracleName"
+  CustomQuery="false"
+  RowClass="ru.miit.my.frameworkext.ViewRowImpl"
+  ComponentClass="ru.miit.my.frameworkext.ViewObjectImpl"
+  PageIterMode="Full"
+  UseGlueCode="false">
+  <EntityUsage
+    Name="Requestforummessage"
+    Entity="ru.miit.my.cabinet.request.model.Requestforummessage"/>
+  <ViewAttribute
+    Name="Idrequestforummessage"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="Idrequestforummessage"
+    EntityUsage="Requestforummessage"
+    AliasName="IDREQUESTFORUMMESSAGE"/>
+  <ViewAttribute
+    Name="Idrequestforummessagetype"
+    PrecisionRule="true"
+    EntityAttrName="Idrequestforummessagetype"
+    EntityUsage="Requestforummessage"
+    AliasName="IDREQUESTFORUMMESSAGETYPE"/>
+  <ViewAttribute
+    Name="Idrequestforumparentmessage"
+    PrecisionRule="true"
+    EntityAttrName="Idrequestforumparentmessage"
+    EntityUsage="Requestforummessage"
+    AliasName="IDREQUESTFORUMPARENTMESSAGE"/>
+  <ViewAttribute
+    Name="Idrequest"
+    PrecisionRule="true"
+    EntityAttrName="Idrequest"
+    EntityUsage="Requestforummessage"
+    AliasName="IDREQUEST"/>
+  <ViewAttribute
+    Name="Idemployee"
+    PrecisionRule="true"
+    EntityAttrName="Idemployee"
+    EntityUsage="Requestforummessage"
+    AliasName="IDEMPLOYEE"/>
+  <ViewAttribute
+    Name="Creationdate"
+    PrecisionRule="true"
+    EntityAttrName="Creationdate"
+    EntityUsage="Requestforummessage"
+    AliasName="CREATIONDATE"/>
+  <ViewAttribute
+    Name="Text"
+    PrecisionRule="true"
+    EntityAttrName="Text"
+    EntityUsage="Requestforummessage"
+    AliasName="TEXT"/>
+  <ViewLinkAccessor
+    Name="RequestforummessageView"
+    ViewLink="ru.miit.my.cabinet.request.model.RequestForumMessageLoopLink"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+</ViewObject>

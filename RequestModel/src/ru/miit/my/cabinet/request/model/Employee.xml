@@ -19,7 +19,9 @@
     Type="java.math.BigDecimal"
     ColumnType="NUMBER"
     TableName="JUNIOR560704.EMPLOYEE"
-    PrimaryKey="true"/>
+    PrimaryKey="true">
+    <TransientExpression><![CDATA[(new oracle.jbo.server.SequenceImpl("EMPLOYEEv1", adf.object.getDBTransaction())).getSequenceNumber()]]></TransientExpression>
+  </Attribute>
   <Attribute
     Name="Secondname"
     Precision="255"

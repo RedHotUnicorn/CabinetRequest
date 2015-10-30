@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="11.1.2.62.76" id="userequests_listPageDef"
+                Package="ru.miit.my.cabinet.request.view.pageDefs">
+  <parameters/>
+  <executables>
+    <iterator id="RequestView1Iterator" Binds="RequestView1" DataControl="CabinetRequestServiceDataControl"
+              RangeSize="25"/>
+    <iterator id="RequestTypeView1Iterator" Binds="RequestTypeView1" DataControl="CabinetRequestServiceDataControl"
+              RangeSize="25"/>
+  </executables>
+  <bindings>
+    <action IterBinding="RequestView1Iterator" id="setCurrentRowWithKey"
+            InstanceName="CabinetRequestServiceDataControl.RequestView1" DataControl="CabinetRequestServiceDataControl"
+            RequiresUpdateModel="false" Action="setCurrentRowWithKey">
+      <NamedData NDName="rowKey" NDValue="#{row.rowKeyStr}" NDType="java.lang.String"/>
+    </action>
+    <tree IterBinding="RequestView1Iterator" id="RequestView1">
+      <nodeDefinition DefName="ru.miit.my.cabinet.request.model.RequestView" Name="RequestView10">
+        <AttrNames>
+          <Item Value="Idrequest"/>
+          <Item Value="Creationdate"/>
+          <Item Value="Idemployee"/>
+          <Item Value="Idrequesttype"/>
+          <Item Value="Idrequesttype1"/>
+          <Item Value="Title"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="RequestTypeView1Iterator" id="RequestTypeView1">
+      <nodeDefinition DefName="ru.miit.my.cabinet.request.model.RequestTypeView" Name="RequestTypeView10">
+        <AttrNames>
+          <Item Value="Idrequesttype"/>
+          <Item Value="Title"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <action IterBinding="RequestView1Iterator" id="Createwithparameters"
+            InstanceName="CabinetRequestServiceDataControl.RequestView1" DataControl="CabinetRequestServiceDataControl"
+            RequiresUpdateModel="true" Action="createWithParams">
+      <NamedData NDValue="#{row.Idrequesttype}" NDName="TypeId"/>
+    </action>
+    <action IterBinding="RequestTypeView1Iterator" id="setCurrentRowWithKey1"
+            InstanceName="CabinetRequestServiceDataControl.RequestTypeView1"
+            DataControl="CabinetRequestServiceDataControl" RequiresUpdateModel="false" Action="setCurrentRowWithKey">
+      <NamedData NDName="rowKey" NDValue="#{row2.rowKeyStr}" NDType="java.lang.String"/>
+    </action>
+  </bindings>
+</pageDefinition>

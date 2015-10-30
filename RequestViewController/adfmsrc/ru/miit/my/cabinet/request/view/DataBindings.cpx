@@ -8,10 +8,26 @@
   </definitionFactories>
   <pageMap>
     <page path="/requests-test.jsf" usageId="ru_miit_my_cabinet_request_view_requests_testPageDef"/>
+    <page path="/userequests-list.jsff" usageId="ru_miit_my_cabinet_request_view_userequests_listPageDef"/>
+    <page path="/viewrequest.jsff" usageId="ru_miit_my_cabinet_request_view_viewrequestPageDef"/>
+    <page path="/WEB-INF/request-tdf.xml#request-tdf@reqType"
+          usageId="ru_miit_my_cabinet_request_view_request_tdf_request_tdf_reqTypePageDef"/>
+    <page path="/untitled2.jsff" usageId="ru_miit_my_cabinet_request_view_untitled2PageDef"/>
+    <page path="/createrequest.jsff" usageId="ru_miit_my_cabinet_request_view_createrequestPageDef"/>
   </pageMap>
   <pageDefinitionUsages>
     <page id="ru_miit_my_cabinet_request_view_requests_testPageDef"
           path="ru.miit.my.cabinet.request.view.pageDefs.requests_testPageDef"/>
+    <page id="ru_miit_my_cabinet_request_view_userequests_listPageDef"
+          path="ru.miit.my.cabinet.request.view.pageDefs.userequests_listPageDef"/>
+    <page id="ru_miit_my_cabinet_request_view_viewrequestPageDef"
+          path="ru.miit.my.cabinet.request.view.pageDefs.viewrequestPageDef"/>
+    <page id="ru_miit_my_cabinet_request_view_request_tdf_request_tdf_reqTypePageDef"
+          path="ru.miit.my.cabinet.request.view.pageDefs.request_tdf_request_tdf_reqTypePageDef"/>
+    <page id="ru_miit_my_cabinet_request_view_untitled2PageDef"
+          path="ru.miit.my.cabinet.request.view.pageDefs.untitled2PageDef"/>
+    <page id="ru_miit_my_cabinet_request_view_createrequestPageDef"
+          path="ru.miit.my.cabinet.request.view.pageDefs.createrequestPageDef"/>
   </pageDefinitionUsages>
   <dataControlUsages>
     <BC4JDataControl id="CabinetRequestServiceDataControl" Package="ru.miit.my.cabinet.request.model"

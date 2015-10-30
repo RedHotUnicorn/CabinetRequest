@@ -5,7 +5,11 @@
   <executables>
     <variableIterator id="variables"/>
     <taskFlow id="requesttdf1" taskFlowId="/WEB-INF/request-tdf.xml#request-tdf" activation="deferred"
-              xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
+              xmlns="http://xmlns.oracle.com/adf/controller/binding">
+      <parameters>
+        <parameter id="IdWebUser" value="2"/>
+      </parameters>
+    </taskFlow>
   </executables>
   <bindings/>
 </pageDefinition>

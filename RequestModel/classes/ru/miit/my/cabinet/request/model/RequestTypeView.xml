@@ -32,7 +32,7 @@
     AliasName="TITLE"/>
   <ViewLinkAccessor
     Name="RequestView"
-    ViewLink="ru.miit.my.cabinet.request.model.SysC00188531Link"
+    ViewLink="ru.miit.my.cabinet.request.model.ReqTypeReqLink"
     Type="oracle.jbo.RowIterator"
     IsUpdateable="false"/>
 </ViewObject>

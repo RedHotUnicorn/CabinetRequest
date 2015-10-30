@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="11.1.2.62.76"
+                id="request_tdf_request_tdf_reqTypePageDef" Package="ru.miit.my.cabinet.request.view.pageDefs"
+                SkipValidation="true">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator id="DCIterator" DataControl="CabinetRequestServiceDataControl" RangeSize="25" Binds="RequestView1"/>
+  </executables>
+  <bindings>
+    <attributeValues IterBinding="DCIterator" id="Idrequesttype">
+      <AttrNames>
+        <Item Value="Idrequesttype"/>
+      </AttrNames>
+    </attributeValues>
+  </bindings>
+</pageDefinition>

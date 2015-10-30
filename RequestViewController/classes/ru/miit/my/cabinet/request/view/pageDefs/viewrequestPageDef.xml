@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="11.1.2.62.76" id="viewrequestPageDef"
+                Package="ru.miit.my.cabinet.request.view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="RequestView1" RangeSize="25" DataControl="CabinetRequestServiceDataControl"
+              id="RequestView1Iterator"/>
+    <iterator id="RequestforummessageView3Iterator" Binds="RequestforummessageView3"
+              DataControl="CabinetRequestServiceDataControl" RangeSize="25"/>
+    <iterator id="Typetest2View2Iterator" Binds="Typetest2View2" DataControl="CabinetRequestServiceDataControl"
+              RangeSize="25"/>
+    <iterator id="Typetest1View_POCHTA1Iterator" Binds="Typetest1View_POCHTA1"
+              DataControl="CabinetRequestServiceDataControl" RangeSize="25"/>
+  </executables>
+  <bindings>
+    <attributeValues IterBinding="RequestView1Iterator" id="Idrequest">
+      <AttrNames>
+        <Item Value="Idrequest"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="RequestView1Iterator" id="Idrequesttype">
+      <AttrNames>
+        <Item Value="Idrequesttype"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="RequestView1Iterator" id="Title">
+      <AttrNames>
+        <Item Value="Title"/>
+      </AttrNames>
+    </attributeValues>
+    <tree IterBinding="RequestforummessageView3Iterator" id="RequestforummessageView3">
+      <nodeDefinition DefName="ru.miit.my.cabinet.request.model.RequestforummessageView"
+                      Name="RequestforummessageView30">
+        <AttrNames>
+          <Item Value="Idrequestforummessage"/>
+          <Item Value="Creationdate"/>
+          <Item Value="Text"/>
+          <Item Value="Idemployee"/>
+          <Item Value="Idrequest"/>
+          <Item Value="Idrequestforummessagetype"/>
+          <Item Value="Idrequestforumparentmessage"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <attributeValues IterBinding="RequestforummessageView3Iterator" id="Creationdate">
+      <AttrNames>
+        <Item Value="Creationdate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="RequestforummessageView3Iterator" id="Text">
+      <AttrNames>
+        <Item Value="Text"/>
+      </AttrNames>
+    </attributeValues>
+    <tree IterBinding="Typetest2View2Iterator" id="Typetest2View2">
+      <nodeDefinition DefName="ru.miit.my.cabinet.request.model.Typetest2View" Name="Typetest2View20">
+        <AttrNames>
+          <Item Value="Idtypetest2"/>
+          <Item Value="Addchar"/>
+          <Item Value="Idemployee"/>
+          <Item Value="Idrequest"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="Typetest1View_POCHTA1Iterator" id="Typetest1View_POCHTA1">
+      <nodeDefinition DefName="ru.miit.my.cabinet.request.model.Typetest1View_POCHTA" Name="Typetest1View_POCHTA10">
+        <AttrNames>
+          <Item Value="Idtypetest1"/>
+          <Item Value="Chooseint"/>
+          <Item Value="Idemployee"/>
+          <Item Value="Idrequest"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <action IterBinding="RequestforummessageView3Iterator" id="ForumCreateInsert"
+            InstanceName="CabinetRequestServiceDataControl.RequestforummessageView3"
+            DataControl="CabinetRequestServiceDataControl" RequiresUpdateModel="true" Action="createWithParams">
+      <NamedData NDValue="#{viewScope.text}" NDName="Text" NDType="java.lang.String"/>
+    </action>
+  </bindings>
+</pageDefinition>

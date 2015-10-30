@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="RequestforummessagetypeView"
+  Version="11.1.2.62.76"
+  SelectList="Requestforummessagetype.IDREQUESTFORUMMESSAGETYPE, 
+       Requestforummessagetype.NAMEOFTYPE"
+  FromList="REQUESTFORUMMESSAGETYPE Requestforummessagetype"
+  BindingStyle="OracleName"
+  CustomQuery="false"
+  RowClass="ru.miit.my.frameworkext.ViewRowImpl"
+  ComponentClass="ru.miit.my.frameworkext.ViewObjectImpl"
+  PageIterMode="Full"
+  UseGlueCode="false">
+  <EntityUsage
+    Name="Requestforummessagetype"
+    Entity="ru.miit.my.cabinet.request.model.Requestforummessagetype"/>
+  <ViewAttribute
+    Name="Idrequestforummessagetype"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="Idrequestforummessagetype"
+    EntityUsage="Requestforummessagetype"
+    AliasName="IDREQUESTFORUMMESSAGETYPE"/>
+  <ViewAttribute
+    Name="Nameoftype"
+    PrecisionRule="true"
+    EntityAttrName="Nameoftype"
+    EntityUsage="Requestforummessagetype"
+    AliasName="NAMEOFTYPE"/>
+</ViewObject>

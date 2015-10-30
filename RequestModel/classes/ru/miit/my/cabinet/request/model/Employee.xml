@@ -19,7 +19,9 @@
     Type="java.math.BigDecimal"
     ColumnType="NUMBER"
     TableName="JUNIOR560704.EMPLOYEE"
-    PrimaryKey="true"/>
+    PrimaryKey="true">
+    <TransientExpression><![CDATA[(new oracle.jbo.server.SequenceImpl("EMPLOYEEv1", adf.object.getDBTransaction())).getSequenceNumber()]]></TransientExpression>
+  </Attribute>
   <Attribute
     Name="Secondname"
     Precision="255"
@@ -34,9 +36,9 @@
   </Attribute>
   <AccessorAttribute
     Name="Request"
-    Association="ru.miit.my.cabinet.request.model.SysC00188532Assoc"
-    AssociationEnd="ru.miit.my.cabinet.request.model.SysC00188532Assoc.Request"
-    AssociationOtherEnd="ru.miit.my.cabinet.request.model.SysC00188532Assoc.Employee"
+    Association="ru.miit.my.cabinet.request.model.ReqEmpAssoc"
+    AssociationEnd="ru.miit.my.cabinet.request.model.ReqEmpAssoc.Request"
+    AssociationOtherEnd="ru.miit.my.cabinet.request.model.ReqEmpAssoc.Employee"
     Type="oracle.jbo.RowIterator"
     IsUpdateable="false"/>
   <Key

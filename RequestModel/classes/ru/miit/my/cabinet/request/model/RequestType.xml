@@ -19,7 +19,9 @@
     Type="java.lang.Integer"
     ColumnType="INTEGER"
     TableName="JUNIOR560704.REQUESTTYPE"
-    PrimaryKey="true"/>
+    PrimaryKey="true">
+    <TransientExpression><![CDATA[(new oracle.jbo.server.SequenceImpl("REQUESTTYPEv1", adf.object.getDBTransaction())).getSequenceNumber()]]></TransientExpression>
+  </Attribute>
   <Attribute
     Name="Title"
     Precision="255"
@@ -34,9 +36,9 @@
   </Attribute>
   <AccessorAttribute
     Name="Request"
-    Association="ru.miit.my.cabinet.request.model.SysC00188531Assoc"
-    AssociationEnd="ru.miit.my.cabinet.request.model.SysC00188531Assoc.Request"
-    AssociationOtherEnd="ru.miit.my.cabinet.request.model.SysC00188531Assoc.RequestType"
+    Association="ru.miit.my.cabinet.request.model.ReqTypeReqAssoc"
+    AssociationEnd="ru.miit.my.cabinet.request.model.ReqTypeReqAssoc.Request"
+    AssociationOtherEnd="ru.miit.my.cabinet.request.model.ReqTypeReqAssoc.RequestType"
     Type="oracle.jbo.RowIterator"
     IsUpdateable="false"/>
   <Key

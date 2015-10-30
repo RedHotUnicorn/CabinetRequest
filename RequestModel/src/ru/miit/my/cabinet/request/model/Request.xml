@@ -19,7 +19,9 @@
     Type="java.lang.Integer"
     ColumnType="INTEGER"
     TableName="JUNIOR560704.REQUEST"
-    PrimaryKey="true"/>
+    PrimaryKey="true">
+    <TransientExpression><![CDATA[(new oracle.jbo.server.SequenceImpl("REQUESTv1", adf.object.getDBTransaction())).getSequenceNumber()]]></TransientExpression>
+  </Attribute>
   <Attribute
     Name="Idemployee"
     ColumnName="IDEMPLOYEE"
@@ -55,6 +57,20 @@
     AssociationOtherEnd="ru.miit.my.cabinet.request.model.ReqTypeReqAssoc.Request"
     Type="ru.miit.my.frameworkext.EntityImpl"
     IsUpdateable="true"/>
+  <AccessorAttribute
+    Name="Typetest1"
+    Association="ru.miit.my.cabinet.request.model.ReqType1viewtoRequest"
+    AssociationEnd="ru.miit.my.cabinet.request.model.ReqType1viewtoRequest.Typetest1"
+    AssociationOtherEnd="ru.miit.my.cabinet.request.model.ReqType1viewtoRequest.Request"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <AccessorAttribute
+    Name="Typetest2"
+    Association="ru.miit.my.cabinet.request.model.ReqType2viewtoRequest"
+    AssociationEnd="ru.miit.my.cabinet.request.model.ReqType2viewtoRequest.Typetest2"
+    AssociationOtherEnd="ru.miit.my.cabinet.request.model.ReqType2viewtoRequest.Request"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
   <Key
     Name="SysC00188530"
     PrimaryKey="true">
