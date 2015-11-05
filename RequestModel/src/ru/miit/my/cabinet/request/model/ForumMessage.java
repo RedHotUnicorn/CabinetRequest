@@ -51,7 +51,7 @@ public class ForumMessage {
         System.out.println("cb3Bool "+add);
         setAdd(false);
         System.out.println("cb3Bool "+add);
-        return null;
+        return "Commit";
     }
 
 
@@ -59,6 +59,6 @@ public class ForumMessage {
         System.out.println("cb1Bool "+add);
         setAdd(false);
         System.out.println("cb1Bool "+add);
-        return null;
+        return "RollBack";
     }
 }
