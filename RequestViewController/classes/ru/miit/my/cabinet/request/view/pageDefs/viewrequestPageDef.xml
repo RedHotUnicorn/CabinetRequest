@@ -76,7 +76,7 @@
     <action IterBinding="RequestforummessageView3Iterator" id="ForumCreateInsert"
             InstanceName="CabinetRequestServiceDataControl.RequestforummessageView3"
             DataControl="CabinetRequestServiceDataControl" RequiresUpdateModel="true" Action="createWithParams">
-      <NamedData NDValue="#{viewScope.text}" NDName="Text" NDType="java.lang.String"/>
+      <NamedData NDValue="#{requestScope.ForumMessage.mes}" NDName="Text" NDType="java.lang.String"/>
     </action>
   </bindings>
 </pageDefinition>

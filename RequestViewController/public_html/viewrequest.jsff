@@ -87,15 +87,14 @@
     <af:gridRow marginTop="5px" marginBottom="5px" height="auto" id="gr6">
       <af:gridCell marginStart="5px" width="34%" id="gc16">
         <af:panelFormLayout id="pfl2">
-          <af:inputText value="#{viewScope.text}" label="#{bindings.Text.hints.label}"
+          <af:inputText value="#{ForumMessage.mes}" label="#{bindings.Text.hints.label}"
                         required="#{bindings.Text.hints.mandatory}" columns="#{bindings.Text.hints.displayWidth}"
                         maximumLength="#{bindings.Text.hints.precision}" shortDesc="#{bindings.Text.hints.tooltip}"
                         id="it2">
             <f:validator binding="#{bindings.Text.validator}"/>
           </af:inputText>
           <f:facet name="footer">
-            <af:commandButton text="Submit" id="cb2"
-                              actionListener="#{bindings.ForumCreateInsert.execute}"/>
+            <af:commandButton text="Submit" id="cb2" action="#{ForumMessage.cb2_action}"/>
           </f:facet>
         </af:panelFormLayout>
       </af:gridCell>
