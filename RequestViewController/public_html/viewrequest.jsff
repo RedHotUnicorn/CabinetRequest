@@ -99,9 +99,10 @@
         </af:panelFormLayout>
       </af:gridCell>
       <af:gridCell marginStart="5px" width="33%" id="gc17">
-        <af:commandButton text="Вернуться" id="cb1" action="#{ForumMessage.cb1_action}"/>
-        <af:commandButton text="Сохранить" id="cb3" action="#{ForumMessage.cb3_action}"
-                          disabled="#{!ForumMessage.add}"/>
+        <af:commandButton text="Вернуться" id="cb1" action="RollBack"
+                          actionListener="#{ForumMessage.cb1_action}"/>
+        <af:commandButton text="Сохранить" id="cb3" action="Commit"
+                          disabled="#{!ForumMessage.add}" actionListener="#{ForumMessage.cb3_action}"/>
       </af:gridCell>
       <af:gridCell marginStart="5px" marginEnd="5px" width="33%" id="gc18"/>
     </af:gridRow>

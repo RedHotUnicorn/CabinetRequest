@@ -17,9 +17,9 @@
       <property
          name="y">188.39648</property>
       <property
-         name="x">510.01758</property>
-      <property
          name="pageFragment">true</property>
+      <property
+         name="x">510.01758</property>
    </View>
    <View
       id="View6">
@@ -34,19 +34,19 @@
       <property
          name="y">262.6953</property>
       <property
-         name="x">135.01562</property>
-      <property
          name="pageFragment">true</property>
+      <property
+         name="x">135.01562</property>
    </View>
    <ControlFlowCase
       islink="true"
       id="ControlFlowCase7"
       from="View6"
-      to="View2">
+      to="MethodCall13">
       <property
-         name="fromOutcome">Back</property>
+         name="fromOutcome">RollBack</property>
       <property
-         name="sdm:polyPoints">R46,176.01562,258.84473,468.1439,184.5459,L46</property>
+         name="sdm:polyPoints">T56,138.51562,208.34473,219.5,164.39648,L50</property>
    </ControlFlowCase>
    <ControlFlowCase
       islink="true"
@@ -56,7 +56,7 @@
       <property
          name="fromOutcome">View</property>
       <property
-         name="sdm:polyPoints">L54,469.01758,191.5459,176.8906,265.84473,R54</property>
+         name="sdm:polyPoints">L50,469.01758,188.0459,176.01562,262.34473,R50</property>
    </ControlFlowCase>
    <Router
       id="Router11">
@@ -79,7 +79,7 @@
       <property
          name="fromOutcome">go</property>
       <property
-         name="sdm:polyPoints">B50,510.01758,242.0459,722.6885,365.0459,L50</property>
+         name="sdm:polyPoints">B56,513.5176,242.0459,722.6885,361.5459,L46</property>
    </ControlFlowCase>
    <View
       id="View16">
@@ -94,9 +94,9 @@
       <property
          name="y">365.39648</property>
       <property
-         name="pageFragment">true</property>
-      <property
          name="x">763.6885</property>
+      <property
+         name="pageFragment">true</property>
    </View>
    <ControlFlowCase
       islink="true"
@@ -106,6 +106,62 @@
       <property
          name="fromOutcome">back</property>
       <property
-         name="sdm:polyPoints">L46,722.6885,361.5459,513.5176,242.0459,B56</property>
+         name="sdm:polyPoints">L54,720.8367,368.5459,506.51758,246.08434,B44</property>
+   </ControlFlowCase>
+   <MethodCall
+      id="MethodCall12">
+      <property
+         name="activityId">Commit1</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>Commit1&lt;/b>&lt;/p>&lt;p>Activity Type:  Method Call&lt;/p></property>
+      <property
+         name="exceptionHandler">false</property>
+      <property
+         name="y">7.0458984</property>
+      <property
+         name="x">229.5</property>
+   </MethodCall>
+   <MethodCall
+      id="MethodCall13">
+      <property
+         name="activityId">Rollback</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>Rollback&lt;/b>&lt;/p>&lt;p>Activity Type:  Method Call&lt;/p></property>
+      <property
+         name="exceptionHandler">false</property>
+      <property
+         name="y">164.74707</property>
+      <property
+         name="x">260.5</property>
+   </MethodCall>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase14"
+      from="View6"
+      to="MethodCall12">
+      <property
+         name="fromOutcome">Commit</property>
+      <property
+         name="sdm:polyPoints">T44,131.51562,205.73885,229.5,60.695312,B50</property>
+   </ControlFlowCase>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase15"
+      from="MethodCall13"
+      to="View2">
+      <property
+         name="fromOutcome">Rollback</property>
+      <property
+         name="sdm:polyPoints">R50,301.5,164.39648,469.01758,184.5459,L46</property>
+   </ControlFlowCase>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase16"
+      from="MethodCall12"
+      to="View2">
+      <property
+         name="fromOutcome">Commit</property>
+      <property
+         name="sdm:polyPoints">R50,270.5,6.6953125,469.01758,181.0459,L42</property>
    </ControlFlowCase>
 </SDM>

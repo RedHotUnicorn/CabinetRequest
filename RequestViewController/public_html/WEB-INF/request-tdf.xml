@@ -31,11 +31,27 @@
     <view id="createrequest">
       <page>/createrequest.jsff</page>
     </view>
+    <method-call id="Commit1">
+      <method>#{bindings.Commit.execute}</method>
+      <outcome>
+        <fixed-outcome>Commit</fixed-outcome>
+      </outcome>
+    </method-call>
+    <method-call id="Rollback">
+      <method>#{bindings.Rollback.execute}</method>
+      <outcome>
+        <fixed-outcome>Rollback</fixed-outcome>
+      </outcome>
+    </method-call>
     <control-flow-rule id="__6">
       <from-activity-id>viewrequest</from-activity-id>
       <control-flow-case id="__7">
-        <from-outcome>Back</from-outcome>
-        <to-activity-id>userequests-list</to-activity-id>
+        <from-outcome>RollBack</from-outcome>
+        <to-activity-id>Rollback</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__4">
+        <from-outcome>Commit</from-outcome>
+        <to-activity-id>Commit1</to-activity-id>
       </control-flow-case>
     </control-flow-rule>
     <control-flow-rule id="__10">
@@ -53,6 +69,20 @@
       <from-activity-id>createrequest</from-activity-id>
       <control-flow-case id="__3">
         <from-outcome>back</from-outcome>
+        <to-activity-id>userequests-list</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__5">
+      <from-activity-id>Rollback</from-activity-id>
+      <control-flow-case id="__8">
+        <from-outcome>Rollback</from-outcome>
+        <to-activity-id>userequests-list</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__9">
+      <from-activity-id>Commit1</from-activity-id>
+      <control-flow-case id="__13">
+        <from-outcome>Commit</from-outcome>
         <to-activity-id>userequests-list</to-activity-id>
       </control-flow-case>
     </control-flow-rule>

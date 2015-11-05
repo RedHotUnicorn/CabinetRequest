@@ -33,9 +33,9 @@ public class ForumMessage {
             return null;
         }
         this.setMes("");
-        System.out.println("Bool "+add);
+        System.out.println("cb2Bool "+add);
         setAdd(true);
-        System.out.println("Bool "+add);
+        System.out.println("cb2Bool "+add);
         return null;
     }
 
@@ -48,17 +48,17 @@ public class ForumMessage {
     }
 
     public String cb3_action() {
-        System.out.println("Bool "+add);
+        System.out.println("cb3Bool "+add);
         setAdd(false);
-        System.out.println("Bool "+add);
+        System.out.println("cb3Bool "+add);
         return null;
     }
 
 
     public String cb1_action() {
-        System.out.println("Bool "+add);
+        System.out.println("cb1Bool "+add);
         setAdd(false);
-        System.out.println("Bool "+add);
+        System.out.println("cb1Bool "+add);
         return null;
     }
 }
