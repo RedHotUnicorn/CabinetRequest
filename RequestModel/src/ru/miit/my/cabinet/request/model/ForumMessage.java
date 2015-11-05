@@ -9,9 +9,10 @@ public class ForumMessage {
     
     public ForumMessage() {
         super();
+        
     }
     private String mes;
-
+    static private boolean add = false;
     public void setMes(String mes) {
         this.mes = mes;
     }
@@ -32,6 +33,32 @@ public class ForumMessage {
             return null;
         }
         this.setMes("");
+        System.out.println("Bool "+add);
+        setAdd(true);
+        System.out.println("Bool "+add);
+        return null;
+    }
+
+    public void setAdd(boolean add) {
+        this.add = add;
+    }
+
+    public boolean isAdd() {
+        return add;
+    }
+
+    public String cb3_action() {
+        System.out.println("Bool "+add);
+        setAdd(false);
+        System.out.println("Bool "+add);
+        return null;
+    }
+
+
+    public String cb1_action() {
+        System.out.println("Bool "+add);
+        setAdd(false);
+        System.out.println("Bool "+add);
         return null;
     }
 }

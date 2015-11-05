@@ -88,9 +88,9 @@
       <af:gridCell marginStart="5px" width="34%" id="gc16">
         <af:panelFormLayout id="pfl2">
           <af:inputText value="#{ForumMessage.mes}" label="#{bindings.Text.hints.label}"
-                        required="#{bindings.Text.hints.mandatory}" columns="#{bindings.Text.hints.displayWidth}"
+                        required="#{bindings.Text.hints.mandatory}" columns="20"
                         maximumLength="#{bindings.Text.hints.precision}" shortDesc="#{bindings.Text.hints.tooltip}"
-                        id="it2">
+                        id="it2" rows="2">
             <f:validator binding="#{bindings.Text.validator}"/>
           </af:inputText>
           <f:facet name="footer">
@@ -99,9 +99,12 @@
         </af:panelFormLayout>
       </af:gridCell>
       <af:gridCell marginStart="5px" width="33%" id="gc17">
-        <af:commandButton text="commandButton 1" id="cb1" action="Back"/>
+        <af:commandButton text="Вернуться" id="cb1" action="#{ForumMessage.cb1_action}"/>
+        <af:commandButton text="Сохранить" id="cb3" action="#{ForumMessage.cb3_action}"
+                          disabled="#{!ForumMessage.add}"/>
       </af:gridCell>
       <af:gridCell marginStart="5px" marginEnd="5px" width="33%" id="gc18"/>
     </af:gridRow>
   </af:panelGridLayout>
+  <!--oracle-jdev-comment:preferred-managed-bean-name:ForumMessage-->
 </ui:composition>
