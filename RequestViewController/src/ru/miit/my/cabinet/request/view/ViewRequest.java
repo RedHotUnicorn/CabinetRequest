@@ -1,16 +1,22 @@
-package ru.miit.my.cabinet.request.model;
+package ru.miit.my.cabinet.request.view;
 
 import oracle.adf.model.BindingContext;
 
 import oracle.binding.BindingContainer;
 import oracle.binding.OperationBinding;
 
-public class ForumMessage {
-    
-    public ForumMessage() {
+
+import javax.faces.component.UIComponent;
+import javax.faces.context.FacesContext;
+
+public class ViewRequest {
+    public ViewRequest() {
         super();
-        
+        checkbox=false;
+        System.out.println("FUCKIN BEAN!!!");
     }
+    private boolean checkbox ;
+    
     private String mes;
     static private boolean add = false;
     public void setMes(String mes) {
@@ -61,4 +67,19 @@ public class ForumMessage {
         System.out.println("cb1Bool "+add);
         return "RollBack";
     }
+
+    public void setCheckbox(boolean checkbox) {
+        this.checkbox = checkbox;
+    }
+
+    public boolean isCheckbox() {
+        return checkbox;
+    }
+
+    public void checked(FacesContext facesContext, UIComponent uIComponent, Object object) {
+        this.setCheckbox(!this.isCheckbox());
+        System.out.println(this.isCheckbox());
+    }
+
+    
 }
