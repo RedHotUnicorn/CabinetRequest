@@ -133,7 +133,9 @@ public class ViewRequest {
         
         Row[] rows = ADFUtils.findIterator("RequestforummessageView3Iterator").getAllRowsInRange();
         for(int i=0;i<rows.length;i++) {
-            System.out.println(rows[i].getAttribute("Text")+" "+rows[i].getAttribute("YesNo"));
+            if(rows[i].getAttribute("YesNo").equals(true))
+                rows[i].remove();
+            //System.out.println(rows[i].getAttribute("Text")+" "+rows[i].getAttribute("YesNo"));
         }
         return null;
     }

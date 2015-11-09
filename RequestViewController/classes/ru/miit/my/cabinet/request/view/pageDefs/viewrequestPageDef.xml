@@ -7,7 +7,7 @@
     <iterator Binds="RequestView1" RangeSize="25" DataControl="CabinetRequestServiceDataControl"
               id="RequestView1Iterator"/>
     <iterator id="RequestforummessageView3Iterator" Binds="RequestforummessageView3"
-              DataControl="CabinetRequestServiceDataControl" RangeSize="25"/>
+              DataControl="CabinetRequestServiceDataControl" RangeSize="25" Sortable="false"/>
     <iterator id="Typetest2View2Iterator" Binds="Typetest2View2" DataControl="CabinetRequestServiceDataControl"
               RangeSize="25"/>
     <iterator id="Typetest1View_POCHTA1Iterator" Binds="Typetest1View_POCHTA1"

@@ -18,7 +18,8 @@
   RowClass="ru.miit.my.frameworkext.ViewRowImpl"
   ComponentClass="ru.miit.my.frameworkext.ViewObjectImpl"
   PageIterMode="Full"
-  UseGlueCode="false">
+  UseGlueCode="false"
+  OrderBy="Requestforummessage.IDREQUESTFORUMMESSAGE">
   <EntityUsage
     Name="Requestforummessage"
     Entity="ru.miit.my.cabinet.request.model.Requestforummessage"/>
