@@ -65,6 +65,23 @@
     EntityAttrName="Text"
     EntityUsage="Requestforummessage"
     AliasName="TEXT"/>
+  <ViewAttribute
+    Name="YesNo"
+    IsSelected="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="java.lang.Boolean"
+    ColumnType="NUMBER"
+    AliasName="VIEW_ATTR"
+    SQLType="BIT"
+    DefaultValue="false">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="check_box"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewLinkAccessor
     Name="RequestforummessageView"
     ViewLink="ru.miit.my.cabinet.request.model.RequestForumMessageLoopLink"
