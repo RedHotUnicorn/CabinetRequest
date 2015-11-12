@@ -78,6 +78,7 @@
             InstanceName="CabinetRequestServiceDataControl.RequestforummessageView3"
             DataControl="CabinetRequestServiceDataControl" RequiresUpdateModel="true" Action="createWithParams">
       <NamedData NDValue="#{requestScope.ViewRequest.mes}" NDName="Text" NDType="java.lang.String"/>
+      <NamedData NDValue="#{requestScope.ViewRequest.dateNow2}" NDName="Creationdate" NDType="java.lang.String"/>
     </action>
     <button IterBinding="RequestforummessageView3Iterator" id="YesNo" DTSupportsMRU="false" StaticList="true">
       <AttrNames>

@@ -71,11 +71,10 @@
           <af:panelLabelAndMessage label="Текст сообщения" id="plam2">
             <af:outputText value="#{viewForum.Text}" id="ot3"/>
           </af:panelLabelAndMessage>
-          <af:selectBooleanCheckbox text="selectBooleanCheckbox 1" label="Label 1" id="sbc1"
-                                    validator="#{ViewRequest.checked}" rendered="false"/>
-          <af:selectBooleanCheckbox value="#{viewForum.YesNo}" label="#{viewForum.YesNo}"
+          <af:selectBooleanCheckbox value="#{viewForum.YesNo}"
                                     shortDesc="#{bindings.YesNo.hints.tooltip}" id="sbc2"
-                                    validator="#{ViewRequest.sbc2_validator}" selected="false"/>
+                                    validator="#{ViewRequest.sbc2_validator}" selected="false"
+                                    rendered="#{ViewRequest.enableDeleteCheckbox}"/>
           <af:panelFormLayout id="pfl1" rendered="false">
             <af:inputDate value="#{viewForum.Creationdate}" required="#{bindings.Creationdate.hints.mandatory}"
                           columns="#{viewForum.Creationdate.hints.displayWidth}"
@@ -111,6 +110,7 @@
         <af:commandButton text="Вернуться" id="cb1" action="#{ViewRequest.cb1_action}"/>
         <af:commandButton text="Сохранить" id="cb3" action="Commit"
                           disabled="#{!ViewRequest.add}" actionListener="#{ViewRequest.cb3_action}"/>
+        <af:commandButton text="Редактировать" id="cb5" action="#{ViewRequest.cb5_action}"/>
       </af:gridCell>
       <af:gridCell marginStart="5px" marginEnd="5px" width="33%" id="gc18"/>
     </af:gridRow>
