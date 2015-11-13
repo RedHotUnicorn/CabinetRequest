@@ -74,7 +74,7 @@
           <af:selectBooleanCheckbox value="#{viewForum.YesNo}"
                                     shortDesc="#{bindings.YesNo.hints.tooltip}" id="sbc2"
                                     validator="#{ViewRequest.sbc2_validator}" selected="false"
-                                    rendered="#{ViewRequest.enableDeleteCheckbox}"/>
+                                    rendered="#{ViewRequest.buttonEditClicked}"/>
           <af:panelFormLayout id="pfl1" rendered="false">
             <af:inputDate value="#{viewForum.Creationdate}" required="#{bindings.Creationdate.hints.mandatory}"
                           columns="#{viewForum.Creationdate.hints.displayWidth}"
@@ -94,22 +94,22 @@
     <af:gridRow marginTop="5px" marginBottom="5px" height="auto" id="gr6">
       <af:gridCell marginStart="5px" width="34%" id="gc16">
         <af:panelFormLayout id="pfl2">
-          <af:inputText value="#{ViewRequest.mes}" label="#{bindings.Text.hints.label}"
+          <af:inputText value="#{ViewRequest.forumMessage}" label="#{bindings.Text.hints.label}"
                         required="#{bindings.Text.hints.mandatory}" columns="20"
                         maximumLength="#{bindings.Text.hints.precision}" shortDesc="#{bindings.Text.hints.tooltip}"
                         id="it2" rows="2">
             <f:validator binding="#{bindings.Text.validator}"/>
           </af:inputText>
           <f:facet name="footer">
-            <af:commandButton text="Submit" id="cb2" action="#{ViewRequest.cb2_action}"/>
+            <af:commandButton text="Отправить сообщение" id="cb2" action="#{ViewRequest.sendMessage}"/>
           </f:facet>
         </af:panelFormLayout>
       </af:gridCell>
       <af:gridCell marginStart="5px" width="33%" id="gc17">
-        <af:commandButton text="Удалить" id="cb4" action="#{requestScope.ViewRequest.read}"/>
-        <af:commandButton text="Вернуться" id="cb1" action="#{ViewRequest.cb1_action}"/>
-        <af:commandButton text="Сохранить" id="cb3" action="Commit"
-                          disabled="#{!ViewRequest.add}" actionListener="#{ViewRequest.cb3_action}"/>
+        <af:commandButton text="Удалить" id="cb4" action="#{requestScope.ViewRequest.deleteMessagesWithTrueCheckbox}"/>
+        <af:commandButton text="Вернуться" id="cb1" action="#{ViewRequest.goBackWithNoChanges}"/>
+        <af:commandButton text="Сохранить" id="cb3" action="#{ViewRequest.saveChangesAndReturnToParentPage}"
+                          disabled="#{!ViewRequest.dataOnPageChanged}"/>
         <af:commandButton text="Редактировать" id="cb5" action="#{ViewRequest.cb5_action}"/>
       </af:gridCell>
       <af:gridCell marginStart="5px" marginEnd="5px" width="33%" id="gc18"/>
