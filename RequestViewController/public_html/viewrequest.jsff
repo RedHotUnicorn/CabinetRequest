@@ -3,17 +3,13 @@
                 xmlns:f="http://java.sun.com/jsf/core">
   <af:panelGridLayout id="pgl1">
     <af:gridRow marginTop="5px" height="auto" id="gr1">
-      <af:gridCell marginStart="5px" width="34%" id="gc1">
-        <af:outputText value="#{bindings.Title} " id="ot1" inlineStyle="font-size:100%;">
-          <af:convertNumber groupingUsed="false" pattern="#{bindings.Idrequest.format}"/>
-        </af:outputText>
-      </af:gridCell>
+      <af:gridCell marginStart="5px" width="34%" id="gc1"/>
       <af:gridCell marginStart="5px" width="33%" id="gc2"/>
       <af:gridCell marginStart="5px" marginEnd="5px" width="33%" id="gc3"/>
     </af:gridRow>
     <af:gridRow marginTop="5px" height="auto" id="gr2">
       <af:gridCell marginStart="5px" width="34%" id="gc4">
-        <af:switcher id="s1" facetName="#{bindings.Idrequesttype=='1'? 'TestType1' : 'TestType2'}">
+        <af:switcher id="s1" facetName="#{ViewRequest.routerFacet}">
           <f:facet name="TestType1">
             <af:group id="g2">
               <af:panelGroupLayout id="pgl2" layout="vertical">
@@ -42,6 +38,7 @@
               </af:iterator>
             </af:group>
           </f:facet>
+          <f:facet name="Default"/>
         </af:switcher>
       </af:gridCell>
       <af:gridCell marginStart="5px" width="33%" id="gc5"/>

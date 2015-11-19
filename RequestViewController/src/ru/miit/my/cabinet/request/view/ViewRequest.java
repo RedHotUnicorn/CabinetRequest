@@ -5,15 +5,22 @@ import java.text.SimpleDateFormat;
 
 import java.util.Calendar;
 
+import java.util.List;
+
 import oracle.adf.model.BindingContext;
 
 import oracle.binding.BindingContainer;
 import oracle.binding.OperationBinding;
 
 import javax.faces.component.UIComponent;
+import javax.faces.component.UIViewRoot;
 import javax.faces.context.FacesContext;
 
 import oracle.adf.model.binding.DCBindingContainer;
+
+import oracle.adf.view.rich.component.rich.input.RichInputText;
+
+import oracle.binding.AttributeBinding;
 
 import oracle.jbo.Row;
 
@@ -24,13 +31,23 @@ public class ViewRequest {
     public ViewRequest() {
         super();
         System.out.println("Start Bean");
+        
+       // AttributeBinding attributeBinding = bindings.getAttributeBindings();
+        
+        //OperationBinding operationBinding = bindings.getOperationBinding("Idrequesttype");
+      //  System.out.println(operationBinding.getOperationInfo() );
+        //this.routerFacet = setRouter();
+        
+        
+        
     }
    
     static private boolean buttonEditClicked = false; //Нажали на кнопочку Редактировать
     private String forumMessage;
     private String currentDate;
     static private boolean dataOnPageChanged = false; //Что то изменили на странице кнопка Сохранить активировалась
-
+    static private int nuumOfPage=0;
+    private String routerFacet = setRouter();
     
 
     public BindingContainer getBindings() {
@@ -85,6 +102,25 @@ public class ViewRequest {
         setButtonEditClicked(!isButtonEditClicked());
     }
     
+    public String setRouter(){
+        BindingContainer bindings = getBindings();
+        AttributeBinding Attrib = (AttributeBinding) bindings.get("Idrequesttype");
+      //  int a =(Integer) Attrib.getInputValue();
+        switch((Integer) Attrib.getInputValue()){
+        case 1:
+                 return "TestType1";
+                
+        case 2:
+            return "TestType2";
+          
+        default:
+            return "Default";
+        }
+       
+       
+        
+        
+    }
     //Setters and getters
     
     public void setButtonEditClicked(boolean enableDeleteCheckbox) {
@@ -115,5 +151,13 @@ public class ViewRequest {
 
     public String getForumMessage() {
         return forumMessage;
+    }
+
+    public void setRouterFacet(String routerFacet) {
+        this.routerFacet = routerFacet;
+    }
+
+    public String getRouterFacet() {
+        return routerFacet;
     }
 }
