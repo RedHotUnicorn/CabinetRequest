@@ -34,15 +34,15 @@
         </AttrNames>
       </nodeDefinition>
     </tree>
-    <action IterBinding="RequestView1Iterator" id="Createwithparameters"
+    <action IterBinding="RequestView1Iterator" id="CreateReq"
             InstanceName="CabinetRequestServiceDataControl.RequestView1" DataControl="CabinetRequestServiceDataControl"
             RequiresUpdateModel="true" Action="createWithParams">
-      <NamedData NDValue="#{row.Idrequesttype}" NDName="TypeId"/>
+      <NamedData NDValue="#{title.Idrequesttype}" NDName="Idrequesttype" NDType="java.lang.Integer"/>
     </action>
-    <action IterBinding="RequestTypeView1Iterator" id="setCurrentRowWithKey1"
+    <action IterBinding="RequestTypeView1Iterator" id="TitleSet"
             InstanceName="CabinetRequestServiceDataControl.RequestTypeView1"
             DataControl="CabinetRequestServiceDataControl" RequiresUpdateModel="false" Action="setCurrentRowWithKey">
-      <NamedData NDName="rowKey" NDValue="#{row2.rowKeyStr}" NDType="java.lang.String"/>
+      <NamedData NDName="rowKey" NDType="java.lang.String" NDValue="#{title.rowKeyStr}"/>
     </action>
   </bindings>
 </pageDefinition>

@@ -58,19 +58,6 @@
       <property
          name="sdm:polyPoints">L50,469.01758,188.0459,176.01562,262.34473,R50</property>
    </ControlFlowCase>
-   <Router
-      id="Router11">
-      <property
-         name="activityId">reqType</property>
-      <property
-         name="description">&lt;html>&lt;p>&lt;b>reqType&lt;/b>&lt;/p>&lt;p>Activity Type:  Router&lt;/p></property>
-      <property
-         name="exceptionHandler">false</property>
-      <property
-         name="y">189.29883</property>
-      <property
-         name="x">875.0</property>
-   </Router>
    <ControlFlowCase
       islink="true"
       id="ControlFlowCase12"
@@ -79,7 +66,7 @@
       <property
          name="fromOutcome">go</property>
       <property
-         name="sdm:polyPoints">B56,513.5176,242.0459,722.6885,361.5459,L46</property>
+         name="sdm:polyPoints">B61,517.0176,242.0459,722.6885,361.5459,L46</property>
    </ControlFlowCase>
    <View
       id="View16">
@@ -102,11 +89,11 @@
       islink="true"
       id="ControlFlowCase17"
       from="View16"
-      to="View2">
+      to="MethodCall17">
       <property
          name="fromOutcome">back</property>
       <property
-         name="sdm:polyPoints">L54,720.8367,368.5459,506.51758,246.08434,B44</property>
+         name="sdm:polyPoints">L54,722.6885,368.5459,540.0,370.24707,R50</property>
    </ControlFlowCase>
    <MethodCall
       id="MethodCall12">
@@ -152,7 +139,7 @@
       <property
          name="fromOutcome">Rollback</property>
       <property
-         name="sdm:polyPoints">R50,301.5,164.39648,469.01758,184.5459,L46</property>
+         name="sdm:polyPoints">R50,301.5,164.39648,467.45297,188.0459,L50</property>
    </ControlFlowCase>
    <ControlFlowCase
       islink="true"
@@ -163,5 +150,28 @@
          name="fromOutcome">Commit</property>
       <property
          name="sdm:polyPoints">R50,270.5,6.6953125,469.01758,181.0459,L42</property>
+   </ControlFlowCase>
+   <MethodCall
+      id="MethodCall17">
+      <property
+         name="activityId">RollBack</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>RollBack&lt;/b>&lt;/p>&lt;p>Activity Type:  Method Call&lt;/p></property>
+      <property
+         name="exceptionHandler">false</property>
+      <property
+         name="y">370.59766</property>
+      <property
+         name="x">499.0</property>
+   </MethodCall>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase19"
+      from="MethodCall17"
+      to="View2">
+      <property
+         name="fromOutcome">*</property>
+      <property
+         name="sdm:polyPoints">T50,499.0,316.24707,503.01758,242.0459,B39</property>
    </ControlFlowCase>
 </SDM>

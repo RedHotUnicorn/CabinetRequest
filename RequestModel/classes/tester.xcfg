@@ -1,7 +1,7 @@
 <?xml version = '1.0' encoding = 'UTF-8'?>
 <BC4JConfig version="11.1" xmlns="http://xmlns.oracle.com/bc4j/configuration">
    <AppModuleConfigBag ApplicationName="ru.miit.my.cabinet.request.model.CabinetRequestService">
-      <AppModuleConfig name="150ED0C1809" JDBCName="Connection1" DeployPlatform="LOCAL" jbo.project="ru.miit.my.cabinet.request.model.RequestModel" IsLazyLoadingTrue="true" java.naming.factory.initial="oracle.jbo.common.JboInitialContextFactory" BC4JConfigName="CabinetRequestServiceLocal" ApplicationName="ru.miit.my.cabinet.request.model.CabinetRequestService" DBconnection="java:comp/env/jdbc/Connection1DS">
+      <AppModuleConfig name="1515C79AFCF" JDBCName="Connection1" DeployPlatform="LOCAL" jbo.project="ru.miit.my.cabinet.request.model.RequestModel" IsLazyLoadingTrue="true" java.naming.factory.initial="oracle.jbo.common.JboInitialContextFactory" BC4JConfigName="CabinetRequestServiceLocal" ApplicationName="ru.miit.my.cabinet.request.model.CabinetRequestService" DBconnection="java:comp/env/jdbc/Connection1DS">
          <Database jbo.server.internal_connection="jdbc/ds_txn" jbo.locking.mode="optimistic" jbo.TypeMapEntries="OracleApps" jbo.SQLBuilder="Oracle"/>
          <Security AppModuleJndiName="ru.miit.my.cabinet.request.model.CabinetRequestService"/>
          <Tester FullProxyInterfaceName="ru.miit.my.cabinet.request.model.common.CabinetRequestService"/>

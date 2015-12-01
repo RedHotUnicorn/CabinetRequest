@@ -18,16 +18,6 @@
     <view id="viewrequest">
       <page>/viewrequest.jsff</page>
     </view>
-    <router id="reqType">
-      <case id="__16">
-        <expression>#{bindings.Idrequesttype.inputValue=='1'}</expression>
-        <outcome>first</outcome>
-      </case>
-      <case id="__17">
-        <expression>#{bindings.Idrequesttype.inputValue=='2'}</expression>
-        <outcome>second</outcome>
-      </case>
-    </router>
     <view id="createrequest">
       <page>/createrequest.jsff</page>
     </view>
@@ -38,6 +28,12 @@
       </outcome>
     </method-call>
     <method-call id="Rollback">
+      <method>#{bindings.Rollback.execute}</method>
+      <outcome>
+        <fixed-outcome>Rollback</fixed-outcome>
+      </outcome>
+    </method-call>
+    <method-call id="RollBack">
       <method>#{bindings.Rollback.execute}</method>
       <outcome>
         <fixed-outcome>Rollback</fixed-outcome>
@@ -69,7 +65,7 @@
       <from-activity-id>createrequest</from-activity-id>
       <control-flow-case id="__3">
         <from-outcome>back</from-outcome>
-        <to-activity-id>userequests-list</to-activity-id>
+        <to-activity-id>RollBack</to-activity-id>
       </control-flow-case>
     </control-flow-rule>
     <control-flow-rule id="__5">
@@ -83,6 +79,12 @@
       <from-activity-id>Commit1</from-activity-id>
       <control-flow-case id="__13">
         <from-outcome>Commit</from-outcome>
+        <to-activity-id>userequests-list</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__14">
+      <from-activity-id>RollBack</from-activity-id>
+      <control-flow-case id="__15">
         <to-activity-id>userequests-list</to-activity-id>
       </control-flow-case>
     </control-flow-rule>

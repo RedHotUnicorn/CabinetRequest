@@ -27,28 +27,27 @@ import oracle.jbo.Row;
 import ru.miit.my.cabinet.request.view.utils.ADFUtils;
 
 public class ViewRequest {
-    
+
     public ViewRequest() {
         super();
         System.out.println("Start Bean");
-        
-       // AttributeBinding attributeBinding = bindings.getAttributeBindings();
-        
+
+        // AttributeBinding attributeBinding = bindings.getAttributeBindings();
+
         //OperationBinding operationBinding = bindings.getOperationBinding("Idrequesttype");
-      //  System.out.println(operationBinding.getOperationInfo() );
+        //  System.out.println(operationBinding.getOperationInfo() );
         //this.routerFacet = setRouter();
-        
-        
-        
+
+
     }
-   
+
     static private boolean buttonEditClicked = false; //Нажали на кнопочку Редактировать
     private String forumMessage;
     private String currentDate;
     static private boolean dataOnPageChanged = false; //Что то изменили на странице кнопка Сохранить активировалась
-    static private int nuumOfPage=0;
+    static private int nuumOfPage = 0;
     private String routerFacet = setRouter();
-    
+
 
     public BindingContainer getBindings() {
         return BindingContext.getCurrent().getCurrentBindingsEntry();
@@ -56,15 +55,14 @@ public class ViewRequest {
 
     public String sendMessage() {
 
-        Calendar calendar = Calendar.getInstance(); 
-        SimpleDateFormat formatter =
-            new SimpleDateFormat("yyyy-MM-dd HH:mm:ss"); 
+        Calendar calendar = Calendar.getInstance();
+        SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         currentDate = formatter.format(new java.sql.Date(calendar.getTime().getTime()));
-        System.out.println(currentDate);
-
-
         BindingContainer bindings = getBindings();
         OperationBinding operationBinding = bindings.getOperationBinding("ForumCreateInsert");
+        operationBinding.getParamsMap().put("Text",
+                                            getForumMessage()); // попробовал передавать значение параметра выполняемой функции
+
         Object result = operationBinding.execute();
 
         if (!operationBinding.getErrors().isEmpty()) {
@@ -75,7 +73,6 @@ public class ViewRequest {
         return null;
     }
 
-    
 
     public String saveChangesAndReturnToParentPage() {
         setDataOnPageChanged(false);
@@ -87,8 +84,8 @@ public class ViewRequest {
         setDataOnPageChanged(false);
         return "RollBack";
     }
-   
-    
+
+
     public String deleteMessagesWithTrueCheckbox() {
         Row[] rows = ADFUtils.findIterator("RequestforummessageView3Iterator").getAllRowsInRange();
         for (int i = 0; i < rows.length; i++) {
@@ -101,28 +98,25 @@ public class ViewRequest {
     public void cb5_action() {
         setButtonEditClicked(!isButtonEditClicked());
     }
-    
-    public String setRouter(){
+
+    public String setRouter() {
         BindingContainer bindings = getBindings();
-        AttributeBinding Attrib = (AttributeBinding) bindings.get("Idrequesttype");
-      //  int a =(Integer) Attrib.getInputValue();
-        switch((Integer) Attrib.getInputValue()){
+        AttributeBinding Attrib = (AttributeBinding)bindings.get("Idrequesttype");
+        switch ((Integer)Attrib.getInputValue()) {
         case 1:
-                 return "TestType1";
-                
+            return "TestType1";
+
         case 2:
             return "TestType2";
-          
+
         default:
             return "Default";
         }
-       
-       
-        
-        
+
+
     }
     //Setters and getters
-    
+
     public void setButtonEditClicked(boolean enableDeleteCheckbox) {
         this.buttonEditClicked = enableDeleteCheckbox;
     }
@@ -138,6 +132,7 @@ public class ViewRequest {
     public String getCurrentDate() {
         return currentDate;
     }
+
     public void setDataOnPageChanged(boolean add) {
         this.dataOnPageChanged = add;
     }
@@ -145,6 +140,7 @@ public class ViewRequest {
     public boolean isDataOnPageChanged() {
         return dataOnPageChanged;
     }
+
     public void setForumMessage(String mes) {
         this.forumMessage = mes;
     }

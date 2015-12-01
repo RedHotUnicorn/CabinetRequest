@@ -5,10 +5,10 @@
     <af:gridRow marginTop="5px" height="auto" id="gr1">
       <af:gridCell marginStart="5px" width="25%" id="gc1"/>
       <af:gridCell marginStart="5px" width="25%" id="gc2">
-        <af:iterator id="i2" value="#{bindings.RequestTypeView1.collectionModel}" var="row2">
-          <af:panelLabelAndMessage label="#{row2.Title}" id="plam3">
-            <af:commandLink text="Создать" id="cl2" actionListener="#{bindings.setCurrentRowWithKey1.execute}"
-                            action="go"/>
+        <af:iterator id="i2" value="#{bindings.RequestTypeView1.collectionModel}" var="title">
+          <af:panelLabelAndMessage label="#{title.Title}" id="plam3">
+            <af:commandLink text="Создать" id="cl2"
+                            action="go" actionListener="#{UseRequestList.crateReq}"/>
           </af:panelLabelAndMessage>
         </af:iterator>
       </af:gridCell>

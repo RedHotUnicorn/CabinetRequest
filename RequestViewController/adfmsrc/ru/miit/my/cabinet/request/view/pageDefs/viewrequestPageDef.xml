@@ -62,7 +62,7 @@
     <action IterBinding="RequestforummessageView3Iterator" id="ForumCreateInsert"
             InstanceName="CabinetRequestServiceDataControl.RequestforummessageView3"
             DataControl="CabinetRequestServiceDataControl" RequiresUpdateModel="true" Action="createWithParams">
-      <NamedData NDValue="#{ViewRequest.forumMessage}" NDName="Text" NDType="java.lang.String"/>
+      <NamedData NDName="Text" NDType="java.lang.String"/>
       <NamedData NDValue="#{ViewRequest.currentDate}" NDName="Creationdate" NDType="java.lang.String"/>
     </action>
     <button IterBinding="RequestforummessageView3Iterator" id="YesNo" DTSupportsMRU="false" StaticList="true">

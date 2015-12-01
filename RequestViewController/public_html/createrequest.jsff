@@ -3,7 +3,6 @@
                 xmlns:f="http://java.sun.com/jsf/core" xmlns:h="http://java.sun.com/jsf/html">
   <af:panelGroupLayout id="pgl1" layout="vertical">
     <af:outputText value="#{bindings.Idrequesttype1} #{bindings.Title}" id="ot1"/>
-    <af:commandButton text="commandButton 1" id="cb1" action="back"/>
     <af:switcher id="s1" facetName="#{bindings.Idrequesttype1=='1'? 'a' : 'b'}">
       <f:facet name="a">
         <af:outputText value="Первый тип" id="ot2"/>
@@ -32,5 +31,6 @@
         </af:inputText>
       </af:panelFormLayout>
     </af:iterator>
+    <af:commandButton text="Вернуться" id="cb1" action="back"/>
   </af:panelGroupLayout>
 </ui:composition>
