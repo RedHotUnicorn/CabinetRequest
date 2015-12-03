@@ -5,7 +5,6 @@ import java.text.SimpleDateFormat;
 
 import java.util.Calendar;
 
-import java.util.List;
 
 import oracle.adf.model.BindingContext;
 
@@ -31,21 +30,13 @@ public class ViewRequest {
     public ViewRequest() {
         super();
         System.out.println("Start Bean");
-
-        // AttributeBinding attributeBinding = bindings.getAttributeBindings();
-
-        //OperationBinding operationBinding = bindings.getOperationBinding("Idrequesttype");
-        //  System.out.println(operationBinding.getOperationInfo() );
-        //this.routerFacet = setRouter();
-
-
     }
 
     static private boolean buttonEditClicked = false; //Нажали на кнопочку Редактировать
     private String forumMessage;
     private String currentDate;
     static private boolean dataOnPageChanged = false; //Что то изменили на странице кнопка Сохранить активировалась
-    static private int nuumOfPage = 0;
+    static private int numOfPage = 0;
     private String routerFacet = setRouter();
 
 
@@ -85,19 +76,21 @@ public class ViewRequest {
         return "RollBack";
     }
 
-
+    public void edit() {
+        setButtonEditClicked(!isButtonEditClicked());
+    }
+    
     public String deleteMessagesWithTrueCheckbox() {
         Row[] rows = ADFUtils.findIterator("RequestforummessageView3Iterator").getAllRowsInRange();
         for (int i = 0; i < rows.length; i++) {
             if (rows[i].getAttribute("YesNo").equals(true))
                 rows[i].remove();
         }
+        setDataOnPageChanged(true);
         return null;
     }
 
-    public void cb5_action() {
-        setButtonEditClicked(!isButtonEditClicked());
-    }
+    
 
     public String setRouter() {
         BindingContainer bindings = getBindings();
@@ -155,5 +148,9 @@ public class ViewRequest {
 
     public String getRouterFacet() {
         return routerFacet;
+    }
+
+    public void sbc2_validator(FacesContext facesContext, UIComponent uIComponent, Object object) {
+        // Add event code here...
     }
 }

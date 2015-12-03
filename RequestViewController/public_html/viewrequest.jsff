@@ -105,7 +105,7 @@
         <af:commandButton text="Вернуться" id="cb1" action="#{ViewRequest.goBackWithNoChanges}"/>
         <af:commandButton text="Сохранить" id="cb3" action="#{ViewRequest.saveChangesAndReturnToParentPage}"
                           disabled="#{!ViewRequest.dataOnPageChanged}"/>
-        <af:commandButton text="Редактировать" id="cb5" action="#{ViewRequest.cb5_action}"/>
+        <af:commandButton text="Редактировать" id="cb5" action="#{ViewRequest.edit}"/>
       </af:gridCell>
       <af:gridCell marginStart="5px" marginEnd="5px" width="33%" id="gc18"/>
     </af:gridRow>

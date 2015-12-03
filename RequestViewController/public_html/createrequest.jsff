@@ -14,23 +14,31 @@
         <af:outputText value="Fuck" id="ot4"/>
       </f:facet>
     </af:switcher>
-    <af:iterator id="i1">
+    <af:iterator id="i1" value="#{bindings.RequestforummessageView3.collectionModel}" var="createForum">
       <af:panelFormLayout id="pfl1">
-        <af:inputDate value="#{bindings.Creationdate.inputValue}" label="#{bindings.Creationdate.hints.label}"
-                      required="#{bindings.Creationdate.hints.mandatory}"
-                      columns="#{bindings.Creationdate.hints.displayWidth}"
-                      shortDesc="#{bindings.Creationdate.hints.tooltip}" id="id1">
-          <f:validator binding="#{bindings.Creationdate.validator}"/>
-          <af:convertDateTime pattern="#{bindings.Creationdate.format}"/>
-        </af:inputDate>
-        <af:inputText value="#{bindings.Text.inputValue}" label="#{bindings.Text.hints.label}"
-                      required="#{bindings.Text.hints.mandatory}" columns="#{bindings.Text.hints.displayWidth}"
-                      maximumLength="#{bindings.Text.hints.precision}" shortDesc="#{bindings.Text.hints.tooltip}"
-                      id="it1">
-          <f:validator binding="#{bindings.Text.validator}"/>
-        </af:inputText>
+        <af:panelLabelAndMessage label="#{bindings.Creationdate.hints.label}" id="plam1">
+          <af:outputText value="#{createForum.Creationdate}" id="ot5">
+            <af:convertDateTime pattern="#{bindings.Creationdate.format}"/>
+          </af:outputText>
+        </af:panelLabelAndMessage>
+        <af:panelLabelAndMessage label="#{bindings.Text.hints.label}" id="plam2">
+          <af:outputText value="#{createForum.Text}" id="ot6"/>
+        </af:panelLabelAndMessage>
+        <af:selectOneChoice value="#{createForum.YesNo}"
+                            required="#{bindings.YesNo.hints.mandatory}" shortDesc="#{bindings.YesNo.hints.tooltip}"
+                            readOnly="true" id="soc1">
+          <f:selectItems value="#{bindings.YesNo.items}" id="si1"/>
+        </af:selectOneChoice>
+        <af:selectBooleanCheckbox id="sbc1"
+                                  value="#{createForum.YesNo}"/>
       </af:panelFormLayout>
     </af:iterator>
-    <af:commandButton text="Вернуться" id="cb1" action="back"/>
+    <af:inputText label="Label 2" id="it2" value="#{CreateRequest.forumMessage}"/>
+    <af:commandButton text="Отправить сообщение" id="cb4" action="#{CreateRequest.sendMessage}"/>
+    <af:commandButton text="Вернуться" id="cb1" action="back" rendered="false"/>
+    <af:inputText label="Label 1" id="it1" value="#{CreateRequest.forumMessage}" rendered="false"/>
+    <af:commandButton text="Добавить сообщение" id="cb2" action="#{ViewRequest.sendMessage}" rendered="false"/>
+    <af:commandButton text="Редактировать" id="cb3" action="#{CreateRequest.edit}" rendered="false"/>
   </af:panelGroupLayout>
+  <!--oracle-jdev-comment:preferred-managed-bean-name:CreateRequest-->
 </ui:composition>

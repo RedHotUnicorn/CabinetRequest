@@ -30,5 +30,32 @@
         <Item Value="Text"/>
       </AttrNames>
     </attributeValues>
+    <list IterBinding="RequestforummessageView3Iterator" id="YesNo" DTSupportsMRU="false"
+          SelectItemValueMode="ListObject">
+      <AttrNames>
+        <Item Value="YesNo"/>
+      </AttrNames>
+    </list>
+    <tree IterBinding="RequestforummessageView3Iterator" id="RequestforummessageView3">
+      <nodeDefinition DefName="ru.miit.my.cabinet.request.model.RequestforummessageView"
+                      Name="RequestforummessageView30">
+        <AttrNames>
+          <Item Value="Idrequestforummessage"/>
+          <Item Value="Creationdate"/>
+          <Item Value="Idemployee"/>
+          <Item Value="Idrequest"/>
+          <Item Value="Idrequestforummessagetype"/>
+          <Item Value="Idrequestforumparentmessage"/>
+          <Item Value="Text"/>
+          <Item Value="YesNo"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <action IterBinding="RequestforummessageView3Iterator" id="Createwithparameters"
+            InstanceName="CabinetRequestServiceDataControl.RequestforummessageView3"
+            DataControl="CabinetRequestServiceDataControl" RequiresUpdateModel="true" Action="createWithParams">
+      <NamedData NDName="Text" NDType="java.lang.String"/>
+      <NamedData NDName="Creationdate" NDType="java.lang.String"/>
+    </action>
   </bindings>
 </pageDefinition>
