@@ -1,8 +1,12 @@
 package ru.miit.my.cabinet.request.view;
 
 
+
+
 import java.text.SimpleDateFormat;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Calendar;
 
 
@@ -30,6 +34,7 @@ public class ViewRequest {
     public ViewRequest() {
         super();
         System.out.println("Start Bean");
+        System.out.println(buttonEditClicked);
     }
 
     static private boolean buttonEditClicked = false; //Нажали на кнопочку Редактировать
@@ -67,12 +72,14 @@ public class ViewRequest {
 
     public String saveChangesAndReturnToParentPage() {
         setDataOnPageChanged(false);
+        setButtonEditClicked(false);
         return "Commit";
     }
 
 
     public String goBackWithNoChanges() {
         setDataOnPageChanged(false);
+        setButtonEditClicked(false);
         return "RollBack";
     }
 
@@ -81,10 +88,11 @@ public class ViewRequest {
     }
     
     public String deleteMessagesWithTrueCheckbox() {
-        Row[] rows = ADFUtils.findIterator("RequestforummessageView3Iterator").getAllRowsInRange();
-        for (int i = 0; i < rows.length; i++) {
-            if (rows[i].getAttribute("YesNo").equals(true))
-                rows[i].remove();
+        //Row[] rows = ADFUtils.findIterator("RequestforummessageView3Iterator").getAllRowsInRange();
+        ArrayList<Row> rows = new ArrayList<Row>(Arrays.asList(ADFUtils.findIterator("RequestforummessageView3Iterator").getAllRowsInRange()));
+        for (int i = 0; i < rows.size(); i++) {
+            if (rows.get(i).getAttribute("YesNo").equals(true))
+                rows.get(i).remove();
         }
         setDataOnPageChanged(true);
         return null;

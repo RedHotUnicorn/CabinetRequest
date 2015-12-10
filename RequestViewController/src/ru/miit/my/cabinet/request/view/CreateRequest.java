@@ -19,10 +19,12 @@ public class CreateRequest {
     //Переменные
     static private boolean buttonEditClicked = false; //Нажали на кнопочку Редактировать
     private String forumMessage = "";
+    private String test1Message = "";
+    private String test2Message = "" ;
     private String currentDate;
     static private boolean dataOnPageChanged = false; //Что то изменили на странице кнопка Сохранить активировалась
     static private int numOfPage = 0;
-   // private String routerFacet = setRouter();
+    private String routerFacet = setRouter();
     //Конструктор
 
     public CreateRequest() {
@@ -59,7 +61,7 @@ public class CreateRequest {
     }
     //Роутер
 
-    /*public String setRouter() {
+    public String setRouter() {
         BindingContainer bindings = getBindings();
         AttributeBinding Attrib = (AttributeBinding)bindings.get("Idrequesttype");
         switch ((Integer)Attrib.getInputValue()) {
@@ -72,12 +74,43 @@ public class CreateRequest {
         default:
             return "Default";
         }
-    }*/
+    }
 
     public void edit() {
         setButtonEditClicked(!isButtonEditClicked());
     }
+    
+    public String createTest2Obj(){
+        BindingContainer bindings = getBindings();
+        OperationBinding operationBinding = bindings.getOperationBinding("Createwithparameters2");
+        System.out.println(getTest2Message().substring(0,2));
+        operationBinding.getParamsMap().put("Addchar",
+                                            getTest2Message().substring(0,2));
+        
 
+        Object result = operationBinding.execute();
+        if (!operationBinding.getErrors().isEmpty()) {
+            return null;
+        }
+        this.setTest2Message("");
+        setDataOnPageChanged(true);
+        return null;
+    }
+    public String createTest1Obj(){
+        BindingContainer bindings = getBindings();
+        OperationBinding operationBinding = bindings.getOperationBinding("Createwithparameters1");
+        operationBinding.getParamsMap().put("Chooseint",
+                                            Integer.parseInt(getTest1Message()));
+        
+
+        Object result = operationBinding.execute();
+        if (!operationBinding.getErrors().isEmpty()) {
+            return null;
+        }
+        this.setTest1Message("");
+        setDataOnPageChanged(true);
+        return null;
+    }
 /*
     private class TestType1 { //представление таблицы ввиде класса
         private int idTestType;
@@ -184,5 +217,28 @@ public class CreateRequest {
     }
 
 
+    public void setRouterFacet(String routerFacet) {
+        this.routerFacet = routerFacet;
+    }
+
+    public String getRouterFacet() {
+        return routerFacet;
+    }
+
+    public void setTest1Message(String teat1Message) {
+        this.test1Message = teat1Message;
+    }
+
+    public String getTest1Message() {
+        return test1Message;
+    }
+
+    public void setTest2Message(String test2Message) {
+        this.test2Message = test2Message;
+    }
+
+    public String getTest2Message() {
+        return test2Message;
+    }
 }
 

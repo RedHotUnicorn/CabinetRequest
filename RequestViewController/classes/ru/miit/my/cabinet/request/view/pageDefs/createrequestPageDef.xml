@@ -8,6 +8,10 @@
               Binds="RequestTypeView1"/>
     <iterator Binds="RequestforummessageView3" RangeSize="25" DataControl="CabinetRequestServiceDataControl"
               id="RequestforummessageView3Iterator"/>
+    <iterator Binds="Typetest1View_POCHTA1" RangeSize="25" DataControl="CabinetRequestServiceDataControl"
+              id="Typetest1View_POCHTA1Iterator"/>
+    <iterator Binds="Typetest2View2" RangeSize="25" DataControl="CabinetRequestServiceDataControl"
+              id="Typetest2View2Iterator"/>
   </executables>
   <bindings>
     <attributeValues IterBinding="RequestView1Iterator" id="Title">
@@ -15,7 +19,7 @@
         <Item Value="Title"/>
       </AttrNames>
     </attributeValues>
-    <attributeValues IterBinding="RequestView1Iterator" id="Idrequesttype1">
+    <attributeValues IterBinding="RequestView1Iterator" id="Idrequesttype">
       <AttrNames>
         <Item Value="Idrequesttype"/>
       </AttrNames>
@@ -57,5 +61,50 @@
       <NamedData NDName="Text" NDType="java.lang.String"/>
       <NamedData NDName="Creationdate" NDType="java.lang.String"/>
     </action>
+    <attributeValues IterBinding="Typetest1View_POCHTA1Iterator" id="Chooseint">
+      <AttrNames>
+        <Item Value="Chooseint"/>
+      </AttrNames>
+    </attributeValues>
+    <tree IterBinding="Typetest1View_POCHTA1Iterator" id="Typetest1View_POCHTA1">
+      <nodeDefinition DefName="ru.miit.my.cabinet.request.model.Typetest1View_POCHTA" Name="Typetest1View_POCHTA10">
+        <AttrNames>
+          <Item Value="Idtypetest1"/>
+          <Item Value="Chooseint"/>
+          <Item Value="Idemployee"/>
+          <Item Value="Idrequest"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <action IterBinding="Typetest1View_POCHTA1Iterator" id="Createwithparameters1"
+            InstanceName="CabinetRequestServiceDataControl.Typetest1View_POCHTA1"
+            DataControl="CabinetRequestServiceDataControl" RequiresUpdateModel="true" Action="createWithParams">
+      <NamedData NDName="Chooseint" NDType="java.lang.Integer"/>
+    </action>
+    <attributeValues IterBinding="Typetest2View2Iterator" id="Addchar">
+      <AttrNames>
+        <Item Value="Addchar"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="Typetest2View2Iterator" id="Idemployee">
+      <AttrNames>
+        <Item Value="Idemployee"/>
+      </AttrNames>
+    </attributeValues>
+    <action IterBinding="Typetest2View2Iterator" id="Createwithparameters2"
+            InstanceName="CabinetRequestServiceDataControl.Typetest2View2"
+            DataControl="CabinetRequestServiceDataControl" RequiresUpdateModel="true" Action="createWithParams">
+      <NamedData NDName="Addchar" NDType="java.lang.String"/>
+    </action>
+    <tree IterBinding="Typetest2View2Iterator" id="Typetest2View2">
+      <nodeDefinition DefName="ru.miit.my.cabinet.request.model.Typetest2View" Name="Typetest2View20">
+        <AttrNames>
+          <Item Value="Idtypetest2"/>
+          <Item Value="Addchar"/>
+          <Item Value="Idemployee"/>
+          <Item Value="Idrequest"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
   </bindings>
 </pageDefinition>
