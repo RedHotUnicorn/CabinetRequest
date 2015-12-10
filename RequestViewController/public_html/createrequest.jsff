@@ -56,11 +56,16 @@
           <f:selectItems value="#{bindings.YesNo.items}" id="si1"/>
         </af:selectOneChoice>
         <af:selectBooleanCheckbox id="sbc1"
-                                  value="#{createForum.YesNo}"/>
+                                  value="#{createForum.YesNo}"
+                                  validator="#{CreateRequest.sbc1_validator}"
+                                  rendered="#{CreateRequest.buttonEditClicked}"/>
       </af:panelFormLayout>
     </af:iterator>
     <af:inputText label="Label 2" id="it2" value="#{CreateRequest.forumMessage}"/>
     <af:commandButton text="Отправить сообщение" id="cb4" action="#{CreateRequest.sendMessage}"/>
+    <af:commandButton text="удалить " id="cb7" action="#{CreateRequest.deleteMessagesWithTrueCheckbox}"/>
+    <af:commandButton text="редактировать" id="cb8" action="#{CreateRequest.edit}"/>
+    <af:outputText value="#{CreateRequest.buttonEditClicked}" id="ot3"/>
     <af:commandButton text="Вернуться" id="cb1" action="back" rendered="false"/>
     <af:inputText label="Label 1" id="it1" value="#{CreateRequest.forumMessage}" rendered="false"/>
     <af:commandButton text="Добавить сообщение" id="cb2" action="#{ViewRequest.sendMessage}" rendered="false"/>

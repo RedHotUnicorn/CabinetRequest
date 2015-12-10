@@ -2,6 +2,8 @@ package ru.miit.my.cabinet.request.view;
 
 import java.text.SimpleDateFormat;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Calendar;
 
 import javax.faces.component.UIComponent;
@@ -12,6 +14,8 @@ import oracle.adf.model.BindingContext;
 import oracle.binding.AttributeBinding;
 import oracle.binding.BindingContainer;
 import oracle.binding.OperationBinding;
+
+import oracle.jbo.Row;
 
 import ru.miit.my.cabinet.request.view.utils.ADFUtils;
 
@@ -30,6 +34,7 @@ public class CreateRequest {
     public CreateRequest() {
         super();
         System.out.println("Start Bean");
+        System.out.println(buttonEditClicked);
     }
     //Добавление сообщения
 
@@ -111,6 +116,18 @@ public class CreateRequest {
         setDataOnPageChanged(true);
         return null;
     }
+    
+    public String deleteMessagesWithTrueCheckbox() {
+        //Row[] rows = ADFUtils.findIterator("RequestforummessageView3Iterator").getAllRowsInRange();
+        ArrayList<Row> rows = new ArrayList<Row>(Arrays.asList(ADFUtils.findIterator("RequestforummessageView3Iterator").getAllRowsInRange()));
+        for (int i = 0; i < rows.size(); i++) {
+            if (rows.get(i).getAttribute("YesNo").equals(true))
+                rows.get(i).remove();
+        }
+        setDataOnPageChanged(true);
+        return null;
+    }
+    
 /*
     private class TestType1 { //представление таблицы ввиде класса
         private int idTestType;
@@ -204,16 +221,16 @@ public class CreateRequest {
         CreateRequest.dataOnPageChanged = dataOnPageChanged;
     }
 
-    public static boolean isDataOnPageChanged() {
+    public boolean isDataOnPageChanged() {
         return dataOnPageChanged;
     }
 
-    public static void setButtonEditClicked(boolean b) {
-        buttonEditClicked = b;
+    public void setButtonEditClicked(boolean b) {
+        this.buttonEditClicked = b;
     }
 
-    public static boolean isButtonEditClicked() {
-        return buttonEditClicked;
+    public  boolean isButtonEditClicked() {
+        return this.buttonEditClicked;
     }
 
 
@@ -239,6 +256,10 @@ public class CreateRequest {
 
     public String getTest2Message() {
         return test2Message;
+    }
+
+    public void sbc1_validator(FacesContext facesContext, UIComponent uIComponent, Object object) {
+        // Add event code here...
     }
 }
 
