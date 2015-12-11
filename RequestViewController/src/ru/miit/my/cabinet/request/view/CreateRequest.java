@@ -33,8 +33,6 @@ public class CreateRequest {
 
     public CreateRequest() {
         super();
-        System.out.println("Start Bean");
-        System.out.println(buttonEditClicked);
     }
     //Добавление сообщения
 

@@ -37,7 +37,7 @@
     <action IterBinding="RequestView1Iterator" id="CreateReq"
             InstanceName="CabinetRequestServiceDataControl.RequestView1" DataControl="CabinetRequestServiceDataControl"
             RequiresUpdateModel="true" Action="createWithParams">
-      <NamedData NDValue="#{title.Idrequesttype}" NDName="Idrequesttype" NDType="java.lang.Integer"/>
+      <NamedData NDName="Idrequesttype" NDType="java.lang.Integer"/>
       <NamedData NDValue="2" NDName="Idemployee" NDType="java.lang.Integer"/>
     </action>
     <action IterBinding="RequestTypeView1Iterator" id="TitleSet"
@@ -45,5 +45,10 @@
             DataControl="CabinetRequestServiceDataControl" RequiresUpdateModel="false" Action="setCurrentRowWithKey">
       <NamedData NDName="rowKey" NDType="java.lang.String" NDValue="#{title.rowKeyStr}"/>
     </action>
+    <attributeValues IterBinding="RequestTypeView1Iterator" id="TypeOfNewRequest">
+      <AttrNames>
+        <Item Value="Idrequesttype"/>
+      </AttrNames>
+    </attributeValues>
   </bindings>
 </pageDefinition>

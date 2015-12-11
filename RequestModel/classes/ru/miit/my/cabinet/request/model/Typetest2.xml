@@ -19,7 +19,9 @@
     Type="java.math.BigDecimal"
     ColumnType="NUMBER"
     TableName="TYPETEST2"
-    PrimaryKey="true"/>
+    PrimaryKey="true">
+    <TransientExpression><![CDATA[(new oracle.jbo.server.SequenceImpl("REQUESTTYPETEST2", adf.object.getDBTransaction())).getSequenceNumber()]]></TransientExpression>
+  </Attribute>
   <Attribute
     Name="Idemployee"
     ColumnName="IDEMPLOYEE"
