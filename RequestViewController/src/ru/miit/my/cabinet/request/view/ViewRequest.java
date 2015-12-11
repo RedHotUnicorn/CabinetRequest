@@ -1,8 +1,6 @@
 package ru.miit.my.cabinet.request.view;
 
 
-
-
 import java.text.SimpleDateFormat;
 
 import java.util.ArrayList;
@@ -33,15 +31,12 @@ public class ViewRequest {
 
     public ViewRequest() {
         super();
-        System.out.println("Start Bean");
-        System.out.println(buttonEditClicked);
     }
 
     static private boolean buttonEditClicked = false; //Нажали на кнопочку Редактировать
+    static private boolean dataOnPageChanged = false; //Что то изменили на странице кнопка Сохранить активировалась
     private String forumMessage;
     private String currentDate;
-    static private boolean dataOnPageChanged = false; //Что то изменили на странице кнопка Сохранить активировалась
-    static private int numOfPage = 0;
     private String routerFacet = setRouter();
 
 
@@ -55,13 +50,12 @@ public class ViewRequest {
         SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         currentDate = formatter.format(new java.sql.Date(calendar.getTime().getTime()));
         BindingContainer bindings = getBindings();
-        OperationBinding operationBinding = bindings.getOperationBinding("ForumCreateInsert");
-        operationBinding.getParamsMap().put("Text",
-                                            getForumMessage()); // попробовал передавать значение параметра выполняемой функции
+        OperationBinding createForumMessageBinding = bindings.getOperationBinding("ForumCreateInsert");
+        createForumMessageBinding.getParamsMap().put("Text",
+                                                     getForumMessage()); // попробовал передавать значение параметра выполняемой функции
+        createForumMessageBinding.execute();
 
-        Object result = operationBinding.execute();
-
-        if (!operationBinding.getErrors().isEmpty()) {
+        if (!createForumMessageBinding.getErrors().isEmpty()) {
             return null;
         }
         this.setForumMessage("");
@@ -86,10 +80,11 @@ public class ViewRequest {
     public void edit() {
         setButtonEditClicked(!isButtonEditClicked());
     }
-    
+
     public String deleteMessagesWithTrueCheckbox() {
         //Row[] rows = ADFUtils.findIterator("RequestforummessageView3Iterator").getAllRowsInRange();
-        ArrayList<Row> rows = new ArrayList<Row>(Arrays.asList(ADFUtils.findIterator("RequestforummessageView3Iterator").getAllRowsInRange()));
+        ArrayList<Row> rows =
+            new ArrayList<Row>(Arrays.asList(ADFUtils.findIterator("RequestforummessageView3Iterator").getAllRowsInRange()));
         for (int i = 0; i < rows.size(); i++) {
             if (rows.get(i).getAttribute("YesNo").equals(true))
                 rows.get(i).remove();
@@ -98,7 +93,6 @@ public class ViewRequest {
         return null;
     }
 
-    
 
     public String setRouter() {
         BindingContainer bindings = getBindings();
@@ -158,7 +152,5 @@ public class ViewRequest {
         return routerFacet;
     }
 
-    public void sbc2_validator(FacesContext facesContext, UIComponent uIComponent, Object object) {
-        // Add event code here...
-    }
+
 }

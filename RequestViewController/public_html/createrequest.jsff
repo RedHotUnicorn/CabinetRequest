@@ -9,15 +9,15 @@
         <af:group id="g1">
           <af:iterator id="i2" value="#{bindings.Typetest1View_POCHTA1.collectionModel}" var="pochta">
             <af:panelFormLayout id="pfl2">
-              <af:panelLabelAndMessage label="#{pochta.Idemployee.hints.label}" id="plam3">
+              <af:panelLabelAndMessage label="Сотрудник" id="plam3">
                 <af:outputText id="ot7" value="#{pochta.Idemployee}"/>
               </af:panelLabelAndMessage>
-              <af:panelLabelAndMessage label="#{bindings.Chooseint.hints.label}" id="plam4">
+              <af:panelLabelAndMessage label="Число" id="plam4">
                 <af:outputText value="#{pochta.Chooseint}" id="ot8"/>
               </af:panelLabelAndMessage>
             </af:panelFormLayout>
           </af:iterator>
-          <af:inputText label="Label 3" id="it3" value="#{CreateRequest.test1Message}"/>
+          <af:inputText id="it3" value="#{CreateRequest.test1Message}"/>
           <af:commandButton text="commandButton 1" id="cb5" action="#{CreateRequest.createTest1Obj}"/>
         </af:group>
       </f:facet>
@@ -25,15 +25,15 @@
         <af:group id="g2">
           <af:iterator id="i3" value="#{bindings.Typetest2View2.collectionModel}" var="var2">
             <af:panelFormLayout id="pfl3">
-              <af:panelLabelAndMessage label="#{bindings.Addchar.hints.label}" id="plam5">
+              <af:panelLabelAndMessage label="Сокращенная строка" id="plam5">
                 <af:outputText value="#{var2.Addchar}" id="ot2"/>
               </af:panelLabelAndMessage>
-              <af:panelLabelAndMessage label="#{bindings.Idemployee.hints.label}" id="plam6">
+              <af:panelLabelAndMessage label="Сотрудник" id="plam6">
                 <af:outputText value="#{var2.Idemployee}" id="ot9"/>
               </af:panelLabelAndMessage>
             </af:panelFormLayout>
           </af:iterator>
-          <af:inputText label="Label 4" id="it4" value="#{CreateRequest.test2Message}"/>
+          <af:inputText id="it4" value="#{CreateRequest.test2Message}"/>
           <af:commandButton text="commandButton 2" id="cb6" action="#{CreateRequest.createTest2Obj}"/>
         </af:group>
       </f:facet>
@@ -43,12 +43,12 @@
     </af:switcher>
     <af:iterator id="i1" value="#{bindings.RequestforummessageView3.collectionModel}" var="createForum">
       <af:panelFormLayout id="pfl1">
-        <af:panelLabelAndMessage label="#{bindings.Creationdate.hints.label}" id="plam1">
+        <af:panelLabelAndMessage label="Дата" id="plam1">
           <af:outputText value="#{createForum.Creationdate}" id="ot5">
-            <af:convertDateTime pattern="#{bindings.Creationdate.format}"/>
+            
           </af:outputText>
         </af:panelLabelAndMessage>
-        <af:panelLabelAndMessage label="#{bindings.Text.hints.label}" id="plam2">
+        <af:panelLabelAndMessage label="Текст" id="plam2">
           <af:outputText value="#{createForum.Text}" id="ot6"/>
         </af:panelLabelAndMessage>
         <af:selectBooleanCheckbox id="sbc1"
@@ -57,7 +57,7 @@
                                   rendered="#{CreateRequest.buttonEditClicked}"/>
       </af:panelFormLayout>
     </af:iterator>
-    <af:inputText label="Label 2" id="it2" value="#{CreateRequest.forumMessage}"/>
+    <af:inputText id="it2" value="#{CreateRequest.forumMessage}"/>
     <af:commandButton text="Отправить сообщение" id="cb4" action="#{CreateRequest.sendMessage}"/>
     <af:commandButton text="удалить " id="cb7" action="#{CreateRequest.deleteMessagesWithTrueCheckbox}"/>
     <af:commandButton text="редактировать" id="cb8" action="#{CreateRequest.edit}"/>

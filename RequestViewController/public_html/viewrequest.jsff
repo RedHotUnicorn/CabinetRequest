@@ -60,7 +60,6 @@
           </af:panelLabelAndMessage>
           <af:panelLabelAndMessage label="Дата сообщения" id="plam1">
             <af:outputText value="#{viewForum.Creationdate}" id="ot2">
-              <af:convertDateTime pattern="#{bindings.Creationdate.format}"/>
             </af:outputText>
           </af:panelLabelAndMessage>
           <af:panelLabelAndMessage label="Текст сообщения" id="plam2">
@@ -71,14 +70,11 @@
                                     validator="#{ViewRequest.sbc2_validator}" selected="false"
                                     rendered="#{ViewRequest.buttonEditClicked}"/>
           <af:panelFormLayout id="pfl1" rendered="false">
-            <af:inputDate value="#{viewForum.Creationdate}" required="#{bindings.Creationdate.hints.mandatory}"
-                          columns="#{viewForum.Creationdate.hints.displayWidth}"
-                          shortDesc="#{bindings.Creationdate.hints.tooltip}" id="id1">
-              <f:validator binding="#{bindings.Creationdate.validator}"/>
-              <af:convertDateTime pattern="#{bindings.Creationdate.format}"/>
+            <af:inputDate value="#{viewForum.Creationdate}" required="#{viewForum.Creationdate.hints.mandatory}"
+                             columns="#{viewForum.Creationdate.hints.displayWidth}" id="id1" >
             </af:inputDate>
             <af:inputText value="#{viewForum.Text}" id="it1">
-              <f:validator binding="#{bindings.Text.validator}"/>
+              <f:validator binding="#{viewForum.Text.validator}"/>
             </af:inputText>
           </af:panelFormLayout>
         </af:iterator>
@@ -89,12 +85,8 @@
     <af:gridRow marginTop="5px" marginBottom="5px" height="auto" id="gr6">
       <af:gridCell marginStart="5px" width="34%" id="gc16">
         <af:panelFormLayout id="pfl2">
-          <af:inputText value="#{ViewRequest.forumMessage}" label="#{bindings.Text.hints.label}"
-                        required="#{bindings.Text.hints.mandatory}" columns="20"
-                        maximumLength="#{bindings.Text.hints.precision}" shortDesc="#{bindings.Text.hints.tooltip}"
-                        id="it2" rows="2">
-            <f:validator binding="#{bindings.Text.validator}"/>
-          </af:inputText>
+          <af:inputText value="#{ViewRequest.forumMessage}" id="it2" columns="20" rows="2">
+             </af:inputText>
           <f:facet name="footer">
             <af:commandButton text="Отправить сообщение" id="cb2" action="#{ViewRequest.sendMessage}"/>
           </f:facet>

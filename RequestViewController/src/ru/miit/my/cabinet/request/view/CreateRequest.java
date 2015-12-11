@@ -22,12 +22,12 @@ import ru.miit.my.cabinet.request.view.utils.ADFUtils;
 public class CreateRequest {
     //Переменные
     static private boolean buttonEditClicked = false; //Нажали на кнопочку Редактировать
+    static private boolean dataOnPageChanged = false; //Что то изменили на странице кнопка Сохранить активировалась
     private String forumMessage = "";
     private String test1Message = "";
     private String test2Message = "";
     private String currentDate;
-    static private boolean dataOnPageChanged = false; //Что то изменили на странице кнопка Сохранить активировалась
-    static private int numOfPage = 0;
+    
     private String routerFacet = setRouter();
     //Конструктор
 
@@ -49,19 +49,17 @@ public class CreateRequest {
         SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         currentDate = formatter.format(new java.sql.Date(calendar.getTime().getTime()));
         BindingContainer bindings = getBindings();
-        OperationBinding operationBinding = bindings.getOperationBinding("Createwithparameters");
-        operationBinding.getParamsMap().put("Text", getForumMessage());
-        operationBinding.getParamsMap().put("Creationdate",
-                                            currentDate); // попробовал передавать значение параметра выполняемой функции
-
-        Object result = operationBinding.execute();
-
-        if (!operationBinding.getErrors().isEmpty()) {
-            return null;
+        OperationBinding createForumMessageBinding = bindings.getOperationBinding("ForumCreateInsert");
+        createForumMessageBinding.getParamsMap().put("Text", getForumMessage());
+        createForumMessageBinding.getParamsMap().put("Creationdate",
+                                                     currentDate); // попробовал передавать значение параметра выполняемой функции
+        createForumMessageBinding.execute();
+        if (!createForumMessageBinding.getErrors().isEmpty()) {
+            return "";
         }
         this.setForumMessage("");
         setDataOnPageChanged(true);
-        return null;
+        return "";
     }
     //Роутер
 
@@ -79,11 +77,11 @@ public class CreateRequest {
             return "Default";
         }
     }
-
+//Кнопка редактирования
     public void edit() {
         setButtonEditClicked(!isButtonEditClicked());
     }
-
+//Создать объект 2 го типа
     public String createTest2Obj() {
         BindingContainer bindings = getBindings();
         OperationBinding operationBinding = bindings.getOperationBinding("Createwithparameters2");
@@ -97,24 +95,23 @@ public class CreateRequest {
         setDataOnPageChanged(true);
         return null;
     }
-
+    //Создать объект 1 го типа
     public String createTest1Obj() {
         BindingContainer bindings = getBindings();
         OperationBinding operationBinding = bindings.getOperationBinding("Createwithparameters1");
         operationBinding.getParamsMap().put("Chooseint", Integer.parseInt(getTest1Message()));
-
-
-        Object result = operationBinding.execute();
+        operationBinding.execute();
         if (!operationBinding.getErrors().isEmpty()) {
-            return null;
+            return "";
         }
         this.setTest1Message("");
         setDataOnPageChanged(true);
-        return null;
+        return "";
     }
 
+//Удалить сообщение
     public String deleteMessagesWithTrueCheckbox() {
-        //Row[] rows = ADFUtils.findIterator("RequestforummessageView3Iterator").getAllRowsInRange();
+
         ArrayList<Row> rows =
             new ArrayList<Row>(Arrays.asList(ADFUtils.findIterator("RequestforummessageView3Iterator").getAllRowsInRange()));
         for (int i = 0; i < rows.size(); i++) {
@@ -124,7 +121,7 @@ public class CreateRequest {
         setDataOnPageChanged(true);
         return null;
     }
-
+//возврат
     public String Ret() {
         setDataOnPageChanged(false);
         setButtonEditClicked(false);
