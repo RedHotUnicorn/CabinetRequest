@@ -18,13 +18,18 @@ public class UseRequestList {
 
     public String crateReq(ActionEvent actionEvent) {
         BindingContainer bindings = getBindings();
+        OperationBinding operationBinding1 = bindings.getOperationBinding("CreateReq");
+        Object result1 = operationBinding1.execute();
+        if (!operationBinding1.getErrors().isEmpty()) {
+            return null;
+        }
         OperationBinding operationBinding = bindings.getOperationBinding("TitleSet");
 
         Object result = operationBinding.execute();
         if (!operationBinding.getErrors().isEmpty()) {
             return null;
         }
-        return "CreateReq";
+        return "";
     }
 
    

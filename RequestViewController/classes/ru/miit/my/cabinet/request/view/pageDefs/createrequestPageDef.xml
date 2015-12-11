@@ -12,6 +12,8 @@
               id="Typetest1View_POCHTA1Iterator"/>
     <iterator Binds="Typetest2View2" RangeSize="25" DataControl="CabinetRequestServiceDataControl"
               id="Typetest2View2Iterator"/>
+    <iterator id="RequestView1Iterator1" Binds="RequestView1" DataControl="CabinetRequestServiceDataControl"
+              RangeSize="25"/>
   </executables>
   <bindings>
     <attributeValues IterBinding="RequestView1Iterator" id="Title">
@@ -34,12 +36,6 @@
         <Item Value="Text"/>
       </AttrNames>
     </attributeValues>
-    <list IterBinding="RequestforummessageView3Iterator" id="YesNo" DTSupportsMRU="false"
-          SelectItemValueMode="ListObject">
-      <AttrNames>
-        <Item Value="YesNo"/>
-      </AttrNames>
-    </list>
     <tree IterBinding="RequestforummessageView3Iterator" id="RequestforummessageView3">
       <nodeDefinition DefName="ru.miit.my.cabinet.request.model.RequestforummessageView"
                       Name="RequestforummessageView30">
@@ -106,5 +102,14 @@
         </AttrNames>
       </nodeDefinition>
     </tree>
+    <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction"
+            DataControl="CabinetRequestServiceDataControl"/>
+    <action id="Rollback" InstanceName="CabinetRequestServiceDataControl" DataControl="CabinetRequestServiceDataControl"
+            RequiresUpdateModel="false" Action="rollbackTransaction"/>
+    <attributeValues IterBinding="RequestView1Iterator1" id="Idrequest">
+      <AttrNames>
+        <Item Value="Idrequest"/>
+      </AttrNames>
+    </attributeValues>
   </bindings>
 </pageDefinition>

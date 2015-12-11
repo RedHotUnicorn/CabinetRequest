@@ -65,7 +65,7 @@
       <from-activity-id>createrequest</from-activity-id>
       <control-flow-case id="__3">
         <from-outcome>back</from-outcome>
-        <to-activity-id>RollBack</to-activity-id>
+        <to-activity-id>userequests-list</to-activity-id>
       </control-flow-case>
     </control-flow-rule>
     <control-flow-rule id="__5">

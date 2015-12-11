@@ -24,7 +24,7 @@ public class CreateRequest {
     static private boolean buttonEditClicked = false; //Нажали на кнопочку Редактировать
     private String forumMessage = "";
     private String test1Message = "";
-    private String test2Message = "" ;
+    private String test2Message = "";
     private String currentDate;
     static private boolean dataOnPageChanged = false; //Что то изменили на странице кнопка Сохранить активировалась
     static private int numOfPage = 0;
@@ -50,10 +50,9 @@ public class CreateRequest {
         currentDate = formatter.format(new java.sql.Date(calendar.getTime().getTime()));
         BindingContainer bindings = getBindings();
         OperationBinding operationBinding = bindings.getOperationBinding("Createwithparameters");
-        operationBinding.getParamsMap().put("Text",
-                                            getForumMessage());
+        operationBinding.getParamsMap().put("Text", getForumMessage());
         operationBinding.getParamsMap().put("Creationdate",
-                                            currentDate);// попробовал передавать значение параметра выполняемой функции 
+                                            currentDate); // попробовал передавать значение параметра выполняемой функции
 
         Object result = operationBinding.execute();
 
@@ -84,16 +83,13 @@ public class CreateRequest {
     public void edit() {
         setButtonEditClicked(!isButtonEditClicked());
     }
-    
-    public String createTest2Obj(){
+
+    public String createTest2Obj() {
         BindingContainer bindings = getBindings();
         OperationBinding operationBinding = bindings.getOperationBinding("Createwithparameters2");
-        System.out.println(getTest2Message().substring(0,2));
-        operationBinding.getParamsMap().put("Addchar",
-                                            getTest2Message().substring(0,2));
-        
-
-        Object result = operationBinding.execute();
+        System.out.println(getTest2Message().substring(0, 2));
+        operationBinding.getParamsMap().put("Addchar", getTest2Message().substring(0, 2));
+        operationBinding.execute();
         if (!operationBinding.getErrors().isEmpty()) {
             return null;
         }
@@ -101,12 +97,12 @@ public class CreateRequest {
         setDataOnPageChanged(true);
         return null;
     }
-    public String createTest1Obj(){
+
+    public String createTest1Obj() {
         BindingContainer bindings = getBindings();
         OperationBinding operationBinding = bindings.getOperationBinding("Createwithparameters1");
-        operationBinding.getParamsMap().put("Chooseint",
-                                            Integer.parseInt(getTest1Message()));
-        
+        operationBinding.getParamsMap().put("Chooseint", Integer.parseInt(getTest1Message()));
+
 
         Object result = operationBinding.execute();
         if (!operationBinding.getErrors().isEmpty()) {
@@ -116,10 +112,11 @@ public class CreateRequest {
         setDataOnPageChanged(true);
         return null;
     }
-    
+
     public String deleteMessagesWithTrueCheckbox() {
         //Row[] rows = ADFUtils.findIterator("RequestforummessageView3Iterator").getAllRowsInRange();
-        ArrayList<Row> rows = new ArrayList<Row>(Arrays.asList(ADFUtils.findIterator("RequestforummessageView3Iterator").getAllRowsInRange()));
+        ArrayList<Row> rows =
+            new ArrayList<Row>(Arrays.asList(ADFUtils.findIterator("RequestforummessageView3Iterator").getAllRowsInRange()));
         for (int i = 0; i < rows.size(); i++) {
             if (rows.get(i).getAttribute("YesNo").equals(true))
                 rows.get(i).remove();
@@ -127,8 +124,26 @@ public class CreateRequest {
         setDataOnPageChanged(true);
         return null;
     }
-    
-/*
+
+    public String Ret() {
+        setDataOnPageChanged(false);
+        setButtonEditClicked(false);
+        return "back";
+    }
+
+    /* public String goBackWithNoChanges() {
+        setDataOnPageChanged(false);
+        setButtonEditClicked(false);
+        return "RollBack";
+    }
+
+    public String saveChangesAndReturnToParentPage() {
+        setDataOnPageChanged(false);
+        setButtonEditClicked(false);
+        return "Commit";
+    }*/
+
+    /*
     private class TestType1 { //представление таблицы ввиде класса
         private int idTestType;
         private int idEmployee;
@@ -229,7 +244,7 @@ public class CreateRequest {
         this.buttonEditClicked = b;
     }
 
-    public  boolean isButtonEditClicked() {
+    public boolean isButtonEditClicked() {
         return this.buttonEditClicked;
     }
 

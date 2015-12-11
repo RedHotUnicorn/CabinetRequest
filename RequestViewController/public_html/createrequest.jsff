@@ -3,6 +3,7 @@
                 xmlns:f="http://java.sun.com/jsf/core" xmlns:h="http://java.sun.com/jsf/html">
   <af:panelGroupLayout id="pgl1" layout="vertical">
     <af:outputText value="#{bindings.Idrequesttype} #{bindings.Title}" id="ot1"/>
+    <af:outputText value="#{bindings.Idrequest}" id="ot3"/>
     <af:switcher id="s1" facetName="#{CreateRequest.routerFacet}">
       <f:facet name="TestType1">
         <af:group id="g1">
@@ -50,11 +51,6 @@
         <af:panelLabelAndMessage label="#{bindings.Text.hints.label}" id="plam2">
           <af:outputText value="#{createForum.Text}" id="ot6"/>
         </af:panelLabelAndMessage>
-        <af:selectOneChoice value="#{createForum.YesNo}"
-                            required="#{bindings.YesNo.hints.mandatory}" shortDesc="#{bindings.YesNo.hints.tooltip}"
-                            readOnly="true" id="soc1">
-          <f:selectItems value="#{bindings.YesNo.items}" id="si1"/>
-        </af:selectOneChoice>
         <af:selectBooleanCheckbox id="sbc1"
                                   value="#{createForum.YesNo}"
                                   validator="#{CreateRequest.sbc1_validator}"
@@ -65,7 +61,14 @@
     <af:commandButton text="Отправить сообщение" id="cb4" action="#{CreateRequest.sendMessage}"/>
     <af:commandButton text="удалить " id="cb7" action="#{CreateRequest.deleteMessagesWithTrueCheckbox}"/>
     <af:commandButton text="редактировать" id="cb8" action="#{CreateRequest.edit}"/>
-    <af:outputText value="#{CreateRequest.buttonEditClicked}" id="ot3"/>
+    <af:commandButton actionListener="#{bindings.Commit.execute}" text="Commit"
+                      disabled="#{!CreateRequest.dataOnPageChanged}"
+                      id="cb9" action="#{CreateRequest.Ret}"/>
+    <af:commandButton text="Rollback" immediate="true" id="cb10" disabled="false"
+                      actionListener="#{bindings.Rollback.execute}"
+                      action="#{CreateRequest.Ret}">
+      <af:resetActionListener/>
+    </af:commandButton>
     <af:commandButton text="Вернуться" id="cb1" action="back" rendered="false"/>
     <af:inputText label="Label 1" id="it1" value="#{CreateRequest.forumMessage}" rendered="false"/>
     <af:commandButton text="Добавить сообщение" id="cb2" action="#{ViewRequest.sendMessage}" rendered="false"/>

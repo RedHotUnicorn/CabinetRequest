@@ -38,6 +38,7 @@
             InstanceName="CabinetRequestServiceDataControl.RequestView1" DataControl="CabinetRequestServiceDataControl"
             RequiresUpdateModel="true" Action="createWithParams">
       <NamedData NDValue="#{title.Idrequesttype}" NDName="Idrequesttype" NDType="java.lang.Integer"/>
+      <NamedData NDValue="2" NDName="Idemployee" NDType="java.lang.Integer"/>
     </action>
     <action IterBinding="RequestTypeView1Iterator" id="TitleSet"
             InstanceName="CabinetRequestServiceDataControl.RequestTypeView1"
