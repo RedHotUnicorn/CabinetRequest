@@ -66,7 +66,7 @@
       <property
          name="fromOutcome">go</property>
       <property
-         name="sdm:polyPoints">B50,510.01758,246.05072,720.8096,368.5459,L54</property>
+         name="sdm:polyPoints">B44,506.51758,246.08434,720.8367,368.5459,L54</property>
    </ControlFlowCase>
    <View
       id="View16">
@@ -93,7 +93,7 @@
       <property
          name="fromOutcome">back</property>
       <property
-         name="sdm:polyPoints">L46,722.6885,361.5459,517.0176,242.0459,B61</property>
+         name="sdm:polyPoints">L46,722.6885,361.5459,513.5176,242.0459,B56</property>
    </ControlFlowCase>
    <MethodCall
       id="MethodCall12">
@@ -150,28 +150,5 @@
          name="fromOutcome">Commit</property>
       <property
          name="sdm:polyPoints">R50,270.5,6.6953125,469.01758,181.0459,L42</property>
-   </ControlFlowCase>
-   <MethodCall
-      id="MethodCall17">
-      <property
-         name="activityId">RollBack</property>
-      <property
-         name="description">&lt;html>&lt;p>&lt;b>RollBack&lt;/b>&lt;/p>&lt;p>Activity Type:  Method Call&lt;/p></property>
-      <property
-         name="exceptionHandler">false</property>
-      <property
-         name="y">370.59766</property>
-      <property
-         name="x">499.0</property>
-   </MethodCall>
-   <ControlFlowCase
-      islink="true"
-      id="ControlFlowCase19"
-      from="MethodCall17"
-      to="View2">
-      <property
-         name="fromOutcome">*</property>
-      <property
-         name="sdm:polyPoints">T50,499.0,316.24707,503.01758,242.0459,B39</property>
    </ControlFlowCase>
 </SDM>

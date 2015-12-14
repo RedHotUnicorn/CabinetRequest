@@ -33,12 +33,6 @@
         <fixed-outcome>Rollback</fixed-outcome>
       </outcome>
     </method-call>
-    <method-call id="RollBack">
-      <method>#{bindings.Rollback.execute}</method>
-      <outcome>
-        <fixed-outcome>Rollback</fixed-outcome>
-      </outcome>
-    </method-call>
     <control-flow-rule id="__6">
       <from-activity-id>viewrequest</from-activity-id>
       <control-flow-case id="__7">
@@ -79,12 +73,6 @@
       <from-activity-id>Commit1</from-activity-id>
       <control-flow-case id="__13">
         <from-outcome>Commit</from-outcome>
-        <to-activity-id>userequests-list</to-activity-id>
-      </control-flow-case>
-    </control-flow-rule>
-    <control-flow-rule id="__14">
-      <from-activity-id>RollBack</from-activity-id>
-      <control-flow-case id="__15">
         <to-activity-id>userequests-list</to-activity-id>
       </control-flow-case>
     </control-flow-rule>

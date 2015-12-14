@@ -3,28 +3,41 @@
                 xmlns:f="http://java.sun.com/jsf/core">
   <af:panelGridLayout id="pgl2">
     <af:gridRow marginTop="5px" height="auto" id="gr1">
-      <af:gridCell marginStart="5px" width="25%" id="gc1"/>
-      <af:gridCell marginStart="5px" width="25%" id="gc2">
-        <af:iterator id="i2" value="#{bindings.RequestTypeView1.collectionModel}" var="title">
-          <af:panelLabelAndMessage label="#{title.Title}" id="plam3">
-            <af:commandLink text="Создать" id="cl2"
-                            action="go" actionListener="#{UseRequestList.crateReq}"/>
-          </af:panelLabelAndMessage>
-        </af:iterator>
+      <af:gridCell marginStart="5px" width="25%" id="gc1">
+        <af:outputText id="ot1" value="Новый рапорт:" inlineStyle="font-weight:bolder;"/>
       </af:gridCell>
+      <af:gridCell marginStart="5px" width="25%" id="gc2"/>
       <af:gridCell marginStart="5px" width="25%" id="gc3"/>
       <af:gridCell marginStart="5px" marginEnd="5px" width="25%" id="gc4"/>
     </af:gridRow>
     <af:gridRow marginTop="5px" height="auto" id="gr2">
       <af:gridCell marginStart="5px" width="25%" id="gc5">
-        <af:outputText id="ot2" value="Ваши рапорта:"/>
+        <af:iterator id="i2" value="#{bindings.RequestTypeView1.collectionModel}" var="title">
+          <af:panelLabelAndMessage label="#{title.Title}" id="plam3">
+            <af:commandLink text="Создать" id="cl2" action="go" actionListener="#{UseRequestList.crateReq}"/>
+          </af:panelLabelAndMessage>
+        </af:iterator>
       </af:gridCell>
       <af:gridCell marginStart="5px" width="25%" id="gc6"/>
       <af:gridCell marginStart="5px" width="25%" id="gc7"/>
       <af:gridCell marginStart="5px" marginEnd="5px" width="25%" id="gc8"/>
     </af:gridRow>
     <af:gridRow marginTop="5px" height="auto" id="gr3">
-      <af:gridCell marginStart="5px" width="25%" id="gc9">
+      <af:gridCell marginStart="5px" width="25%" id="gc9"/>
+      <af:gridCell marginStart="5px" width="25%" id="gc10"/>
+      <af:gridCell marginStart="5px" width="25%" id="gc11"/>
+      <af:gridCell marginStart="5px" marginEnd="5px" width="25%" id="gc12"/>
+    </af:gridRow>
+    <af:gridRow marginTop="5px" height="auto" id="gr4">
+      <af:gridCell marginStart="5px" width="25%" id="gc13">
+        <af:outputText id="ot2" value="Ваши рапорта:" inlineStyle="font-weight:bolder;"/>
+      </af:gridCell>
+      <af:gridCell marginStart="5px" width="25%" id="gc14"/>
+      <af:gridCell marginStart="5px" width="25%" id="gc15"/>
+      <af:gridCell marginStart="5px" marginEnd="5px" width="25%" id="gc16"/>
+    </af:gridRow>
+    <af:gridRow marginTop="5px" marginBottom="5px" height="auto" id="gr5">
+      <af:gridCell marginStart="5px" width="25%" id="gc17">
         <af:panelGroupLayout id="pgl1" layout="vertical">
           <f:facet name="separator">
             <af:separator id="s1"/>
@@ -35,18 +48,6 @@
           </af:iterator>
         </af:panelGroupLayout>
       </af:gridCell>
-      <af:gridCell marginStart="5px" width="25%" id="gc10"/>
-      <af:gridCell marginStart="5px" width="25%" id="gc11"/>
-      <af:gridCell marginStart="5px" marginEnd="5px" width="25%" id="gc12"/>
-    </af:gridRow>
-    <af:gridRow marginTop="5px" height="auto" id="gr4">
-      <af:gridCell marginStart="5px" width="25%" id="gc13"/>
-      <af:gridCell marginStart="5px" width="25%" id="gc14"/>
-      <af:gridCell marginStart="5px" width="25%" id="gc15"/>
-      <af:gridCell marginStart="5px" marginEnd="5px" width="25%" id="gc16"/>
-    </af:gridRow>
-    <af:gridRow marginTop="5px" marginBottom="5px" height="auto" id="gr5">
-      <af:gridCell marginStart="5px" width="25%" id="gc17"/>
       <af:gridCell marginStart="5px" width="25%" id="gc18"/>
       <af:gridCell marginStart="5px" width="25%" id="gc19"/>
       <af:gridCell marginStart="5px" marginEnd="5px" width="25%" id="gc20"/>
