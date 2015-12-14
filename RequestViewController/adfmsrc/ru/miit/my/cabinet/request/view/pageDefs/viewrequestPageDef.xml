@@ -67,7 +67,6 @@
             InstanceName="CabinetRequestServiceDataControl.RequestforummessageView3"
             DataControl="CabinetRequestServiceDataControl" RequiresUpdateModel="true" Action="createWithParams">
       <NamedData NDName="Text" NDType="java.lang.String"/>
-      <NamedData NDValue="#{ViewRequest.currentDate}" NDName="Creationdate" NDType="java.lang.String"/>
     </action>
   </bindings>
 </pageDefinition>

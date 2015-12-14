@@ -59,7 +59,10 @@
     PrecisionRule="true"
     EntityAttrName="Creationdate"
     EntityUsage="Requestforummessage"
-    AliasName="CREATIONDATE"/>
+    AliasName="CREATIONDATE"
+    IsUpdateable="false">
+    <TransientExpression><![CDATA[adf.currentDateTime]]></TransientExpression>
+  </ViewAttribute>
   <ViewAttribute
     Name="Text"
     PrecisionRule="true"

@@ -47,9 +47,9 @@ public class ViewRequest {
 
     public String sendMessage() {
 
-        Calendar calendar = Calendar.getInstance();
+       /* Calendar calendar = Calendar.getInstance();
         SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-        currentDate = formatter.format(new java.sql.Date(calendar.getTime().getTime()));
+        currentDate = formatter.format(new java.sql.Date(calendar.getTime().getTime()));*/
         BindingContainer bindings = getBindings();
         OperationBinding createForumMessageBinding = bindings.getOperationBinding("ForumCreateInsert");
         createForumMessageBinding.getParamsMap().put("Text",
