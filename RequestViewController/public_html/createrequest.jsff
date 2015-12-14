@@ -1,78 +1,117 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <ui:composition xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
                 xmlns:f="http://java.sun.com/jsf/core" xmlns:h="http://java.sun.com/jsf/html">
-  <af:panelGroupLayout id="pgl1" layout="vertical">
-    <af:outputText value="#{bindings.Idrequesttype} #{bindings.Title}" id="ot1"/>
-    <af:outputText value="#{bindings.Idrequest}" id="ot3"/>
-    <af:switcher id="s1" facetName="#{CreateRequest.routerFacet}">
-      <f:facet name="TestType1">
-        <af:group id="g1">
-          <af:iterator id="i2" value="#{bindings.Typetest1View_POCHTA1.collectionModel}" var="pochta">
-            <af:panelFormLayout id="pfl2">
-              <af:panelLabelAndMessage label="Сотрудник" id="plam3">
-                <af:outputText id="ot7" value="#{pochta.Idemployee}"/>
-              </af:panelLabelAndMessage>
-              <af:panelLabelAndMessage label="Число" id="plam4">
-                <af:outputText value="#{pochta.Chooseint}" id="ot8"/>
-              </af:panelLabelAndMessage>
-            </af:panelFormLayout>
-          </af:iterator>
-          <af:inputText id="it3" value="#{CreateRequest.test1Message}"/>
-          <af:commandButton text="commandButton 1" id="cb5" action="#{CreateRequest.createTest1Obj}"/>
-        </af:group>
-      </f:facet>
-      <f:facet name="TestType2">
-        <af:group id="g2">
-          <af:iterator id="i3" value="#{bindings.Typetest2View2.collectionModel}" var="var2">
-            <af:panelFormLayout id="pfl3">
-              <af:panelLabelAndMessage label="Сокращенная строка" id="plam5">
-                <af:outputText value="#{var2.Addchar}" id="ot2"/>
-              </af:panelLabelAndMessage>
-              <af:panelLabelAndMessage label="Сотрудник" id="plam6">
-                <af:outputText value="#{var2.Idemployee}" id="ot9"/>
-              </af:panelLabelAndMessage>
-            </af:panelFormLayout>
-          </af:iterator>
-          <af:inputText id="it4" value="#{CreateRequest.test2Message}"/>
-          <af:commandButton text="commandButton 2" id="cb6" action="#{CreateRequest.createTest2Obj}"/>
-        </af:group>
-      </f:facet>
-      <f:facet name="Default">
-        <af:outputText value="Fuck" id="ot4"/>
-      </f:facet>
-    </af:switcher>
-    <af:iterator id="i1" value="#{bindings.RequestforummessageView3.collectionModel}" var="createForum">
-      <af:panelFormLayout id="pfl1">
-        <af:panelLabelAndMessage label="Дата" id="plam1">
-          <af:outputText value="#{createForum.Creationdate}" id="ot5">
-            
-          </af:outputText>
-        </af:panelLabelAndMessage>
-        <af:panelLabelAndMessage label="Текст" id="plam2">
-          <af:outputText value="#{createForum.Text}" id="ot6"/>
-        </af:panelLabelAndMessage>
-        <af:selectBooleanCheckbox id="sbc1"
-                                  value="#{createForum.YesNo}"
-                                  validator="#{CreateRequest.sbc1_validator}"
-                                  rendered="#{CreateRequest.buttonEditClicked}"/>
-      </af:panelFormLayout>
-    </af:iterator>
-    <af:inputText id="it2" value="#{CreateRequest.forumMessage}"/>
-    <af:commandButton text="Отправить сообщение" id="cb4" action="#{CreateRequest.sendMessage}"/>
-    <af:commandButton text="удалить " id="cb7" action="#{CreateRequest.deleteMessagesWithTrueCheckbox}"/>
-    <af:commandButton text="редактировать" id="cb8" action="#{CreateRequest.edit}"/>
-    <af:commandButton actionListener="#{bindings.Commit.execute}" text="Commit"
-                      disabled="#{!CreateRequest.dataOnPageChanged}"
-                      id="cb9" action="#{CreateRequest.Ret}"/>
-    <af:commandButton text="Rollback" immediate="true" id="cb10" disabled="false"
-                      actionListener="#{bindings.Rollback.execute}"
-                      action="#{CreateRequest.Ret}">
-      <af:resetActionListener/>
-    </af:commandButton>
-    <af:commandButton text="Вернуться" id="cb1" action="back" rendered="false"/>
-    <af:inputText label="Label 1" id="it1" value="#{CreateRequest.forumMessage}" rendered="false"/>
-    <af:commandButton text="Добавить сообщение" id="cb2" action="#{ViewRequest.sendMessage}" rendered="false"/>
-    <af:commandButton text="Редактировать" id="cb3" action="#{CreateRequest.edit}" rendered="false"/>
-  </af:panelGroupLayout>
   <!--oracle-jdev-comment:preferred-managed-bean-name:CreateRequest-->
+  <af:panelGridLayout id="pgl2">
+    <af:gridRow marginTop="5px" height="auto" id="gr1">
+      <af:gridCell marginStart="5px" width="40%" id="gc1">
+        <af:outputText value="#{bindings.Idrequesttype} #{bindings.Title}" id="ot1"/>
+        <af:outputText value="#{bindings.Idrequest}" id="ot3"/>
+      </af:gridCell>
+      <af:gridCell marginStart="5px" marginEnd="5px" width="50%" id="gc2"/>
+    </af:gridRow>
+    <af:gridRow marginTop="5px" height="auto" id="gr2">
+      <af:gridCell marginStart="5px" width="40%" id="gc3">
+        <h:outputText value="Рапорт" id="ot10" style="font-weight:bolder;"/>
+      </af:gridCell>
+      <af:gridCell marginStart="5px" marginEnd="5px" width="50%" id="gc4">
+        <af:commandButton text="Редактировать" id="cb1" action="#{CreateRequest.editTypes}"/>
+        <af:commandButton text="Удалить" id="cb2" disabled="#{!CreateRequest.buttonEditTypesClicked}"
+                          action="#{CreateRequest.deleteTypesWithTrueCheckbox}"/>
+      </af:gridCell>
+    </af:gridRow>
+    <af:gridRow marginTop="5px" height="auto" id="gr3">
+      <af:gridCell marginStart="5px" width="40%" id="gc5">
+        <af:switcher id="s1" facetName="#{CreateRequest.routerFacet}">
+          <f:facet name="TestType1">
+            <af:group id="g1">
+              <af:iterator id="i2" value="#{bindings.Typetest1View_POCHTA1.collectionModel}" var="pochta">
+                <af:panelFormLayout id="pfl2">
+                  <af:panelLabelAndMessage label="Сотрудник" id="plam3">
+                    <af:outputText id="ot7" value="#{pochta.Idemployee}"/>
+                  </af:panelLabelAndMessage>
+                  <af:panelLabelAndMessage label="Число" id="plam4">
+                    <af:outputText value="#{pochta.Chooseint}" id="ot8"/>
+                  </af:panelLabelAndMessage>
+                  <af:selectBooleanCheckbox id="sbc3" value="#{pochta.YesNo}"
+                                            validator="#{CreateRequest.sbc1_validator}"
+                                            rendered="#{CreateRequest.buttonEditTypesClicked}"/>
+                </af:panelFormLayout>
+              </af:iterator>
+              <af:inputText id="it3" value="#{CreateRequest.test1Message}"/>
+              <af:commandButton text="Число" id="cb5" action="#{CreateRequest.createTest1Obj}"/>
+            </af:group>
+          </f:facet>
+          <f:facet name="TestType2">
+            <af:group id="g2">
+              <af:iterator id="i3" value="#{bindings.Typetest2View2.collectionModel}" var="var2">
+                <af:panelFormLayout id="pfl3">
+                  <af:panelLabelAndMessage label="Сотрудник" id="plam6">
+                    <af:outputText value="#{var2.Idemployee}" id="ot9"/>
+                  </af:panelLabelAndMessage>
+                  <af:panelLabelAndMessage label="Сокращенная строка" id="plam5">
+                    <af:outputText value="#{var2.Addchar}" id="ot2"/>
+                  </af:panelLabelAndMessage>
+                  <af:selectBooleanCheckbox id="sbc2" value="#{var2.YesNo}"
+                                            validator="#{CreateRequest.sbc1_validator}"
+                                            rendered="#{CreateRequest.buttonEditTypesClicked}"/>
+                </af:panelFormLayout>
+              </af:iterator>
+              <af:inputText id="it4" value="#{CreateRequest.test2Message}"/>
+              <af:commandButton text="Две буквы" id="cb6" action="#{CreateRequest.createTest2Obj}"/>
+            </af:group>
+          </f:facet>
+          <f:facet name="Default">
+            <af:outputText value="Fuck" id="ot4"/>
+          </f:facet>
+        </af:switcher>
+      </af:gridCell>
+      <af:gridCell marginStart="5px" marginEnd="5px" width="50%" id="gc6"/>
+    </af:gridRow>
+    <af:gridRow marginTop="5px" height="auto" id="gr4">
+      <af:gridCell marginStart="5px" width="40%" id="gc7">
+        <h:outputText value="Сообщения" id="ot11" style="font-weight:bolder;"/>
+      </af:gridCell>
+      <af:gridCell marginStart="5px" marginEnd="5px" width="50%" id="gc8">
+        <af:commandButton text="Редактировать" id="cb8" action="#{CreateRequest.editMessages}"/>
+        <af:commandButton text="Удалить " id="cb7" action="#{CreateRequest.deleteMessagesWithTrueCheckbox}"
+                          disabled="#{!CreateRequest.buttonEditMessagesClicked}"/>
+      </af:gridCell>
+    </af:gridRow>
+    <af:gridRow marginTop="5px" height="auto" id="gr5">
+      <af:gridCell marginStart="5px" width="40%" id="gc9">
+        <af:iterator id="i1" value="#{bindings.RequestforummessageView3.collectionModel}" var="createForum">
+          <af:panelFormLayout id="pfl1">
+            <af:panelLabelAndMessage label="Дата" id="plam1">
+              <af:outputText value="#{createForum.Creationdate}" id="ot5"/>
+            </af:panelLabelAndMessage>
+            <af:panelLabelAndMessage label="Текст" id="plam2">
+              <af:outputText value="#{createForum.Text}" id="ot6"/>
+            </af:panelLabelAndMessage>
+            <af:selectBooleanCheckbox id="sbc1" value="#{createForum.YesNo}" validator="#{CreateRequest.sbc1_validator}"
+                                      rendered="#{CreateRequest.buttonEditMessagesClicked}"/>
+          </af:panelFormLayout>
+        </af:iterator>
+      </af:gridCell>
+      <af:gridCell marginStart="5px" marginEnd="5px" width="50%" id="gc10"/>
+    </af:gridRow>
+    <af:gridRow marginTop="5px" marginBottom="5px" height="auto" id="gr6">
+      <af:gridCell marginStart="5px" width="40%" id="gc11">
+        <af:inputText id="it2" value="#{CreateRequest.forumMessage}"/>
+        <af:commandButton text="Отправить" id="cb4" action="#{CreateRequest.sendMessage}"/>
+      </af:gridCell>
+      <af:gridCell marginStart="5px" marginEnd="5px" width="50%" id="gc12"/>
+    </af:gridRow>
+    <af:gridRow id="gr7">
+      <af:gridCell id="gc13"/>
+      <af:gridCell id="gc14">
+        <af:commandButton text="Вернуться" immediate="true" id="cb10" disabled="false"
+                          actionListener="#{bindings.Rollback.execute}" action="#{CreateRequest.Ret}">
+          <af:resetActionListener/>
+        </af:commandButton>
+        <af:commandButton actionListener="#{bindings.Commit.execute}" text="Сохранить"
+                          disabled="#{!CreateRequest.dataOnPageChanged}" id="cb9" action="#{CreateRequest.Ret}"/>
+      </af:gridCell>
+    </af:gridRow>
+  </af:panelGridLayout>
 </ui:composition>

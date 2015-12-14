@@ -21,25 +21,57 @@ import ru.miit.my.cabinet.request.view.utils.ADFUtils;
 
 public class CreateRequest {
     //Переменные
-    static private boolean buttonEditClicked = false; //Нажали на кнопочку Редактировать
+    static private boolean buttonEditMessagesClicked = false; //Нажали на кнопочку Редактировать для сообщений
+    static private boolean buttonEditTypesClicked = false;
     static private boolean dataOnPageChanged = false; //Что то изменили на странице кнопка Сохранить активировалась
     private String forumMessage = "";
     private String test1Message = "";
     private String test2Message = "";
     private String currentDate;
-    
+    private int numOfFacet = 0;
+
     private String routerFacet = setRouter();
     //Конструктор
 
     public CreateRequest() {
         super();
     }
-    //Добавление сообщения
+    //Обращение к биндингс
 
     public BindingContainer getBindings() {
         return BindingContext.getCurrent().getCurrentBindingsEntry();
     }
 
+    //Роутер
+
+    public String setRouter() {
+        BindingContainer bindings = getBindings();
+        AttributeBinding Attrib = (AttributeBinding)bindings.get("Idrequesttype");
+        switch ((Integer)Attrib.getInputValue()) {
+        case 1:
+            setNumOfFacet(1);
+            return "TestType1";
+
+        case 2:
+            setNumOfFacet(2);
+            return "TestType2";
+
+        default:
+            return "Default";
+        }
+    }
+
+    //Кнопки редактирования
+
+    public void editMessages() {
+        setButtonEditMessagesClicked(!isButtonEditMessagesClicked());
+    }
+
+    public void editTypes() {
+        setButtonEditTypesClicked(!isButtonEditTypesClicked());
+    }
+
+    //Создать сообщение
 
     public String sendMessage() {
 
@@ -59,27 +91,10 @@ public class CreateRequest {
         setDataOnPageChanged(true);
         return "";
     }
-    //Роутер
 
-    public String setRouter() {
-        BindingContainer bindings = getBindings();
-        AttributeBinding Attrib = (AttributeBinding)bindings.get("Idrequesttype");
-        switch ((Integer)Attrib.getInputValue()) {
-        case 1:
-            return "TestType1";
 
-        case 2:
-            return "TestType2";
+    //Создать объект 2 го типа
 
-        default:
-            return "Default";
-        }
-    }
-//Кнопка редактирования
-    public void edit() {
-        setButtonEditClicked(!isButtonEditClicked());
-    }
-//Создать объект 2 го типа
     public String createTest2Obj() {
         BindingContainer bindings = getBindings();
         OperationBinding operationBinding = bindings.getOperationBinding("Createwithparameters2");
@@ -94,6 +109,7 @@ public class CreateRequest {
         return null;
     }
     //Создать объект 1 го типа
+
     public String createTest1Obj() {
         BindingContainer bindings = getBindings();
         OperationBinding operationBinding = bindings.getOperationBinding("Createwithparameters1");
@@ -107,7 +123,8 @@ public class CreateRequest {
         return "";
     }
 
-//Удалить сообщение
+    //Удалить сообщение
+
     public String deleteMessagesWithTrueCheckbox() {
 
         ArrayList<Row> rows =
@@ -119,10 +136,32 @@ public class CreateRequest {
         setDataOnPageChanged(true);
         return null;
     }
-//возврат
+
+    public String deleteTypesWithTrueCheckbox() {
+        String str = "";
+        switch (numOfFacet) {
+        case 1:
+            str = "Typetest1View_POCHTA1Iterator";
+            break;
+        case 2:
+            str = "Typetest2View2Iterator";
+            break;
+        }
+        ArrayList<Row> rows = new ArrayList<Row>(Arrays.asList(ADFUtils.findIterator(str).getAllRowsInRange()));
+        for (int i = 0; i < rows.size(); i++) {
+            if (rows.get(i).getAttribute("YesNo").equals(true))
+                rows.get(i).remove();
+            
+        }
+        setDataOnPageChanged(true);
+        return null;
+    }
+    //возврат
+
     public String Ret() {
         setDataOnPageChanged(false);
-        setButtonEditClicked(false);
+        setButtonEditMessagesClicked(false);
+        setButtonEditTypesClicked(false);
         return "back";
     }
 
@@ -235,14 +274,6 @@ public class CreateRequest {
         return dataOnPageChanged;
     }
 
-    public void setButtonEditClicked(boolean b) {
-        this.buttonEditClicked = b;
-    }
-
-    public boolean isButtonEditClicked() {
-        return this.buttonEditClicked;
-    }
-
 
     public void setRouterFacet(String routerFacet) {
         this.routerFacet = routerFacet;
@@ -270,6 +301,30 @@ public class CreateRequest {
 
     public void sbc1_validator(FacesContext facesContext, UIComponent uIComponent, Object object) {
         // Add event code here...
+    }
+
+    public void setNumOfFacet(int numOfFacet) {
+        this.numOfFacet = numOfFacet;
+    }
+
+    public int getNumOfFacet() {
+        return numOfFacet;
+    }
+
+    public void setButtonEditTypesClicked(boolean buttonEditTypesClicked) {
+        CreateRequest.buttonEditTypesClicked = buttonEditTypesClicked;
+    }
+
+    public boolean isButtonEditTypesClicked() {
+        return buttonEditTypesClicked;
+    }
+
+    public void setButtonEditMessagesClicked(boolean buttonEditMessagesClicked) {
+        CreateRequest.buttonEditMessagesClicked = buttonEditMessagesClicked;
+    }
+
+    public boolean isButtonEditMessagesClicked() {
+        return buttonEditMessagesClicked;
     }
 }
 

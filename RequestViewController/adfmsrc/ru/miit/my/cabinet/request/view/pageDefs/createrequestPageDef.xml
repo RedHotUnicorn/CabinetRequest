@@ -53,6 +53,7 @@
           <Item Value="Chooseint"/>
           <Item Value="Idemployee"/>
           <Item Value="Idrequest"/>
+          <Item Value="YesNo"/>
         </AttrNames>
       </nodeDefinition>
     </tree>
@@ -63,6 +64,7 @@
           <Item Value="Addchar"/>
           <Item Value="Idemployee"/>
           <Item Value="Idrequest"/>
+          <Item Value="YesNo"/>
         </AttrNames>
       </nodeDefinition>
     </tree>
@@ -76,11 +78,13 @@
             InstanceName="CabinetRequestServiceDataControl.Typetest1View_POCHTA1"
             DataControl="CabinetRequestServiceDataControl" RequiresUpdateModel="true" Action="createWithParams">
       <NamedData NDName="Chooseint" NDType="java.lang.Integer"/>
+      <NamedData NDValue="2" NDName="Idemployee" NDType="java.lang.Integer"/>
     </action>
     <action IterBinding="Typetest2View2Iterator" id="Createwithparameters2"
             InstanceName="CabinetRequestServiceDataControl.Typetest2View2"
             DataControl="CabinetRequestServiceDataControl" RequiresUpdateModel="true" Action="createWithParams">
       <NamedData NDName="Addchar" NDType="java.lang.String"/>
+      <NamedData NDValue="2" NDName="Idemployee" NDType="java.lang.Integer"/>
     </action>
     <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction"
             DataControl="CabinetRequestServiceDataControl"/>

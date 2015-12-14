@@ -44,4 +44,14 @@
     EntityAttrName="Addchar"
     EntityUsage="Typetest2"
     AliasName="ADDCHAR"/>
+  <ViewAttribute
+    Name="YesNo"
+    IsSelected="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="java.lang.Boolean"
+    ColumnType="NUMBER"
+    AliasName="VIEW_ATTR"
+    SQLType="BIT"
+    DefaultValue="false"/>
 </ViewObject>

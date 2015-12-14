@@ -44,4 +44,14 @@
     EntityAttrName="Chooseint"
     EntityUsage="Typetest1"
     AliasName="CHOOSEINT"/>
+  <ViewAttribute
+    Name="YesNo"
+    IsSelected="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="java.lang.Boolean"
+    ColumnType="NUMBER"
+    AliasName="VIEW_ATTR"
+    SQLType="BIT"
+    DefaultValue="false"/>
 </ViewObject>

@@ -77,7 +77,7 @@ public class ViewRequest {
         return "RollBack";
     }
 
-    public void edit() {
+    public void editMessages() {
         setButtonEditClicked(!isButtonEditClicked());
     }
 

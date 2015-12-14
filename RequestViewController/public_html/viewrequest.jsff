@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <ui:composition xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
-                xmlns:f="http://java.sun.com/jsf/core">
+                xmlns:f="http://java.sun.com/jsf/core" xmlns:h="http://java.sun.com/jsf/html">
   <af:panelGridLayout id="pgl1">
     <af:gridRow marginTop="5px" height="auto" id="gr1">
       <af:gridCell marginStart="5px" width="34%" id="gc1"/>
@@ -9,51 +9,61 @@
     </af:gridRow>
     <af:gridRow marginTop="5px" height="auto" id="gr2">
       <af:gridCell marginStart="5px" width="34%" id="gc4">
-        <af:outputText value="Вы указали следующие данные" id="ot4"/>
+        <af:outputText value="Рапорт" id="ot4" inlineStyle="font-weight:bolder;"/>
+      </af:gridCell>
+      <af:gridCell marginStart="5px" width="33%" id="gc5"/>
+      <af:gridCell marginStart="5px" marginEnd="5px" width="33%" id="gc6"/>
+    </af:gridRow>
+    <af:gridRow marginTop="5px" height="auto" id="gr3">
+      <af:gridCell marginStart="5px" width="34%" id="gc7">
         <af:switcher id="s1" facetName="#{ViewRequest.routerFacet}">
           <f:facet name="TestType1">
             <af:group id="g2">
               <af:iterator id="i2" value="#{bindings.Typetest1View_POCHTA1.collectionModel}" var="r" rendered="true">
-                <af:panelGroupLayout id="pgl3">
-                  <f:facet name="separator"/>
-                  <af:outputText value="#{r.Idemployee}" id="ot5"/>
-                  <af:outputText id="ot6" value="#{r.Chooseint}"/>
-                </af:panelGroupLayout>
+                <af:panelFormLayout id="pfl3">
+                  <af:panelLabelAndMessage label="Сотрудник" id="plam4">
+                    <af:outputText id="ot10" value="#{r.Idemployee}"/>
+                  </af:panelLabelAndMessage>
+                  <af:panelLabelAndMessage label="Число" id="plam7">
+                    <af:outputText value="#{r.Chooseint}" id="ot11"/>
+                  </af:panelLabelAndMessage>
+                </af:panelFormLayout>
               </af:iterator>
             </af:group>
           </f:facet>
           <f:facet name="TestType2">
             <af:group id="g1">
               <af:iterator id="i3" value="#{bindings.Typetest2View2.collectionModel}" var="reqPart" rendered="true">
-                <af:panelGroupLayout id="pgl2" layout="horizontal">
-                  <af:panelLabelAndMessage label="" id="plam5">
-                    <af:outputText value="#{reqPart.Idemployee}" id="ot7"/>
+                <af:panelFormLayout id="pfl4">
+                  <af:panelLabelAndMessage label="Сотрудник" id="plam9">
+                    <af:outputText value="#{reqPart.Idemployee}" id="ot6"/>
                   </af:panelLabelAndMessage>
-                  <af:panelLabelAndMessage label="" id="plam6">
-                    <af:outputText value="#{reqPart.Addchar}" id="ot8"/>
+                  <af:panelLabelAndMessage label="Сокращенная строка" id="plam8">
+                    <af:outputText value="#{reqPart.Addchar}" id="ot5"/>
                   </af:panelLabelAndMessage>
-                </af:panelGroupLayout>
+                </af:panelFormLayout>
               </af:iterator>
             </af:group>
           </f:facet>
           <f:facet name="Default"/>
         </af:switcher>
       </af:gridCell>
-      <af:gridCell marginStart="5px" width="33%" id="gc5"/>
-      <af:gridCell marginStart="5px" marginEnd="5px" width="33%" id="gc6"/>
-    </af:gridRow>
-    <af:gridRow marginTop="5px" height="auto" id="gr3">
-      <af:gridCell marginStart="5px" width="34%" id="gc7"/>
       <af:gridCell marginStart="5px" width="33%" id="gc8"/>
       <af:gridCell marginStart="5px" marginEnd="5px" width="33%" id="gc9"/>
     </af:gridRow>
     <af:gridRow marginTop="5px" height="auto" id="gr4">
-      <af:gridCell marginStart="5px" width="34%" id="gc10"/>
-      <af:gridCell marginStart="5px" width="33%" id="gc11"/>
+      <af:gridCell marginStart="5px" width="34%" id="gc10">
+        <h:outputText value="Сообщения" id="ot1" style="font-style:inherit; font-weight:bolder;"/>
+      </af:gridCell>
+      <af:gridCell marginStart="5px" width="33%" id="gc11">
+        <af:commandButton text="Редактировать" id="cb5" action="#{ViewRequest.editMessages}"/>
+        <af:commandButton text="Удалить" id="cb4" action="#{requestScope.ViewRequest.deleteMessagesWithTrueCheckbox}"
+                          disabled="#{!ViewRequest.buttonEditClicked}"/>
+      </af:gridCell>
       <af:gridCell marginStart="5px" marginEnd="5px" width="33%" id="gc12"/>
     </af:gridRow>
     <af:gridRow marginTop="5px" height="auto" id="gr5">
-      <af:gridCell marginStart="5px" width="34%" id="gc13">
+      <af:gridCell marginStart="5px" width="24%" id="gc13">
         <af:iterator id="i1" value="#{bindings.RequestforummessageView3.collectionModel}" var="viewForum" first="0">
           <af:panelLabelAndMessage label="ID " id="plam3">
             <af:outputText value="#{viewForum.Idrequestforummessage}" id="ot9"/>
@@ -65,10 +75,8 @@
           <af:panelLabelAndMessage label="Текст сообщения" id="plam2">
             <af:outputText value="#{viewForum.Text}" id="ot3"/>
           </af:panelLabelAndMessage>
-          <af:selectBooleanCheckbox value="#{viewForum.YesNo}"
-                                    shortDesc="#{bindings.YesNo.hints.tooltip}" id="sbc2"
-                                    validator="#{ViewRequest.sbc2_validator}" selected="false"
-                                    rendered="#{ViewRequest.buttonEditClicked}"/>
+          <af:selectBooleanCheckbox value="#{viewForum.YesNo}" shortDesc="#{bindings.YesNo.hints.tooltip}" id="sbc2"
+                                    selected="false" rendered="#{ViewRequest.buttonEditClicked}"/>
           <af:panelFormLayout id="pfl1" rendered="false">
             <af:inputDate value="#{viewForum.Creationdate}" required="#{viewForum.Creationdate.hints.mandatory}"
                              columns="#{viewForum.Creationdate.hints.displayWidth}" id="id1" >
@@ -88,18 +96,20 @@
           <af:inputText value="#{ViewRequest.forumMessage}" id="it2" columns="20" rows="2">
              </af:inputText>
           <f:facet name="footer">
-            <af:commandButton text="Отправить сообщение" id="cb2" action="#{ViewRequest.sendMessage}"/>
+            <af:commandButton text="Отправить" id="cb2" action="#{ViewRequest.sendMessage}"/>
           </f:facet>
         </af:panelFormLayout>
       </af:gridCell>
-      <af:gridCell marginStart="5px" width="33%" id="gc17">
-        <af:commandButton text="Удалить" id="cb4" action="#{requestScope.ViewRequest.deleteMessagesWithTrueCheckbox}"/>
+      <af:gridCell marginStart="5px" width="33%" id="gc17"/>
+      <af:gridCell marginStart="5px" marginEnd="5px" width="33%" id="gc18"/>
+    </af:gridRow>
+    <af:gridRow id="gr7">
+      <af:gridCell id="gc19"/>
+      <af:gridCell id="gc20">
         <af:commandButton text="Вернуться" id="cb1" action="#{ViewRequest.goBackWithNoChanges}"/>
         <af:commandButton text="Сохранить" id="cb3" action="#{ViewRequest.saveChangesAndReturnToParentPage}"
                           disabled="#{!ViewRequest.dataOnPageChanged}"/>
-        <af:commandButton text="Редактировать" id="cb5" action="#{ViewRequest.edit}"/>
       </af:gridCell>
-      <af:gridCell marginStart="5px" marginEnd="5px" width="33%" id="gc18"/>
     </af:gridRow>
   </af:panelGridLayout>
   <!--oracle-jdev-comment:preferred-managed-bean-name:ViewRequest-->
