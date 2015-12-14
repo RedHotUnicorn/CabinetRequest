@@ -134,6 +134,7 @@ public class CreateRequest {
                 rows.get(i).remove();
         }
         setDataOnPageChanged(true);
+        setButtonEditMessagesClicked(false);
         return null;
     }
 
@@ -155,10 +156,10 @@ public class CreateRequest {
         
         }
         if (( new ArrayList<Row>(Arrays.asList(ADFUtils.findIterator(str).getAllRowsInRange()))).size()==0){
-            
+        
         setDataOnPageChanged(false);
         }
-        
+        setButtonEditTypesClicked(false);
         return null;
     }
     //возврат

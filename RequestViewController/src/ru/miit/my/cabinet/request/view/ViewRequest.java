@@ -90,6 +90,7 @@ public class ViewRequest {
                 rows.get(i).remove();
         }
         setDataOnPageChanged(true);
+        setButtonEditClicked(false);
         return null;
     }
 
