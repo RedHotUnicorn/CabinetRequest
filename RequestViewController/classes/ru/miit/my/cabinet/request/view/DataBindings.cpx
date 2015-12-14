@@ -16,8 +16,6 @@
           usageId="ru_miit_my_cabinet_request_view_request_tdf_request_tdf_Commit1PageDef"/>
     <page path="/WEB-INF/request-tdf.xml#request-tdf@Rollback"
           usageId="ru_miit_my_cabinet_request_view_request_tdf_request_tdf_RollbackPageDef"/>
-    <page path="/WEB-INF/request-tdf.xml#request-tdf@RollBack"
-          usageId="ru_miit_my_cabinet_request_view_request_tdf_request_tdf_methodCall1PageDef"/>
   </pageMap>
   <pageDefinitionUsages>
     <page id="ru_miit_my_cabinet_request_view_requests_testPageDef"
@@ -34,8 +32,6 @@
           path="ru.miit.my.cabinet.request.view.pageDefs.request_tdf_request_tdf_Commit1PageDef"/>
     <page id="ru_miit_my_cabinet_request_view_request_tdf_request_tdf_RollbackPageDef"
           path="ru.miit.my.cabinet.request.view.pageDefs.request_tdf_request_tdf_RollbackPageDef"/>
-    <page id="ru_miit_my_cabinet_request_view_request_tdf_request_tdf_methodCall1PageDef"
-          path="ru.miit.my.cabinet.request.view.pageDefs.request_tdf_request_tdf_methodCall1PageDef"/>
   </pageDefinitionUsages>
   <dataControlUsages>
     <BC4JDataControl id="CabinetRequestServiceDataControl" Package="ru.miit.my.cabinet.request.model"

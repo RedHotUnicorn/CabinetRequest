@@ -88,7 +88,7 @@ public class CreateRequest {
             return "";
         }
         this.setForumMessage("");
-        setDataOnPageChanged(true);
+       // setDataOnPageChanged(true);
         return "";
     }
 
@@ -152,8 +152,13 @@ public class CreateRequest {
             if (rows.get(i).getAttribute("YesNo").equals(true))
                 rows.get(i).remove();
             
+        
         }
-        setDataOnPageChanged(true);
+        if (( new ArrayList<Row>(Arrays.asList(ADFUtils.findIterator(str).getAllRowsInRange()))).size()==0){
+            
+        setDataOnPageChanged(false);
+        }
+        
         return null;
     }
     //возврат
