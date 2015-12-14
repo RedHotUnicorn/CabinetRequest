@@ -31,6 +31,7 @@ public class ViewRequest {
 
     public ViewRequest() {
         super();
+        System.out.println("!!!!!!!!!!!!!!!!!!!!!!!1");
     }
 
     static private boolean buttonEditClicked = false; //Нажали на кнопочку Редактировать

@@ -12,6 +12,21 @@
       <class>java.lang.Long</class>
       <required/>
     </input-parameter-definition>
+    <managed-bean id="__14">
+      <managed-bean-name>UseRequestList</managed-bean-name>
+      <managed-bean-class>ru.miit.my.cabinet.request.view.UseRequestList</managed-bean-class>
+      <managed-bean-scope>view</managed-bean-scope>
+    </managed-bean>
+    <managed-bean id="__15">
+      <managed-bean-name>ViewRequest</managed-bean-name>
+      <managed-bean-class>ru.miit.my.cabinet.request.view.ViewRequest</managed-bean-class>
+      <managed-bean-scope>view</managed-bean-scope>
+    </managed-bean>
+    <managed-bean id="__16">
+      <managed-bean-name>CreateRequest</managed-bean-name>
+      <managed-bean-class>ru.miit.my.cabinet.request.view.CreateRequest</managed-bean-class>
+      <managed-bean-scope>view</managed-bean-scope>
+    </managed-bean>
     <view id="userequests-list">
       <page>/userequests-list.jsff</page>
     </view>

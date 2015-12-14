@@ -3,19 +3,4 @@
   <application>
     <default-render-kit-id>oracle.adf.rich</default-render-kit-id>
   </application>
-  <managed-bean>
-    <managed-bean-name>ViewRequest</managed-bean-name>
-    <managed-bean-class>ru.miit.my.cabinet.request.view.ViewRequest</managed-bean-class>
-    <managed-bean-scope>request</managed-bean-scope>
-  </managed-bean>
-  <managed-bean>
-    <managed-bean-name>CreateRequest</managed-bean-name>
-    <managed-bean-class>ru.miit.my.cabinet.request.view.CreateRequest</managed-bean-class>
-    <managed-bean-scope>request</managed-bean-scope>
-  </managed-bean>
-  <managed-bean>
-    <managed-bean-name>UseRequestList</managed-bean-name>
-    <managed-bean-class>ru.miit.my.cabinet.request.view.UseRequestList</managed-bean-class>
-    <managed-bean-scope>request</managed-bean-scope>
-  </managed-bean>
 </faces-config>

@@ -38,7 +38,9 @@
                                             rendered="#{CreateRequest.buttonEditTypesClicked}"/>
                 </af:panelFormLayout>
               </af:iterator>
-              <af:inputText id="it3" value="#{CreateRequest.test1Message}"/>
+              <af:inputText id="it3" value="#{CreateRequest.test1Message}">
+                <af:convertNumber/>
+              </af:inputText>
               <af:commandButton text="Число" id="cb5" action="#{CreateRequest.createTest1Obj}"/>
             </af:group>
           </f:facet>
@@ -80,18 +82,27 @@
     </af:gridRow>
     <af:gridRow marginTop="5px" height="auto" id="gr5">
       <af:gridCell marginStart="5px" width="40%" id="gc9">
-        <af:iterator id="i1" value="#{bindings.RequestforummessageView3.collectionModel}" var="createForum">
-          <af:panelFormLayout id="pfl1">
-            <af:panelLabelAndMessage label="Дата" id="plam1">
-              <af:outputText value="#{createForum.Creationdate}" id="ot5"/>
-            </af:panelLabelAndMessage>
-            <af:panelLabelAndMessage label="Текст" id="plam2">
-              <af:outputText value="#{createForum.Text}" id="ot6"/>
-            </af:panelLabelAndMessage>
-            <af:selectBooleanCheckbox id="sbc1" value="#{createForum.YesNo}" validator="#{CreateRequest.sbc1_validator}"
-                                      rendered="#{CreateRequest.buttonEditMessagesClicked}"/>
-          </af:panelFormLayout>
-        </af:iterator>
+        <af:panelGroupLayout id="pgl1" layout="vertical">
+          <af:iterator id="i1" value="#{bindings.RequestforummessageView3.collectionModel}" var="createForum">
+            <af:panelFormLayout id="pfl1">
+              <af:panelLabelAndMessage label="Дата" id="plam1">
+                <af:outputText value="#{createForum.Creationdate}" id="ot5"/>
+              </af:panelLabelAndMessage>
+              <af:panelLabelAndMessage label="Текст" id="plam2">
+                <af:outputText value="#{createForum.Text}" id="ot6"/>
+              </af:panelLabelAndMessage>
+              <af:selectBooleanCheckbox id="sbc1" value="#{createForum.YesNo}"
+                                        validator="#{CreateRequest.sbc1_validator}"
+                                        rendered="#{CreateRequest.buttonEditMessagesClicked}"/>
+            </af:panelFormLayout>
+          </af:iterator>
+          <f:facet name="separator">
+            <af:group id="g3">
+              <af:spacer width="10" height="10" id="s3"/>
+              <af:separator id="s2"/>
+            </af:group>
+          </f:facet>
+        </af:panelGroupLayout>
       </af:gridCell>
       <af:gridCell marginStart="5px" marginEnd="5px" width="50%" id="gc10"/>
     </af:gridRow>

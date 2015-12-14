@@ -8,6 +8,8 @@ import oracle.binding.AttributeBinding;
 import oracle.binding.BindingContainer;
 import oracle.binding.OperationBinding;
 
+import ru.miit.my.cabinet.request.view.utils.JSFUtils;
+
 public class UseRequestList {
     public UseRequestList() {
         super();
@@ -26,6 +28,8 @@ public class UseRequestList {
             return null;
         }
         int idType = (Integer)((AttributeBinding)bindings.get("TypeOfNewRequest")).getInputValue();
+        
+//        Integer idkRequest = (Integer)JSFUtils.resolveExpression("#{title.IdkRequest}");
         
         OperationBinding createRequestBinding = bindings.getOperationBinding("CreateReq");
         createRequestBinding.getParamsMap().put("Idrequesttype",idType);
