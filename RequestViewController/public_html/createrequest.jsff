@@ -52,37 +52,39 @@
       </f:facet>
       <f:facet name="TestType2">
         <af:group id="g2">
-          <af:panelGroupLayout id="pgl8">
-            <af:iterator id="i3" value="#{bindings.Typetest2View2.collectionModel}" var="var2">
-              <af:panelGridLayout id="pgl9">
-                <af:gridRow marginTop="5px" marginBottom="5px" height="auto" id="gr12">
-                  <af:gridCell marginStart="5px" width="80%" id="gc23">
-                    <af:panelFormLayout id="pfl3">
-                      <af:panelLabelAndMessage label="Сотрудник" id="plam6">
-                        <af:outputText value="#{var2.Idemployee}" id="ot9"/>
-                      </af:panelLabelAndMessage>
-                      <af:panelLabelAndMessage label="Сокращенная строка" id="plam5">
-                        <af:outputText value="#{var2.Addchar}" id="ot2"/>
-                      </af:panelLabelAndMessage>
-                    </af:panelFormLayout>
-                  </af:gridCell>
-                  <af:gridCell width="10%" id="gc24">
-                    <af:commandImageLink id="cil7" icon="#{resource['images:delete.png']}"
-                                         actionListener="#{bindings.DeleteInternet.execute}"
-                                         action="#{viewScope.CreateRequest.deleteTypes}"/>
-                  </af:gridCell>
-                </af:gridRow>
-              </af:panelGridLayout>
-            </af:iterator>
-            <f:facet name="separator">
-              <af:separator id="s4"/>
-            </f:facet>
-          </af:panelGroupLayout>
-          <af:inputText id="it4" value="#{CreateRequest.test2Message}" required="true" immediate="true">
-            <af:validateLength minimum="2"/>
-          </af:inputText>
-          <af:commandImageLink text="Две буквы" id="cil8" icon="#{resource['images:add.png']}"
-                               action="#{CreateRequest.createTest2Obj}"/>
+          <af:subform id="s6" default="true">
+            <af:panelGroupLayout id="pgl8">
+              <af:iterator id="i3" value="#{bindings.Typetest2View2.collectionModel}" var="var2">
+                <af:panelGridLayout id="pgl9">
+                  <af:gridRow marginTop="5px" marginBottom="5px" height="auto" id="gr12">
+                    <af:gridCell marginStart="5px" width="80%" id="gc23">
+                      <af:panelFormLayout id="pfl3">
+                        <af:panelLabelAndMessage label="Сотрудник" id="plam6">
+                          <af:outputText value="#{var2.Idemployee}" id="ot9"/>
+                        </af:panelLabelAndMessage>
+                        <af:panelLabelAndMessage label="Сокращенная строка" id="plam5">
+                          <af:outputText value="#{var2.Addchar}" id="ot2"/>
+                        </af:panelLabelAndMessage>
+                      </af:panelFormLayout>
+                    </af:gridCell>
+                    <af:gridCell width="10%" id="gc24">
+                      <af:commandImageLink id="cil7" icon="#{resource['images:delete.png']}"
+                                           actionListener="#{bindings.DeleteInternet.execute}"
+                                           action="#{viewScope.CreateRequest.deleteTypes}"/>
+                    </af:gridCell>
+                  </af:gridRow>
+                </af:panelGridLayout>
+              </af:iterator>
+              <f:facet name="separator">
+                <af:separator id="s4"/>
+              </f:facet>
+            </af:panelGroupLayout>
+            <af:inputText id="it4" value="#{CreateRequest.test2Message}" immediate="true">
+              <af:validateLength minimum="2"/>
+            </af:inputText>
+            <af:commandImageLink text="Две буквы" id="cil8" icon="#{resource['images:add.png']}"
+                                 action="#{CreateRequest.createTest2Obj}"/>
+          </af:subform>
         </af:group>
       </f:facet>
       <f:facet name="Default">
@@ -90,36 +92,40 @@
       </f:facet>
     </af:switcher>
     <h:outputText value="Сообщения" id="ot11" style="font-weight:bolder;"/>
-    <af:panelGroupLayout id="pgl1">
-      <af:iterator id="i1" value="#{bindings.RequestforummessageView3.collectionModel}" var="createForum">
-        <af:panelGridLayout id="pgl3">
-          <af:gridRow marginTop="5px" marginBottom="5px" height="auto" id="gr8">
-            <af:gridCell marginStart="5px" width="auto" id="gc15">
-              <af:panelFormLayout id="pfl1">
-                <af:panelLabelAndMessage label="Дата" id="plam1">
-                  <af:outputText value="#{createForum.Creationdate}" id="ot5">
-                    <af:convertDateTime type="both"/>
-                  </af:outputText>
-                </af:panelLabelAndMessage>
-                <af:panelLabelAndMessage label="Текст" id="plam2">
-                  <af:outputText value="#{createForum.Text}" id="ot6"/>
-                </af:panelLabelAndMessage>
-              </af:panelFormLayout>
-            </af:gridCell>
-            <af:gridCell marginStart="5px" marginEnd="5px" width="20%" id="gc16">
-              <af:commandImageLink id="cil3" icon="#{resource['images:delete.png']}"
-                                   actionListener="#{bindings.DeleteMessage.execute}"/>
-            </af:gridCell>
-          </af:gridRow>
-        </af:panelGridLayout>
-      </af:iterator>
-      <f:facet name="separator">
-        <af:separator id="s2"/>
-      </f:facet>
-    </af:panelGroupLayout>
-    <af:inputText id="it2" value="#{CreateRequest.forumMessage}"/>
-    <af:commandImageLink text="Добавить сообщение" id="cil4" icon="#{resource['images:chat.png']}"
-                         action="#{CreateRequest.sendMessage}"/>
+    <af:subform id="s7" default="true">
+      <af:panelGroupLayout id="pgl1">
+        <af:iterator id="i1" value="#{bindings.RequestforummessageView3.collectionModel}" var="createForum">
+          <af:panelGridLayout id="pgl3">
+            <af:gridRow marginTop="5px" marginBottom="5px" height="auto" id="gr8">
+              <af:gridCell marginStart="5px" width="auto" id="gc15">
+                <af:panelFormLayout id="pfl1">
+                  <af:panelLabelAndMessage label="Дата" id="plam1">
+                    <af:outputText value="#{createForum.Creationdate}" id="ot5">
+                      <af:convertDateTime type="both"/>
+                    </af:outputText>
+                  </af:panelLabelAndMessage>
+                  <af:panelLabelAndMessage label="Текст" id="plam2">
+                    <af:outputText value="#{createForum.Text}" id="ot6"/>
+                  </af:panelLabelAndMessage>
+                </af:panelFormLayout>
+              </af:gridCell>
+              <af:gridCell marginStart="5px" marginEnd="5px" width="20%" id="gc16">
+                <af:commandImageLink id="cil3" icon="#{resource['images:delete.png']}"
+                                     actionListener="#{bindings.DeleteMessage.execute}" immediate="true"/>
+              </af:gridCell>
+            </af:gridRow>
+          </af:panelGridLayout>
+        </af:iterator>
+        <f:facet name="separator">
+          <af:separator id="s2"/>
+        </f:facet>
+      </af:panelGroupLayout>
+      <af:inputText id="it2" value="#{viewScope.CreateRequest.forumMessage}" required="false"
+                    validator="#{viewScope.CreateRequest.it2_validator}" autoSubmit="true"
+                    binding="#{viewScope.CreateRequest.it2}"/>
+      <af:commandImageLink text="Добавить сообщение" id="cil4" icon="#{resource['images:chat.png']}"
+                           action="#{viewScope.CreateRequest.sendMessage}"/>
+    </af:subform>
     <af:commandImageLink text="Вернуться" id="cil5" icon="#{resource['images:back.png']}"
                          actionListener="#{bindings.Rollback.execute}" action="#{CreateRequest.Ret}"/>
     <af:commandImageLink text="Сохранить" id="cil6" icon="#{resource['images:disc.png']}"

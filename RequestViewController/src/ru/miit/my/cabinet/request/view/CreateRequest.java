@@ -6,10 +6,18 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Calendar;
 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
+import javax.faces.application.FacesMessage;
 import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
 
+import javax.faces.validator.ValidatorException;
+
 import oracle.adf.model.BindingContext;
+
+import oracle.adf.view.rich.component.rich.input.RichInputText;
 
 import oracle.binding.AttributeBinding;
 import oracle.binding.BindingContainer;
@@ -21,7 +29,7 @@ import ru.miit.my.cabinet.request.view.utils.ADFUtils;
 
 public class CreateRequest {
     //Переменные
-   
+
     private boolean dataOnPageChanged = false; //Что то изменили на странице кнопка Сохранить активировалась
     private String forumMessage = "";
     private String test1Message = "";
@@ -30,6 +38,7 @@ public class CreateRequest {
     private int numOfFacet = 0;
 
     private String routerFacet = setRouter();
+    private RichInputText it2;
     //Конструктор
 
     public CreateRequest() {
@@ -73,20 +82,46 @@ public class CreateRequest {
     //Создать сообщение
 
     public String sendMessage() {
+        if (!forumMessage.isEmpty()) {
+            BindingContainer bindings = getBindings();
+            OperationBinding createForumMessageBinding = bindings.getOperationBinding("ForumCreateInsert");
+            createForumMessageBinding.getParamsMap().put("Text", getForumMessage());
 
-        BindingContainer bindings = getBindings();
-        OperationBinding createForumMessageBinding = bindings.getOperationBinding("ForumCreateInsert");
-        createForumMessageBinding.getParamsMap().put("Text", getForumMessage());
-      
-        createForumMessageBinding.execute();
-        if (!createForumMessageBinding.getErrors().isEmpty()) {
-            return "";
+            createForumMessageBinding.execute();
+            if (!createForumMessageBinding.getErrors().isEmpty()) {
+                return "";
+            }
+            this.setForumMessage("");
+
+            // setDataOnPageChanged(true);
+        } else {
+            /*Данный код выдвет ошибку если поле пустое. Для этого нужно указать в свойстве bindings текстового объекта
+                     * #{viewScope.CreateRequest.it2}. Создается переменная Richtext it2. уже к ней мы и обращаемся
+                     * */
+            String messageText = "Поле должно быть заполнено";
+            FacesMessage fm = new FacesMessage(messageText);
+            fm.setSeverity(FacesMessage.SEVERITY_ERROR);
+            FacesContext context = FacesContext.getCurrentInstance();
+            context.addMessage(it2.getClientId(), fm);
         }
-        this.setForumMessage("");
-       // setDataOnPageChanged(true);
         return "";
     }
+// Валидатор текстового поля
+    public void it2_validator(FacesContext facesContext, UIComponent uIComponent, Object object) {
+        {
+            String name = object.toString();
+            String expression = "\\d|\\w";
+            CharSequence inputStr = name;
+            Pattern pattern = Pattern.compile(expression);
+            Matcher matcher = pattern.matcher(inputStr);
+            String msg = "Сообщение введено неверно";
+            if (matcher.matches()) {
 
+            } else {
+                throw new ValidatorException(new FacesMessage(FacesMessage.SEVERITY_ERROR, msg, null));
+            }
+        }
+    }
 
     //Создать объект 2 го типа
 
@@ -120,7 +155,7 @@ public class CreateRequest {
 
     //Удалить сообщение
 
-   /* public String deleteMessagesWithTrueCheckbox() {
+    /* public String deleteMessagesWithTrueCheckbox() {
 
         ArrayList<Row> rows =
             new ArrayList<Row>(Arrays.asList(ADFUtils.findIterator("RequestforummessageView3Iterator").getAllRowsInRange()));
@@ -129,7 +164,7 @@ public class CreateRequest {
                 rows.get(i).remove();
         }
         setDataOnPageChanged(true);
-        
+
         return null;
     }*/
 
@@ -139,17 +174,17 @@ public class CreateRequest {
         for (int i = 0; i < rows.size(); i++) {
             if (rows.get(i).getAttribute("YesNo").equals(true))
                 rows.get(i).remove();
-            
-        
+
+
         }
         if (( new ArrayList<Row>(Arrays.asList(ADFUtils.findIterator(str).getAllRowsInRange()))).size()==0){
-        
+
         setDataOnPageChanged(false);
         }
         setButtonEditTypesClicked(false);
         return null;
 
-    */  String str = "";
+    */String str = "";
         switch (numOfFacet) {
         case 1:
             str = "Typetest1View_POCHTA1Iterator";
@@ -158,21 +193,22 @@ public class CreateRequest {
             str = "Typetest2View2Iterator";
             break;
         }
-        if (( new ArrayList<Row>(Arrays.asList(ADFUtils.findIterator(str).getAllRowsInRange()))).size()==0){
-        
-        setDataOnPageChanged(false);
+        if ((new ArrayList<Row>(Arrays.asList(ADFUtils.findIterator(str).getAllRowsInRange()))).size() == 0) {
+
+            setDataOnPageChanged(false);
         }
-        return "";}
+        return "";
+    }
     //возврат
 
     public String Ret() {
         setDataOnPageChanged(false);
-       // setButtonEditMessagesClicked(false);
+        // setButtonEditMessagesClicked(false);
         //setButtonEditTypesClicked(false);
         return "back";
     }
 
-    
+
     //Геттеры и сеттеры
 
     public void setForumMessage(String forumMessage) {
@@ -229,6 +265,12 @@ public class CreateRequest {
     }
 
 
-    
+    public void setIt2(RichInputText it2) {
+        this.it2 = it2;
+    }
+
+    public RichInputText getIt2() {
+        return it2;
+    }
 }
 
