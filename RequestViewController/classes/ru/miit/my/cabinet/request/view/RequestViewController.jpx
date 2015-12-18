@@ -11,7 +11,21 @@
     <Attr Name="_jprName" Value="../../../../../../../RequestViewController.jpr"/>
     <Attr Name="_jbo.TypeMapEntries" Value="OracleApps"/>
     <Attr Name="_NamedConnection" Value="Connection1"/>
+    <Attr Name="_appModuleNames0" Value="ru.miit.my.cabinet.request.model.CabinetRequestService"/>
   </DesignTime>
+  <Containee
+    Name="model"
+    PackageName="ru.miit.my.cabinet.request.model"
+    ObjectType="JboPackage">
+    <DesignTime>
+      <Attr Name="_LocationURL" Value="../../RequestModel/src/"/>
+      <Attr Name="_EO" Value="true"/>
+      <Attr Name="_AS" Value="true"/>
+      <Attr Name="_VO" Value="true"/>
+      <Attr Name="_AM" Value="true"/>
+      <Attr Name="_VL" Value="true"/>
+    </DesignTime>
+  </Containee>
   <AppContainee
     Name="FrameworkExt"
     FullName="ru.miit.my.frameworkext.FrameworkExt"

@@ -21,9 +21,8 @@ import ru.miit.my.cabinet.request.view.utils.ADFUtils;
 
 public class CreateRequest {
     //Переменные
-    static private boolean buttonEditMessagesClicked = false; //Нажали на кнопочку Редактировать для сообщений
-    static private boolean buttonEditTypesClicked = false;
-    static private boolean dataOnPageChanged = false; //Что то изменили на странице кнопка Сохранить активировалась
+   
+    private boolean dataOnPageChanged = false; //Что то изменили на странице кнопка Сохранить активировалась
     private String forumMessage = "";
     private String test1Message = "";
     private String test2Message = "";
@@ -63,26 +62,22 @@ public class CreateRequest {
 
     //Кнопки редактирования
 
-    public void editMessages() {
+    /*public void editMessages() {
         setButtonEditMessagesClicked(!isButtonEditMessagesClicked());
     }
 
     public void editTypes() {
         setButtonEditTypesClicked(!isButtonEditTypesClicked());
-    }
+    }*/
 
     //Создать сообщение
 
     public String sendMessage() {
 
-        Calendar calendar = Calendar.getInstance();
-        SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-        currentDate = formatter.format(new java.sql.Date(calendar.getTime().getTime()));
         BindingContainer bindings = getBindings();
         OperationBinding createForumMessageBinding = bindings.getOperationBinding("ForumCreateInsert");
         createForumMessageBinding.getParamsMap().put("Text", getForumMessage());
-        createForumMessageBinding.getParamsMap().put("Creationdate",
-                                                     currentDate); // попробовал передавать значение параметра выполняемой функции
+      
         createForumMessageBinding.execute();
         if (!createForumMessageBinding.getErrors().isEmpty()) {
             return "";
@@ -125,7 +120,7 @@ public class CreateRequest {
 
     //Удалить сообщение
 
-    public String deleteMessagesWithTrueCheckbox() {
+   /* public String deleteMessagesWithTrueCheckbox() {
 
         ArrayList<Row> rows =
             new ArrayList<Row>(Arrays.asList(ADFUtils.findIterator("RequestforummessageView3Iterator").getAllRowsInRange()));
@@ -134,20 +129,12 @@ public class CreateRequest {
                 rows.get(i).remove();
         }
         setDataOnPageChanged(true);
-        setButtonEditMessagesClicked(false);
+        
         return null;
-    }
+    }*/
 
-    public String deleteTypesWithTrueCheckbox() {
-        String str = "";
-        switch (numOfFacet) {
-        case 1:
-            str = "Typetest1View_POCHTA1Iterator";
-            break;
-        case 2:
-            str = "Typetest2View2Iterator";
-            break;
-        }
+    public String deleteTypes() {
+        /*
         ArrayList<Row> rows = new ArrayList<Row>(Arrays.asList(ADFUtils.findIterator(str).getAllRowsInRange()));
         for (int i = 0; i < rows.size(); i++) {
             if (rows.get(i).getAttribute("YesNo").equals(true))
@@ -161,107 +148,31 @@ public class CreateRequest {
         }
         setButtonEditTypesClicked(false);
         return null;
-    }
+
+    */  String str = "";
+        switch (numOfFacet) {
+        case 1:
+            str = "Typetest1View_POCHTA1Iterator";
+            break;
+        case 2:
+            str = "Typetest2View2Iterator";
+            break;
+        }
+        if (( new ArrayList<Row>(Arrays.asList(ADFUtils.findIterator(str).getAllRowsInRange()))).size()==0){
+        
+        setDataOnPageChanged(false);
+        }
+        return "";}
     //возврат
 
     public String Ret() {
         setDataOnPageChanged(false);
-        setButtonEditMessagesClicked(false);
-        setButtonEditTypesClicked(false);
+       // setButtonEditMessagesClicked(false);
+        //setButtonEditTypesClicked(false);
         return "back";
     }
 
-    /* public String goBackWithNoChanges() {
-        setDataOnPageChanged(false);
-        setButtonEditClicked(false);
-        return "RollBack";
-    }
-
-    public String saveChangesAndReturnToParentPage() {
-        setDataOnPageChanged(false);
-        setButtonEditClicked(false);
-        return "Commit";
-    }*/
-
-    /*
-    private class TestType1 { //представление таблицы ввиде класса
-        private int idTestType;
-        private int idEmployee;
-        private int idRequest;
-        private int chooseInt;
-
-        public void setIdTestType(int idTestType) {
-            this.idTestType = idTestType;
-        }
-
-        public int getIdTestType() {
-            return idTestType;
-        }
-
-        public void setIdEmployee(int idEmployee) {
-            this.idEmployee = idEmployee;
-        }
-
-        public int getIdEmployee() {
-            return idEmployee;
-        }
-
-        public void setIdRequest(int idRequest) {
-            this.idRequest = idRequest;
-        }
-
-        public int getIdRequest() {
-            return idRequest;
-        }
-
-        public void setChooseInt(int chooseInt) {
-            this.chooseInt = chooseInt;
-        }
-
-        public int getChooseInt() {
-            return chooseInt;
-        }
-    }
-
-    private class TestType2 { //представление таблицы ввиде класса
-        private int idTestType;
-        private int idEmployee;
-        private int idRequest;
-        private int addchar;
-
-        public void setIdTestType(int idTestType) {
-            this.idTestType = idTestType;
-        }
-
-        public int getIdTestType() {
-            return idTestType;
-        }
-
-        public void setIdEmployee(int idEmployee) {
-            this.idEmployee = idEmployee;
-        }
-
-        public int getIdEmployee() {
-            return idEmployee;
-        }
-
-        public void setIdRequest(int idRequest) {
-            this.idRequest = idRequest;
-        }
-
-        public int getIdRequest() {
-            return idRequest;
-        }
-
-        public void setAddchar(int addchar) {
-            this.addchar = addchar;
-        }
-
-        public int getAddchar() {
-            return addchar;
-        }
-    }
-*/
+    
     //Геттеры и сеттеры
 
     public void setForumMessage(String forumMessage) {
@@ -272,8 +183,8 @@ public class CreateRequest {
         return forumMessage;
     }
 
-    public static void setDataOnPageChanged(boolean dataOnPageChanged) {
-        CreateRequest.dataOnPageChanged = dataOnPageChanged;
+    public void setDataOnPageChanged(boolean dataOnPageChanged) {
+        this.dataOnPageChanged = dataOnPageChanged;
     }
 
     public boolean isDataOnPageChanged() {
@@ -317,20 +228,7 @@ public class CreateRequest {
         return numOfFacet;
     }
 
-    public void setButtonEditTypesClicked(boolean buttonEditTypesClicked) {
-        CreateRequest.buttonEditTypesClicked = buttonEditTypesClicked;
-    }
 
-    public boolean isButtonEditTypesClicked() {
-        return buttonEditTypesClicked;
-    }
-
-    public void setButtonEditMessagesClicked(boolean buttonEditMessagesClicked) {
-        CreateRequest.buttonEditMessagesClicked = buttonEditMessagesClicked;
-    }
-
-    public boolean isButtonEditMessagesClicked() {
-        return buttonEditMessagesClicked;
-    }
+    
 }
 

@@ -31,13 +31,13 @@ public class ViewRequest {
 
     public ViewRequest() {
         super();
-        System.out.println("!!!!!!!!!!!!!!!!!!!!!!!1");
+        
     }
 
-    static private boolean buttonEditClicked = false; //Нажали на кнопочку Редактировать
-    static private boolean dataOnPageChanged = false; //Что то изменили на странице кнопка Сохранить активировалась
+   // static private boolean buttonEditClicked = false; //Нажали на кнопочку Редактировать
+    private boolean dataOnPageChanged = false; //Что то изменили на странице кнопка Сохранить активировалась
     private String forumMessage;
-    private String currentDate;
+
     private String routerFacet = setRouter();
 
 
@@ -47,9 +47,7 @@ public class ViewRequest {
 
     public String sendMessage() {
 
-       /* Calendar calendar = Calendar.getInstance();
-        SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-        currentDate = formatter.format(new java.sql.Date(calendar.getTime().getTime()));*/
+
         BindingContainer bindings = getBindings();
         OperationBinding createForumMessageBinding = bindings.getOperationBinding("ForumCreateInsert");
         createForumMessageBinding.getParamsMap().put("Text",
@@ -67,20 +65,17 @@ public class ViewRequest {
 
     public String saveChangesAndReturnToParentPage() {
         setDataOnPageChanged(false);
-        setButtonEditClicked(false);
+        
         return "Commit";
     }
 
 
     public String goBackWithNoChanges() {
         setDataOnPageChanged(false);
-        setButtonEditClicked(false);
         return "RollBack";
     }
 
-    public void editMessages() {
-        setButtonEditClicked(!isButtonEditClicked());
-    }
+    
 
     public String deleteMessagesWithTrueCheckbox() {
         //Row[] rows = ADFUtils.findIterator("RequestforummessageView3Iterator").getAllRowsInRange();
@@ -91,7 +86,7 @@ public class ViewRequest {
                 rows.get(i).remove();
         }
         setDataOnPageChanged(true);
-        setButtonEditClicked(false);
+        
         return null;
     }
 
@@ -114,21 +109,9 @@ public class ViewRequest {
     }
     //Setters and getters
 
-    public void setButtonEditClicked(boolean enableDeleteCheckbox) {
-        this.buttonEditClicked = enableDeleteCheckbox;
-    }
+    
 
-    public boolean isButtonEditClicked() {
-        return buttonEditClicked;
-    }
-
-    public void setCurrentDate(String currentDate) {
-        this.currentDate = currentDate;
-    }
-
-    public String getCurrentDate() {
-        return currentDate;
-    }
+   
 
     public void setDataOnPageChanged(boolean add) {
         this.dataOnPageChanged = add;

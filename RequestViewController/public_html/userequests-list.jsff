@@ -43,8 +43,12 @@
             <af:separator id="s1"/>
           </f:facet>
           <af:iterator id="i1" value="#{bindings.RequestView1.collectionModel}" var="row">
-            <af:commandLink text="#{row.Idrequest} #{row.Title}" id="cl1" action="View"
-                            actionListener="#{bindings.setCurrentRowWithKey.execute}"/>
+            <af:commandLink text="#{row.Idrequest} #{row.Title} " id="cl1" action="View"
+                            actionListener="#{bindings.setCurrentRowWithKey.execute}">
+              <af:outputText value="#{row.Creationdate}" id="ot3">
+                <af:convertDateTime type="date"/>
+              </af:outputText>
+            </af:commandLink>
           </af:iterator>
         </af:panelGroupLayout>
       </af:gridCell>

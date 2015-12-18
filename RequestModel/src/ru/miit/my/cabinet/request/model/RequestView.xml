@@ -131,7 +131,10 @@
     PrecisionRule="true"
     EntityAttrName="Creationdate"
     EntityUsage="Request"
-    AliasName="CREATIONDATE"/>
+    AliasName="CREATIONDATE"
+    IsUpdateable="false">
+    <TransientExpression><![CDATA[adf.currentDateTime]]></TransientExpression>
+  </ViewAttribute>
   <ViewAttribute
     Name="Title"
     PrecisionRule="true"

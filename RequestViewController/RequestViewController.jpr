@@ -67,6 +67,42 @@
          </hash>
       </list>
    </hash>
+   <hash n="oracle.ide.model.ResourcePaths">
+      <hash n="resourcesContentSet">
+         <list n="constituent-sets">
+            <hash>
+               <list n="pattern-filters">
+                  <string v="+disc.png"/>
+                  <string v="+back.png"/>
+                  <string v="+chat.png"/>
+                  <string v="+delete.png"/>
+                  <string v="+delete.png"/>
+                  <string v="+add.png"/>
+                  <string v="+delete.png"/>
+                  <string v="+disc.png"/>
+                  <string v="+back.png"/>
+                  <string v="+cancel.png"/>
+                  <string v="+chat.png"/>
+                  <string v="+add.png"/>
+                  <string v="+delete.png"/>
+                  <string v="+add.png"/>
+                  <string v="+add.png"/>
+                  <string v="+delete_8739.png"/>
+                  <string v="+delete_8739.png"/>
+               </list>
+               <list n="url-path">
+                  <url path="src/META-INF/resources/images/"/>
+               </list>
+            </hash>
+         </list>
+         <list n="pattern-filters">
+            <string v="+*"/>
+         </list>
+         <list n="url-path">
+            <url path="."/>
+         </list>
+      </hash>
+   </hash>
    <hash n="oracle.ide.model.TechnologyScopeConfiguration">
       <list n="technologyScope">
          <string v="ADF_FACES"/>
