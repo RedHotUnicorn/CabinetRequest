@@ -42,7 +42,8 @@
               <af:gridCell marginStart="5px" marginEnd="5px" width="30%" id="gc20"/>
             </af:gridRow>
           </af:panelGridLayout>
-          <af:inputText id="it3" value="#{CreateRequest.test1Message}" showRequired="false" required="false">
+          <af:inputText id="itTest1" value="#{viewScope.CreateRequest.test1Message}" showRequired="false" required="false"
+                        binding="#{viewScope.CreateRequest.itTest1}">
             <af:convertNumber integerOnly="true"/>
           </af:inputText>
           <af:spacer width="10" height="10" id="s5"/>
@@ -79,7 +80,8 @@
                 <af:separator id="s4"/>
               </f:facet>
             </af:panelGroupLayout>
-            <af:inputText id="it4" value="#{CreateRequest.test2Message}" immediate="true">
+            <af:inputText id="itTest2" value="#{viewScope.CreateRequest.test2Message}" immediate="true"
+                          binding="#{viewScope.CreateRequest.itTest2}">
               <af:validateLength minimum="2"/>
             </af:inputText>
             <af:commandImageLink text="Две буквы" id="cil8" icon="#{resource['images:add.png']}"
@@ -122,7 +124,7 @@
       </af:panelGroupLayout>
       <af:inputText id="it2" value="#{viewScope.CreateRequest.forumMessage}" required="false"
                     validator="#{viewScope.CreateRequest.it2_validator}" autoSubmit="true"
-                    binding="#{viewScope.CreateRequest.it2}"/>
+                    binding="#{viewScope.CreateRequest.itForum}"/>
       <af:commandImageLink text="Добавить сообщение" id="cil4" icon="#{resource['images:chat.png']}"
                            action="#{viewScope.CreateRequest.sendMessage}"/>
     </af:subform>

@@ -34,11 +34,12 @@ public class CreateRequest {
     private String forumMessage = "";
     private String test1Message = "";
     private String test2Message = "";
-    private String currentDate;
     private int numOfFacet = 0;
 
     private String routerFacet = setRouter();
-    private RichInputText it2;
+    private RichInputText itForum;
+    private RichInputText itTest2;
+    private RichInputText itTest1;
     //Конструктор
 
     public CreateRequest() {
@@ -69,21 +70,37 @@ public class CreateRequest {
         }
     }
 
-    //Кнопки редактирования
-
-    /*public void editMessages() {
-        setButtonEditMessagesClicked(!isButtonEditMessagesClicked());
-    }
-
-    public void editTypes() {
-        setButtonEditTypesClicked(!isButtonEditTypesClicked());
-    }*/
 
     //Создать сообщение
 
+    public boolean putParameterInBinding(String binding, String param, Object value) {
+        BindingContainer bindings = getBindings();
+        OperationBinding createForumMessageBinding = bindings.getOperationBinding(binding);
+        createForumMessageBinding.getParamsMap().put(param, value);
+        createForumMessageBinding.execute();
+        if (!createForumMessageBinding.getErrors().isEmpty()) {
+            return false;
+        }
+        return true;
+    }
+
+    public void addErrorMessageToRichInputText(RichInputText ui, String mes) {
+        /*Данный код выдвет ошибку если поле пустое. Для этого нужно указать в свойстве bindings текстового объекта
+        * #{viewScope.CreateRequest.it2}. Создается переменная Richtext it2. уже к ней мы и обращаемся
+        * */
+        String messageText = mes;
+        FacesMessage fm = new FacesMessage(messageText);
+        fm.setSeverity(FacesMessage.SEVERITY_ERROR);
+        FacesContext context = FacesContext.getCurrentInstance();
+        context.addMessage(ui.getClientId(), fm);
+    }
+
     public String sendMessage() {
         if (!forumMessage.isEmpty()) {
-            BindingContainer bindings = getBindings();
+
+            /*  // На всякий случай сохранил образец старого кода
+         *
+         * BindingContainer bindings = getBindings();
             OperationBinding createForumMessageBinding = bindings.getOperationBinding("ForumCreateInsert");
             createForumMessageBinding.getParamsMap().put("Text", getForumMessage());
 
@@ -91,22 +108,26 @@ public class CreateRequest {
             if (!createForumMessageBinding.getErrors().isEmpty()) {
                 return "";
             }
-            this.setForumMessage("");
 
-            // setDataOnPageChanged(true);
+        */
+            putParameterInBinding("ForumCreateInsert", "Text", getForumMessage());
+            this.setForumMessage("");
         } else {
             /*Данный код выдвет ошибку если поле пустое. Для этого нужно указать в свойстве bindings текстового объекта
                      * #{viewScope.CreateRequest.it2}. Создается переменная Richtext it2. уже к ней мы и обращаемся
-                     * */
+                     *
             String messageText = "Поле должно быть заполнено";
             FacesMessage fm = new FacesMessage(messageText);
             fm.setSeverity(FacesMessage.SEVERITY_ERROR);
             FacesContext context = FacesContext.getCurrentInstance();
             context.addMessage(it2.getClientId(), fm);
+            */
+            addErrorMessageToRichInputText(itForum, "Поле должно быть заполнено");
         }
         return "";
     }
-// Валидатор текстового поля
+    // Валидатор текстового поля
+
     public void it2_validator(FacesContext facesContext, UIComponent uIComponent, Object object) {
         {
             String name = object.toString();
@@ -126,65 +147,32 @@ public class CreateRequest {
     //Создать объект 2 го типа
 
     public String createTest2Obj() {
-        BindingContainer bindings = getBindings();
-        OperationBinding operationBinding = bindings.getOperationBinding("Createwithparameters2");
-        System.out.println(getTest2Message().substring(0, 2));
-        operationBinding.getParamsMap().put("Addchar", getTest2Message().substring(0, 2));
-        operationBinding.execute();
-        if (!operationBinding.getErrors().isEmpty()) {
-            return null;
+        if (!this.test2Message.isEmpty()) {
+            putParameterInBinding("Createwithparameters2", "Addchar", getTest2Message().substring(0, 2));
+            this.setTest2Message("");
+            setDataOnPageChanged(true);
+        } else {
+            addErrorMessageToRichInputText(itTest2, "Поле должно быть заполнено");
         }
-        this.setTest2Message("");
-        setDataOnPageChanged(true);
-        return null;
+        return "";
     }
     //Создать объект 1 го типа
 
     public String createTest1Obj() {
-        BindingContainer bindings = getBindings();
-        OperationBinding operationBinding = bindings.getOperationBinding("Createwithparameters1");
-        operationBinding.getParamsMap().put("Chooseint", Integer.parseInt(getTest1Message()));
-        operationBinding.execute();
-        if (!operationBinding.getErrors().isEmpty()) {
-            return "";
+        if (!this.test1Message.isEmpty()) {
+            putParameterInBinding("Createwithparameters1", "Chooseint", Integer.parseInt(getTest1Message()));
+            this.setTest1Message("");
+            setDataOnPageChanged(true);
+        } else {
+            addErrorMessageToRichInputText(itTest1, "Поле должно быть заполнено");
         }
-        this.setTest1Message("");
-        setDataOnPageChanged(true);
         return "";
     }
 
-    //Удалить сообщение
-
-    /* public String deleteMessagesWithTrueCheckbox() {
-
-        ArrayList<Row> rows =
-            new ArrayList<Row>(Arrays.asList(ADFUtils.findIterator("RequestforummessageView3Iterator").getAllRowsInRange()));
-        for (int i = 0; i < rows.size(); i++) {
-            if (rows.get(i).getAttribute("YesNo").equals(true))
-                rows.get(i).remove();
-        }
-        setDataOnPageChanged(true);
-
-        return null;
-    }*/
-
+    // При удалении последнего элемента на странице создания рапорт скрывает кнопку сохрнаить
     public String deleteTypes() {
-        /*
-        ArrayList<Row> rows = new ArrayList<Row>(Arrays.asList(ADFUtils.findIterator(str).getAllRowsInRange()));
-        for (int i = 0; i < rows.size(); i++) {
-            if (rows.get(i).getAttribute("YesNo").equals(true))
-                rows.get(i).remove();
-
-
-        }
-        if (( new ArrayList<Row>(Arrays.asList(ADFUtils.findIterator(str).getAllRowsInRange()))).size()==0){
-
-        setDataOnPageChanged(false);
-        }
-        setButtonEditTypesClicked(false);
-        return null;
-
-    */String str = "";
+        
+        String str = "";
         switch (numOfFacet) {
         case 1:
             str = "Typetest1View_POCHTA1Iterator";
@@ -203,8 +191,6 @@ public class CreateRequest {
 
     public String Ret() {
         setDataOnPageChanged(false);
-        // setButtonEditMessagesClicked(false);
-        //setButtonEditTypesClicked(false);
         return "back";
     }
 
@@ -252,10 +238,7 @@ public class CreateRequest {
         return test2Message;
     }
 
-    public void sbc1_validator(FacesContext facesContext, UIComponent uIComponent, Object object) {
-        // Add event code here...
-    }
-
+    
     public void setNumOfFacet(int numOfFacet) {
         this.numOfFacet = numOfFacet;
     }
@@ -265,12 +248,28 @@ public class CreateRequest {
     }
 
 
-    public void setIt2(RichInputText it2) {
-        this.it2 = it2;
+    public void setItTest2(RichInputText itTest2) {
+        this.itTest2 = itTest2;
     }
 
-    public RichInputText getIt2() {
-        return it2;
+    public RichInputText getItTest2() {
+        return itTest2;
+    }
+
+    public void setItTest1(RichInputText itTest1) {
+        this.itTest1 = itTest1;
+    }
+
+    public RichInputText getItTest1() {
+        return itTest1;
+    }
+
+    public void setItForum(RichInputText itForum) {
+        this.itForum = itForum;
+    }
+
+    public RichInputText getItForum() {
+        return itForum;
     }
 }
 
