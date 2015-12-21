@@ -18,7 +18,8 @@
   ComponentClass="ru.miit.my.frameworkext.ViewObjectImpl"
   PageIterMode="Full"
   UseGlueCode="false"
-  Where="Request.IDREQUESTTYPE = RequestType.IDREQUESTTYPE and Request.IDEMPLOYEE = :id">
+  Where="Request.IDREQUESTTYPE = RequestType.IDREQUESTTYPE and Request.IDEMPLOYEE = :id"
+  OrderBy="Request.IDREQUEST">
   <Variable
     Name="id"
     Kind="where"
