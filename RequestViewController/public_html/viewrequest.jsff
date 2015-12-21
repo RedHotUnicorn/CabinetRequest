@@ -62,21 +62,23 @@
             </af:gridCell>
             <af:gridCell width="20%" id="gc22">
               <af:commandImageLink id="cil5" icon="#{resource['images:delete.png']}"
-                                   actionListener="#{bindings.DeleteMessage.execute}"/>
+                                   actionListener="#{bindings.DeleteMessage.execute}"
+                                   action="#{viewScope.ViewRequest.deleteMessages}"/>
             </af:gridCell>
           </af:gridRow>
-          <af:commandImageLink text="commandImageLink 1" id="cil4"/>
         </af:panelGridLayout>
       </af:iterator>
     </af:panelGroupLayout>
-    <af:inputText value="#{ViewRequest.forumMessage}" id="it2" columns="20" rows="2"/>
+    <af:inputText value="#{viewScope.ViewRequest.forumMessage}" id="it2" columns="20" rows="2"
+                  binding="#{viewScope.ViewRequest.itForum}" validator="#{viewScope.ViewRequest.it2_validator}"/>
     <af:commandImageLink text="Добавить сообщение" id="cil3" icon="#{resource['images:chat.png']}"
-                         action="#{ViewRequest.sendMessage}"/>
+                         action="#{viewScope.ViewRequest.sendMessage}"/>
     <af:commandImageLink text="Вернуться" id="cil2" icon="#{resource['images:back.png']}"
-                         action="#{ViewRequest.goBackWithNoChanges}"/>
+                         action="back" actionListener="#{bindings.Rollback.execute}"/>
     <af:commandImageLink text="Сохранить" id="cil1" icon="#{resource['images:disc.png']}"
-                         action="#{ViewRequest.saveChangesAndReturnToParentPage}"
-                         rendered="#{viewScope.ViewRequest.dataOnPageChanged}"/>
+                         action="back"
+                         rendered="#{viewScope.ViewRequest.dataOnPageChanged}"
+                         actionListener="#{bindings.Commit.execute}"/>
   </af:panelGroupLayout>
   <!--oracle-jdev-comment:preferred-managed-bean-name:ViewRequest-->
 </ui:composition>

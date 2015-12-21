@@ -122,16 +122,15 @@
           <af:separator id="s2"/>
         </f:facet>
       </af:panelGroupLayout>
-      <af:inputText id="it2" value="#{viewScope.CreateRequest.forumMessage}" required="false"
-                    validator="#{viewScope.CreateRequest.it2_validator}" autoSubmit="true"
+      <af:inputText id="it2" value="#{viewScope.CreateRequest.forumMessage}" required="false" autoSubmit="true"
                     binding="#{viewScope.CreateRequest.itForum}"/>
       <af:commandImageLink text="Добавить сообщение" id="cil4" icon="#{resource['images:chat.png']}"
-                           action="#{viewScope.CreateRequest.sendMessage}"/>
+                           action="#{viewScope.CreateRequest.sendMessage}" binding="#{viewScope.CreateRequest.b}"/>
     </af:subform>
     <af:commandImageLink text="Вернуться" id="cil5" icon="#{resource['images:back.png']}"
-                         actionListener="#{bindings.Rollback.execute}" action="#{CreateRequest.Ret}"/>
+                         actionListener="#{bindings.Rollback.execute}" action="back"/>
     <af:commandImageLink text="Сохранить" id="cil6" icon="#{resource['images:disc.png']}"
-                         action="#{CreateRequest.Ret}" actionListener="#{bindings.Commit.execute}"
+                         action="back" actionListener="#{bindings.Commit.execute}"
                          rendered="#{viewScope.CreateRequest.dataOnPageChanged}"/>
   </af:panelGroupLayout>
 </ui:composition>

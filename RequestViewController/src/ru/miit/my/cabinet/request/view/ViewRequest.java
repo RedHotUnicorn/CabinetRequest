@@ -8,6 +8,11 @@ import java.util.Arrays;
 import java.util.Calendar;
 
 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
+import javax.faces.application.FacesMessage;
+
 import oracle.adf.model.BindingContext;
 
 import oracle.binding.BindingContainer;
@@ -16,6 +21,8 @@ import oracle.binding.OperationBinding;
 import javax.faces.component.UIComponent;
 import javax.faces.component.UIViewRoot;
 import javax.faces.context.FacesContext;
+
+import javax.faces.validator.ValidatorException;
 
 import oracle.adf.model.binding.DCBindingContainer;
 
@@ -29,15 +36,15 @@ import ru.miit.my.cabinet.request.view.utils.ADFUtils;
 
 public class ViewRequest {
 
+    private RichInputText itForum;
+
     public ViewRequest() {
         super();
-        
+
     }
 
-   // static private boolean buttonEditClicked = false; //Нажали на кнопочку Редактировать
     private boolean dataOnPageChanged = false; //Что то изменили на странице кнопка Сохранить активировалась
-    private String forumMessage;
-
+    private String forumMessage="";
     private String routerFacet = setRouter();
 
 
@@ -45,49 +52,42 @@ public class ViewRequest {
         return BindingContext.getCurrent().getCurrentBindingsEntry();
     }
 
+    public void addErrorMessageToRichInputText(RichInputText ui, String mes) {
+        /*Данный код выдвет ошибку если поле пустое. Для этого нужно указать в свойстве bindings текстового объекта
+        * #{viewScope.CreateRequest.it2}. Создается переменная Richtext it2. уже к ней мы и обращаемся
+        * */
+        String messageText = mes;
+        FacesMessage fm = new FacesMessage(messageText);
+        fm.setSeverity(FacesMessage.SEVERITY_ERROR);
+        FacesContext context = FacesContext.getCurrentInstance();
+        context.addMessage(ui.getClientId(), fm);
+    }
+
     public String sendMessage() {
-
-
-        BindingContainer bindings = getBindings();
-        OperationBinding createForumMessageBinding = bindings.getOperationBinding("ForumCreateInsert");
-        createForumMessageBinding.getParamsMap().put("Text",
-                                                     getForumMessage()); // попробовал передавать значение параметра выполняемой функции
-        createForumMessageBinding.execute();
-
-        if (!createForumMessageBinding.getErrors().isEmpty()) {
-            return null;
+        if (!this.forumMessage.isEmpty()) {
+            System.out.println("HO-HO-HO~~~");
+            BindingContainer bindings = getBindings();
+            OperationBinding createForumMessageBinding = bindings.getOperationBinding("ForumCreateInsert");
+            createForumMessageBinding.getParamsMap().put("Text",
+                                                         getForumMessage()); // попробовал передавать значение параметра выполняемой функции
+            createForumMessageBinding.execute();
+            if (!createForumMessageBinding.getErrors().isEmpty()) {
+                return null;
+            }
+            this.setForumMessage("");
+            setDataOnPageChanged(true);
+        } else {
+            System.out.println("NO-NO-NO~~~");
+            addErrorMessageToRichInputText(itForum, "Сообщение не может быть пустым");
         }
-        this.setForumMessage("");
-        setDataOnPageChanged(true);
-        return null;
+        return "";
     }
 
-
-    public String saveChangesAndReturnToParentPage() {
-        setDataOnPageChanged(false);
-        
-        return "Commit";
-    }
-
-
-    public String goBackWithNoChanges() {
-        setDataOnPageChanged(false);
-        return "RollBack";
-    }
 
     
-
-    public String deleteMessagesWithTrueCheckbox() {
-        //Row[] rows = ADFUtils.findIterator("RequestforummessageView3Iterator").getAllRowsInRange();
-        ArrayList<Row> rows =
-            new ArrayList<Row>(Arrays.asList(ADFUtils.findIterator("RequestforummessageView3Iterator").getAllRowsInRange()));
-        for (int i = 0; i < rows.size(); i++) {
-            if (rows.get(i).getAttribute("YesNo").equals(true))
-                rows.get(i).remove();
-        }
+    public String deleteMessages() {
         setDataOnPageChanged(true);
-        
-        return null;
+        return "";
     }
 
 
@@ -97,10 +97,10 @@ public class ViewRequest {
         switch ((Integer)Attrib.getInputValue()) {
         case 1:
             return "TestType1";
-
+            
         case 2:
             return "TestType2";
-
+            
         default:
             return "Default";
         }
@@ -109,9 +109,6 @@ public class ViewRequest {
     }
     //Setters and getters
 
-    
-
-   
 
     public void setDataOnPageChanged(boolean add) {
         this.dataOnPageChanged = add;
@@ -138,4 +135,25 @@ public class ViewRequest {
     }
 
 
+    public void setItForum(RichInputText itForum) {
+        this.itForum = itForum;
+    }
+
+    public RichInputText getItForum() {
+        return itForum;
+    }
+
+    public void it2_validator(FacesContext facesContext, UIComponent uIComponent, Object object) {
+       /* String name = object.toString();
+        String expression = "\\d|\\w";
+        CharSequence inputStr = name;
+        Pattern pattern = Pattern.compile(expression);
+        Matcher matcher = pattern.matcher(inputStr);
+        String msg = "Сообщение введено неверно";
+        if (matcher.matches()) {
+
+        } else {
+            throw new ValidatorException(new FacesMessage(FacesMessage.SEVERITY_ERROR, msg, null));
+        }*/
+    }
 }

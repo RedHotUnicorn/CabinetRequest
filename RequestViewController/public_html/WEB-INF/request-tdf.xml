@@ -58,6 +58,10 @@
         <from-outcome>Commit</from-outcome>
         <to-activity-id>Commit1</to-activity-id>
       </control-flow-case>
+      <control-flow-case id="__17">
+        <from-outcome>back</from-outcome>
+        <to-activity-id>userequests-list</to-activity-id>
+      </control-flow-case>
     </control-flow-rule>
     <control-flow-rule id="__10">
       <from-activity-id>userequests-list</from-activity-id>

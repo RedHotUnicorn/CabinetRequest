@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Calendar;
 
+import java.util.Iterator;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -18,6 +19,8 @@ import javax.faces.validator.ValidatorException;
 import oracle.adf.model.BindingContext;
 
 import oracle.adf.view.rich.component.rich.input.RichInputText;
+
+import oracle.adf.view.rich.component.rich.nav.RichCommandImageLink;
 
 import oracle.binding.AttributeBinding;
 import oracle.binding.BindingContainer;
@@ -40,6 +43,7 @@ public class CreateRequest {
     private RichInputText itForum;
     private RichInputText itTest2;
     private RichInputText itTest1;
+    private RichCommandImageLink b;
     //Конструктор
 
     public CreateRequest() {
@@ -94,34 +98,58 @@ public class CreateRequest {
         FacesContext context = FacesContext.getCurrentInstance();
         context.addMessage(ui.getClientId(), fm);
     }
+   /* public void addE(UIComponent ui, String mes) {
+        /*Данный код выдвет ошибку если поле пустое. Для этого нужно указать в свойстве bindings текстового объекта
+        * #{viewScope.CreateRequest.it2}. Создается переменная Richtext it2. уже к ней мы и обращаемся
+        * *}/
+        String messageText = mes;
+        FacesMessage fm = new FacesMessage(messageText);
+        fm.setSeverity(FacesMessage.SEVERITY_ERROR);
+        FacesContext context = FacesContext.getCurrentInstance();
+        context.addMessage(ui.getClientId(), fm);
+    }*/
+    
+    
 
+    public UIComponent find(String id) {
+        UIComponent component = null;
+        FacesContext facesContext = FacesContext.getCurrentInstance();
+        if (facesContext != null) {
+            UIComponent root = facesContext.getViewRoot();
+            component = findComponent(root, id);
+        }
+        
+        return component;
+
+    }
+    public static UIComponent findComponent(UIComponent base, String id)
+    {
+            if (id.equals(base.getId()))
+                return base;
+
+            UIComponent children = null;
+            UIComponent result = null;
+            Iterator childrens = base.getFacetsAndChildren();
+            while (childrens.hasNext() && (result == null)) {
+                children = (UIComponent)childrens.next();
+                if (id.equals(children.getId())) {
+                    result = children;
+                    break;
+                }
+                result = findComponent(children, id);
+                if (result != null) {
+                    break;
+                }
+            }
+            return result;
+        }
     public String sendMessage() {
         if (!forumMessage.isEmpty()) {
 
-            /*  // На всякий случай сохранил образец старого кода
-         *
-         * BindingContainer bindings = getBindings();
-            OperationBinding createForumMessageBinding = bindings.getOperationBinding("ForumCreateInsert");
-            createForumMessageBinding.getParamsMap().put("Text", getForumMessage());
-
-            createForumMessageBinding.execute();
-            if (!createForumMessageBinding.getErrors().isEmpty()) {
-                return "";
-            }
-
-        */
+ 
             putParameterInBinding("ForumCreateInsert", "Text", getForumMessage());
             this.setForumMessage("");
         } else {
-            /*Данный код выдвет ошибку если поле пустое. Для этого нужно указать в свойстве bindings текстового объекта
-                     * #{viewScope.CreateRequest.it2}. Создается переменная Richtext it2. уже к ней мы и обращаемся
-                     *
-            String messageText = "Поле должно быть заполнено";
-            FacesMessage fm = new FacesMessage(messageText);
-            fm.setSeverity(FacesMessage.SEVERITY_ERROR);
-            FacesContext context = FacesContext.getCurrentInstance();
-            context.addMessage(it2.getClientId(), fm);
-            */
             addErrorMessageToRichInputText(itForum, "Поле должно быть заполнено");
         }
         return "";
@@ -170,8 +198,9 @@ public class CreateRequest {
     }
 
     // При удалении последнего элемента на странице создания рапорт скрывает кнопку сохрнаить
+
     public String deleteTypes() {
-        
+
         String str = "";
         switch (numOfFacet) {
         case 1:
@@ -187,13 +216,8 @@ public class CreateRequest {
         }
         return "";
     }
-    //возврат
 
-    public String Ret() {
-        setDataOnPageChanged(false);
-        return "back";
-    }
-
+   
 
     //Геттеры и сеттеры
 
@@ -238,7 +262,7 @@ public class CreateRequest {
         return test2Message;
     }
 
-    
+
     public void setNumOfFacet(int numOfFacet) {
         this.numOfFacet = numOfFacet;
     }
@@ -270,6 +294,14 @@ public class CreateRequest {
 
     public RichInputText getItForum() {
         return itForum;
+    }
+
+    public void setB(RichCommandImageLink b) {
+        this.b = b;
+    }
+
+    public RichCommandImageLink getB() {
+        return b;
     }
 }
 
