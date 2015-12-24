@@ -23,6 +23,11 @@
         <f:validator binding="#{bindings.IdRtype1.validator}"/>
         <af:convertNumber groupingUsed="false" pattern="#{bindings.IdRtype1.format}"/>
       </af:inputText>
+      <af:selectOneChoice value="#{bindings.IdRtype.inputValue}" label="#{bindings.IdRtype.label}"
+                          required="#{bindings.IdRtype.hints.mandatory}" shortDesc="#{bindings.IdRtype.hints.tooltip}"
+                          id="soc1">
+        <f:selectItems value="#{bindings.IdRtype.items}" id="si1"/>
+      </af:selectOneChoice>
       <af:inputDate value="#{bindings.Date.inputValue}" label="#{bindings.Date.hints.label}"
                     required="#{bindings.Date.hints.mandatory}" columns="#{bindings.Date.hints.displayWidth}"
                     shortDesc="#{bindings.Date.hints.tooltip}" id="id1">

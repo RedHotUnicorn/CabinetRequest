@@ -78,9 +78,18 @@
         <Item Value="ExecuteWithParams_IdRtype"/>
       </AttrNames>
     </attributeValues>
+    <list IterBinding="variables" id="IdRtype" DTSupportsMRU="true" SelectItemValueMode="ListObject" StaticList="false"
+          ListIter="RequestTypeView1Iterator"
+          NullValueFlag="start">
+      <AttrNames>
+        <Item Value="ExecuteWithParams_IdRtype"/>
+      </AttrNames>
+      <ListAttrNames>
+        <Item Value="Idrequesttype"/>
+      </ListAttrNames>
+      <ListDisplayAttrNames>
+        <Item Value="Title"/>
+      </ListDisplayAttrNames>
+    </list>
   </bindings>
-  <ResourceBundle>
-    <PropertiesBundle xmlns="http://xmlns.oracle.com/adfm/resourcebundle"
-                      PropertiesFile="ru.miit.my.cabinet.request.view.RequestViewControllerBundle"/>
-  </ResourceBundle>
 </pageDefinition>
