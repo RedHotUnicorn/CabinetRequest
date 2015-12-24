@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE Entity SYSTEM "jbo_03_01.dtd">
+<!---->
+<Entity
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="Typetest2"
+  Version="11.1.2.62.76"
+  DBObjectType="table"
+  DBObjectName="TYPETEST2"
+  AliasName="Typetest2"
+  BindingStyle="OracleName"
+  UseGlueCode="false"
+  RowClass="ru.miit.my.frameworkext.EntityImpl">
+  <Attribute
+    Name="Idtypetest2"
+    IsNotNull="true"
+    ColumnName="IDTYPETEST2"
+    SQLType="NUMERIC"
+    Type="java.math.BigDecimal"
+    ColumnType="NUMBER"
+    TableName="TYPETEST2"
+    PrimaryKey="true">
+    <TransientExpression><![CDATA[(new oracle.jbo.server.SequenceImpl("REQUESTTYPETEST2", adf.object.getDBTransaction())).getSequenceNumber()]]></TransientExpression>
+  </Attribute>
+  <Attribute
+    Name="Idemployee"
+    ColumnName="IDEMPLOYEE"
+    SQLType="NUMERIC"
+    Type="java.math.BigDecimal"
+    ColumnType="NUMBER"
+    TableName="TYPETEST2"/>
+  <Attribute
+    Name="Idrequest"
+    ColumnName="IDREQUEST"
+    SQLType="NUMERIC"
+    Type="java.math.BigDecimal"
+    ColumnType="NUMBER"
+    TableName="TYPETEST2"/>
+  <Attribute
+    Name="Addchar"
+    Precision="2"
+    ColumnName="ADDCHAR"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="TYPETEST2">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="2"/>
+    </DesignTime>
+  </Attribute>
+  <AccessorAttribute
+    Name="Request"
+    Association="ru.miit.my.cabinet.request.model.ReqType2viewtoRequest"
+    AssociationEnd="ru.miit.my.cabinet.request.model.ReqType2viewtoRequest.Request"
+    AssociationOtherEnd="ru.miit.my.cabinet.request.model.ReqType2viewtoRequest.Typetest2"
+    Type="ru.miit.my.frameworkext.EntityImpl"
+    IsUpdateable="true"/>
+  <Key
+    Name="SysC00193450"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="SYS_C00193450"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="ru.miit.my.cabinet.request.model.Typetest2.Idtypetest2"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="SysC00193451">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="SYS_C00188529"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="SYS_C00193451"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="ru.miit.my.cabinet.request.model.Typetest2.Idemployee"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="SysC00193452">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="SYS_C00188530"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="SYS_C00193452"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="ru.miit.my.cabinet.request.model.Typetest2.Idrequest"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="fk_Typetest2">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="SYS_C00188530"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="FK_TYPETEST2"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="ru.miit.my.cabinet.request.model.Typetest2.Idrequest"/>
+    </AttrArray>
+  </Key>
+</Entity>

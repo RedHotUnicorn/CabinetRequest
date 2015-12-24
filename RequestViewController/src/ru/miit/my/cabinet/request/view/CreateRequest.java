@@ -29,6 +29,7 @@ import oracle.binding.OperationBinding;
 import oracle.jbo.Row;
 
 import ru.miit.my.cabinet.request.view.utils.ADFUtils;
+import ru.miit.my.cabinet.request.view.utils.JSFUtils;
 
 public class CreateRequest {
     //Переменные
@@ -97,6 +98,7 @@ public class CreateRequest {
         fm.setSeverity(FacesMessage.SEVERITY_ERROR);
         FacesContext context = FacesContext.getCurrentInstance();
         context.addMessage(ui.getClientId(), fm);
+        
     }
    /* public void addE(UIComponent ui, String mes) {
         /*Данный код выдвет ошибку если поле пустое. Для этого нужно указать в свойстве bindings текстового объекта
@@ -159,6 +161,7 @@ public class CreateRequest {
     public void it2_validator(FacesContext facesContext, UIComponent uIComponent, Object object) {
         {
             String name = object.toString();
+            name=name.trim();
             String expression = "\\d|\\w";
             CharSequence inputStr = name;
             Pattern pattern = Pattern.compile(expression);

@@ -4,8 +4,6 @@
   <parameters/>
   <executables>
     <variableIterator id="variables"/>
-    <iterator id="RequestView1Iterator" DataControl="CabinetRequestServiceDataControl" RangeSize="25"
-              Binds="RequestTypeView1"/>
     <iterator Binds="Typetest1View_POCHTA1" RangeSize="25" DataControl="CabinetRequestServiceDataControl"
               id="Typetest1View_POCHTA1Iterator"/>
     <iterator Binds="Typetest2View2" RangeSize="25" DataControl="CabinetRequestServiceDataControl"
@@ -16,16 +14,6 @@
               RangeSize="25"/>
   </executables>
   <bindings>
-    <attributeValues IterBinding="RequestView1Iterator" id="Title">
-      <AttrNames>
-        <Item Value="Title"/>
-      </AttrNames>
-    </attributeValues>
-    <attributeValues IterBinding="RequestView1Iterator" id="Idrequesttype">
-      <AttrNames>
-        <Item Value="Idrequesttype"/>
-      </AttrNames>
-    </attributeValues>
     <attributeValues IterBinding="RequestView1Iterator1" id="Idrequest">
       <AttrNames>
         <Item Value="Idrequest"/>
@@ -98,5 +86,15 @@
     <action IterBinding="Typetest2View2Iterator" id="DeleteInternet"
             InstanceName="CabinetRequestServiceDataControl.Typetest2View2"
             DataControl="CabinetRequestServiceDataControl" RequiresUpdateModel="false" Action="removeCurrentRow"/>
+    <attributeValues IterBinding="RequestView1Iterator1" id="Title">
+      <AttrNames>
+        <Item Value="Title"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="RequestView1Iterator1" id="Idrequesttype">
+      <AttrNames>
+        <Item Value="Idrequesttype"/>
+      </AttrNames>
+    </attributeValues>
   </bindings>
 </pageDefinition>

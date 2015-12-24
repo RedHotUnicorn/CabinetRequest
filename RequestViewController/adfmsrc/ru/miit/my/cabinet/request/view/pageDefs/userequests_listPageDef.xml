@@ -4,9 +4,19 @@
   <parameters/>
   <executables>
     <iterator id="RequestView1Iterator" Binds="RequestView1" DataControl="CabinetRequestServiceDataControl"
-              RangeSize="25"/>
+              RangeSize="-1"/>
     <iterator id="RequestTypeView1Iterator" Binds="RequestTypeView1" DataControl="CabinetRequestServiceDataControl"
-              RangeSize="25"/>
+              RangeSize="-1"/>
+    <variableIterator id="variables">
+      <variableUsage DataControl="CabinetRequestServiceDataControl" Binds="RequestView1.variablesMap.id"
+                     Name="ExecuteWithParams_id" IsQueriable="false"/>
+      <variableUsage DataControl="CabinetRequestServiceDataControl" Binds="RequestView1.variablesMap.Date"
+                     Name="ExecuteWithParams_Date" IsQueriable="false"/>
+      <variableUsage DataControl="CabinetRequestServiceDataControl" Binds="RequestView1.variablesMap.Date2"
+                     Name="ExecuteWithParams_Date2" IsQueriable="false"/>
+      <variableUsage DataControl="CabinetRequestServiceDataControl" Binds="RequestView1.variablesMap.IdRtype"
+                     Name="ExecuteWithParams_IdRtype" IsQueriable="false"/>
+    </variableIterator>
   </executables>
   <bindings>
     <action IterBinding="RequestView1Iterator" id="setCurrentRowWithKey"
@@ -39,16 +49,38 @@
             RequiresUpdateModel="true" Action="createWithParams">
       <NamedData NDName="Idrequesttype" NDType="java.lang.Integer"/>
       <NamedData NDValue="2" NDName="Idemployee" NDType="java.lang.Integer"/>
+      <NamedData NDName="Title" NDType="java.lang.String"/>
     </action>
-    <action IterBinding="RequestTypeView1Iterator" id="TitleSet"
-            InstanceName="CabinetRequestServiceDataControl.RequestTypeView1"
-            DataControl="CabinetRequestServiceDataControl" RequiresUpdateModel="false" Action="setCurrentRowWithKey">
-      <NamedData NDName="rowKey" NDType="java.lang.String" NDValue="#{title.rowKeyStr}"/>
+    <action IterBinding="RequestView1Iterator" id="ExecuteWithParams" RequiresUpdateModel="true"
+            Action="executeWithParams">
+      <NamedData NDName="id" NDType="java.lang.Integer" NDValue="${bindings.ExecuteWithParams_id}"/>
+      <NamedData NDName="IdRtype" NDType="java.lang.Integer" NDValue="${bindings.ExecuteWithParams_IdRtype}"/>
+      <NamedData NDName="Date" NDType="java.sql.Timestamp" NDValue="${bindings.ExecuteWithParams_Date}"/>
+      <NamedData NDName="Date2" NDType="java.sql.Timestamp" NDValue="${bindings.ExecuteWithParams_Date2}"/>
     </action>
-    <attributeValues IterBinding="RequestTypeView1Iterator" id="TypeOfNewRequest">
+    <attributeValues IterBinding="variables" id="id">
       <AttrNames>
-        <Item Value="Idrequesttype"/>
+        <Item Value="ExecuteWithParams_id"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="variables" id="Date">
+      <AttrNames>
+        <Item Value="ExecuteWithParams_Date"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="variables" id="Date2">
+      <AttrNames>
+        <Item Value="ExecuteWithParams_Date2"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="variables" id="IdRtype1">
+      <AttrNames>
+        <Item Value="ExecuteWithParams_IdRtype"/>
       </AttrNames>
     </attributeValues>
   </bindings>
+  <ResourceBundle>
+    <PropertiesBundle xmlns="http://xmlns.oracle.com/adfm/resourcebundle"
+                      PropertiesFile="ru.miit.my.cabinet.request.view.RequestViewControllerBundle"/>
+  </ResourceBundle>
 </pageDefinition>

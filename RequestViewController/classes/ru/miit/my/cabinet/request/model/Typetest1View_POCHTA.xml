@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="Typetest1View_POCHTA"
+  Version="11.1.2.62.76"
+  SelectList="Typetest1.IDTYPETEST1, 
+       Typetest1.IDEMPLOYEE, 
+       Typetest1.IDREQUEST, 
+       Typetest1.CHOOSEINT"
+  FromList="TYPETEST1 Typetest1"
+  BindingStyle="OracleName"
+  CustomQuery="false"
+  RowClass="ru.miit.my.frameworkext.ViewRowImpl"
+  ComponentClass="ru.miit.my.frameworkext.ViewObjectImpl"
+  PageIterMode="Full"
+  UseGlueCode="false">
+  <EntityUsage
+    Name="Typetest1"
+    Entity="ru.miit.my.cabinet.request.model.Typetest1"/>
+  <ViewAttribute
+    Name="Idtypetest1"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="Idtypetest1"
+    EntityUsage="Typetest1"
+    AliasName="IDTYPETEST1"/>
+  <ViewAttribute
+    Name="Idemployee"
+    PrecisionRule="true"
+    EntityAttrName="Idemployee"
+    EntityUsage="Typetest1"
+    AliasName="IDEMPLOYEE"/>
+  <ViewAttribute
+    Name="Idrequest"
+    PrecisionRule="true"
+    EntityAttrName="Idrequest"
+    EntityUsage="Typetest1"
+    AliasName="IDREQUEST"/>
+  <ViewAttribute
+    Name="Chooseint"
+    PrecisionRule="true"
+    EntityAttrName="Chooseint"
+    EntityUsage="Typetest1"
+    AliasName="CHOOSEINT"/>
+  <ViewAttribute
+    Name="YesNo"
+    IsSelected="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="java.lang.Boolean"
+    ColumnType="NUMBER"
+    AliasName="VIEW_ATTR"
+    SQLType="BIT"
+    DefaultValue="false"/>
+</ViewObject>

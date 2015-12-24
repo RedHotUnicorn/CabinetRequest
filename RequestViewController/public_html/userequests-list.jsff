@@ -1,60 +1,55 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <ui:composition xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
                 xmlns:f="http://java.sun.com/jsf/core">
-  <af:panelGridLayout id="pgl2">
-    <af:gridRow marginTop="5px" height="auto" id="gr1">
-      <af:gridCell marginStart="5px" width="25%" id="gc1">
-        <af:outputText id="ot1" value="Новый рапорт:" inlineStyle="font-weight:bolder;"/>
-      </af:gridCell>
-      <af:gridCell marginStart="5px" width="25%" id="gc2"/>
-      <af:gridCell marginStart="5px" width="25%" id="gc3"/>
-      <af:gridCell marginStart="5px" marginEnd="5px" width="25%" id="gc4"/>
-    </af:gridRow>
-    <af:gridRow marginTop="5px" height="auto" id="gr2">
-      <af:gridCell marginStart="5px" width="25%" id="gc5">
-        <af:iterator id="i2" value="#{bindings.RequestTypeView1.collectionModel}" var="title">
-          <af:panelLabelAndMessage label="#{title.Title}" id="plam3">
-            <af:commandLink text="Создать" id="cl2" action="go" actionListener="#{UseRequestList.crateReq}"/>
-          </af:panelLabelAndMessage>
-        </af:iterator>
-      </af:gridCell>
-      <af:gridCell marginStart="5px" width="25%" id="gc6"/>
-      <af:gridCell marginStart="5px" width="25%" id="gc7"/>
-      <af:gridCell marginStart="5px" marginEnd="5px" width="25%" id="gc8"/>
-    </af:gridRow>
-    <af:gridRow marginTop="5px" height="auto" id="gr3">
-      <af:gridCell marginStart="5px" width="25%" id="gc9"/>
-      <af:gridCell marginStart="5px" width="25%" id="gc10"/>
-      <af:gridCell marginStart="5px" width="25%" id="gc11"/>
-      <af:gridCell marginStart="5px" marginEnd="5px" width="25%" id="gc12"/>
-    </af:gridRow>
-    <af:gridRow marginTop="5px" height="auto" id="gr4">
-      <af:gridCell marginStart="5px" width="25%" id="gc13">
-        <af:outputText id="ot2" value="Ваши рапорта:" inlineStyle="font-weight:bolder;"/>
-      </af:gridCell>
-      <af:gridCell marginStart="5px" width="25%" id="gc14"/>
-      <af:gridCell marginStart="5px" width="25%" id="gc15"/>
-      <af:gridCell marginStart="5px" marginEnd="5px" width="25%" id="gc16"/>
-    </af:gridRow>
-    <af:gridRow marginTop="5px" marginBottom="5px" height="auto" id="gr5">
-      <af:gridCell marginStart="5px" width="25%" id="gc17">
-        <af:panelGroupLayout id="pgl1" layout="vertical">
-          <f:facet name="separator">
-            <af:separator id="s1"/>
-          </f:facet>
-          <af:iterator id="i1" value="#{bindings.RequestView1.collectionModel}" var="row">
-            <af:commandLink text="#{row.Idrequest} #{row.Title} " id="cl1" action="View"
-                            actionListener="#{bindings.setCurrentRowWithKey.execute}">
-              <af:outputText value="#{row.Creationdate}" id="ot3">
-                <af:convertDateTime type="date"/>
-              </af:outputText>
-            </af:commandLink>
-          </af:iterator>
-        </af:panelGroupLayout>
-      </af:gridCell>
-      <af:gridCell marginStart="5px" width="25%" id="gc18"/>
-      <af:gridCell marginStart="5px" width="25%" id="gc19"/>
-      <af:gridCell marginStart="5px" marginEnd="5px" width="25%" id="gc20"/>
-    </af:gridRow>
-  </af:panelGridLayout>
+  <af:panelGroupLayout id="pgl4" layout="scroll">
+    <af:outputText id="ot1" value="Новый рапорт:" inlineStyle="font-weight:bolder;"/>
+    <af:iterator id="i2" value="#{bindings.RequestTypeView1.collectionModel}" var="row">
+      <af:panelLabelAndMessage label="#{row.Title}" id="plam3">
+        <af:commandLink text="Создать" id="cl2" action="go" actionListener="#{UseRequestList.crateReq}"/>
+      </af:panelLabelAndMessage>
+    </af:iterator>
+    <af:outputText id="ot2" value="Ваши рапорта:" inlineStyle="font-weight:bolder;"/>
+    <af:panelFormLayout id="pfl1">
+      <af:inputText value="#{bindings.id.inputValue}" label="#{bindings.id.hints.label}"
+                    required="#{bindings.id.hints.mandatory}" columns="#{bindings.id.hints.displayWidth}"
+                    maximumLength="#{bindings.id.hints.precision}" shortDesc="#{bindings.id.hints.tooltip}" id="it1">
+        <f:validator binding="#{bindings.id.validator}"/>
+        <af:convertNumber groupingUsed="false" pattern="#{bindings.id.format}"/>
+      </af:inputText>
+      <af:inputText value="#{bindings.IdRtype1.inputValue}" required="#{bindings.IdRtype1.hints.mandatory}"
+                    columns="#{bindings.IdRtype1.hints.displayWidth}"
+                    maximumLength="#{bindings.IdRtype1.hints.precision}" shortDesc="#{bindings.IdRtype1.hints.tooltip}"
+                    id="it2">
+        <f:validator binding="#{bindings.IdRtype1.validator}"/>
+        <af:convertNumber groupingUsed="false" pattern="#{bindings.IdRtype1.format}"/>
+      </af:inputText>
+      <af:inputDate value="#{bindings.Date.inputValue}" label="#{bindings.Date.hints.label}"
+                    required="#{bindings.Date.hints.mandatory}" columns="#{bindings.Date.hints.displayWidth}"
+                    shortDesc="#{bindings.Date.hints.tooltip}" id="id1">
+        <f:validator binding="#{bindings.Date.validator}"/>
+        <af:convertDateTime pattern="#{bindings.Date.format}"/>
+      </af:inputDate>
+      <af:inputDate value="#{bindings.Date2.inputValue}" label="#{bindings.Date2.hints.label}"
+                    required="#{bindings.Date2.hints.mandatory}" columns="#{bindings.Date2.hints.displayWidth}"
+                    shortDesc="#{bindings.Date2.hints.tooltip}" id="id2">
+        <f:validator binding="#{bindings.Date2.validator}"/>
+        <af:convertDateTime pattern="#{bindings.Date2.format}"/>
+      </af:inputDate>
+      <af:commandButton actionListener="#{bindings.ExecuteWithParams.execute}" text="ExecuteWithParams"
+                        disabled="#{!bindings.ExecuteWithParams.enabled}" id="cb1"/>
+    </af:panelFormLayout>
+    <af:panelGroupLayout id="pgl1" layout="vertical">
+      <f:facet name="separator">
+        <af:separator id="s1"/>
+      </f:facet>
+      <af:iterator id="i1" value="#{bindings.RequestView1.collectionModel}" var="row">
+        <af:commandLink text="#{row.Idrequest} #{row.Title} " id="cl1" action="View"
+                        actionListener="#{bindings.setCurrentRowWithKey.execute}">
+          <af:outputText value="#{row.Creationdate}" id="ot3">
+            <af:convertDateTime type="date"/>
+          </af:outputText>
+        </af:commandLink>
+      </af:iterator>
+    </af:panelGroupLayout>
+  </af:panelGroupLayout>
 </ui:composition>

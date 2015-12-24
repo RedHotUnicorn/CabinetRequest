@@ -4,7 +4,7 @@
                 xmlns:afc="http://xmlns.oracle.com/adf/faces/rich/component">
   <!--oracle-jdev-comment:preferred-managed-bean-name:CreateRequest-->
   <af:panelGroupLayout id="pgl10" layout="scroll">
-    <af:outputText value="#{bindings.Idrequesttype} #{bindings.Title}" id="ot1"/>
+    <af:outputText value="#{bindings.Idrequesttype.inputValue} #{bindings.Title.inputValue}" id="ot13"/>
     <af:outputText value="#{bindings.Idrequest}" id="ot3"/>
     <h:outputText value="Рапорт" id="ot10" style="font-weight:bolder;"/>
     <af:switcher id="s1" facetName="#{CreateRequest.routerFacet}">
@@ -46,6 +46,7 @@
                         binding="#{viewScope.CreateRequest.itTest1}">
             <af:convertNumber integerOnly="true"/>
           </af:inputText>
+          <af:outputText value="Количество строк: #{bindings.Typetest1View_POCHTA1Iterator.estimatedRowCount}" id="ot12"/>
           <af:spacer width="10" height="10" id="s5"/>
           <af:commandImageLink text="Добавить число" id="cil1" icon="#{resource['images:add.png']}"
                                action="#{CreateRequest.createTest1Obj}"/>

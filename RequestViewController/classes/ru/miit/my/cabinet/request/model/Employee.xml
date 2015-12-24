@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE Entity SYSTEM "jbo_03_01.dtd">
+<!---->
+<Entity
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="Employee"
+  Version="11.1.2.62.76"
+  DBObjectType="TABLE"
+  DBObjectName="JUNIOR560704.EMPLOYEE"
+  AliasName="Employee"
+  BindingStyle="OracleName"
+  UseGlueCode="false"
+  RowClass="ru.miit.my.frameworkext.EntityImpl">
+  <Attribute
+    Name="Idemployee"
+    IsNotNull="true"
+    ColumnName="IDEMPLOYEE"
+    SQLType="NUMERIC"
+    Type="java.math.BigDecimal"
+    ColumnType="NUMBER"
+    TableName="JUNIOR560704.EMPLOYEE"
+    PrimaryKey="true">
+    <TransientExpression><![CDATA[(new oracle.jbo.server.SequenceImpl("EMPLOYEEv1", adf.object.getDBTransaction())).getSequenceNumber()]]></TransientExpression>
+  </Attribute>
+  <Attribute
+    Name="Secondname"
+    Precision="255"
+    ColumnName="SECONDNAME"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="JUNIOR560704.EMPLOYEE">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="255"/>
+    </DesignTime>
+  </Attribute>
+  <AccessorAttribute
+    Name="Request"
+    Association="ru.miit.my.cabinet.request.model.ReqEmpAssoc"
+    AssociationEnd="ru.miit.my.cabinet.request.model.ReqEmpAssoc.Request"
+    AssociationOtherEnd="ru.miit.my.cabinet.request.model.ReqEmpAssoc.Employee"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <Key
+    Name="SysC00188529"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="SYS_C00188529"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="ru.miit.my.cabinet.request.model.Employee.Idemployee"/>
+    </AttrArray>
+  </Key>
+</Entity>

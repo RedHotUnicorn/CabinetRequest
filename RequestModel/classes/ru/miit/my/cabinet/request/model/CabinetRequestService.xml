@@ -27,7 +27,11 @@
     ViewObjectName="ru.miit.my.cabinet.request.model.RequestView"/>
   <ViewUsage
     Name="RequestView1"
-    ViewObjectName="ru.miit.my.cabinet.request.model.RequestView"/>
+    ViewObjectName="ru.miit.my.cabinet.request.model.RequestView">
+    <ViewCriteriaUsage
+      Name="search"
+      FullName="ru.miit.my.cabinet.request.model.RequestView.search"/>
+  </ViewUsage>
   <ViewUsage
     Name="RequestforummessagetypeView1"
     ViewObjectName="ru.miit.my.cabinet.request.model.RequestforummessagetypeView"/>
