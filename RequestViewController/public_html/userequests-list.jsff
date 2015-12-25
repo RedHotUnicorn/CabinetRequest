@@ -9,51 +9,65 @@
       </af:panelLabelAndMessage>
     </af:iterator>
     <af:outputText id="ot2" value="Ваши рапорта:" inlineStyle="font-weight:bolder;"/>
-    <af:panelFormLayout id="pfl1">
-      <af:inputText value="#{bindings.id.inputValue}" label="#{bindings.id.hints.label}"
-                    required="#{bindings.id.hints.mandatory}" columns="#{bindings.id.hints.displayWidth}"
-                    maximumLength="#{bindings.id.hints.precision}" shortDesc="#{bindings.id.hints.tooltip}" id="it1">
-        <f:validator binding="#{bindings.id.validator}"/>
-        <af:convertNumber groupingUsed="false" pattern="#{bindings.id.format}"/>
-      </af:inputText>
-      <af:inputText value="#{bindings.IdRtype1.inputValue}" required="#{bindings.IdRtype1.hints.mandatory}"
-                    columns="#{bindings.IdRtype1.hints.displayWidth}"
-                    maximumLength="#{bindings.IdRtype1.hints.precision}" shortDesc="#{bindings.IdRtype1.hints.tooltip}"
-                    id="it2">
-        <f:validator binding="#{bindings.IdRtype1.validator}"/>
-        <af:convertNumber groupingUsed="false" pattern="#{bindings.IdRtype1.format}"/>
-      </af:inputText>
-      <af:selectOneChoice value="#{bindings.IdRtype.inputValue}" label="#{bindings.IdRtype.label}"
-                          required="#{bindings.IdRtype.hints.mandatory}" shortDesc="#{bindings.IdRtype.hints.tooltip}"
-                          id="soc1">
-        <f:selectItems value="#{bindings.IdRtype.items}" id="si1"/>
-      </af:selectOneChoice>
-      <af:inputDate value="#{bindings.Date.inputValue}" label="#{bindings.Date.hints.label}"
-                    required="#{bindings.Date.hints.mandatory}" columns="#{bindings.Date.hints.displayWidth}"
-                    shortDesc="#{bindings.Date.hints.tooltip}" id="id1">
-        <f:validator binding="#{bindings.Date.validator}"/>
-        <af:convertDateTime pattern="#{bindings.Date.format}"/>
-      </af:inputDate>
-      <af:inputDate value="#{bindings.Date2.inputValue}" label="#{bindings.Date2.hints.label}"
-                    required="#{bindings.Date2.hints.mandatory}" columns="#{bindings.Date2.hints.displayWidth}"
-                    shortDesc="#{bindings.Date2.hints.tooltip}" id="id2">
-        <f:validator binding="#{bindings.Date2.validator}"/>
-        <af:convertDateTime pattern="#{bindings.Date2.format}"/>
-      </af:inputDate>
-      <af:commandButton actionListener="#{bindings.ExecuteWithParams.execute}" text="ExecuteWithParams"
-                        disabled="#{!bindings.ExecuteWithParams.enabled}" id="cb1"/>
-    </af:panelFormLayout>
+    <af:panelGridLayout id="pgl3">
+      <af:gridRow marginTop="5px" marginBottom="5px" height="auto" id="gr1">
+        <af:gridCell marginStart="5px" width="15%" id="gc1">
+          <af:commandImageLink id="cil1"
+                               actionListener="#{bindings.ExecuteWithParams.execute}"
+                               icon="#{resource['images:search.png']}"/>
+        </af:gridCell>
+        <af:gridCell marginStart="5px" width="50%" id="gc2">
+          <af:selectOneChoice value="#{bindings.IdRtype.inputValue}"
+                              required="#{bindings.IdRtype.hints.mandatory}"
+                              shortDesc="#{bindings.IdRtype.hints.tooltip}" id="soc1">
+            <f:selectItems value="#{bindings.IdRtype.items}" id="si1"/>
+          </af:selectOneChoice>
+        </af:gridCell>
+        <af:gridCell marginStart="5px" marginEnd="5px" width="35%" id="gc3">
+          <af:inputDate value="#{bindings.Date.inputValue}"
+                        required="#{bindings.Date.hints.mandatory}" columns="#{bindings.Date.hints.displayWidth}"
+                        shortDesc="#{bindings.Date.hints.tooltip}" id="id1">
+            <f:validator binding="#{bindings.Date.validator}"/>
+            <af:convertDateTime pattern="#{bindings.Date.format}"/>
+          </af:inputDate>
+          <af:inputDate value="#{bindings.Date2.inputValue}"
+                        required="#{bindings.Date2.hints.mandatory}" columns="#{bindings.Date2.hints.displayWidth}"
+                        shortDesc="#{bindings.Date2.hints.tooltip}" id="id2">
+            <f:validator binding="#{bindings.Date2.validator}"/>
+            <af:convertDateTime pattern="#{bindings.Date2.format}"/>
+          </af:inputDate>
+        </af:gridCell>
+      </af:gridRow>
+    </af:panelGridLayout>
     <af:panelGroupLayout id="pgl1" layout="vertical">
       <f:facet name="separator">
         <af:separator id="s1"/>
       </f:facet>
       <af:iterator id="i1" value="#{bindings.RequestView1.collectionModel}" var="row">
-        <af:commandLink text="#{row.Idrequest} #{row.Title} " id="cl1" action="View"
-                        actionListener="#{bindings.setCurrentRowWithKey.execute}">
-          <af:outputText value="#{row.Creationdate}" id="ot3">
-            <af:convertDateTime type="date"/>
-          </af:outputText>
-        </af:commandLink>
+        <af:panelGridLayout id="pgl2">
+          <af:gridRow marginTop="5px" marginBottom="5px" height="auto" id="gr2">
+            <af:gridCell marginStart="5px" width="15%" id="gc4">
+              <af:commandLink text="#{row.Idrequest}" id="cl3" action="View"
+                              actionListener="#{bindings.setCurrentRowWithKey.execute}">
+                <af:outputText id="ot4">
+                  <af:convertDateTime type="date"/>
+                </af:outputText>
+              </af:commandLink>
+            </af:gridCell>
+            <af:gridCell marginStart="5px" width="50%" id="gc5">
+              <af:commandLink text=" #{row.Title} " id="cl4" action="View"
+                              actionListener="#{bindings.setCurrentRowWithKey.execute}"/>
+            </af:gridCell>
+            <af:gridCell marginStart="5px" marginEnd="5px" width="35%" id="gc6">
+              <af:commandLink id="cl5" action="View"
+                              actionListener="#{bindings.setCurrentRowWithKey.execute}">
+                <af:outputText value="#{row.Creationdate}" id="ot6">
+                  <af:convertDateTime type="date"/>
+                </af:outputText>
+              </af:commandLink>
+            </af:gridCell>
+          </af:gridRow>
+        </af:panelGridLayout>
       </af:iterator>
     </af:panelGroupLayout>
   </af:panelGroupLayout>

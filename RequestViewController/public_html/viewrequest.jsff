@@ -80,7 +80,7 @@
                          action="#{viewScope.ViewRequest.sendMessage}"/>
     <af:commandImageLink text="Вернуться" id="cil2" icon="#{resource['images:back.png']}"
                          action="back" actionListener="#{bindings.Rollback.execute}"/>
-    <af:commandImageLink text="Сохранить" id="cil1" icon="#{resource['images:disc.png']}"
+    <af:commandImageLink text="Сохранить" id="cil1" icon="#{resource['images:save.png']}"
                          action="back"
                          rendered="#{viewScope.ViewRequest.dataOnPageChanged}"
                          actionListener="#{bindings.Commit.execute}"/>

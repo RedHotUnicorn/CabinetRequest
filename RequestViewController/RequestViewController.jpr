@@ -72,6 +72,10 @@
          <list n="constituent-sets">
             <hash>
                <list n="pattern-filters">
+                  <string v="+search.png"/>
+                  <string v="+chat.png"/>
+                  <string v="+delete.png"/>
+                  <string v="+cancel.png"/>
                   <string v="+disc.png"/>
                   <string v="+back.png"/>
                   <string v="+chat.png"/>
