@@ -54,14 +54,14 @@
         </AttrNames>
       </nodeDefinition>
     </tree>
+    <action IterBinding="RequestforummessageView3Iterator" id="DeleteMessage"
+            InstanceName="CabinetRequestServiceDataControl.RequestforummessageView3"
+            DataControl="CabinetRequestServiceDataControl" RequiresUpdateModel="false" Action="removeCurrentRow"/>
     <action IterBinding="RequestforummessageView3Iterator" id="ForumCreateInsert"
             InstanceName="CabinetRequestServiceDataControl.RequestforummessageView3"
             DataControl="CabinetRequestServiceDataControl" RequiresUpdateModel="true" Action="createWithParams">
       <NamedData NDName="Text" NDType="java.lang.String"/>
     </action>
-    <action IterBinding="RequestforummessageView3Iterator" id="DeleteMessage"
-            InstanceName="CabinetRequestServiceDataControl.RequestforummessageView3"
-            DataControl="CabinetRequestServiceDataControl" RequiresUpdateModel="false" Action="removeCurrentRow"/>
     <action id="Commit" InstanceName="CabinetRequestServiceDataControl" DataControl="CabinetRequestServiceDataControl"
             RequiresUpdateModel="true" Action="commitTransaction"/>
     <action id="Rollback" InstanceName="CabinetRequestServiceDataControl" DataControl="CabinetRequestServiceDataControl"

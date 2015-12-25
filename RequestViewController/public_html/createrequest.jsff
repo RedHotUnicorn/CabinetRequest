@@ -28,7 +28,7 @@
                     <af:commandImageLink id="cil2"
                                          actionListener="#{bindings.DeletePochta.execute}"
                                          action="#{viewScope.CreateRequest.deleteTypes}"
-                                         icon="#{resource['images:delete.png']}"/>
+                                         icon="#{resource['images:delete1.png']}"/>
                   </af:gridCell>
                 </af:gridRow>
               </af:panelGridLayout>
@@ -49,8 +49,8 @@
           </af:inputText>
           <af:outputText value="Количество строк: #{bindings.Typetest1View_POCHTA1Iterator.estimatedRowCount}" id="ot12"/>
           <af:spacer width="10" height="10" id="s5"/>
-          <af:commandImageLink text="Добавить число" id="cil1" icon="#{resource['images:add.png']}"
-                               action="#{CreateRequest.createTest1Obj}"/>
+          <af:commandImageLink text="Добавить число" id="cil1" icon="#{resource['images:add1.png']}"
+                               action="#{viewScope.CreateRequest.createTest1Obj}"/>
         </af:group>
       </f:facet>
       <f:facet name="TestType2">
@@ -71,7 +71,7 @@
                       </af:panelFormLayout>
                     </af:gridCell>
                     <af:gridCell width="10%" id="gc24">
-                      <af:commandImageLink id="cil7" icon="#{resource['images:delete.png']}"
+                      <af:commandImageLink id="cil7" icon="#{resource['images:delete1.png']}"
                                            actionListener="#{bindings.DeleteInternet.execute}"
                                            action="#{viewScope.CreateRequest.deleteTypes}"/>
                     </af:gridCell>
@@ -86,7 +86,7 @@
                           binding="#{viewScope.CreateRequest.itTest2}">
               <af:validateLength minimum="2"/>
             </af:inputText>
-            <af:commandImageLink text="Две буквы" id="cil8" icon="#{resource['images:add.png']}"
+            <af:commandImageLink text="Две буквы" id="cil8" icon="#{resource['images:add1.png']}"
                                  action="#{CreateRequest.createTest2Obj}"/>
           </af:subform>
         </af:group>
@@ -114,8 +114,9 @@
                 </af:panelFormLayout>
               </af:gridCell>
               <af:gridCell marginStart="5px" marginEnd="5px" width="20%" id="gc16">
-                <af:commandImageLink id="cil3" icon="#{resource['images:delete.png']}"
-                                     actionListener="#{bindings.DeleteMessage.execute}" immediate="true"/>
+                <af:commandImageLink id="cil3"
+                                     actionListener="#{bindings.DeleteMessage.execute}" immediate="true"
+                                     icon="#{resource['images:delete1.png']}"/>
               </af:gridCell>
             </af:gridRow>
           </af:panelGridLayout>
@@ -128,9 +129,9 @@
                     binding="#{viewScope.CreateRequest.itForum}"/>
       <af:commandImageLink text="Добавить сообщение" id="cil4"
                            action="#{viewScope.CreateRequest.sendMessage}" binding="#{viewScope.CreateRequest.b}"
-                           icon="#{resource['images:chat.png']}"/>
+                           icon="#{resource['images:chat1.png']}"/>
     </af:subform>
-    <af:commandImageLink text="Вернуться" id="cil5" icon="#{resource['images:back.png']}"
+    <af:commandImageLink text="Вернуться" id="cil5" icon="#{resource['images:back1.png']}"
                          actionListener="#{bindings.Rollback.execute}" action="back"/>
     <af:commandImageLink text="Сохранить" id="cil6" icon="#{resource['images:save.png']}"
                          action="back" actionListener="#{bindings.Commit.execute}"

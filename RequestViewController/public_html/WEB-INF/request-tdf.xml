@@ -7,8 +7,8 @@
     </template-reference>
     <default-activity>userequests-list</default-activity>
     <input-parameter-definition id="__1">
-      <name>IdWebUser</name>
-      <value>#{pageFlowScope.IdWebUser}</value>
+      <name>IdE</name>
+      <value>#{pageFlowScope.IdE}</value>
       <class>java.lang.Long</class>
       <required/>
     </input-parameter-definition>

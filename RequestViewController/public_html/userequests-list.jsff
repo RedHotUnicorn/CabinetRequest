@@ -2,7 +2,7 @@
 <ui:composition xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
                 xmlns:f="http://java.sun.com/jsf/core">
   <af:panelGroupLayout id="pgl4" layout="scroll">
-    <af:outputText id="ot1" value="Новый рапорт:" inlineStyle="font-weight:bolder;"/>
+    <af:outputText id="ot1" value="Новый рапорт:  #{bindings.id.inputValue} ид" inlineStyle="font-weight:bolder;"/>
     <af:iterator id="i2" value="#{bindings.RequestTypeView1.collectionModel}" var="row">
       <af:panelLabelAndMessage label="#{row.Title}" id="plam3">
         <af:commandLink text="Создать" id="cl2" action="go" actionListener="#{UseRequestList.crateReq}"/>

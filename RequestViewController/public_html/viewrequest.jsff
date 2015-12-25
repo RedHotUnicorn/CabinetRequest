@@ -66,7 +66,7 @@
               </af:panelLabelAndMessage>
             </af:gridCell>
             <af:gridCell width="20%" id="gc22">
-              <af:commandImageLink id="cil5" icon="#{resource['images:delete.png']}"
+              <af:commandImageLink id="cil5" icon="#{resource['images:delete1.png']}"
                                    actionListener="#{bindings.DeleteMessage.execute}"
                                    action="#{viewScope.ViewRequest.deleteMessages}"/>
             </af:gridCell>
@@ -76,9 +76,9 @@
     </af:panelGroupLayout>
     <af:inputText value="#{viewScope.ViewRequest.forumMessage}" id="it2" columns="20" rows="2"
                   binding="#{viewScope.ViewRequest.itForum}" validator="#{viewScope.ViewRequest.it2_validator}"/>
-    <af:commandImageLink text="Добавить сообщение" id="cil3" icon="#{resource['images:chat.png']}"
+    <af:commandImageLink text="Добавить сообщение" id="cil3" icon="#{resource['images:chat1.png']}"
                          action="#{viewScope.ViewRequest.sendMessage}"/>
-    <af:commandImageLink text="Вернуться" id="cil2" icon="#{resource['images:back.png']}"
+    <af:commandImageLink text="Вернуться" id="cil2" icon="#{resource['images:back1.png']}"
                          action="back" actionListener="#{bindings.Rollback.execute}"/>
     <af:commandImageLink text="Сохранить" id="cil1" icon="#{resource['images:save.png']}"
                          action="back"

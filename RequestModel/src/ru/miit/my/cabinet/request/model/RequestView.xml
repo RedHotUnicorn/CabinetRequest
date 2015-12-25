@@ -23,8 +23,9 @@
   <Variable
     Name="id"
     Kind="where"
-    Type="java.lang.Integer"
-    DefaultValue="2"/>
+    Type="java.lang.Integer">
+    <TransientExpression><![CDATA[source.getIdE()]]></TransientExpression>
+  </Variable>
   <Variable
     Name="IdRtype"
     Kind="viewcriteria"
@@ -217,14 +218,6 @@
     <ViewCriteriaRow
       Name="RequestViewCriteria_row_0"
       UpperColumns="1">
-      <ViewCriteriaItem
-        Name="search_RequestViewCriteria_row_0_Idemployee"
-        ViewAttribute="Idemployee"
-        Operator="="
-        Conjunction="AND"
-        Value=":id"
-        IsBindVarValue="true"
-        Required="Optional"/>
       <ViewCriteriaItem
         Name="Idrequesttype"
         ViewAttribute="Idrequesttype"

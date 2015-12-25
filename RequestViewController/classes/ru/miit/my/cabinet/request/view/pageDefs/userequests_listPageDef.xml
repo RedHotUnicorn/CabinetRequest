@@ -48,21 +48,16 @@
             InstanceName="CabinetRequestServiceDataControl.RequestView1" DataControl="CabinetRequestServiceDataControl"
             RequiresUpdateModel="true" Action="createWithParams">
       <NamedData NDName="Idrequesttype" NDType="java.lang.Integer"/>
-      <NamedData NDValue="2" NDName="Idemployee" NDType="java.lang.Integer"/>
+      <NamedData NDValue="#{pageFlowScope.IdWebUser}" NDName="Idemployee" NDType="java.lang.Integer"/>
       <NamedData NDName="Title" NDType="java.lang.String"/>
     </action>
     <action IterBinding="RequestView1Iterator" id="ExecuteWithParams" RequiresUpdateModel="true"
             Action="executeWithParams">
-      <NamedData NDName="id" NDType="java.lang.Integer" NDValue="${bindings.ExecuteWithParams_id}"/>
-      <NamedData NDName="IdRtype" NDType="java.lang.Integer" NDValue="${bindings.ExecuteWithParams_IdRtype}"/>
-      <NamedData NDName="Date" NDType="java.sql.Timestamp" NDValue="${bindings.ExecuteWithParams_Date}"/>
-      <NamedData NDName="Date2" NDType="java.sql.Timestamp" NDValue="${bindings.ExecuteWithParams_Date2}"/>
+      <NamedData NDName="id" NDValue="${pageFlowScope.IdE}" NDType="java.lang.Integer"/>
+      <NamedData NDName="IdRtype" NDValue="${bindings.ExecuteWithParams_IdRtype}" NDType="java.lang.Integer"/>
+      <NamedData NDName="Date" NDValue="${bindings.ExecuteWithParams_Date}" NDType="java.sql.Timestamp"/>
+      <NamedData NDName="Date2" NDValue="${bindings.ExecuteWithParams_Date2}" NDType="java.sql.Timestamp"/>
     </action>
-    <attributeValues IterBinding="variables" id="id">
-      <AttrNames>
-        <Item Value="ExecuteWithParams_id"/>
-      </AttrNames>
-    </attributeValues>
     <attributeValues IterBinding="variables" id="Date">
       <AttrNames>
         <Item Value="ExecuteWithParams_Date"/>
@@ -71,11 +66,6 @@
     <attributeValues IterBinding="variables" id="Date2">
       <AttrNames>
         <Item Value="ExecuteWithParams_Date2"/>
-      </AttrNames>
-    </attributeValues>
-    <attributeValues IterBinding="variables" id="IdRtype1">
-      <AttrNames>
-        <Item Value="ExecuteWithParams_IdRtype"/>
       </AttrNames>
     </attributeValues>
     <list IterBinding="variables" id="IdRtype" DTSupportsMRU="true" SelectItemValueMode="ListObject" StaticList="false"
@@ -91,5 +81,14 @@
         <Item Value="Title"/>
       </ListDisplayAttrNames>
     </list>
+    <attributeValues IterBinding="variables" id="id">
+      <AttrNames>
+        <Item Value="ExecuteWithParams_id"/>
+      </AttrNames>
+    </attributeValues>
   </bindings>
+  <ResourceBundle>
+    <PropertiesBundle xmlns="http://xmlns.oracle.com/adfm/resourcebundle"
+                      PropertiesFile="ru.miit.my.cabinet.request.view.RequestViewControllerBundle"/>
+  </ResourceBundle>
 </pageDefinition>

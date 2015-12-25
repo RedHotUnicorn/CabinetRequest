@@ -8,6 +8,7 @@
               xmlns="http://xmlns.oracle.com/adf/controller/binding">
       <parameters>
         <parameter id="IdWebUser" value="2"/>
+        <parameter id="IdE" value="2"/>
       </parameters>
     </taskFlow>
   </executables>
