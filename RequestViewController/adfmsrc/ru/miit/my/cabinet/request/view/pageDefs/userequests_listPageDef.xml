@@ -58,16 +58,6 @@
       <NamedData NDName="Date" NDValue="${bindings.ExecuteWithParams_Date}" NDType="java.sql.Timestamp"/>
       <NamedData NDName="Date2" NDValue="${bindings.ExecuteWithParams_Date2}" NDType="java.sql.Timestamp"/>
     </action>
-    <attributeValues IterBinding="variables" id="Date">
-      <AttrNames>
-        <Item Value="ExecuteWithParams_Date"/>
-      </AttrNames>
-    </attributeValues>
-    <attributeValues IterBinding="variables" id="Date2">
-      <AttrNames>
-        <Item Value="ExecuteWithParams_Date2"/>
-      </AttrNames>
-    </attributeValues>
     <list IterBinding="variables" id="IdRtype" DTSupportsMRU="true" SelectItemValueMode="ListObject" StaticList="false"
           ListIter="RequestTypeView1Iterator"
           NullValueFlag="start">

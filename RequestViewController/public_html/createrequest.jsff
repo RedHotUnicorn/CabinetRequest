@@ -47,7 +47,9 @@
                         binding="#{viewScope.CreateRequest.itTest1}">
             <af:convertNumber integerOnly="true"/>
           </af:inputText>
-          <af:outputText value="Количество строк: #{bindings.Typetest1View_POCHTA1Iterator.estimatedRowCount}" id="ot12"/>
+          <af:outputText value=" #{bindings.Typetest1View_POCHTA1Iterator.estimatedRowCount >0||bindings.Typetest2View2Iterator.estimatedRowCount>0}" id="ot12"
+                         rendered="true"
+                         visible="#{bindings.Typetest1View_POCHTA1Iterator.estimatedRowCount >0||bindings.Typetest2View2Iterator.estimatedRowCount>0}"/>
           <af:spacer width="10" height="10" id="s5"/>
           <af:commandImageLink text="Добавить число" id="cil1" icon="#{resource['images:add1.png']}"
                                action="#{viewScope.CreateRequest.createTest1Obj}"/>
@@ -135,6 +137,6 @@
                          actionListener="#{bindings.Rollback.execute}" action="back"/>
     <af:commandImageLink text="Сохранить" id="cil6" icon="#{resource['images:save.png']}"
                          action="back" actionListener="#{bindings.Commit.execute}"
-                         rendered="#{viewScope.CreateRequest.dataOnPageChanged}"/>
+                         rendered=" #{bindings.Typetest1View_POCHTA1Iterator.estimatedRowCount != '0'}"/>
   </af:panelGroupLayout>
 </ui:composition>

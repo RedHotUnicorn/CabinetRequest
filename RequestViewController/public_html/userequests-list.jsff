@@ -23,20 +23,7 @@
             <f:selectItems value="#{bindings.IdRtype.items}" id="si1"/>
           </af:selectOneChoice>
         </af:gridCell>
-        <af:gridCell marginStart="5px" marginEnd="5px" width="35%" id="gc3">
-          <af:inputDate value="#{bindings.Date.inputValue}"
-                        required="#{bindings.Date.hints.mandatory}" columns="#{bindings.Date.hints.displayWidth}"
-                        shortDesc="#{bindings.Date.hints.tooltip}" id="id1">
-            <f:validator binding="#{bindings.Date.validator}"/>
-            <af:convertDateTime pattern="#{bindings.Date.format}"/>
-          </af:inputDate>
-          <af:inputDate value="#{bindings.Date2.inputValue}"
-                        required="#{bindings.Date2.hints.mandatory}" columns="#{bindings.Date2.hints.displayWidth}"
-                        shortDesc="#{bindings.Date2.hints.tooltip}" id="id2">
-            <f:validator binding="#{bindings.Date2.validator}"/>
-            <af:convertDateTime pattern="#{bindings.Date2.format}"/>
-          </af:inputDate>
-        </af:gridCell>
+        <af:gridCell marginStart="5px" marginEnd="5px" width="35%" id="gc3"/>
       </af:gridRow>
     </af:panelGridLayout>
     <af:panelGroupLayout id="pgl1" layout="vertical">
