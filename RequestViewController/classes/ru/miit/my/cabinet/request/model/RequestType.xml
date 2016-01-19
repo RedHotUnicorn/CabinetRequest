@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE Entity SYSTEM "jbo_03_01.dtd">
+<!---->
+<Entity
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="RequestType"
+  Version="11.1.2.62.76"
+  DBObjectType="TABLE"
+  DBObjectName="JUNIOR560704.REQUESTTYPE"
+  AliasName="RequestType"
+  BindingStyle="OracleName"
+  UseGlueCode="false"
+  RowClass="ru.miit.my.frameworkext.EntityImpl">
+  <Attribute
+    Name="Idrequesttype"
+    IsNotNull="true"
+    ColumnName="IDREQUESTTYPE"
+    SQLType="NUMERIC"
+    Type="java.lang.Integer"
+    ColumnType="INTEGER"
+    TableName="JUNIOR560704.REQUESTTYPE"
+    PrimaryKey="true">
+    <TransientExpression><![CDATA[(new oracle.jbo.server.SequenceImpl("REQUESTTYPEv1", adf.object.getDBTransaction())).getSequenceNumber()]]></TransientExpression>
+  </Attribute>
+  <Attribute
+    Name="Title"
+    Precision="255"
+    ColumnName="TITLE"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="JUNIOR560704.REQUESTTYPE">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="255"/>
+    </DesignTime>
+  </Attribute>
+  <AccessorAttribute
+    Name="Request"
+    Association="ru.miit.my.cabinet.request.model.ReqTypeReqAssoc"
+    AssociationEnd="ru.miit.my.cabinet.request.model.ReqTypeReqAssoc.Request"
+    AssociationOtherEnd="ru.miit.my.cabinet.request.model.ReqTypeReqAssoc.RequestType"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <Key
+    Name="SysC00188526"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="SYS_C00188526"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="ru.miit.my.cabinet.request.model.RequestType.Idrequesttype"/>
+    </AttrArray>
+  </Key>
+</Entity>
