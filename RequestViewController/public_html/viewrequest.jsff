@@ -43,6 +43,30 @@
         </af:group>
       </f:facet>
       <f:facet name="Default"/>
+      <f:facet name="TestType3">
+        <af:panelGroupLayout id="pgl7" layout="vertical">
+          <f:facet name="separator">
+            <af:separator id="s5"/>
+          </f:facet>
+          <af:iterator id="i4" value="#{bindings.Typetest3View1.collectionModel}" var="row">
+            <af:panelFormLayout id="pfl1">
+              <f:facet name="footer"/>
+              <af:panelLabelAndMessage label="Пользователь" id="plam5">
+                <af:outputText value="#{row.Secondname}" id="ot7"/>
+              </af:panelLabelAndMessage>
+              <af:panelLabelAndMessage label="Кабинет " id="plam6">
+                <af:outputText value="#{row.Roomnumber}" id="ot8"/>
+              </af:panelLabelAndMessage>
+              <af:panelLabelAndMessage label="Программа" id="plam11">
+                <af:outputText value="#{row.Programmname}" id="ot13"/>
+              </af:panelLabelAndMessage>
+              <af:panelLabelAndMessage label="Компьютер" id="plam10">
+                <af:outputText value="#{row.Computername}" id="ot12"/>
+              </af:panelLabelAndMessage>
+            </af:panelFormLayout>
+          </af:iterator>
+        </af:panelGroupLayout>
+      </f:facet>
     </af:switcher>
     <h:outputText value="Сообщения" id="ot1" style="font-style:inherit; font-weight:bolder;"/>
     <af:panelGroupLayout id="pgl3">

@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="Typetest3View"
+  Version="11.1.2.62.76"
+  SelectList="Typetest3.IDTYPETEST3, 
+       Typetest3.IDEMPLOYEE, 
+       Typetest3.IDREQUEST, 
+       Typetest3.ROOMNUMBER, 
+       Typetest3.IDTYPETEST3DICT, 
+       Typetest3.COMPUTERNAME, 
+       Typetest3.PROGRAMMNAME, 
+       Typetest3dict.ADDCHAR, 
+       Typetest3dict.IDTYPETEST3DICT AS IDTYPETEST3DICT1, 
+       Employee.SECONDNAME, 
+       Employee.IDEMPLOYEE AS IDEMPLOYEE1"
+  FromList="JUNIOR560704.TYPETEST3 Typetest3, JUNIOR560704.TYPETEST3DICT Typetest3dict, JUNIOR560704.EMPLOYEE Employee"
+  BindingStyle="OracleName"
+  CustomQuery="false"
+  RowClass="ru.miit.my.frameworkext.ViewRowImpl"
+  ComponentClass="ru.miit.my.frameworkext.ViewObjectImpl"
+  PageIterMode="Full"
+  UseGlueCode="false"
+  Where="(Typetest3.IDTYPETEST3 = Typetest3dict.IDTYPETEST3DICT) AND (Typetest3.IDEMPLOYEE = Employee.IDEMPLOYEE)">
+  <EntityUsage
+    Name="Typetest3"
+    Entity="ru.miit.my.cabinet.request.model.Typetest3"/>
+  <EntityUsage
+    Name="Typetest3dict"
+    Entity="ru.miit.my.cabinet.request.model.Typetest3dict"
+    Association="ru.miit.my.cabinet.request.model.SysC00199793Assoc"
+    AssociationEnd="ru.miit.my.cabinet.request.model.SysC00199793Assoc.Typetest3dict"
+    SourceUsage="ru.miit.my.cabinet.request.model.Typetest3View.Typetest3"
+    ReadOnly="true"
+    Reference="true"
+    DeleteParticipant="false"
+    JoinType="INNER JOIN">
+    <DesignTime>
+      <AttrArray Name="_srcAttributes">
+        <Item Value="ru.miit.my.cabinet.request.model.Typetest3.Idtypetest3"/>
+      </AttrArray>
+      <AttrArray Name="_dstAttributes">
+        <Item Value="ru.miit.my.cabinet.request.model.Typetest3dict.Idtypetest3dict"/>
+      </AttrArray>
+    </DesignTime>
+  </EntityUsage>
+  <EntityUsage
+    Name="Employee"
+    Entity="ru.miit.my.cabinet.request.model.Employee"
+    Association="ru.miit.my.cabinet.request.model.ReqType3viewtoEmp"
+    AssociationEnd="ru.miit.my.cabinet.request.model.ReqType3viewtoEmp.Employee"
+    SourceUsage="ru.miit.my.cabinet.request.model.Typetest3View.Typetest3"
+    ReadOnly="true"
+    Reference="true"
+    DeleteParticipant="false"
+    JoinType="INNER JOIN">
+    <DesignTime>
+      <AttrArray Name="_srcAttributes">
+        <Item Value="ru.miit.my.cabinet.request.model.Typetest3.Idemployee"/>
+      </AttrArray>
+      <AttrArray Name="_dstAttributes">
+        <Item Value="ru.miit.my.cabinet.request.model.Employee.Idemployee"/>
+      </AttrArray>
+    </DesignTime>
+  </EntityUsage>
+  <ViewAttribute
+    Name="Idtypetest3"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="Idtypetest3"
+    EntityUsage="Typetest3"
+    AliasName="IDTYPETEST3"/>
+  <ViewAttribute
+    Name="Idemployee"
+    PrecisionRule="true"
+    EntityAttrName="Idemployee"
+    EntityUsage="Typetest3"
+    AliasName="IDEMPLOYEE"/>
+  <ViewAttribute
+    Name="Idrequest"
+    PrecisionRule="true"
+    EntityAttrName="Idrequest"
+    EntityUsage="Typetest3"
+    AliasName="IDREQUEST"/>
+  <ViewAttribute
+    Name="Roomnumber"
+    PrecisionRule="true"
+    EntityAttrName="Roomnumber"
+    EntityUsage="Typetest3"
+    AliasName="ROOMNUMBER"/>
+  <ViewAttribute
+    Name="Idtypetest3dict"
+    PrecisionRule="true"
+    EntityAttrName="Idtypetest3dict"
+    EntityUsage="Typetest3"
+    AliasName="IDTYPETEST3DICT"/>
+  <ViewAttribute
+    Name="Computername"
+    PrecisionRule="true"
+    EntityAttrName="Computername"
+    EntityUsage="Typetest3"
+    AliasName="COMPUTERNAME"/>
+  <ViewAttribute
+    Name="Programmname"
+    PrecisionRule="true"
+    EntityAttrName="Programmname"
+    EntityUsage="Typetest3"
+    AliasName="PROGRAMMNAME"/>
+  <ViewAttribute
+    Name="Addchar"
+    PrecisionRule="true"
+    EntityAttrName="Addchar"
+    EntityUsage="Typetest3dict"
+    AliasName="ADDCHAR"/>
+  <ViewAttribute
+    Name="Idtypetest3dict1"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="Idtypetest3dict"
+    EntityUsage="Typetest3dict"
+    AliasName="IDTYPETEST3DICT1"/>
+  <ViewAttribute
+    Name="Secondname"
+    PrecisionRule="true"
+    EntityAttrName="Secondname"
+    EntityUsage="Employee"
+    AliasName="SECONDNAME"/>
+  <ViewAttribute
+    Name="Idemployee1"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="Idemployee"
+    EntityUsage="Employee"
+    AliasName="IDEMPLOYEE1"/>
+  <AttrArray Name="KeyAttributes">
+    <Item Value="Idtypetest3"/>
+  </AttrArray>
+</ViewObject>

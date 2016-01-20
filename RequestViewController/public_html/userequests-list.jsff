@@ -19,19 +19,20 @@
         <af:gridCell marginStart="5px" width="50%" id="gc2">
           <af:selectOneChoice value="#{bindings.IdRtype.inputValue}"
                               required="#{bindings.IdRtype.hints.mandatory}"
-                              shortDesc="#{bindings.IdRtype.hints.tooltip}" id="soc1">
+                              shortDesc="#{bindings.IdRtype.hints.tooltip}" id="soc1" autoSubmit="true">
             <f:selectItems value="#{bindings.IdRtype.items}" id="si1"/>
           </af:selectOneChoice>
         </af:gridCell>
         <af:gridCell marginStart="5px" marginEnd="5px" width="35%" id="gc3"/>
       </af:gridRow>
     </af:panelGridLayout>
-    <af:panelGroupLayout id="pgl1" layout="vertical">
+    <af:panelGroupLayout id="pgl1" layout="vertical" partialTriggers="soc1">
       <f:facet name="separator">
         <af:separator id="s1"/>
       </f:facet>
       <af:iterator id="i1" value="#{bindings.RequestView1.collectionModel}" var="row">
-        <af:panelGridLayout id="pgl2">
+        <af:panelGridLayout id="pgl2"
+                            partialTriggers="#{data.ru_miit_my_cabinet_request_view_userequests_listPageDef.ExecuteWithParams_IdRtype}">
           <af:gridRow marginTop="5px" marginBottom="5px" height="auto" id="gr2">
             <af:gridCell marginStart="5px" width="15%" id="gc4">
               <af:commandLink text="#{row.Idrequest}" id="cl3" action="View"
@@ -58,4 +59,5 @@
       </af:iterator>
     </af:panelGroupLayout>
   </af:panelGroupLayout>
+  <!--oracle-jdev-comment:preferred-managed-bean-name:UseRequestList-->
 </ui:composition>

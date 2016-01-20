@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE ViewLink SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewLink
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="SysC00199791Link"
+  Version="11.1.2.62.76"
+  EntityAssociation="ru.miit.my.cabinet.request.model.ReqType3viewtoEmp">
+  <ViewLinkDefEnd
+    Name="EmployeeView"
+    Cardinality="1"
+    Source="true"
+    Owner="ru.miit.my.cabinet.request.model.EmployeeView">
+    <DesignTime>
+      <Attr Name="_finderName" Value="EmployeeView"/>
+      <Attr Name="_isUpdateable" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="ru.miit.my.cabinet.request.model.EmployeeView.Idemployee"/>
+    </AttrArray>
+  </ViewLinkDefEnd>
+  <ViewLinkDefEnd
+    Name="Typetest3View"
+    Cardinality="-1"
+    Owner="ru.miit.my.cabinet.request.model.Typetest3View">
+    <DesignTime>
+      <Attr Name="_finderName" Value="Typetest3View"/>
+      <Attr Name="_isUpdateable" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="ru.miit.my.cabinet.request.model.Typetest3View.Idemployee"/>
+    </AttrArray>
+  </ViewLinkDefEnd>
+</ViewLink>

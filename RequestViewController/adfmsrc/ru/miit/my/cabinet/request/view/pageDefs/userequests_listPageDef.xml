@@ -4,7 +4,7 @@
   <parameters/>
   <executables>
     <iterator id="RequestView1Iterator" Binds="RequestView1" DataControl="CabinetRequestServiceDataControl"
-              RangeSize="-1"/>
+              RangeSize="-1" Refresh="always"/>
     <iterator id="RequestTypeView1Iterator" Binds="RequestTypeView1" DataControl="CabinetRequestServiceDataControl"
               RangeSize="-1"/>
     <variableIterator id="variables">

@@ -35,4 +35,9 @@
     ViewLink="ru.miit.my.cabinet.request.model.ReqEmpLink"
     Type="oracle.jbo.RowIterator"
     IsUpdateable="false"/>
+  <ViewLinkAccessor
+    Name="Typetest3View"
+    ViewLink="ru.miit.my.cabinet.request.model.SysC00199791Link"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
 </ViewObject>

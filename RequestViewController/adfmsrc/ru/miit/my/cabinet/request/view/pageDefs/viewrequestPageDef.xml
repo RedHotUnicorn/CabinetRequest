@@ -12,6 +12,8 @@
               DataControl="CabinetRequestServiceDataControl" RangeSize="25"/>
     <iterator id="RequestView1Iterator" Binds="RequestView1" DataControl="CabinetRequestServiceDataControl"
               RangeSize="25"/>
+    <iterator id="Typetest3View1Iterator" Binds="Typetest3View1" DataControl="CabinetRequestServiceDataControl"
+              RangeSize="25"/>
   </executables>
   <bindings>
     <attributeValues IterBinding="RequestView1Iterator" id="Idrequesttype">
@@ -66,5 +68,21 @@
             RequiresUpdateModel="true" Action="commitTransaction"/>
     <action id="Rollback" InstanceName="CabinetRequestServiceDataControl" DataControl="CabinetRequestServiceDataControl"
             RequiresUpdateModel="false" Action="rollbackTransaction"/>
+    <tree IterBinding="Typetest3View1Iterator" id="Typetest3View1">
+      <nodeDefinition DefName="ru.miit.my.cabinet.request.model.Typetest3View" Name="Typetest3View10">
+        <AttrNames>
+          <Item Value="Idtypetest3"/>
+          <Item Value="Addchar"/>
+          <Item Value="Computername"/>
+          <Item Value="Idemployee"/>
+          <Item Value="Idrequest"/>
+          <Item Value="Idtypetest3dict"/>
+          <Item Value="Idtypetest3dict1"/>
+          <Item Value="Programmname"/>
+          <Item Value="Roomnumber"/>
+          <Item Value="Secondname"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
   </bindings>
 </pageDefinition>

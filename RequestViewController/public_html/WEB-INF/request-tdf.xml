@@ -15,7 +15,7 @@
     <managed-bean id="__14">
       <managed-bean-name>UseRequestList</managed-bean-name>
       <managed-bean-class>ru.miit.my.cabinet.request.view.UseRequestList</managed-bean-class>
-      <managed-bean-scope>view</managed-bean-scope>
+      <managed-bean-scope>request</managed-bean-scope>
     </managed-bean>
     <managed-bean id="__15">
       <managed-bean-name>ViewRequest</managed-bean-name>

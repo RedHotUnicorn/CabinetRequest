@@ -100,7 +100,8 @@ public class ViewRequest {
             
         case 2:
             return "TestType2";
-            
+        case 3:
+            return "TestType3";
         default:
             return "Default";
         }

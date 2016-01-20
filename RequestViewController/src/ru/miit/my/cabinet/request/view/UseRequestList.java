@@ -1,6 +1,10 @@
 package ru.miit.my.cabinet.request.view;
 
+import javax.faces.component.UIComponent;
+import javax.faces.context.FacesContext;
 import javax.faces.event.ActionEvent;
+
+import javax.faces.event.ValueChangeEvent;
 
 import oracle.adf.model.BindingContext;
 
@@ -48,5 +52,11 @@ public class UseRequestList {
         return "";
     }
 
-   
+
+    public void exe(ValueChangeEvent valueChangeEvent) {
+      //  BindingContainer bindings = getBindings();
+       // OperationBinding createRequestBinding = bindings.getOperationBinding("ExecuteWithParams");
+      //  createRequestBinding.execute();
+        
+    }
 }

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE Entity SYSTEM "jbo_03_01.dtd">
+<!---->
+<Entity
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="Typetest3dict"
+  Version="11.1.2.62.76"
+  DBObjectType="TABLE"
+  DBObjectName="JUNIOR560704.TYPETEST3DICT"
+  AliasName="Typetest3dict"
+  BindingStyle="OracleName"
+  UseGlueCode="false"
+  RowClass="ru.miit.my.frameworkext.EntityImpl">
+  <Attribute
+    Name="Idtypetest3dict"
+    IsNotNull="true"
+    ColumnName="IDTYPETEST3DICT"
+    SQLType="NUMERIC"
+    Type="java.lang.Integer"
+    ColumnType="INTEGER"
+    TableName="JUNIOR560704.TYPETEST3DICT"
+    PrimaryKey="true"/>
+  <Attribute
+    Name="Addchar"
+    Precision="40"
+    ColumnName="ADDCHAR"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="JUNIOR560704.TYPETEST3DICT">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="40"/>
+    </DesignTime>
+  </Attribute>
+  <AccessorAttribute
+    Name="Typetest3"
+    Association="ru.miit.my.cabinet.request.model.SysC00199793Assoc"
+    AssociationEnd="ru.miit.my.cabinet.request.model.SysC00199793Assoc.Typetest3"
+    AssociationOtherEnd="ru.miit.my.cabinet.request.model.SysC00199793Assoc.Typetest3dict"
+    Type="ru.miit.my.frameworkext.EntityImpl"
+    IsUpdateable="true"/>
+  <Key
+    Name="SysC00199789"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="SYS_C00199789"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="ru.miit.my.cabinet.request.model.Typetest3dict.Idtypetest3dict"/>
+    </AttrArray>
+  </Key>
+</Entity>

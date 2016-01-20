@@ -261,4 +261,9 @@
     ViewLink="ru.miit.my.cabinet.request.model.ReqType2viewtoRequestLink"
     Type="oracle.jbo.RowIterator"
     IsUpdateable="false"/>
+  <ViewLinkAccessor
+    Name="Typetest3View"
+    ViewLink="ru.miit.my.cabinet.request.model.ReqType3viewtoRequestLink"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
 </ViewObject>

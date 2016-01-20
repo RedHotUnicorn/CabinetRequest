@@ -56,6 +56,9 @@
   <ViewUsage
     Name="Typetest1View_POCHTA1"
     ViewObjectName="ru.miit.my.cabinet.request.model.Typetest1View_POCHTA"/>
+  <ViewUsage
+    Name="Typetest3View1"
+    ViewObjectName="ru.miit.my.cabinet.request.model.Typetest3View"/>
   <ViewLinkUsage
     Name="ReqEmpLink1"
     ViewLinkObjectName="ru.miit.my.cabinet.request.model.ReqEmpLink"
@@ -91,6 +94,12 @@
     ViewLinkObjectName="ru.miit.my.cabinet.request.model.ReqType1viewtoRequestlink"
     SrcViewUsageName="ru.miit.my.cabinet.request.model.CabinetRequestService.RequestView1"
     DstViewUsageName="ru.miit.my.cabinet.request.model.CabinetRequestService.Typetest1View_POCHTA1"
+    Reversed="false"/>
+  <ViewLinkUsage
+    Name="ReqType3viewtoRequestLink1"
+    ViewLinkObjectName="ru.miit.my.cabinet.request.model.ReqType3viewtoRequestLink"
+    SrcViewUsageName="ru.miit.my.cabinet.request.model.CabinetRequestService.RequestView1"
+    DstViewUsageName="ru.miit.my.cabinet.request.model.CabinetRequestService.Typetest3View1"
     Reversed="false"/>
   <ResourceBundle>
     <PropertiesBundle
