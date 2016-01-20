@@ -91,8 +91,8 @@
             </af:gridCell>
             <af:gridCell width="20%" id="gc22">
               <af:commandImageLink id="cil5" icon="#{resource['images:delete1.png']}"
-                                   actionListener="#{bindings.DeleteMessage.execute}"
-                                   action="#{viewScope.ViewRequest.deleteMessages}"/>
+                                   action="#{viewScope.ViewRequest.deleteMessages}"
+                                   actionListener="#{viewScope.ViewRequest.buttonAction}"/>
             </af:gridCell>
           </af:gridRow>
         </af:panelGridLayout>

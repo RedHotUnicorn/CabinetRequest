@@ -22,11 +22,14 @@ import javax.faces.component.UIComponent;
 import javax.faces.component.UIViewRoot;
 import javax.faces.context.FacesContext;
 
+import javax.faces.event.ActionEvent;
 import javax.faces.validator.ValidatorException;
 
 import oracle.adf.model.binding.DCBindingContainer;
 
 import oracle.adf.view.rich.component.rich.input.RichInputText;
+
+import oracle.adf.view.rich.util.FacesMessageUtils;
 
 import oracle.binding.AttributeBinding;
 
@@ -157,4 +160,12 @@ public class ViewRequest {
             throw new ValidatorException(new FacesMessage(FacesMessage.SEVERITY_ERROR, msg, null));
         }*/
     }
+    public void buttonAction(ActionEvent actionEvent) {
+           //FacesMessage msg = new FacesMessage("Button Action called"); //#{bindings.DeleteMessage.execute}
+           //msg.setSeverity(FacesMessage.SEVERITY_ERROR);
+           FacesMessage msg = FacesMessageUtils.getConfirmationMessage(new FacesMessage("confirm?"));
+           FacesContext context = FacesContext.getCurrentInstance();
+           context.addMessage(null, msg);
+           
+       }
 }

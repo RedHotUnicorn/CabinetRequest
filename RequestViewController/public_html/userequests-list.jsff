@@ -26,7 +26,7 @@
         <af:gridCell marginStart="5px" marginEnd="5px" width="35%" id="gc3"/>
       </af:gridRow>
     </af:panelGridLayout>
-    <af:panelGroupLayout id="pgl1" layout="vertical" partialTriggers="soc1">
+    <af:panelGroupLayout id="pgl1" layout="vertical">
       <f:facet name="separator">
         <af:separator id="s1"/>
       </f:facet>
