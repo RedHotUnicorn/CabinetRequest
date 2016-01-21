@@ -90,9 +90,9 @@
               </af:panelLabelAndMessage>
             </af:gridCell>
             <af:gridCell width="20%" id="gc22">
-              <af:commandImageLink id="cil5" icon="#{resource['images:delete1.png']}"
-                                   action="#{viewScope.ViewRequest.deleteMessages}"
-                                   actionListener="#{viewScope.ViewRequest.buttonAction}"/>
+              <af:commandImageLink id="cil5" icon="#{resource['images:delete1.png']}">
+                <af:showPopupBehavior triggerType="action" popupId="::p1" align="beforeStart"/>
+              </af:commandImageLink>
             </af:gridCell>
           </af:gridRow>
         </af:panelGridLayout>
@@ -108,6 +108,11 @@
                          action="back"
                          rendered="#{viewScope.ViewRequest.dataOnPageChanged}"
                          actionListener="#{bindings.Commit.execute}"/>
+    <af:popup childCreation="deferred" autoCancel="enabled" id="p1">
+      <af:outputText value="Удалить?" id="ot14"/>
+      <af:commandButton text="ok" id="cb1" action="#{bindings.DeleteMessage.execute}"/>
+      <af:commandButton text="cancel" id="cb2"/>
+    </af:popup>
   </af:panelGroupLayout>
   <!--oracle-jdev-comment:preferred-managed-bean-name:ViewRequest-->
 </ui:composition>

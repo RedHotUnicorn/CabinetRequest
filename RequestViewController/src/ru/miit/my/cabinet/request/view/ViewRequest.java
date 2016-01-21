@@ -164,8 +164,11 @@ public class ViewRequest {
            //FacesMessage msg = new FacesMessage("Button Action called"); //#{bindings.DeleteMessage.execute}
            //msg.setSeverity(FacesMessage.SEVERITY_ERROR);
            FacesMessage msg = FacesMessageUtils.getConfirmationMessage(new FacesMessage("confirm?"));
+           msg.setDetail("fuck");
+           msg.setSummary("You");
            FacesContext context = FacesContext.getCurrentInstance();
            context.addMessage(null, msg);
+           
            
        }
 }
