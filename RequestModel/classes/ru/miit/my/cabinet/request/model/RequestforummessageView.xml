@@ -15,11 +15,15 @@
   FromList="REQUESTFORUMMESSAGE Requestforummessage"
   BindingStyle="OracleName"
   CustomQuery="false"
-  RowClass="ru.miit.my.frameworkext.ViewRowImpl"
+  RowClass="ru.miit.my.cabinet.request.model.RequestforummessageViewRowImpl"
   ComponentClass="ru.miit.my.frameworkext.ViewObjectImpl"
   PageIterMode="Full"
   UseGlueCode="false"
   OrderBy="Requestforummessage.IDREQUESTFORUMMESSAGE">
+  <DesignTime>
+    <Attr Name="_codeGenFlag2" Value="Access"/>
+    <Attr Name="_isCodegen" Value="true"/>
+  </DesignTime>
   <EntityUsage
     Name="Requestforummessage"
     Entity="ru.miit.my.cabinet.request.model.Requestforummessage"/>
@@ -86,6 +90,16 @@
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
+  <ViewAttribute
+    Name="SomeAttr"
+    IsUpdateable="false"
+    IsSelected="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="VIEW_ATTR"
+    SQLType="VARCHAR"/>
   <ViewLinkAccessor
     Name="RequestforummessageView"
     ViewLink="ru.miit.my.cabinet.request.model.RequestForumMessageLoopLink"

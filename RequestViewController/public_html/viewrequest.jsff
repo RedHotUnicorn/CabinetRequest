@@ -80,17 +80,23 @@
               <af:panelLabelAndMessage label="ID " id="plam3">
                 <af:outputText value="#{row.Idrequestforummessage}" id="ot9"/>
               </af:panelLabelAndMessage>
-              <af:panelLabelAndMessage label="Дата сообщения" id="plam1">
-                <af:outputText value="#{row.Creationdate}" id="ot2">
+              <af:panelLabelAndMessage label="Дата сообщения" id="plam1"
+                                       visible="true">
+                <af:outputText value="#{row.Creationdate}" id="ot2"
+                               visible="true">
                   <af:convertDateTime type="both"/>
                 </af:outputText>
               </af:panelLabelAndMessage>
               <af:panelLabelAndMessage label="Текст сообщения" id="plam2">
                 <af:outputText value="#{row.Text}" id="ot3"/>
               </af:panelLabelAndMessage>
+              <af:outputText value="#{row.SomeAttr} sanya" id="ot15"/>
+              <af:outputText value="#{bindings.SomeAttr.inputValue}" id="ot16"/>
             </af:gridCell>
             <af:gridCell width="20%" id="gc22">
-              <af:commandImageLink id="cil5" icon="#{resource['images:delete1.png']}">
+              <af:commandImageLink id="cil5" icon="#{resource['images:delete1.png']}"
+                                   rendered="true"
+                                   visible="true">
                 <af:showPopupBehavior triggerType="action" popupId="::p1" align="beforeStart"/>
               </af:commandImageLink>
             </af:gridCell>
@@ -109,9 +115,15 @@
                          rendered="#{viewScope.ViewRequest.dataOnPageChanged}"
                          actionListener="#{bindings.Commit.execute}"/>
     <af:popup childCreation="deferred" autoCancel="enabled" id="p1">
-      <af:outputText value="Удалить?" id="ot14"/>
-      <af:commandButton text="ok" id="cb1" action="#{bindings.DeleteMessage.execute}"/>
-      <af:commandButton text="cancel" id="cb2"/>
+      <af:panelGroupLayout id="pgl8" layout="vertical" valign="middle" halign="center">
+        <af:outputText value="Удалить?" id="ot14"/>
+        <af:panelGroupLayout id="pgl6" layout="horizontal">
+          <af:commandImageLink text="OK" id="cil4" action="#{bindings.DeleteMessage.execute}"
+                               icon="#{resource['images:yes.png']}"/>
+          <af:spacer width="30" height="10" id="s7"/>
+          <af:commandImageLink text="Cancel" id="cil6" icon="#{resource['images:no.png']}" iconPosition="trailing"/>
+        </af:panelGroupLayout>
+      </af:panelGroupLayout>
     </af:popup>
   </af:panelGroupLayout>
   <!--oracle-jdev-comment:preferred-managed-bean-name:ViewRequest-->
