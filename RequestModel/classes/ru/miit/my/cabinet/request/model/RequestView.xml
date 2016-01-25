@@ -14,12 +14,16 @@
   FromList="JUNIOR560704.REQUEST Request, JUNIOR560704.REQUESTTYPE RequestType"
   BindingStyle="OracleName"
   CustomQuery="false"
-  RowClass="ru.miit.my.frameworkext.ViewRowImpl"
+  RowClass="ru.miit.my.cabinet.request.model.RequestViewRowImpl"
   ComponentClass="ru.miit.my.frameworkext.ViewObjectImpl"
   PageIterMode="Full"
   UseGlueCode="false"
   Where="Request.IDREQUESTTYPE = RequestType.IDREQUESTTYPE and Request.IDEMPLOYEE = :id"
   OrderBy="Request.IDREQUEST DESC">
+  <DesignTime>
+    <Attr Name="_codeGenFlag2" Value="Access"/>
+    <Attr Name="_isCodegen" Value="true"/>
+  </DesignTime>
   <Variable
     Name="id"
     Kind="where"
@@ -192,6 +196,16 @@
     EntityAttrName="Idrequesttype"
     EntityUsage="RequestType"
     AliasName="IDREQUESTTYPE1"/>
+  <ViewAttribute
+    Name="Smth"
+    IsUpdateable="false"
+    IsSelected="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="VIEW_ATTR"
+    SQLType="VARCHAR"/>
   <ViewCriteria
     Name="search"
     ViewObjectName="ru.miit.my.cabinet.request.model.RequestView"

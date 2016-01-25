@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="EmployeeView"
+  Version="11.1.2.62.76"
+  SelectList="Employee.IDEMPLOYEE, 
+       Employee.SECONDNAME"
+  FromList="JUNIOR560704.EMPLOYEE Employee"
+  BindingStyle="OracleName"
+  CustomQuery="false"
+  RowClass="ru.miit.my.frameworkext.ViewRowImpl"
+  ComponentClass="ru.miit.my.frameworkext.ViewObjectImpl"
+  PageIterMode="Full"
+  UseGlueCode="false">
+  <EntityUsage
+    Name="Employee"
+    Entity="ru.miit.my.cabinet.request.model.Employee"/>
+  <ViewAttribute
+    Name="Idemployee"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="Idemployee"
+    EntityUsage="Employee"
+    AliasName="IDEMPLOYEE"/>
+  <ViewAttribute
+    Name="Secondname"
+    PrecisionRule="true"
+    EntityAttrName="Secondname"
+    EntityUsage="Employee"
+    AliasName="SECONDNAME"/>
+  <ViewLinkAccessor
+    Name="RequestView"
+    ViewLink="ru.miit.my.cabinet.request.model.ReqEmpLink"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <ViewLinkAccessor
+    Name="Typetest3View"
+    ViewLink="ru.miit.my.cabinet.request.model.SysC00199791Link"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+</ViewObject>

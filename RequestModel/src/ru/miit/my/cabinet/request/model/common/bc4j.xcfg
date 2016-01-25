@@ -2,6 +2,7 @@
 <BC4JConfig version="11.1" xmlns="http://xmlns.oracle.com/bc4j/configuration">
    <AppModuleConfigBag ApplicationName="ru.miit.my.cabinet.request.model.CabinetRequestService">
       <AppModuleConfig DeployPlatform="LOCAL" jbo.project="ru.miit.my.cabinet.request.model.RequestModel" name="CabinetRequestServiceLocal" ApplicationName="ru.miit.my.cabinet.request.model.CabinetRequestService">
+         <AM-Pooling jbo.ampool.maxinactiveage="1800000" jbo.ampool.monitorsleepinterval="1800000"/>
          <Database jbo.TypeMapEntries="OracleApps" jbo.locking.mode="optimistic" jbo.server.internal_connection="jdbc/ds_txn"/>
          <Security AppModuleJndiName="ru.miit.my.cabinet.request.model.CabinetRequestService"/>
          <Custom JDBCDataSource="java:comp/env/jdbc/Connection1DS"/>

@@ -2,7 +2,7 @@
 <ui:composition xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
                 xmlns:f="http://java.sun.com/jsf/core" xmlns:h="http://java.sun.com/jsf/html">
   <af:panelGroupLayout id="pgl4" layout="scroll">
-    <af:outputText value="Рапорт" id="ot4" inlineStyle="font-weight:bolder;"/>
+    <af:outputText value="#{bindings.TitleOfPage}" id="ot4" inlineStyle="font-weight:bolder;"/>
     <af:switcher id="s1" facetName="#{ViewRequest.routerFacet}">
       <f:facet name="TestType1">
         <af:group id="g2">
@@ -61,7 +61,7 @@
                 <af:outputText value="#{row.Programmname}" id="ot13"/>
               </af:panelLabelAndMessage>
               <af:panelLabelAndMessage label="Компьютер" id="plam10">
-                <af:outputText value="#{row.Computername}" id="ot12"/>
+                <af:outputText value="#{row.Computername} " id="ot12"/>
               </af:panelLabelAndMessage>
             </af:panelFormLayout>
           </af:iterator>
@@ -90,13 +90,11 @@
               <af:panelLabelAndMessage label="Текст сообщения" id="plam2">
                 <af:outputText value="#{row.Text}" id="ot3"/>
               </af:panelLabelAndMessage>
-              <af:outputText value="#{row.SomeAttr} sanya" id="ot15"/>
-              <af:outputText value="#{bindings.SomeAttr.inputValue}" id="ot16"/>
             </af:gridCell>
             <af:gridCell width="20%" id="gc22">
               <af:commandImageLink id="cil5" icon="#{resource['images:delete1.png']}"
                                    rendered="true"
-                                   visible="true">
+                                   visible="#{row.isNewRow}">
                 <af:showPopupBehavior triggerType="action" popupId="::p1" align="beforeStart"/>
               </af:commandImageLink>
             </af:gridCell>

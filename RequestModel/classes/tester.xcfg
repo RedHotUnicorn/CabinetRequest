@@ -7,5 +7,12 @@
          <Tester FullProxyInterfaceName="ru.miit.my.cabinet.request.model.common.CabinetRequestService"/>
          <Custom LastUsedConfiguration="CabinetRequestServiceLocal" JDBCDataSource="java:comp/env/jdbc/Connection1DS"/>
       </AppModuleConfig>
+      <AppModuleConfig name="1526A23A8FA" DeployPlatform="LOCAL" DBconnection="java:comp/env/jdbc/Connection1DS" BC4JConfigName="CabinetRequestServiceLocal" JDBCName="Connection1" java.naming.factory.initial="oracle.jbo.common.JboInitialContextFactory" IsLazyLoadingTrue="true" ApplicationName="ru.miit.my.cabinet.request.model.CabinetRequestService" jbo.project="ru.miit.my.cabinet.request.model.RequestModel">
+         <AM-Pooling jbo.ampool.monitorsleepinterval="1800000" jbo.ampool.maxinactiveage="1800000"/>
+         <Database jbo.server.internal_connection="jdbc/ds_txn" jbo.TypeMapEntries="OracleApps" jbo.locking.mode="optimistic" jbo.SQLBuilder="Oracle"/>
+         <Security AppModuleJndiName="ru.miit.my.cabinet.request.model.CabinetRequestService"/>
+         <Tester FullProxyInterfaceName="ru.miit.my.cabinet.request.model.common.CabinetRequestService"/>
+         <Custom LastUsedConfiguration="CabinetRequestServiceShared" JDBCDataSource="java:comp/env/jdbc/Connection1DS"/>
+      </AppModuleConfig>
    </AppModuleConfigBag>
 </BC4JConfig>

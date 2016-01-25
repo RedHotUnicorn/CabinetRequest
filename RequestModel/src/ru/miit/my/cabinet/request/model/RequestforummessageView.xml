@@ -91,15 +91,19 @@
     </Properties>
   </ViewAttribute>
   <ViewAttribute
-    Name="SomeAttr"
+    Name="isNewRow"
     IsUpdateable="false"
     IsSelected="false"
     IsPersistent="false"
     PrecisionRule="true"
-    Type="java.lang.String"
-    ColumnType="VARCHAR2"
+    Type="java.lang.Boolean"
+    ColumnType="NUMBER"
     AliasName="VIEW_ATTR"
-    SQLType="VARCHAR"/>
+    SQLType="BIT">
+    <DesignTime>
+      <Attr Name="_diagramName" Value="isNewRow"/>
+    </DesignTime>
+  </ViewAttribute>
   <ViewLinkAccessor
     Name="RequestforummessageView"
     ViewLink="ru.miit.my.cabinet.request.model.RequestForumMessageLoopLink"

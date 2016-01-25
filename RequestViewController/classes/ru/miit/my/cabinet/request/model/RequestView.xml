@@ -1,0 +1,269 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="RequestView"
+  Version="11.1.2.62.76"
+  SelectList="Request.IDREQUEST, 
+       Request.IDEMPLOYEE, 
+       Request.IDREQUESTTYPE, 
+       Request.CREATIONDATE, 
+       RequestType.TITLE, 
+       RequestType.IDREQUESTTYPE AS IDREQUESTTYPE1"
+  FromList="JUNIOR560704.REQUEST Request, JUNIOR560704.REQUESTTYPE RequestType"
+  BindingStyle="OracleName"
+  CustomQuery="false"
+  RowClass="ru.miit.my.frameworkext.ViewRowImpl"
+  ComponentClass="ru.miit.my.frameworkext.ViewObjectImpl"
+  PageIterMode="Full"
+  UseGlueCode="false"
+  Where="Request.IDREQUESTTYPE = RequestType.IDREQUESTTYPE and Request.IDEMPLOYEE = :id"
+  OrderBy="Request.IDREQUEST DESC">
+  <Variable
+    Name="id"
+    Kind="where"
+    Type="java.lang.Integer">
+    <TransientExpression><![CDATA[source.getIdE()]]></TransientExpression>
+  </Variable>
+  <Variable
+    Name="IdRtype"
+    Kind="viewcriteria"
+    Type="java.lang.Integer"/>
+  <Variable
+    Name="Date"
+    Kind="viewcriteria"
+    Type="java.sql.Timestamp"/>
+  <Variable
+    Name="Date2"
+    Kind="viewcriteria"
+    Type="java.sql.Timestamp"/>
+  <ViewAccessor
+    Name="EmployeeView1"
+    ViewObjectName="ru.miit.my.cabinet.request.model.EmployeeView"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="RequestTypeView1"
+    ViewObjectName="ru.miit.my.cabinet.request.model.RequestTypeView"
+    RowLevelBinds="true"/>
+  <ListBinding
+    Name="LOV_Idemployee"
+    ListVOName="EmployeeView1"
+    ListRangeSize="-1"
+    NullValueFlag="start"
+    NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="Idemployee"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="Idemployee"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="Idemployee"/>
+      <Item Value="Secondname"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_Idrequesttype"
+    ListVOName="RequestTypeView1"
+    ListRangeSize="-1"
+    NullValueFlag="start"
+    NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="Idrequesttype"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="Idrequesttype"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="Title"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_Title"
+    ListVOName="RequestTypeView1"
+    ListRangeSize="-1"
+    NullValueFlag="start"
+    NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="Title"/>
+    </AttrArray>
+    <AttrArray Name="DerivedAttrNames">
+      <Item Value="Idrequesttype"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="Title"/>
+      <Item Value="Idrequesttype"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="Title"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <EntityUsage
+    Name="Request"
+    Entity="ru.miit.my.cabinet.request.model.Request"/>
+  <EntityUsage
+    Name="RequestType"
+    Entity="ru.miit.my.cabinet.request.model.RequestType"
+    Association="ru.miit.my.cabinet.request.model.ReqTypeReqAssoc"
+    AssociationEnd="ru.miit.my.cabinet.request.model.ReqTypeReqAssoc.RequestType"
+    SourceUsage="ru.miit.my.cabinet.request.model.RequestView.Request"
+    ReadOnly="true"
+    Reference="true"
+    DeleteParticipant="false"
+    JoinType="INNER JOIN">
+    <DesignTime>
+      <AttrArray Name="_srcAttributes">
+        <Item Value="ru.miit.my.cabinet.request.model.Request.Idrequesttype"/>
+      </AttrArray>
+      <AttrArray Name="_dstAttributes">
+        <Item Value="ru.miit.my.cabinet.request.model.RequestType.Idrequesttype"/>
+      </AttrArray>
+    </DesignTime>
+  </EntityUsage>
+  <ViewAttribute
+    Name="Idrequest"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="Idrequest"
+    EntityUsage="Request"
+    AliasName="IDREQUEST"/>
+  <ViewAttribute
+    Name="Idemployee"
+    PrecisionRule="true"
+    EntityAttrName="Idemployee"
+    EntityUsage="Request"
+    AliasName="IDEMPLOYEE"
+    LOVName="LOV_Idemployee">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Idrequesttype"
+    PrecisionRule="true"
+    EntityAttrName="Idrequesttype"
+    EntityUsage="Request"
+    AliasName="IDREQUESTTYPE"
+    LOVName="LOV_Idrequesttype">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Creationdate"
+    PrecisionRule="true"
+    EntityAttrName="Creationdate"
+    EntityUsage="Request"
+    AliasName="CREATIONDATE"
+    IsUpdateable="false">
+    <TransientExpression><![CDATA[adf.currentDateTime]]></TransientExpression>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Title"
+    PrecisionRule="true"
+    EntityAttrName="Title"
+    EntityUsage="RequestType"
+    AliasName="TITLE"
+    LOVName="LOV_Title">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Idrequesttype1"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="Idrequesttype"
+    EntityUsage="RequestType"
+    AliasName="IDREQUESTTYPE1"/>
+  <ViewCriteria
+    Name="search"
+    ViewObjectName="ru.miit.my.cabinet.request.model.RequestView"
+    Conjunction="AND">
+    <Properties>
+      <CustomProperties>
+        <Property
+          Name="displayOperators"
+          Value="InAdvancedMode"/>
+        <Property
+          Name="autoExecute"
+          Value="false"/>
+        <Property
+          Name="allowConjunctionOverride"
+          Value="true"/>
+        <Property
+          Name="showInList"
+          Value="true"/>
+        <Property
+          Name="mode"
+          Value="Basic"/>
+      </CustomProperties>
+    </Properties>
+    <ViewCriteriaRow
+      Name="RequestViewCriteria_row_0"
+      UpperColumns="1">
+      <ViewCriteriaItem
+        Name="Idrequesttype"
+        ViewAttribute="Idrequesttype"
+        Operator="="
+        Conjunction="AND"
+        Value=":IdRtype"
+        IsBindVarValue="true"
+        Required="Optional"/>
+      <ViewCriteriaItem
+        Name="search_RequestViewCriteria_row_0_Creationdate"
+        ViewAttribute="Creationdate"
+        Operator="BETWEEN"
+        Conjunction="AND"
+        Required="Optional">
+        <ViewCriteriaItemValue
+          Name="search_RequestViewCriteria_row_0_Creationdate_vcval0"
+          Value=":Date"
+          IsBindVarValue="true"/>
+        <ViewCriteriaItemValue
+          Name="search_RequestViewCriteria_row_0_Creationdate_vcval1"
+          Value=":Date2"
+          IsBindVarValue="true"/>
+      </ViewCriteriaItem>
+    </ViewCriteriaRow>
+  </ViewCriteria>
+  <AttrArray Name="KeyAttributes">
+    <Item Value="Idrequest"/>
+  </AttrArray>
+  <ViewLinkAccessor
+    Name="RequestforummessageView"
+    ViewLink="ru.miit.my.cabinet.request.model.RequestRquestForumMessage"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <ViewLinkAccessor
+    Name="Typetest1View"
+    ViewLink="ru.miit.my.cabinet.request.model.ReqType1viewtoRequestlink"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <ViewLinkAccessor
+    Name="Typetest2View"
+    ViewLink="ru.miit.my.cabinet.request.model.ReqType2viewtoRequestLink"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <ViewLinkAccessor
+    Name="Typetest3View"
+    ViewLink="ru.miit.my.cabinet.request.model.ReqType3viewtoRequestLink"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+</ViewObject>

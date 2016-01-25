@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="RequestTypeView"
+  Version="11.1.2.62.76"
+  SelectList="RequestType.IDREQUESTTYPE, 
+       RequestType.TITLE"
+  FromList="JUNIOR560704.REQUESTTYPE RequestType"
+  BindingStyle="OracleName"
+  CustomQuery="false"
+  RowClass="ru.miit.my.frameworkext.ViewRowImpl"
+  ComponentClass="ru.miit.my.frameworkext.ViewObjectImpl"
+  PageIterMode="Full"
+  UseGlueCode="false">
+  <EntityUsage
+    Name="RequestType"
+    Entity="ru.miit.my.cabinet.request.model.RequestType"/>
+  <ViewAttribute
+    Name="Idrequesttype"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="Idrequesttype"
+    EntityUsage="RequestType"
+    AliasName="IDREQUESTTYPE"/>
+  <ViewAttribute
+    Name="Title"
+    PrecisionRule="true"
+    EntityAttrName="Title"
+    EntityUsage="RequestType"
+    AliasName="TITLE"/>
+  <ViewLinkAccessor
+    Name="RequestView"
+    ViewLink="ru.miit.my.cabinet.request.model.ReqTypeReqLink"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+</ViewObject>

@@ -33,7 +33,7 @@
           <Item Value="Idrequestforummessagetype"/>
           <Item Value="Idrequestforumparentmessage"/>
           <Item Value="YesNo"/>
-          <Item Value="SomeAttr"/>
+          <Item Value="isNewRow"/>
         </AttrNames>
       </nodeDefinition>
     </tree>
@@ -85,9 +85,9 @@
     <action IterBinding="RequestforummessageView3Iterator" id="DeleteMessage"
             InstanceName="CabinetRequestServiceDataControl.RequestforummessageView3"
             DataControl="CabinetRequestServiceDataControl" RequiresUpdateModel="false" Action="removeCurrentRow"/>
-    <attributeValues IterBinding="RequestforummessageView3Iterator" id="SomeAttr">
+    <attributeValues IterBinding="RequestView1Iterator" id="TitleOfPage">
       <AttrNames>
-        <Item Value="SomeAttr"/>
+        <Item Value="Title"/>
       </AttrNames>
     </attributeValues>
   </bindings>

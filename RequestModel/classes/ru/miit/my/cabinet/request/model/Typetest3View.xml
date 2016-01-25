@@ -19,11 +19,15 @@
   FromList="JUNIOR560704.TYPETEST3 Typetest3, JUNIOR560704.TYPETEST3DICT Typetest3dict, JUNIOR560704.EMPLOYEE Employee"
   BindingStyle="OracleName"
   CustomQuery="false"
-  RowClass="ru.miit.my.frameworkext.ViewRowImpl"
+  RowClass="ru.miit.my.cabinet.request.model.Typetest3ViewRowImpl"
   ComponentClass="ru.miit.my.frameworkext.ViewObjectImpl"
   PageIterMode="Full"
   UseGlueCode="false"
   Where="(Typetest3.IDTYPETEST3 = Typetest3dict.IDTYPETEST3DICT) AND (Typetest3.IDEMPLOYEE = Employee.IDEMPLOYEE)">
+  <DesignTime>
+    <Attr Name="_codeGenFlag2" Value="Access"/>
+    <Attr Name="_isCodegen" Value="true"/>
+  </DesignTime>
   <EntityUsage
     Name="Typetest3"
     Entity="ru.miit.my.cabinet.request.model.Typetest3"/>
@@ -134,6 +138,16 @@
     EntityAttrName="Idemployee"
     EntityUsage="Employee"
     AliasName="IDEMPLOYEE1"/>
+  <ViewAttribute
+    Name="Smth2"
+    IsUpdateable="false"
+    IsSelected="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="VIEW_ATTR"
+    SQLType="VARCHAR"/>
   <AttrArray Name="KeyAttributes">
     <Item Value="Idtypetest3"/>
   </AttrArray>

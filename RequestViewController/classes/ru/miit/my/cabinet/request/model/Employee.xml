@@ -41,6 +41,13 @@
     AssociationOtherEnd="ru.miit.my.cabinet.request.model.ReqEmpAssoc.Employee"
     Type="oracle.jbo.RowIterator"
     IsUpdateable="false"/>
+  <AccessorAttribute
+    Name="Typetest3"
+    Association="ru.miit.my.cabinet.request.model.ReqType3viewtoEmp"
+    AssociationEnd="ru.miit.my.cabinet.request.model.ReqType3viewtoEmp.Typetest3"
+    AssociationOtherEnd="ru.miit.my.cabinet.request.model.ReqType3viewtoEmp.Employee"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
   <Key
     Name="SysC00188529"
     PrimaryKey="true">
