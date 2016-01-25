@@ -2,34 +2,32 @@
 <ui:composition xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
                 xmlns:f="http://java.sun.com/jsf/core">
   <af:panelGroupLayout id="pgl4" layout="scroll">
-    <af:outputText id="ot1" value="Новый рапорт:  #{bindings.id.inputValue} ид" inlineStyle="font-weight:bolder;"/>
+    <af:outputText id="ot1" value="Новый рапорт:  #{bindings.id.inputValue}" inlineStyle="font-weight:bolder;"/>
     <af:iterator id="i2" value="#{bindings.RequestTypeView1.collectionModel}" var="row">
       <af:panelLabelAndMessage label="#{row.Title}" id="plam3">
         <af:commandLink text="Создать" id="cl2" action="go" actionListener="#{UseRequestList.crateReq}"/>
       </af:panelLabelAndMessage>
     </af:iterator>
     <af:outputText id="ot2" value="Ваши рапорта:" inlineStyle="font-weight:bolder;"/>
-    <af:panelGridLayout id="pgl3">
-      <af:gridRow marginTop="5px" marginBottom="5px" height="auto" id="gr1">
-        <af:gridCell marginStart="5px" width="15%" id="gc1">
-          <af:commandImageLink id="cil1"
-                               actionListener="#{bindings.ExecuteWithParams.execute}"
-                               icon="#{resource['images:search.png']}"/>
-        </af:gridCell>
-        <af:gridCell marginStart="5px" width="50%" id="gc2">
-          <af:selectOneChoice value="#{bindings.IdRtype.inputValue}"
-                              required="#{bindings.IdRtype.hints.mandatory}"
-                              shortDesc="#{bindings.IdRtype.hints.tooltip}" id="soc1" autoSubmit="true">
-            <f:selectItems value="#{bindings.IdRtype.items}" id="si1"/>
-          </af:selectOneChoice>
-        </af:gridCell>
-        <af:gridCell marginStart="5px" marginEnd="5px" width="35%" id="gc3"/>
-      </af:gridRow>
-    </af:panelGridLayout>
-    <af:panelGroupLayout id="pgl1" layout="vertical">
+    <af:panelGroupLayout id="pgl1" layout="vertical" inlineStyle="width:450pt;">
       <f:facet name="separator">
         <af:separator id="s1"/>
       </f:facet>
+      <af:panelGridLayout id="pgl3">
+        <af:gridRow marginTop="5px" marginBottom="5px" height="auto" id="gr1">
+          <af:gridCell marginStart="5px" width="15%" id="gc1">
+            <af:commandImageLink id="cil1" actionListener="#{bindings.ExecuteWithParams.execute}"
+                                 icon="#{resource['images:search.png']}"/>
+          </af:gridCell>
+          <af:gridCell marginStart="5px" width="50%" id="gc2">
+            <af:selectOneChoice value="#{bindings.IdRtype.inputValue}" required="#{bindings.IdRtype.hints.mandatory}"
+                                shortDesc="#{bindings.IdRtype.hints.tooltip}" id="soc1" autoSubmit="true">
+              <f:selectItems value="#{bindings.IdRtype.items}" id="si1"/>
+            </af:selectOneChoice>
+          </af:gridCell>
+          <af:gridCell marginStart="5px" marginEnd="5px" width="35%" id="gc3"/>
+        </af:gridRow>
+      </af:panelGridLayout>
       <af:iterator id="i1" value="#{bindings.RequestView1.collectionModel}" var="row">
         <af:panelGridLayout id="pgl2"
                             partialTriggers="#{data.ru_miit_my_cabinet_request_view_userequests_listPageDef.ExecuteWithParams_IdRtype}">

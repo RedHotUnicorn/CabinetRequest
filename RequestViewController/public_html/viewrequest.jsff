@@ -3,73 +3,76 @@
                 xmlns:f="http://java.sun.com/jsf/core" xmlns:h="http://java.sun.com/jsf/html">
   <af:panelGroupLayout id="pgl4" layout="scroll">
     <af:outputText value="#{bindings.TitleOfPage}" id="ot4" inlineStyle="font-weight:bolder;"/>
-    <af:switcher id="s1" facetName="#{ViewRequest.routerFacet}">
-      <f:facet name="TestType1">
-        <af:group id="g2">
-          <af:panelGroupLayout id="pgl1">
-            <af:iterator id="i2" value="#{bindings.Typetest1View_POCHTA1.collectionModel}" var="row" rendered="true">
-              <af:panelFormLayout id="pfl3">
-                <af:panelLabelAndMessage label="Сотрудник" id="plam4">
-                  <af:outputText id="ot10" value="#{row.Idemployee}"/>
+    <af:outputText value="Строки" id="ot15" inlineStyle="font-weight:normal;"/>
+    <af:panelGroupLayout id="pgl9" inlineStyle="width:50%;">
+      <af:switcher id="s1" facetName="#{viewScope.ViewRequest.routerFacet}">
+        <f:facet name="TestType1">
+          <af:group id="g2">
+            <af:panelGroupLayout id="pgl1" inlineStyle="width:150pt;">
+              <af:iterator id="i2" value="#{bindings.Typetest1View_POCHTA1.collectionModel}" var="row" rendered="true">
+                <af:panelFormLayout id="pfl3">
+                  <af:panelLabelAndMessage label="Сотрудник" id="plam4">
+                    <af:outputText id="ot10" value="#{row.Idemployee}"/>
+                  </af:panelLabelAndMessage>
+                  <af:panelLabelAndMessage label="Число" id="plam7">
+                    <af:outputText value="#{row.Chooseint}" id="ot11"/>
+                  </af:panelLabelAndMessage>
+                </af:panelFormLayout>
+              </af:iterator>
+              <f:facet name="separator">
+                <af:separator id="s4"/>
+              </f:facet>
+            </af:panelGroupLayout>
+          </af:group>
+        </f:facet>
+        <f:facet name="TestType2">
+          <af:group id="g1">
+            <af:panelGroupLayout id="pgl5" inlineStyle="width:150pt;">
+              <af:iterator id="i3" value="#{bindings.Typetest2View2.collectionModel}" var="row" rendered="true">
+                <af:panelFormLayout id="pfl4">
+                  <af:panelLabelAndMessage label="Сотрудник" id="plam9">
+                    <af:outputText value="#{row.Idemployee}" id="ot6"/>
+                  </af:panelLabelAndMessage>
+                  <af:panelLabelAndMessage label="Сокращенная строка" id="plam8">
+                    <af:outputText value="#{row.Addchar}" id="ot5"/>
+                  </af:panelLabelAndMessage>
+                </af:panelFormLayout>
+              </af:iterator>
+              <f:facet name="separator">
+                <af:separator id="s3"/>
+              </f:facet>
+            </af:panelGroupLayout>
+          </af:group>
+        </f:facet>
+        <f:facet name="Default"/>
+        <f:facet name="TestType3">
+          <af:panelGroupLayout id="pgl7" layout="vertical" inlineStyle="width:150pt;">
+            <f:facet name="separator">
+              <af:separator id="s5"/>
+            </f:facet>
+            <af:iterator id="i4" value="#{bindings.Typetest3View1.collectionModel}" var="row">
+              <af:panelFormLayout id="pfl1">
+                <f:facet name="footer"/>
+                <af:panelLabelAndMessage label="Пользователь" id="plam5">
+                  <af:outputText value="#{row.Secondname}" id="ot7"/>
                 </af:panelLabelAndMessage>
-                <af:panelLabelAndMessage label="Число" id="plam7">
-                  <af:outputText value="#{row.Chooseint}" id="ot11"/>
+                <af:panelLabelAndMessage label="Кабинет " id="plam6">
+                  <af:outputText value="#{row.Roomnumber}" id="ot8"/>
+                </af:panelLabelAndMessage>
+                <af:panelLabelAndMessage label="Программа" id="plam11">
+                  <af:outputText value="#{row.Programmname}" id="ot13"/>
+                </af:panelLabelAndMessage>
+                <af:panelLabelAndMessage label="Компьютер" id="plam10">
+                  <af:outputText value="#{row.Computername} " id="ot12"/>
                 </af:panelLabelAndMessage>
               </af:panelFormLayout>
             </af:iterator>
-            <f:facet name="separator">
-              <af:separator id="s4"/>
-            </f:facet>
           </af:panelGroupLayout>
-        </af:group>
-      </f:facet>
-      <f:facet name="TestType2">
-        <af:group id="g1">
-          <af:panelGroupLayout id="pgl5">
-            <af:iterator id="i3" value="#{bindings.Typetest2View2.collectionModel}" var="row" rendered="true">
-              <af:panelFormLayout id="pfl4">
-                <af:panelLabelAndMessage label="Сотрудник" id="plam9">
-                  <af:outputText value="#{row.Idemployee}" id="ot6"/>
-                </af:panelLabelAndMessage>
-                <af:panelLabelAndMessage label="Сокращенная строка" id="plam8">
-                  <af:outputText value="#{row.Addchar}" id="ot5"/>
-                </af:panelLabelAndMessage>
-              </af:panelFormLayout>
-            </af:iterator>
-            <f:facet name="separator">
-              <af:separator id="s3"/>
-            </f:facet>
-          </af:panelGroupLayout>
-        </af:group>
-      </f:facet>
-      <f:facet name="Default"/>
-      <f:facet name="TestType3">
-        <af:panelGroupLayout id="pgl7" layout="vertical">
-          <f:facet name="separator">
-            <af:separator id="s5"/>
-          </f:facet>
-          <af:iterator id="i4" value="#{bindings.Typetest3View1.collectionModel}" var="row">
-            <af:panelFormLayout id="pfl1">
-              <f:facet name="footer"/>
-              <af:panelLabelAndMessage label="Пользователь" id="plam5">
-                <af:outputText value="#{row.Secondname}" id="ot7"/>
-              </af:panelLabelAndMessage>
-              <af:panelLabelAndMessage label="Кабинет " id="plam6">
-                <af:outputText value="#{row.Roomnumber}" id="ot8"/>
-              </af:panelLabelAndMessage>
-              <af:panelLabelAndMessage label="Программа" id="plam11">
-                <af:outputText value="#{row.Programmname}" id="ot13"/>
-              </af:panelLabelAndMessage>
-              <af:panelLabelAndMessage label="Компьютер" id="plam10">
-                <af:outputText value="#{row.Computername} " id="ot12"/>
-              </af:panelLabelAndMessage>
-            </af:panelFormLayout>
-          </af:iterator>
-        </af:panelGroupLayout>
-      </f:facet>
-    </af:switcher>
+        </f:facet>
+      </af:switcher>
+    </af:panelGroupLayout>
     <h:outputText value="Сообщения" id="ot1" style="font-style:inherit; font-weight:bolder;"/>
-    <af:panelGroupLayout id="pgl3">
+    <af:panelGroupLayout id="pgl3" inlineStyle="width:150pt;">
       <f:facet name="separator">
         <af:separator id="s2"/>
       </f:facet>
