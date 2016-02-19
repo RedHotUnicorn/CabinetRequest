@@ -34,11 +34,45 @@ import ru.miit.my.cabinet.request.view.utils.JSFUtils;
 public class CreateRequest {
     //Переменные
 
+   /* class TextOnPage {
+        private String text;
+        private RichInputText richInputText;
+        private String type;
+        private String nameOfParam;
+
+        TextOnPage(String nameOfParam) {
+            this.nameOfParam = nameOfParam;
+        }
+
+        public Object get() {
+            if (type.equals("int"))
+                return Integer.parseInt(text);
+            else
+                return text;
+        }
+
+        public boolean isEmpty() {
+            return text.isEmpty();
+        }
+
+        public String getName() {
+            return this.nameOfParam;
+        }
+
+        public void flush() {
+            text = "";
+        }
+        
+        public RichInputText getRich() {
+            return this.richInputText;
+        }
+
+
+    }*/
     private boolean dataOnPageChanged = false; //Что то изменили на странице кнопка Сохранить активировалась
     private String forumMessage = "";
     private String test1Message = "";
     private String test2Message = "";
-    private String test3Roomnumber = "";
     private int numOfFacet = 0;
 
     private String routerFacet = setRouter();
@@ -48,9 +82,12 @@ public class CreateRequest {
     private RichCommandImageLink b;
     private RichInputText itTest3Roomnumber;
     //Конструктор
+   // TextOnPage NameOfPC;
 
     public CreateRequest() {
         super();
+       // NameOfPC = new TextOnPage("Computername");
+
     }
     //Обращение к биндингс
 
@@ -102,9 +139,9 @@ public class CreateRequest {
         fm.setSeverity(FacesMessage.SEVERITY_ERROR);
         FacesContext context = FacesContext.getCurrentInstance();
         context.addMessage(ui.getClientId(), fm);
-        
+
     }
-   /* public void addE(UIComponent ui, String mes) {
+    /* public void addE(UIComponent ui, String mes) {
         /*Данный код выдвет ошибку если поле пустое. Для этого нужно указать в свойстве bindings текстового объекта
         * #{viewScope.CreateRequest.it2}. Создается переменная Richtext it2. уже к ней мы и обращаемся
         * *}/
@@ -114,8 +151,7 @@ public class CreateRequest {
         FacesContext context = FacesContext.getCurrentInstance();
         context.addMessage(ui.getClientId(), fm);
     }*/
-    
-    
+
 
     public UIComponent find(String id) {
         UIComponent component = null;
@@ -124,35 +160,36 @@ public class CreateRequest {
             UIComponent root = facesContext.getViewRoot();
             component = findComponent(root, id);
         }
-        
+
         return component;
 
     }
-    public static UIComponent findComponent(UIComponent base, String id)
-    {
-            if (id.equals(base.getId()))
-                return base;
 
-            UIComponent children = null;
-            UIComponent result = null;
-            Iterator childrens = base.getFacetsAndChildren();
-            while (childrens.hasNext() && (result == null)) {
-                children = (UIComponent)childrens.next();
-                if (id.equals(children.getId())) {
-                    result = children;
-                    break;
-                }
-                result = findComponent(children, id);
-                if (result != null) {
-                    break;
-                }
+    public static UIComponent findComponent(UIComponent base, String id) {
+        if (id.equals(base.getId()))
+            return base;
+
+        UIComponent children = null;
+        UIComponent result = null;
+        Iterator childrens = base.getFacetsAndChildren();
+        while (childrens.hasNext() && (result == null)) {
+            children = (UIComponent)childrens.next();
+            if (id.equals(children.getId())) {
+                result = children;
+                break;
             }
-            return result;
+            result = findComponent(children, id);
+            if (result != null) {
+                break;
+            }
         }
+        return result;
+    }
+
     public String sendMessage() {
         if (!forumMessage.isEmpty()) {
 
- 
+
             putParameterInBinding("ForumCreateInsert", "Text", getForumMessage());
             this.setForumMessage("");
         } else {
@@ -165,7 +202,7 @@ public class CreateRequest {
     public void it2_validator(FacesContext facesContext, UIComponent uIComponent, Object object) {
         {
             String name = object.toString();
-            name=name.trim();
+            name = name.trim();
             String expression = "\\d|\\w";
             CharSequence inputStr = name;
             Pattern pattern = Pattern.compile(expression);
@@ -181,15 +218,18 @@ public class CreateRequest {
     //Создать объект 3 го типа
 
     public String createTest3Obj() {
-        if (!this.test3Roomnumber.isEmpty()) {
-            putParameterInBinding("Createwithparameters3", "Roomnumber",  Integer.parseInt(getTest3Roomnumber()));
-            this.setTest3Roomnumber("");
+        if (!((String)this.itTest3Roomnumber.getValue()).isEmpty()) {
+            putParameterInBinding("Createwithparameters3", "Roomnumber", Integer.parseInt((String)itTest3Roomnumber.getValue()));
+            itTest3Roomnumber.setValue("");
+            //this.setTest3Roomnumber((String)itTest3Roomnumber.getValue()+"gblh");
             setDataOnPageChanged(true);
         } else {
             addErrorMessageToRichInputText(itTest3Roomnumber, "Поле должно быть заполнено");
         }
         return "";
     }
+
+    
     //Создать объект 2 го типа
 
     public String createTest2Obj() {
@@ -214,8 +254,8 @@ public class CreateRequest {
         }
         return "";
     }
-    
-      // При удалении последнего элемента на странице создания рапорт скрывает кнопку сохрнаить
+
+    // При удалении последнего элемента на странице создания рапорт скрывает кнопку сохрнаить
 
     public String deleteTypes() {
 
@@ -235,7 +275,6 @@ public class CreateRequest {
         return "";
     }
 
-   
 
     //Геттеры и сеттеры
 
@@ -314,13 +353,13 @@ public class CreateRequest {
         return itForum;
     }
 
-    public void setB(RichCommandImageLink b) {
+    /*public void setB(RichCommandImageLink b) {
         this.b = b;
     }
 
     public RichCommandImageLink getB() {
         return b;
-    }
+    }*/
 
     public void setItTest3Roomnumber(RichInputText itTest3Roomnumber) {
         this.itTest3Roomnumber = itTest3Roomnumber;
@@ -330,12 +369,7 @@ public class CreateRequest {
         return itTest3Roomnumber;
     }
 
-    public void setTest3Roomnumber(String test3Roomnumber) {
-        this.test3Roomnumber = test3Roomnumber;
-    }
 
-    public String getTest3Roomnumber() {
-        return test3Roomnumber;
-    }
+    
 }
 

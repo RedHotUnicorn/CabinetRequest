@@ -133,7 +133,8 @@
             InstanceName="CabinetRequestServiceDataControl.Typetest3View1"
             DataControl="CabinetRequestServiceDataControl" RequiresUpdateModel="true" Action="createWithParams">
       <NamedData NDValue="2" NDName="Idemployee" NDType="java.lang.Integer"/>
-      <NamedData NDName="Roomnumber" NDType="java.lang.Integer"/>
+      <NamedData NDName="Roomnumber" NDType="java.lang.Integer" NDValue="1313"/>
+      <NamedData NDName="Computername" NDType="java.lang.String"/>
     </action>
   </bindings>
 </pageDefinition>

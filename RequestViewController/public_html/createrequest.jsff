@@ -169,7 +169,7 @@
               <f:validator binding="#{bindings.Secondname.validator}"/>
             </af:inputText>
             <af:commandImageLink text="Добавить" id="cil15" icon="#{resource['images:add1.png']}"
-                                 action="#{CreateRequest.createTest3Obj(3)}"/>
+                                 action="#{CreateRequest.createTest3Obj}"/>
           </af:panelFormLayout>
           <f:facet name="separator"/>
         </af:panelGroupLayout>
