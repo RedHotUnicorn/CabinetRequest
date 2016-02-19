@@ -12,7 +12,6 @@
        Typetest3.IDTYPETEST3DICT, 
        Typetest3.COMPUTERNAME, 
        Typetest3.PROGRAMMNAME, 
-       Typetest3dict.ADDCHAR, 
        Typetest3dict.IDTYPETEST3DICT AS IDTYPETEST3DICT1, 
        Employee.SECONDNAME, 
        Employee.IDEMPLOYEE AS IDEMPLOYEE1"
@@ -108,12 +107,6 @@
     EntityAttrName="Programmname"
     EntityUsage="Typetest3"
     AliasName="PROGRAMMNAME"/>
-  <ViewAttribute
-    Name="Addchar"
-    PrecisionRule="true"
-    EntityAttrName="Addchar"
-    EntityUsage="Typetest3dict"
-    AliasName="ADDCHAR"/>
   <ViewAttribute
     Name="Idtypetest3dict1"
     IsNotNull="true"

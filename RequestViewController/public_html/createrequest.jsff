@@ -4,9 +4,7 @@
                 xmlns:afc="http://xmlns.oracle.com/adf/faces/rich/component">
   <!--oracle-jdev-comment:preferred-managed-bean-name:CreateRequest-->
   <af:panelGroupLayout id="pgl10" layout="scroll">
-    <af:outputText value="#{bindings.Idrequesttype.inputValue} #{bindings.Title.inputValue}" id="ot13"/>
-    <af:outputText value="#{bindings.Idrequest}" id="ot3"/>
-    <h:outputText value="Рапорт" id="ot10" style="font-weight:bolder;"/>
+    <h:outputText value="#{bindings.TitleOfPage}" id="ot10" style="font-weight:bolder;"/>
     <af:switcher id="s1" facetName="#{CreateRequest.routerFacet}">
       <f:facet name="TestType1">
         <af:group id="g1">
@@ -26,9 +24,22 @@
                   </af:gridCell>
                   <af:gridCell marginStart="5px" marginEnd="5px" width="20%" id="gc18">
                     <af:commandImageLink id="cil2"
-                                         actionListener="#{bindings.DeletePochta.execute}"
-                                         action="#{viewScope.CreateRequest.deleteTypes}"
-                                         icon="#{resource['images:delete1.png']}"/>
+                                         icon="#{resource['images:delete1.png']}">
+                      <af:showPopupBehavior popupId="p1" triggerType="action" align="beforeStart"/>
+                    </af:commandImageLink>
+                    <af:popup childCreation="deferred" autoCancel="enabled" id="p1">
+                      <af:panelGroupLayout id="pgl11" layout="vertical" valign="middle" halign="center">
+                        <af:outputText value="Удалить?" id="ot15"/>
+                        <af:panelGroupLayout id="pgl12" layout="horizontal">
+                          <af:commandImageLink text="OK" id="cil11" action="#{viewScope.CreateRequest.deleteTypes}"
+                                               icon="#{resource['images:yes.png']}"
+                                               actionListener="#{bindings.DeletePochta.execute}"/>
+                          <af:spacer width="30" height="10" id="s9"/>
+                          <af:commandImageLink text="Cancel" id="cil12" icon="#{resource['images:no.png']}"
+                                               iconPosition="trailing"/>
+                        </af:panelGroupLayout>
+                      </af:panelGroupLayout>
+                    </af:popup>
                   </af:gridCell>
                 </af:gridRow>
               </af:panelGridLayout>
@@ -56,9 +67,9 @@
         </af:group>
       </f:facet>
       <f:facet name="TestType2">
-        <af:group id="g2">
+        <af:group id="g2" rendered="true">
           <af:subform id="s6" default="true">
-            <af:panelGroupLayout id="pgl8">
+            <af:panelGroupLayout id="pgl8" rendered="true">
               <af:iterator id="i3" value="#{bindings.Typetest2View2.collectionModel}" var="row">
                 <af:panelGridLayout id="pgl9">
                   <af:gridRow marginTop="5px" marginBottom="5px" height="auto" id="gr12">
@@ -73,9 +84,22 @@
                       </af:panelFormLayout>
                     </af:gridCell>
                     <af:gridCell width="10%" id="gc24">
-                      <af:commandImageLink id="cil7" icon="#{resource['images:delete1.png']}"
-                                           actionListener="#{bindings.DeleteInternet.execute}"
-                                           action="#{viewScope.CreateRequest.deleteTypes}"/>
+                      <af:commandImageLink id="cil7" icon="#{resource['images:delete1.png']}">
+                        <af:showPopupBehavior popupId="p3" triggerType="action" align="beforeStart"/>
+                      </af:commandImageLink>
+                      <af:popup childCreation="deferred" autoCancel="enabled" id="p3">
+                        <af:panelGroupLayout id="pgl13" layout="vertical" valign="middle" halign="center">
+                          <af:outputText value="Удалить?" id="ot16"/>
+                          <af:panelGroupLayout id="pgl14" layout="horizontal">
+                            <af:commandImageLink text="OK" id="cil13" action="#{viewScope.CreateRequest.deleteTypes}"
+                                                 icon="#{resource['images:yes.png']}"
+                                                 actionListener="#{bindings.DeleteInternet.execute}"/>
+                            <af:spacer width="30" height="10" id="s10"/>
+                            <af:commandImageLink text="Cancel" id="cil14" icon="#{resource['images:no.png']}"
+                                                 iconPosition="trailing"/>
+                          </af:panelGroupLayout>
+                        </af:panelGroupLayout>
+                      </af:popup>
                     </af:gridCell>
                   </af:gridRow>
                 </af:panelGridLayout>
@@ -94,7 +118,61 @@
         </af:group>
       </f:facet>
       <f:facet name="Default">
-        <af:outputText value="Fuck" id="ot4"/>
+        <af:outputText value="Def" id="ot4"/>
+      </f:facet>
+      <f:facet name="TestType3">
+        <af:panelGroupLayout id="pgl15">
+          <af:iterator id="i4" var="row" value="#{bindings.Typetest3View1.collectionModel}">
+            <af:panelFormLayout id="pfl5">
+              <af:panelLabelAndMessage label="#{bindings.Roomnumber.hints.label}" id="plam7">
+                <af:outputText value="#{row.Roomnumber}" id="ot3"/>
+              </af:panelLabelAndMessage>
+              <af:panelLabelAndMessage label="#{bindings.Computername.hints.label}" id="plam8">
+                <af:outputText value="#{row.Computername}" id="ot13"/>
+              </af:panelLabelAndMessage>
+              <af:panelLabelAndMessage label="#{bindings.Programmname.hints.label}" id="plam9">
+                <af:outputText value="#{row.Programmname}" id="ot17"/>
+              </af:panelLabelAndMessage>
+              <af:panelLabelAndMessage label="#{bindings.Secondname.hints.label}" id="plam10">
+                <af:outputText value="#{row.Secondname}" id="ot18"/>
+              </af:panelLabelAndMessage>
+            </af:panelFormLayout>
+          </af:iterator>
+          <af:panelFormLayout id="pfl4">
+            <af:inputText value="#{viewScope.CreateRequest.test3Roomnumber}" label="Номер аудитории"
+                          required="#{bindings.Roomnumber.hints.mandatory}"
+                          columns="#{bindings.Roomnumber.hints.displayWidth}"
+                          maximumLength="#{bindings.Roomnumber.hints.precision}"
+                          shortDesc="#{bindings.Roomnumber.hints.tooltip}" id="it1"
+                          binding="#{viewScope.CreateRequest.itTest3Roomnumber}">
+              <f:validator binding="#{bindings.Roomnumber.validator}"/>
+            </af:inputText>
+            <af:inputText label="Имя компьютера"
+                          required="#{bindings.Computername.hints.mandatory}"
+                          columns="#{bindings.Computername.hints.displayWidth}"
+                          maximumLength="#{bindings.Computername.hints.precision}"
+                          shortDesc="#{bindings.Computername.hints.tooltip}" id="it4">
+              <f:validator binding="#{bindings.Computername.validator}"/>
+            </af:inputText>
+            <af:inputText label="Наименование проргаммы"
+                          required="#{bindings.Programmname.hints.mandatory}"
+                          columns="#{bindings.Programmname.hints.displayWidth}"
+                          maximumLength="#{bindings.Programmname.hints.precision}"
+                          shortDesc="#{bindings.Programmname.hints.tooltip}" id="it5">
+              <f:validator binding="#{bindings.Programmname.validator}"/>
+            </af:inputText>
+            <af:inputText label="Фамилия сотрудника"
+                          required="#{bindings.Secondname.hints.mandatory}"
+                          columns="#{bindings.Secondname.hints.displayWidth}"
+                          maximumLength="#{bindings.Secondname.hints.precision}"
+                          shortDesc="#{bindings.Secondname.hints.tooltip}" id="it7">
+              <f:validator binding="#{bindings.Secondname.validator}"/>
+            </af:inputText>
+            <af:commandImageLink text="Добавить" id="cil15" icon="#{resource['images:add1.png']}"
+                                 action="#{CreateRequest.createTest3Obj(3)}"/>
+          </af:panelFormLayout>
+          <f:facet name="separator"/>
+        </af:panelGroupLayout>
       </f:facet>
     </af:switcher>
     <h:outputText value="Сообщения" id="ot11" style="font-weight:bolder;"/>
@@ -117,9 +195,22 @@
                 </af:panelFormLayout>
               </af:gridCell>
               <af:gridCell marginStart="5px" marginEnd="5px" width="20%" id="gc16">
-                <af:commandImageLink id="cil3"
-                                     actionListener="#{bindings.DeleteMessage.execute}" immediate="true"
-                                     icon="#{resource['images:delete1.png']}"/>
+                <af:commandImageLink id="cil3" immediate="true"
+                                     icon="#{resource['images:delete1.png']}">
+                  <af:showPopupBehavior popupId="p2" triggerType="action" align="beforeStart"/>
+                </af:commandImageLink>
+                <af:popup childCreation="deferred" autoCancel="enabled" id="p2">
+                  <af:panelGroupLayout id="pgl2" layout="vertical" valign="middle" halign="center">
+                    <af:outputText value="Удалить?" id="ot14"/>
+                    <af:panelGroupLayout id="pgl6" layout="horizontal">
+                      <af:commandImageLink text="OK" id="cil9" action="#{bindings.DeleteMessage.execute}"
+                                           icon="#{resource['images:yes.png']}"/>
+                      <af:spacer width="30" height="10" id="s8"/>
+                      <af:commandImageLink text="Cancel" id="cil10" icon="#{resource['images:no.png']}"
+                                           iconPosition="trailing"/>
+                    </af:panelGroupLayout>
+                  </af:panelGroupLayout>
+                </af:popup>
               </af:gridCell>
             </af:gridRow>
           </af:panelGridLayout>

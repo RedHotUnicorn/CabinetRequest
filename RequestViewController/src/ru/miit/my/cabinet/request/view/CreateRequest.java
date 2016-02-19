@@ -38,6 +38,7 @@ public class CreateRequest {
     private String forumMessage = "";
     private String test1Message = "";
     private String test2Message = "";
+    private String test3Roomnumber = "";
     private int numOfFacet = 0;
 
     private String routerFacet = setRouter();
@@ -45,6 +46,7 @@ public class CreateRequest {
     private RichInputText itTest2;
     private RichInputText itTest1;
     private RichCommandImageLink b;
+    private RichInputText itTest3Roomnumber;
     //Конструктор
 
     public CreateRequest() {
@@ -69,7 +71,9 @@ public class CreateRequest {
         case 2:
             setNumOfFacet(2);
             return "TestType2";
-
+        case 3:
+            setNumOfFacet(3);
+            return "TestType3";
         default:
             return "Default";
         }
@@ -174,7 +178,18 @@ public class CreateRequest {
             }
         }
     }
+    //Создать объект 3 го типа
 
+    public String createTest3Obj() {
+        if (!this.test3Roomnumber.isEmpty()) {
+            putParameterInBinding("Createwithparameters3", "Roomnumber",  Integer.parseInt(getTest3Roomnumber()));
+            this.setTest3Roomnumber("");
+            setDataOnPageChanged(true);
+        } else {
+            addErrorMessageToRichInputText(itTest3Roomnumber, "Поле должно быть заполнено");
+        }
+        return "";
+    }
     //Создать объект 2 го типа
 
     public String createTest2Obj() {
@@ -199,8 +214,8 @@ public class CreateRequest {
         }
         return "";
     }
-
-    // При удалении последнего элемента на странице создания рапорт скрывает кнопку сохрнаить
+    
+      // При удалении последнего элемента на странице создания рапорт скрывает кнопку сохрнаить
 
     public String deleteTypes() {
 
@@ -305,6 +320,22 @@ public class CreateRequest {
 
     public RichCommandImageLink getB() {
         return b;
+    }
+
+    public void setItTest3Roomnumber(RichInputText itTest3Roomnumber) {
+        this.itTest3Roomnumber = itTest3Roomnumber;
+    }
+
+    public RichInputText getItTest3Roomnumber() {
+        return itTest3Roomnumber;
+    }
+
+    public void setTest3Roomnumber(String test3Roomnumber) {
+        this.test3Roomnumber = test3Roomnumber;
+    }
+
+    public String getTest3Roomnumber() {
+        return test3Roomnumber;
     }
 }
 

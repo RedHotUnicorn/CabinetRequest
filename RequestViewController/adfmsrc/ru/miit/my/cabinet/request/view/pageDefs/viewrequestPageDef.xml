@@ -70,7 +70,6 @@
       <nodeDefinition DefName="ru.miit.my.cabinet.request.model.Typetest3View" Name="Typetest3View10">
         <AttrNames>
           <Item Value="Idtypetest3"/>
-          <Item Value="Addchar"/>
           <Item Value="Computername"/>
           <Item Value="Idemployee"/>
           <Item Value="Idrequest"/>

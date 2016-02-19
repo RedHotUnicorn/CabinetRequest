@@ -19,7 +19,9 @@
     Type="java.lang.Integer"
     ColumnType="INTEGER"
     TableName="JUNIOR560704.TYPETEST3DICT"
-    PrimaryKey="true"/>
+    PrimaryKey="true">
+    <TransientExpression><![CDATA[(new oracle.jbo.server.SequenceImpl("REQUESTTYPETEST3DICTV1", adf.object.getDBTransaction())).getSequenceNumber()]]></TransientExpression>
+  </Attribute>
   <Attribute
     Name="Addchar"
     Precision="40"

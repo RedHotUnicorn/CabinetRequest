@@ -19,8 +19,10 @@
     Type="java.lang.Integer"
     ColumnType="INTEGER"
     TableName="JUNIOR560704.TYPETEST3"
-    PrimaryKey="true">
-    <TransientExpression><![CDATA[(new oracle.jbo.server.SequenceImpl("REQUESTTYPETEST3V3", adf.object.getDBTransaction())).getSequenceNumber()]]></TransientExpression>
+    PrimaryKey="true"
+    IsUpdateable="while_insert">
+    <RecalcCondition><![CDATA[true]]></RecalcCondition>
+    <TransientExpression><![CDATA[(new oracle.jbo.server.SequenceImpl("REQUESTTYPETEST3V1", adf.object.getDBTransaction())).getSequenceNumber()]]></TransientExpression>
   </Attribute>
   <Attribute
     Name="Idemployee"
