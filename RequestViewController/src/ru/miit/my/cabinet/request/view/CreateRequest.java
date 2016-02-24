@@ -40,7 +40,6 @@ public class CreateRequest {
     private RichInputText itForum;
     private RichInputText itTest2;
     private RichInputText itTest1;
-    private RichCommandImageLink b;
     private RichInputText itTest3Roomnumber;
     //Конструктор
     // TextOnPage NameOfPC;
@@ -285,14 +284,6 @@ public class CreateRequest {
 
     public RichInputText getItForum() {
         return itForum;
-    }
-
-    public void setB(RichCommandImageLink b) {
-        this.b = b;
-    }
-
-    public RichCommandImageLink getB() {
-        return b;
     }
 
     public void setItTest3Roomnumber(RichInputText itTest3Roomnumber) {

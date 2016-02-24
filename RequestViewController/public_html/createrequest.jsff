@@ -219,10 +219,8 @@
           <af:separator id="s2"/>
         </f:facet>
       </af:panelGroupLayout>
-      <af:inputText id="it2" required="false" autoSubmit="true"
-                    binding="#{viewScope.CreateRequest.itForum}"/>
       <af:commandImageLink text="Добавить сообщение" id="cil4"
-                           action="#{viewScope.CreateRequest.sendMessage}" binding="#{viewScope.CreateRequest.b}"
+                           action="#{viewScope.CreateRequest.sendMessage}"
                            icon="#{resource['images:chat1.png']}"/>
     </af:subform>
     <af:commandImageLink text="Вернуться" id="cil5" icon="#{resource['images:back1.png']}"
