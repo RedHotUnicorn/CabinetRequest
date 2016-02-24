@@ -8,10 +8,10 @@
     <iterator id="RequestTypeView1Iterator" Binds="RequestTypeView1" DataControl="CabinetRequestServiceDataControl"
               RangeSize="-1"/>
     <variableIterator id="variables">
-      <variableUsage DataControl="CabinetRequestServiceDataControl" Binds="RequestView1.variablesMap.id"
-                     Name="ExecuteWithParams_id" IsQueriable="false"/>
       <variableUsage DataControl="CabinetRequestServiceDataControl" Binds="RequestView1.variablesMap.Date"
                      Name="ExecuteWithParams_Date" IsQueriable="false"/>
+      <variableUsage DataControl="CabinetRequestServiceDataControl" Binds="RequestView1.variablesMap.id"
+                     Name="ExecuteWithParams_id" IsQueriable="false"/>
       <variableUsage DataControl="CabinetRequestServiceDataControl" Binds="RequestView1.variablesMap.Date2"
                      Name="ExecuteWithParams_Date2" IsQueriable="false"/>
       <variableUsage DataControl="CabinetRequestServiceDataControl" Binds="RequestView1.variablesMap.IdRtype"

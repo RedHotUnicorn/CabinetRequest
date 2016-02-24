@@ -34,47 +34,8 @@ import ru.miit.my.cabinet.request.view.utils.JSFUtils;
 public class CreateRequest {
     //Переменные
 
-   /* class TextOnPage {
-        private String text;
-        private RichInputText richInputText;
-        private String type;
-        private String nameOfParam;
-
-        TextOnPage(String nameOfParam) {
-            this.nameOfParam = nameOfParam;
-        }
-
-        public Object get() {
-            if (type.equals("int"))
-                return Integer.parseInt(text);
-            else
-                return text;
-        }
-
-        public boolean isEmpty() {
-            return text.isEmpty();
-        }
-
-        public String getName() {
-            return this.nameOfParam;
-        }
-
-        public void flush() {
-            text = "";
-        }
-        
-        public RichInputText getRich() {
-            return this.richInputText;
-        }
-
-
-    }*/
     private boolean dataOnPageChanged = false; //Что то изменили на странице кнопка Сохранить активировалась
-    private String forumMessage = "";
-    private String test1Message = "";
-    private String test2Message = "";
     private int numOfFacet = 0;
-
     private String routerFacet = setRouter();
     private RichInputText itForum;
     private RichInputText itTest2;
@@ -82,11 +43,11 @@ public class CreateRequest {
     private RichCommandImageLink b;
     private RichInputText itTest3Roomnumber;
     //Конструктор
-   // TextOnPage NameOfPC;
+    // TextOnPage NameOfPC;
 
     public CreateRequest() {
         super();
-       // NameOfPC = new TextOnPage("Computername");
+        // NameOfPC = new TextOnPage("Computername");
 
     }
     //Обращение к биндингс
@@ -186,17 +147,7 @@ public class CreateRequest {
         return result;
     }
 
-    public String sendMessage() {
-        if (!forumMessage.isEmpty()) {
 
-
-            putParameterInBinding("ForumCreateInsert", "Text", getForumMessage());
-            this.setForumMessage("");
-        } else {
-            addErrorMessageToRichInputText(itForum, "Поле должно быть заполнено");
-        }
-        return "";
-    }
     // Валидатор текстового поля
 
     public void it2_validator(FacesContext facesContext, UIComponent uIComponent, Object object) {
@@ -215,13 +166,38 @@ public class CreateRequest {
             }
         }
     }
+
+    //Создать объект 1 го типа
+
+    public String createTest1Obj() {
+        if (!((String)this.itTest1.getValue()).isEmpty()) {
+            putParameterInBinding("Createwithparameters1", "Chooseint", Integer.parseInt((String)itTest1.getValue()));
+            itTest1.setValue("");
+            setDataOnPageChanged(true);
+        } else {
+            addErrorMessageToRichInputText(itTest1, "Поле должно быть заполнено");
+        }
+        return "";
+    }
+    //Создать объект 2 го типа
+
+    public String createTest2Obj() {
+        if (!((String)this.itTest2.getValue()).isEmpty()) {
+            putParameterInBinding("Createwithparameters2", "Addchar", ((String)itTest2.getValue()).substring(0, 2));
+            itTest2.setValue("");
+            setDataOnPageChanged(true);
+        } else {
+            addErrorMessageToRichInputText(itTest2, "Поле должно быть заполнено");
+        }
+        return "";
+    }
     //Создать объект 3 го типа
 
     public String createTest3Obj() {
         if (!((String)this.itTest3Roomnumber.getValue()).isEmpty()) {
-            putParameterInBinding("Createwithparameters3", "Roomnumber", Integer.parseInt((String)itTest3Roomnumber.getValue()));
+            putParameterInBinding("Createwithparameters3", "Roomnumber",
+                                  Integer.parseInt((String)itTest3Roomnumber.getValue()));
             itTest3Roomnumber.setValue("");
-            //this.setTest3Roomnumber((String)itTest3Roomnumber.getValue()+"gblh");
             setDataOnPageChanged(true);
         } else {
             addErrorMessageToRichInputText(itTest3Roomnumber, "Поле должно быть заполнено");
@@ -229,32 +205,15 @@ public class CreateRequest {
         return "";
     }
 
-    
-    //Создать объект 2 го типа
-
-    public String createTest2Obj() {
-        if (!this.test2Message.isEmpty()) {
-            putParameterInBinding("Createwithparameters2", "Addchar", getTest2Message().substring(0, 2));
-            this.setTest2Message("");
-            setDataOnPageChanged(true);
+    public String sendMessage() {
+        if (!((String)this.itForum.getValue()).isEmpty()) {
+            putParameterInBinding("ForumCreateInsert", "Text", (String)itForum.getValue());
+            itForum.setValue("");
         } else {
-            addErrorMessageToRichInputText(itTest2, "Поле должно быть заполнено");
+            addErrorMessageToRichInputText(itForum, "Поле должно быть заполнено");
         }
         return "";
     }
-    //Создать объект 1 го типа
-
-    public String createTest1Obj() {
-        if (!this.test1Message.isEmpty()) {
-            putParameterInBinding("Createwithparameters1", "Chooseint", Integer.parseInt(getTest1Message()));
-            this.setTest1Message("");
-            setDataOnPageChanged(true);
-        } else {
-            addErrorMessageToRichInputText(itTest1, "Поле должно быть заполнено");
-        }
-        return "";
-    }
-
     // При удалении последнего элемента на странице создания рапорт скрывает кнопку сохрнаить
 
     public String deleteTypes() {
@@ -269,7 +228,6 @@ public class CreateRequest {
             break;
         }
         if ((new ArrayList<Row>(Arrays.asList(ADFUtils.findIterator(str).getAllRowsInRange()))).size() == 0) {
-
             setDataOnPageChanged(false);
         }
         return "";
@@ -277,14 +235,6 @@ public class CreateRequest {
 
 
     //Геттеры и сеттеры
-
-    public void setForumMessage(String forumMessage) {
-        this.forumMessage = forumMessage;
-    }
-
-    public String getForumMessage() {
-        return forumMessage;
-    }
 
     public void setDataOnPageChanged(boolean dataOnPageChanged) {
         this.dataOnPageChanged = dataOnPageChanged;
@@ -303,23 +253,7 @@ public class CreateRequest {
         return routerFacet;
     }
 
-    public void setTest1Message(String teat1Message) {
-        this.test1Message = teat1Message;
-    }
-
-    public String getTest1Message() {
-        return test1Message;
-    }
-
-    public void setTest2Message(String test2Message) {
-        this.test2Message = test2Message;
-    }
-
-    public String getTest2Message() {
-        return test2Message;
-    }
-
-
+   
     public void setNumOfFacet(int numOfFacet) {
         this.numOfFacet = numOfFacet;
     }
@@ -353,13 +287,13 @@ public class CreateRequest {
         return itForum;
     }
 
-    /*public void setB(RichCommandImageLink b) {
+    public void setB(RichCommandImageLink b) {
         this.b = b;
     }
 
     public RichCommandImageLink getB() {
         return b;
-    }*/
+    }
 
     public void setItTest3Roomnumber(RichInputText itTest3Roomnumber) {
         this.itTest3Roomnumber = itTest3Roomnumber;
@@ -370,6 +304,5 @@ public class CreateRequest {
     }
 
 
-    
 }
 

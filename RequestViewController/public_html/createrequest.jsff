@@ -54,7 +54,7 @@
               <af:gridCell marginStart="5px" marginEnd="5px" width="30%" id="gc20"/>
             </af:gridRow>
           </af:panelGridLayout>
-          <af:inputText id="itTest1" value="#{viewScope.CreateRequest.test1Message}" showRequired="false" required="false"
+          <af:inputText id="itTest1" showRequired="false" required="false"
                         binding="#{viewScope.CreateRequest.itTest1}">
             <af:convertNumber integerOnly="true"/>
           </af:inputText>
@@ -108,7 +108,7 @@
                 <af:separator id="s4"/>
               </f:facet>
             </af:panelGroupLayout>
-            <af:inputText id="itTest2" value="#{viewScope.CreateRequest.test2Message}" immediate="true"
+            <af:inputText id="itTest2" immediate="true"
                           binding="#{viewScope.CreateRequest.itTest2}">
               <af:validateLength minimum="2"/>
             </af:inputText>
@@ -139,7 +139,7 @@
             </af:panelFormLayout>
           </af:iterator>
           <af:panelFormLayout id="pfl4">
-            <af:inputText value="#{viewScope.CreateRequest.test3Roomnumber}" label="Номер аудитории"
+            <af:inputText label="Номер аудитории"
                           required="#{bindings.Roomnumber.hints.mandatory}"
                           columns="#{bindings.Roomnumber.hints.displayWidth}"
                           maximumLength="#{bindings.Roomnumber.hints.precision}"
@@ -219,7 +219,7 @@
           <af:separator id="s2"/>
         </f:facet>
       </af:panelGroupLayout>
-      <af:inputText id="it2" value="#{viewScope.CreateRequest.forumMessage}" required="false" autoSubmit="true"
+      <af:inputText id="it2" required="false" autoSubmit="true"
                     binding="#{viewScope.CreateRequest.itForum}"/>
       <af:commandImageLink text="Добавить сообщение" id="cil4"
                            action="#{viewScope.CreateRequest.sendMessage}" binding="#{viewScope.CreateRequest.b}"

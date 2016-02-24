@@ -44,11 +44,6 @@ public class UseRequestList {
         if (!createRequestBinding.getErrors().isEmpty()) {
             return null;
         }
-        
-        
-
-        
-        
         return "";
     }
 
