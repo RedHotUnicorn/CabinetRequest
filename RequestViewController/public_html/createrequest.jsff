@@ -3,99 +3,39 @@
                 xmlns:f="http://java.sun.com/jsf/core" xmlns:h="http://java.sun.com/jsf/html"
                 xmlns:afc="http://xmlns.oracle.com/adf/faces/rich/component">
   <!--oracle-jdev-comment:preferred-managed-bean-name:CreateRequest-->
-  <af:panelGroupLayout id="pgl10" layout="scroll">
-    <h:outputText value="#{bindings.TitleOfPage}" id="ot10" style="font-weight:bolder;"/>
-    <af:switcher id="s1" facetName="#{CreateRequest.routerFacet}">
-      <f:facet name="TestType1">
-        <af:group id="g1">
-          <af:panelGroupLayout id="pgl7">
-            <af:iterator id="i2" value="#{bindings.Typetest1View_POCHTA1.collectionModel}" var="row">
-              <af:panelGridLayout id="pgl4">
-                <af:gridRow marginTop="5px" marginBottom="5px" height="auto" id="gr9">
-                  <af:gridCell marginStart="5px" width="auto" id="gc17">
-                    <af:panelFormLayout id="pfl2">
-                      <af:panelLabelAndMessage label="Сотрудник" id="plam3">
-                        <af:outputText id="ot7" value="#{row.Idemployee}"/>
-                      </af:panelLabelAndMessage>
-                      <af:panelLabelAndMessage label="Число" id="plam4">
-                        <af:outputText value="#{row.Chooseint}" id="ot8"/>
-                      </af:panelLabelAndMessage>
-                    </af:panelFormLayout>
-                  </af:gridCell>
-                  <af:gridCell marginStart="5px" marginEnd="5px" width="20%" id="gc18">
-                    <af:commandImageLink id="cil2"
-                                         icon="#{resource['images:delete1.png']}">
-                      <af:showPopupBehavior popupId="p1" triggerType="action" align="beforeStart"/>
-                    </af:commandImageLink>
-                    <af:popup childCreation="deferred" autoCancel="enabled" id="p1">
-                      <af:panelGroupLayout id="pgl11" layout="vertical" valign="middle" halign="center">
-                        <af:outputText value="Удалить?" id="ot15"/>
-                        <af:panelGroupLayout id="pgl12" layout="horizontal">
-                          <af:commandImageLink text="OK" id="cil11" action="#{viewScope.CreateRequest.deleteTypes}"
-                                               icon="#{resource['images:yes.png']}"
-                                               actionListener="#{bindings.DeletePochta.execute}"/>
-                          <af:spacer width="30" height="10" id="s9"/>
-                          <af:commandImageLink text="Cancel" id="cil12" icon="#{resource['images:no.png']}"
-                                               iconPosition="trailing"/>
-                        </af:panelGroupLayout>
-                      </af:panelGroupLayout>
-                    </af:popup>
-                  </af:gridCell>
-                </af:gridRow>
-              </af:panelGridLayout>
-            </af:iterator>
-            <f:facet name="separator">
-              <af:separator id="s3"/>
-            </f:facet>
-          </af:panelGroupLayout>
-          <af:panelGridLayout id="pgl5">
-            <af:gridRow marginTop="5px" marginBottom="5px" height="auto" id="gr10">
-              <af:gridCell marginStart="5px" width="70%" id="gc19"/>
-              <af:gridCell marginStart="5px" marginEnd="5px" width="30%" id="gc20"/>
-            </af:gridRow>
-          </af:panelGridLayout>
-          <af:inputText id="itTest1" showRequired="false" required="false"
-                        binding="#{viewScope.CreateRequest.itTest1}">
-            <af:convertNumber integerOnly="true"/>
-          </af:inputText>
-          <af:outputText value=" #{bindings.Typetest1View_POCHTA1Iterator.estimatedRowCount >0||bindings.Typetest2View2Iterator.estimatedRowCount>0}" id="ot12"
-                         rendered="true"
-                         visible="#{bindings.Typetest1View_POCHTA1Iterator.estimatedRowCount >0||bindings.Typetest2View2Iterator.estimatedRowCount>0}"/>
-          <af:spacer width="10" height="10" id="s5"/>
-          <af:commandImageLink text="Добавить число" id="cil1" icon="#{resource['images:add1.png']}"
-                               action="#{viewScope.CreateRequest.createTest1Obj}"/>
-        </af:group>
-      </f:facet>
-      <f:facet name="TestType2">
-        <af:group id="g2" rendered="true">
-          <af:subform id="s6" default="true">
-            <af:panelGroupLayout id="pgl8" rendered="true">
-              <af:iterator id="i3" value="#{bindings.Typetest2View2.collectionModel}" var="row">
-                <af:panelGridLayout id="pgl9">
-                  <af:gridRow marginTop="5px" marginBottom="5px" height="auto" id="gr12">
-                    <af:gridCell marginStart="5px" width="80%" id="gc23">
-                      <af:panelFormLayout id="pfl3">
-                        <af:panelLabelAndMessage label="Сотрудник" id="plam6">
-                          <af:outputText value="#{row.Idemployee}" id="ot9"/>
+  <af:panelGroupLayout id="pgl19" layout="horizontal" styleClass="AFStretchWidth" valign="baseline">
+    <af:panelGroupLayout id="pgl10" layout="scroll" inlineStyle="width:400pt;">
+      <h:outputText value="Форма добавления нового пункта" id="ot19" style="font-weight:bolder;"/>
+      <af:switcher id="s1" facetName="#{viewScope.CreateRequest.routerFacet}">
+        <f:facet name="TestType1">
+          <af:group id="g1">
+            <af:panelGroupLayout id="pgl7">
+              <af:iterator id="i2" value="#{bindings.Typetest1View_POCHTA1.collectionModel}" var="row">
+                <af:panelGridLayout id="pgl4">
+                  <af:gridRow marginTop="5px" marginBottom="5px" height="auto" id="gr9">
+                    <af:gridCell marginStart="5px" width="auto" id="gc17">
+                      <af:panelFormLayout id="pfl2">
+                        <af:panelLabelAndMessage label="Сотрудник" id="plam3">
+                          <af:outputText id="ot7" value="#{row.Idemployee}"/>
                         </af:panelLabelAndMessage>
-                        <af:panelLabelAndMessage label="Сокращенная строка" id="plam5">
-                          <af:outputText value="#{row.Addchar}" id="ot2"/>
+                        <af:panelLabelAndMessage label="Число" id="plam4">
+                          <af:outputText value="#{row.Chooseint}" id="ot8"/>
                         </af:panelLabelAndMessage>
                       </af:panelFormLayout>
                     </af:gridCell>
-                    <af:gridCell width="10%" id="gc24">
-                      <af:commandImageLink id="cil7" icon="#{resource['images:delete1.png']}">
-                        <af:showPopupBehavior popupId="p3" triggerType="action" align="beforeStart"/>
+                    <af:gridCell marginStart="5px" marginEnd="5px" width="20%" id="gc18">
+                      <af:commandImageLink id="cil2" icon="#{resource['images:delete1.png']}">
+                        <af:showPopupBehavior popupId="p1" triggerType="action" align="beforeStart"/>
                       </af:commandImageLink>
-                      <af:popup childCreation="deferred" autoCancel="enabled" id="p3">
-                        <af:panelGroupLayout id="pgl13" layout="vertical" valign="middle" halign="center">
-                          <af:outputText value="Удалить?" id="ot16"/>
-                          <af:panelGroupLayout id="pgl14" layout="horizontal">
-                            <af:commandImageLink text="OK" id="cil13" action="#{viewScope.CreateRequest.deleteTypes}"
+                      <af:popup childCreation="deferred" autoCancel="enabled" id="p1">
+                        <af:panelGroupLayout id="pgl11" layout="vertical" valign="middle" halign="center">
+                          <af:outputText value="Удалить?" id="ot15"/>
+                          <af:panelGroupLayout id="pgl12" layout="horizontal">
+                            <af:commandImageLink text="OK" id="cil11" action="#{viewScope.CreateRequest.deleteTypes}"
                                                  icon="#{resource['images:yes.png']}"
-                                                 actionListener="#{bindings.DeleteInternet.execute}"/>
-                            <af:spacer width="30" height="10" id="s10"/>
-                            <af:commandImageLink text="Cancel" id="cil14" icon="#{resource['images:no.png']}"
+                                                 actionListener="#{bindings.DeletePochta.execute}"/>
+                            <af:spacer width="30" height="10" id="s9"/>
+                            <af:commandImageLink text="Cancel" id="cil12" icon="#{resource['images:no.png']}"
                                                  iconPosition="trailing"/>
                           </af:panelGroupLayout>
                         </af:panelGroupLayout>
@@ -105,128 +45,282 @@
                 </af:panelGridLayout>
               </af:iterator>
               <f:facet name="separator">
-                <af:separator id="s4"/>
+                <af:separator id="s3"/>
               </f:facet>
             </af:panelGroupLayout>
-            <af:inputText id="itTest2" immediate="true"
-                          binding="#{viewScope.CreateRequest.itTest2}">
-              <af:validateLength minimum="2"/>
+            <af:panelGridLayout id="pgl5">
+              <af:gridRow marginTop="5px" marginBottom="5px" height="auto" id="gr10">
+                <af:gridCell marginStart="5px" width="70%" id="gc19">
+                  <af:commandButton text="commandButton 1" id="cb1">
+                    <af:showPopupBehavior popupId="p4" triggerType="action" align="afterStart"/>
+                  </af:commandButton>
+                  <af:commandButton text="show popup" id="cb3">
+                    <af:showPopupBehavior popupId="p6"/>
+                  </af:commandButton>
+                  <af:popup childCreation="deferred" id="p6" partialTriggers="cb4">
+                    <af:dialog id="d2" type="cancel">
+                      <f:facet name="buttonBar">
+                        <af:commandButton text="custom ok" id="cb4" partialSubmit="false"/>
+                      </f:facet>
+                    </af:dialog>
+                  </af:popup>
+                  <af:popup childCreation="deferred" id="p4" resetEditableValues="whenCanceled"
+                            partialTriggers="cb2">
+                    <af:dialog id="d1" title="#{bindings.Idemployee.inputValue}" type="cancel">
+                      <f:facet name="buttonBar">
+                        <af:commandButton text="OK" id="cb2" partialSubmit="true"/>
+                      </f:facet>
+                      <af:panelGroupLayout layout="vertical" id="pgl21">
+                        <af:panelHeader text="Employee" id="ph1">
+                          <af:query id="qryId1" headerText="Search" disclosed="true"
+                                    value="#{bindings.EmployeeSearchVCQuery.queryDescriptor}"
+                                    model="#{bindings.EmployeeSearchVCQuery.queryModel}"
+                                    queryListener="#{bindings.EmployeeSearchVCQuery.processQuery}"
+                                    queryOperationListener="#{bindings.EmployeeSearchVCQuery.processQueryOperation}"
+                                    resultComponentId="::resId1" partialTriggers="::d1"/>
+                        </af:panelHeader>
+                        <af:table value="#{bindings.EmployeeView1.collectionModel}" var="row"
+                                  rows="#{bindings.EmployeeView1.rangeSize}"
+                                  emptyText="#{bindings.EmployeeView1.viewable ? 'No data to display.' : 'Access Denied.'}"
+                                  fetchSize="#{bindings.EmployeeView1.rangeSize}" rowBandingInterval="0"
+                                  selectedRowKeys="#{bindings.EmployeeView1.collectionModel.selectedRow}"
+                                  selectionListener="#{bindings.EmployeeView1.collectionModel.makeCurrent}"
+                                  rowSelection="single" id="resId1">
+                          <af:column sortProperty="#{bindings.EmployeeView1.hints.Secondname.name}" sortable="false"
+                                     headerText="#{bindings.EmployeeView1.hints.Secondname.label}" id="resId1c1">
+                            <af:outputText value="#{row.Secondname}" id="ot24"/>
+                          </af:column>
+                        </af:table>
+                      </af:panelGroupLayout>
+                    </af:dialog>
+                  </af:popup>
+                </af:gridCell>
+                <af:gridCell marginStart="5px" marginEnd="5px" width="30%" id="gc20">
+                  <af:outputText value="#{requestScope.REMOVE} + #{bindings.Idemployee.inputValue}" id="ot10"/>
+                </af:gridCell>
+              </af:gridRow>
+            </af:panelGridLayout>
+            <af:inputText id="itTest1" showRequired="false" required="false"
+                          binding="#{viewScope.CreateRequest.itTest1}">
+              <af:convertNumber integerOnly="true"/>
             </af:inputText>
-            <af:commandImageLink text="Две буквы" id="cil8" icon="#{resource['images:add1.png']}"
-                                 action="#{CreateRequest.createTest2Obj}"/>
-          </af:subform>
-        </af:group>
-      </f:facet>
-      <f:facet name="Default">
-        <af:outputText value="Def" id="ot4"/>
-      </f:facet>
-      <f:facet name="TestType3">
-        <af:panelGroupLayout id="pgl15">
-          <af:iterator id="i4" var="row" value="#{bindings.Typetest3View1.collectionModel}">
-            <af:panelFormLayout id="pfl5">
-              <af:panelLabelAndMessage label="#{bindings.Roomnumber.hints.label}" id="plam7">
-                <af:outputText value="#{row.Roomnumber}" id="ot3"/>
-              </af:panelLabelAndMessage>
-              <af:panelLabelAndMessage label="#{bindings.Computername.hints.label}" id="plam8">
-                <af:outputText value="#{row.Computername}" id="ot13"/>
-              </af:panelLabelAndMessage>
-              <af:panelLabelAndMessage label="#{bindings.Programmname.hints.label}" id="plam9">
-                <af:outputText value="#{row.Programmname}" id="ot17"/>
-              </af:panelLabelAndMessage>
-              <af:panelLabelAndMessage label="#{bindings.Secondname.hints.label}" id="plam10">
-                <af:outputText value="#{row.Secondname}" id="ot18"/>
-              </af:panelLabelAndMessage>
-            </af:panelFormLayout>
-          </af:iterator>
-          <af:panelFormLayout id="pfl4">
-            <af:inputText label="Номер аудитории"
-                          required="#{bindings.Roomnumber.hints.mandatory}"
-                          columns="#{bindings.Roomnumber.hints.displayWidth}"
-                          maximumLength="#{bindings.Roomnumber.hints.precision}"
-                          shortDesc="#{bindings.Roomnumber.hints.tooltip}" id="it1"
-                          binding="#{viewScope.CreateRequest.itTest3Roomnumber}">
-              <f:validator binding="#{bindings.Roomnumber.validator}"/>
-            </af:inputText>
-            <af:inputText label="Имя компьютера"
-                          required="#{bindings.Computername.hints.mandatory}"
-                          columns="#{bindings.Computername.hints.displayWidth}"
-                          maximumLength="#{bindings.Computername.hints.precision}"
-                          shortDesc="#{bindings.Computername.hints.tooltip}" id="it4">
-              <f:validator binding="#{bindings.Computername.validator}"/>
-            </af:inputText>
-            <af:inputText label="Наименование проргаммы"
-                          required="#{bindings.Programmname.hints.mandatory}"
-                          columns="#{bindings.Programmname.hints.displayWidth}"
-                          maximumLength="#{bindings.Programmname.hints.precision}"
-                          shortDesc="#{bindings.Programmname.hints.tooltip}" id="it5">
-              <f:validator binding="#{bindings.Programmname.validator}"/>
-            </af:inputText>
-            <af:inputText label="Фамилия сотрудника"
-                          required="#{bindings.Secondname.hints.mandatory}"
-                          columns="#{bindings.Secondname.hints.displayWidth}"
-                          maximumLength="#{bindings.Secondname.hints.precision}"
-                          shortDesc="#{bindings.Secondname.hints.tooltip}" id="it7">
-              <f:validator binding="#{bindings.Secondname.validator}"/>
-            </af:inputText>
-            <af:commandImageLink text="Добавить" id="cil15" icon="#{resource['images:add1.png']}"
-                                 action="#{CreateRequest.createTest3Obj}"/>
-          </af:panelFormLayout>
-          <f:facet name="separator"/>
-        </af:panelGroupLayout>
-      </f:facet>
-    </af:switcher>
-    <h:outputText value="Сообщения" id="ot11" style="font-weight:bolder;"/>
-    <af:subform id="s7" default="true">
-      <af:panelGroupLayout id="pgl1">
-        <af:iterator id="i1" value="#{bindings.RequestforummessageView3.collectionModel}" var="row">
-          <af:panelGridLayout id="pgl3">
-            <af:gridRow marginTop="5px" marginBottom="5px" height="auto" id="gr8">
-              <af:gridCell marginStart="5px" width="auto" id="gc15">
-                <af:panelFormLayout id="pfl1">
-                  <af:panelLabelAndMessage label="Дата" id="plam1">
-                    <af:outputText value="#{row.Creationdate}" id="ot5">
-                      <af:convertDateTime type="both"/>
-                    </af:outputText>
-                  </af:panelLabelAndMessage>
-                  <af:panelLabelAndMessage label="Текст" id="plam2">
-                    <af:outputText value="#{row.Text}" id="ot6"/>
-                  </af:panelLabelAndMessage>
-                  <af:outputText value="#{row.SomeAttr.inputValue}" id="ot1"/>
-                </af:panelFormLayout>
-              </af:gridCell>
-              <af:gridCell marginStart="5px" marginEnd="5px" width="20%" id="gc16">
-                <af:commandImageLink id="cil3" immediate="true"
-                                     icon="#{resource['images:delete1.png']}">
-                  <af:showPopupBehavior popupId="p2" triggerType="action" align="beforeStart"/>
-                </af:commandImageLink>
-                <af:popup childCreation="deferred" autoCancel="enabled" id="p2">
-                  <af:panelGroupLayout id="pgl2" layout="vertical" valign="middle" halign="center">
-                    <af:outputText value="Удалить?" id="ot14"/>
-                    <af:panelGroupLayout id="pgl6" layout="horizontal">
-                      <af:commandImageLink text="OK" id="cil9" action="#{bindings.DeleteMessage.execute}"
-                                           icon="#{resource['images:yes.png']}"/>
-                      <af:spacer width="30" height="10" id="s8"/>
-                      <af:commandImageLink text="Cancel" id="cil10" icon="#{resource['images:no.png']}"
-                                           iconPosition="trailing"/>
-                    </af:panelGroupLayout>
-                  </af:panelGroupLayout>
-                </af:popup>
-              </af:gridCell>
-            </af:gridRow>
-          </af:panelGridLayout>
-        </af:iterator>
-        <f:facet name="separator">
-          <af:separator id="s2"/>
+            <af:outputText value=" #{bindings.Typetest1View_POCHTA1Iterator.estimatedRowCount >0||bindings.Typetest2View2Iterator.estimatedRowCount>0}"
+                           id="ot12" rendered="true"
+                           visible="#{bindings.Typetest1View_POCHTA1Iterator.estimatedRowCount >0||bindings.Typetest2View2Iterator.estimatedRowCount>0}"/>
+            <af:spacer width="10" height="10" id="s5"/>
+            <af:commandImageLink text="Добавить число" id="cil1" icon="#{resource['images:add1.png']}"
+                                 action="#{viewScope.CreateRequest.createTest1Obj}"/>
+          </af:group>
         </f:facet>
-      </af:panelGroupLayout>
-      <af:commandImageLink text="Добавить сообщение" id="cil4"
-                           action="#{viewScope.CreateRequest.sendMessage}"
-                           icon="#{resource['images:chat1.png']}"/>
-    </af:subform>
-    <af:commandImageLink text="Вернуться" id="cil5" icon="#{resource['images:back1.png']}"
-                         actionListener="#{bindings.Rollback.execute}" action="back"/>
-    <af:commandImageLink text="Сохранить" id="cil6" icon="#{resource['images:save.png']}"
-                         action="back" actionListener="#{bindings.Commit.execute}"
-                         rendered=" #{bindings.Typetest1View_POCHTA1Iterator.estimatedRowCount != '0'}"/>
+        <f:facet name="TestType2">
+          <af:group id="g2" rendered="true">
+            <af:subform id="s6" default="true">
+              <af:panelGroupLayout id="pgl8" rendered="true">
+                <af:iterator id="i3" value="#{bindings.Typetest2View2.collectionModel}" var="row">
+                  <af:panelGridLayout id="pgl9">
+                    <af:gridRow marginTop="5px" marginBottom="5px" height="auto" id="gr12">
+                      <af:gridCell marginStart="5px" width="80%" id="gc23">
+                        <af:panelFormLayout id="pfl3">
+                          <af:panelLabelAndMessage label="Сотрудник" id="plam6">
+                            <af:outputText value="#{row.Idemployee}" id="ot9"/>
+                          </af:panelLabelAndMessage>
+                          <af:panelLabelAndMessage label="Сокращенная строка" id="plam5">
+                            <af:outputText value="#{row.Addchar}" id="ot2"/>
+                          </af:panelLabelAndMessage>
+                        </af:panelFormLayout>
+                      </af:gridCell>
+                      <af:gridCell width="10%" id="gc24">
+                        <af:commandImageLink id="cil7" icon="#{resource['images:delete1.png']}">
+                          <af:showPopupBehavior popupId="p3" triggerType="action" align="beforeStart"/>
+                        </af:commandImageLink>
+                        <af:popup childCreation="deferred" autoCancel="enabled" id="p3">
+                          <af:panelGroupLayout id="pgl13" layout="vertical" valign="middle" halign="center">
+                            <af:outputText value="Удалить?" id="ot16"/>
+                            <af:panelGroupLayout id="pgl14" layout="horizontal">
+                              <af:commandImageLink text="OK" id="cil13" action="#{viewScope.CreateRequest.deleteTypes}"
+                                                   icon="#{resource['images:yes.png']}"
+                                                   actionListener="#{bindings.DeleteInternet.execute}"/>
+                              <af:spacer width="30" height="10" id="s10"/>
+                              <af:commandImageLink text="Cancel" id="cil14" icon="#{resource['images:no.png']}"
+                                                   iconPosition="trailing"/>
+                            </af:panelGroupLayout>
+                          </af:panelGroupLayout>
+                        </af:popup>
+                      </af:gridCell>
+                    </af:gridRow>
+                  </af:panelGridLayout>
+                </af:iterator>
+                <f:facet name="separator">
+                  <af:separator id="s4"/>
+                </f:facet>
+              </af:panelGroupLayout>
+              <af:inputText id="itTest2" immediate="true" binding="#{viewScope.CreateRequest.itTest2}">
+                <af:validateLength minimum="2"/>
+              </af:inputText>
+              <af:commandImageLink text="Две буквы" id="cil8" icon="#{resource['images:add1.png']}"
+                                   action="#{CreateRequest.createTest2Obj}"/>
+            </af:subform>
+          </af:group>
+        </f:facet>
+        <f:facet name="Default">
+          <af:outputText value="Def" id="ot4"/>
+        </f:facet>
+        <f:facet name="TestType3">
+          <af:group id="g3">
+            <af:panelGroupLayout id="pgl15" inlineStyle="width:300pt;"
+                                 partialTriggers="cb_create_type3  cb_create_type32">
+              <af:spacer width="10" height="10" id="s16"/>
+              <af:separator id="s14"/>
+              <af:panelGroupLayout id="pgl22" layout="vertical" partialTriggers="cb_create_type3"
+                                   inlineStyle="width:inherit;">
+                <af:iterator id="i5" value="#{bindings.Typetest3View1.collectionModel}" var="row">
+                  <af:panelGridLayout id="pgl25">
+                    <af:gridRow height="auto" id="gr2">
+                      <af:gridCell width="auto" id="gc3">
+                        <af:panelFormLayout id="pfl7">
+                          <af:inputText value="#{row.Roomnumber}"
+                                        label="#{bindings.Roomnumber.hints.label } "
+                                        required="#{bindings.Roomnumber.hints.mandatory}"
+                                        columns="#{bindings.Roomnumber.hints.displayWidth}"
+                                        maximumLength="#{bindings.Roomnumber.hints.precision}"
+                                        shortDesc="#{bindings.Roomnumber.hints.tooltip}" id="it8"
+                                        readOnly="#{!row.IsItNewRow}">
+                            <f:validator binding="#{bindings.Roomnumber.validator}"/>
+                            <af:convertNumber groupingUsed="false" pattern="#{bindings.Roomnumber.format}"/>
+                          </af:inputText>
+                          <af:inputText value="#{row.Computername}" label="#{bindings.Computername.hints.label}"
+                                        required="#{bindings.Computername.hints.mandatory}"
+                                        columns="#{bindings.Computername.hints.displayWidth}"
+                                        maximumLength="#{bindings.Computername.hints.precision}"
+                                        shortDesc="#{bindings.Computername.hints.tooltip}" id="it9"
+                                        readOnly="#{!row.IsItNewRow}">
+                            <f:validator binding="#{bindings.Computername.validator}"/>
+                          </af:inputText>
+                          <af:inputText value="#{row.Programmname}" label="#{bindings.Programmname.hints.label}"
+                                        required="#{bindings.Programmname.hints.mandatory}"
+                                        columns="#{bindings.Programmname.hints.displayWidth}"
+                                        maximumLength="#{bindings.Programmname.hints.precision}"
+                                        shortDesc="#{bindings.Programmname.hints.tooltip}" id="it10"
+                                        readOnly="#{!row.IsItNewRow}">
+                            <f:validator binding="#{bindings.Programmname.validator}"/>
+                          </af:inputText>
+                          <af:popup childCreation="deferred" autoCancel="enabled" id="p7">
+                            <af:panelGroupLayout id="pgl23" layout="vertical" valign="middle" halign="center">
+                              <af:outputText value="Удалить?" id="ot25"/>
+                              <af:panelGroupLayout id="pgl24" layout="horizontal">
+                                <af:commandImageLink text="OK" id="cil21" action="#{bindings.DeletePO.execute}"
+                                                     icon="#{resource['images:yes.png']}"/>
+                                <af:spacer width="30" height="10" id="s19"/>
+                                <af:commandImageLink text="Cancel" id="cil22" icon="#{resource['images:no.png']}"
+                                                     iconPosition="trailing"/>
+                              </af:panelGroupLayout>
+                            </af:panelGroupLayout>
+                          </af:popup>
+                        </af:panelFormLayout>
+                      </af:gridCell>
+                      <af:gridCell width="auto" id="gc4" inlineStyle="width:5pt;">
+                        <af:popup childCreation="deferred" autoCancel="enabled" id="p8">
+                          <af:panelGroupLayout id="pgl26" layout="vertical" valign="middle" halign="center">
+                            <af:outputText value="Удалить?" id="ot29"/>
+                            <af:panelGroupLayout id="pgl27" layout="horizontal">
+                              <af:commandImageLink text="OK" id="cil24" action="#{bindings.DeletePO.execute}"
+                                                   icon="#{resource['images:yes.png']}"/>
+                              <af:spacer width="30" height="10" id="s20"/>
+                              <af:commandImageLink text="Cancel" id="cil25" icon="#{resource['images:no.png']}"
+                                                   iconPosition="trailing"/>
+                            </af:panelGroupLayout>
+                          </af:panelGroupLayout>
+                        </af:popup>
+                        <af:commandImageLink id="cil20" immediate="true" icon="#{resource['images:delete1.png']}"
+                                             actionListener="#{bindings.DeletePO.execute}">
+                          <af:showPopupBehavior popupId="p7" triggerType="action" align="beforeStart"/>
+                        </af:commandImageLink>
+                      </af:gridCell>
+                    </af:gridRow>
+                  </af:panelGridLayout>
+                </af:iterator>
+                <f:facet name="separator">
+                  <af:separator id="s18"/>
+                </f:facet>
+              </af:panelGroupLayout>
+              <af:commandButton actionListener="#{bindings.CreateWithParams.execute}" text="Добавить"
+                                id="cb_create_type3" partialSubmit="true" immediate="true"/>
+              <af:commandImageLink text="Добавить" id="cb_create_type32" icon="#{resource['images:add1.png']}"
+                                   actionListener="#{bindings.CreateWithParams.execute}" partialSubmit="true">
+                <af:setPropertyListener type="action" from="#{requestScope.valName}"
+                                        to="#{requestScope.Test3Roomnumber}"/>
+                <af:setPropertyListener type="action" from="#{requestScope.valName}" to="#{requestScope.Test3PC}"/>
+                <af:setPropertyListener type="action" from="#{requestScope.valName}"
+                                        to="#{requestScope.Test3NameOfProgramm}"/>
+              </af:commandImageLink>
+              <af:separator id="s15"/>
+            </af:panelGroupLayout>
+          </af:group>
+        </f:facet>
+      </af:switcher>
+      <h:outputText value="Сообщения" id="ot11" style="font-weight:bolder;"/>
+      <af:subform id="s7" default="true">
+        <af:panelGroupLayout id="pgl1" layout="vertical">
+          <af:iterator id="i1" value="#{bindings.RequestforummessageView3.collectionModel}" var="row">
+            <af:panelGridLayout id="pgl3">
+              <af:gridRow marginTop="5px" marginBottom="5px" height="auto" id="gr8">
+                <af:gridCell marginStart="5px" width="auto" id="gc15">
+                  <af:panelFormLayout id="pfl4">
+                    <af:panelLabelAndMessage label="Дата" id="plam7">
+                      <af:outputText value="#{row.Creationdate}" id="ot3">
+                        <af:convertDateTime type="both"/>
+                      </af:outputText>
+                    </af:panelLabelAndMessage>
+                    <af:inputText value="#{row.Text}" label="#{bindings.Text.hints.label}"
+                                  required="#{bindings.Text.hints.mandatory}"
+                                  maximumLength="#{bindings.Text.hints.precision}"
+                                  shortDesc="#{bindings.Text.hints.tooltip}" id="it1" rows="0">
+                      <f:validator binding="#{bindings.Text.validator}"/>
+                    </af:inputText>
+                  </af:panelFormLayout>
+                </af:gridCell>
+                <af:gridCell marginStart="5px" marginEnd="5px" width="20%" id="gc16">
+                  <af:commandImageLink id="cil3" immediate="true" icon="#{resource['images:delete1.png']}">
+                    <af:showPopupBehavior popupId="p2" triggerType="action" align="beforeStart"/>
+                  </af:commandImageLink>
+                  <af:popup childCreation="deferred" autoCancel="enabled" id="p2">
+                    <af:panelGroupLayout id="pgl2" layout="vertical" valign="middle" halign="center">
+                      <af:outputText value="Удалить?" id="ot14"/>
+                      <af:panelGroupLayout id="pgl6" layout="horizontal">
+                        <af:commandImageLink text="OK" id="cil9" action="#{bindings.DeleteMessage.execute}"
+                                             icon="#{resource['images:yes.png']}"/>
+                        <af:spacer width="30" height="10" id="s8"/>
+                        <af:commandImageLink text="Cancel" id="cil10" icon="#{resource['images:no.png']}"
+                                             iconPosition="trailing"/>
+                      </af:panelGroupLayout>
+                    </af:panelGroupLayout>
+                  </af:popup>
+                </af:gridCell>
+              </af:gridRow>
+            </af:panelGridLayout>
+          </af:iterator>
+          <f:facet name="separator">
+            <af:separator id="s2"/>
+          </f:facet>
+          <af:commandImageLink text="Добавить сообщение" id="cil4"
+                               icon="#{resource['images:chat1.png']}"
+                               actionListener="#{bindings.ForumCreateInsert.execute}"
+                               visible="#{bindings.RequestforummessageView3Iterator.estimatedRowCount=='0'}"/>
+        </af:panelGroupLayout>
+        <af:subform id="s13"/>
+      </af:subform>
+      <af:commandImageLink text="Вернуться" id="cil5" icon="#{resource['images:back1.png']}"
+                           actionListener="#{bindings.Rollback.execute}" action="back" immediate="true"/>
+      <af:commandImageLink text="Сохранить" id="cil6" icon="#{resource['images:save1.png']}" action="back"
+                           actionListener="#{bindings.Commit.execute}"
+                           disabled="#{bindings.Typetest3View1Iterator.estimatedRowCount =='0'}"
+                           partialTriggers="cb_create_type3"/>
+    </af:panelGroupLayout>
+    <af:panelGroupLayout id="pgl20" layout="vertical">
+      <af:outputText value="Тип документа" id="ot1"/>
+      <af:outputText id="ot20" value="#{bindings.TitleOfPage}" inlineStyle="font-weight:bolder;"/>
+      <af:outputText value="Дата создания" id="ot22"/>
+      <af:outputText value="#{bindings.Creationdate}" id="ot23" inlineStyle="font-weight:bolder;"/>
+    </af:panelGroupLayout>
   </af:panelGroupLayout>
 </ui:composition>

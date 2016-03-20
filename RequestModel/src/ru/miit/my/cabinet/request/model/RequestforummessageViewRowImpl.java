@@ -16,82 +16,11 @@ import ru.miit.my.frameworkext.ViewRowImpl;
 // ---------------------------------------------------------------------
 public class RequestforummessageViewRowImpl extends ViewRowImpl {
 
-    public static final int ENTITY_REQUESTFORUMMESSAGE = 0;
 
     /**
      * AttributesEnum: generated enum for identifying attributes and accessors. Do not modify.
      */
     public enum AttributesEnum {
-        Idrequestforummessage {
-            public Object get(RequestforummessageViewRowImpl obj) {
-                return obj.getIdrequestforummessage();
-            }
-
-            public void put(RequestforummessageViewRowImpl obj, Object value) {
-                obj.setIdrequestforummessage((BigDecimal)value);
-            }
-        }
-        ,
-        Idrequestforummessagetype {
-            public Object get(RequestforummessageViewRowImpl obj) {
-                return obj.getIdrequestforummessagetype();
-            }
-
-            public void put(RequestforummessageViewRowImpl obj, Object value) {
-                obj.setIdrequestforummessagetype((BigDecimal)value);
-            }
-        }
-        ,
-        Idrequestforumparentmessage {
-            public Object get(RequestforummessageViewRowImpl obj) {
-                return obj.getIdrequestforumparentmessage();
-            }
-
-            public void put(RequestforummessageViewRowImpl obj, Object value) {
-                obj.setIdrequestforumparentmessage((BigDecimal)value);
-            }
-        }
-        ,
-        Idrequest {
-            public Object get(RequestforummessageViewRowImpl obj) {
-                return obj.getIdrequest();
-            }
-
-            public void put(RequestforummessageViewRowImpl obj, Object value) {
-                obj.setIdrequest((BigDecimal)value);
-            }
-        }
-        ,
-        Idemployee {
-            public Object get(RequestforummessageViewRowImpl obj) {
-                return obj.getIdemployee();
-            }
-
-            public void put(RequestforummessageViewRowImpl obj, Object value) {
-                obj.setIdemployee((BigDecimal)value);
-            }
-        }
-        ,
-        Creationdate {
-            public Object get(RequestforummessageViewRowImpl obj) {
-                return obj.getCreationdate();
-            }
-
-            public void put(RequestforummessageViewRowImpl obj, Object value) {
-                obj.setCreationdate((Timestamp)value);
-            }
-        }
-        ,
-        Text {
-            public Object get(RequestforummessageViewRowImpl obj) {
-                return obj.getText();
-            }
-
-            public void put(RequestforummessageViewRowImpl obj, Object value) {
-                obj.setText((String)value);
-            }
-        }
-        ,
         YesNo {
             public Object get(RequestforummessageViewRowImpl obj) {
                 return obj.getYesNo();
@@ -149,13 +78,7 @@ public class RequestforummessageViewRowImpl extends ViewRowImpl {
         }
     }
 
-    public static final int IDREQUESTFORUMMESSAGE = AttributesEnum.Idrequestforummessage.index();
-    public static final int IDREQUESTFORUMMESSAGETYPE = AttributesEnum.Idrequestforummessagetype.index();
-    public static final int IDREQUESTFORUMPARENTMESSAGE = AttributesEnum.Idrequestforumparentmessage.index();
-    public static final int IDREQUEST = AttributesEnum.Idrequest.index();
-    public static final int IDEMPLOYEE = AttributesEnum.Idemployee.index();
-    public static final int CREATIONDATE = AttributesEnum.Creationdate.index();
-    public static final int TEXT = AttributesEnum.Text.index();
+
     public static final int YESNO = AttributesEnum.YesNo.index();
     public static final int ISNEWROW = AttributesEnum.isNewRow.index();
     public static final int REQUESTFORUMMESSAGEVIEW = AttributesEnum.RequestforummessageView.index();
@@ -166,125 +89,6 @@ public class RequestforummessageViewRowImpl extends ViewRowImpl {
     public RequestforummessageViewRowImpl() {
     }
 
-    /**
-     * Gets Requestforummessage entity object.
-     * @return the Requestforummessage
-     */
-    public EntityImpl getRequestforummessage() {
-        return (EntityImpl)getEntity(ENTITY_REQUESTFORUMMESSAGE);
-    }
-
-    /**
-     * Gets the attribute value for IDREQUESTFORUMMESSAGE using the alias name Idrequestforummessage.
-     * @return the IDREQUESTFORUMMESSAGE
-     */
-    public BigDecimal getIdrequestforummessage() {
-        return (BigDecimal) getAttributeInternal(IDREQUESTFORUMMESSAGE);
-    }
-
-    /**
-     * Sets <code>value</code> as attribute value for IDREQUESTFORUMMESSAGE using the alias name Idrequestforummessage.
-     * @param value value to set the IDREQUESTFORUMMESSAGE
-     */
-    public void setIdrequestforummessage(BigDecimal value) {
-        setAttributeInternal(IDREQUESTFORUMMESSAGE, value);
-    }
-
-    /**
-     * Gets the attribute value for IDREQUESTFORUMMESSAGETYPE using the alias name Idrequestforummessagetype.
-     * @return the IDREQUESTFORUMMESSAGETYPE
-     */
-    public BigDecimal getIdrequestforummessagetype() {
-        return (BigDecimal) getAttributeInternal(IDREQUESTFORUMMESSAGETYPE);
-    }
-
-    /**
-     * Sets <code>value</code> as attribute value for IDREQUESTFORUMMESSAGETYPE using the alias name Idrequestforummessagetype.
-     * @param value value to set the IDREQUESTFORUMMESSAGETYPE
-     */
-    public void setIdrequestforummessagetype(BigDecimal value) {
-        setAttributeInternal(IDREQUESTFORUMMESSAGETYPE, value);
-    }
-
-    /**
-     * Gets the attribute value for IDREQUESTFORUMPARENTMESSAGE using the alias name Idrequestforumparentmessage.
-     * @return the IDREQUESTFORUMPARENTMESSAGE
-     */
-    public BigDecimal getIdrequestforumparentmessage() {
-        return (BigDecimal) getAttributeInternal(IDREQUESTFORUMPARENTMESSAGE);
-    }
-
-    /**
-     * Sets <code>value</code> as attribute value for IDREQUESTFORUMPARENTMESSAGE using the alias name Idrequestforumparentmessage.
-     * @param value value to set the IDREQUESTFORUMPARENTMESSAGE
-     */
-    public void setIdrequestforumparentmessage(BigDecimal value) {
-        setAttributeInternal(IDREQUESTFORUMPARENTMESSAGE, value);
-    }
-
-    /**
-     * Gets the attribute value for IDREQUEST using the alias name Idrequest.
-     * @return the IDREQUEST
-     */
-    public BigDecimal getIdrequest() {
-        return (BigDecimal) getAttributeInternal(IDREQUEST);
-    }
-
-    /**
-     * Sets <code>value</code> as attribute value for IDREQUEST using the alias name Idrequest.
-     * @param value value to set the IDREQUEST
-     */
-    public void setIdrequest(BigDecimal value) {
-        setAttributeInternal(IDREQUEST, value);
-    }
-
-    /**
-     * Gets the attribute value for IDEMPLOYEE using the alias name Idemployee.
-     * @return the IDEMPLOYEE
-     */
-    public BigDecimal getIdemployee() {
-        return (BigDecimal) getAttributeInternal(IDEMPLOYEE);
-    }
-
-    /**
-     * Sets <code>value</code> as attribute value for IDEMPLOYEE using the alias name Idemployee.
-     * @param value value to set the IDEMPLOYEE
-     */
-    public void setIdemployee(BigDecimal value) {
-        setAttributeInternal(IDEMPLOYEE, value);
-    }
-
-    /**
-     * Gets the attribute value for CREATIONDATE using the alias name Creationdate.
-     * @return the CREATIONDATE
-     */
-    public Timestamp getCreationdate() {
-        return (Timestamp) getAttributeInternal(CREATIONDATE);
-    }
-
-    /**
-     * Sets <code>value</code> as attribute value for CREATIONDATE using the alias name Creationdate.
-     * @param value value to set the CREATIONDATE
-     */
-    public void setCreationdate(Timestamp value) {
-        setAttributeInternal(CREATIONDATE, value);
-    }
-
-    /**
-     * Gets the attribute value for TEXT using the alias name Text.
-     * @return the TEXT
-     */
-    public String getText() {
-        return (String) getAttributeInternal(TEXT);
-    }
-
-    /**
-     * Sets <code>value</code> as attribute value for TEXT using the alias name Text.
-     * @param value value to set the TEXT
-     */
-    public void setText(String value) {
-        setAttributeInternal(TEXT, value);
-    }
 
     /**
      * Gets the attribute value for the calculated attribute YesNo.

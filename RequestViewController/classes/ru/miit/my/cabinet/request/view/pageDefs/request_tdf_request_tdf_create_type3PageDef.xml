@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="11.1.2.62.76"
+                id="request_tdf_request_tdf_create_type3PageDef" Package="ru.miit.my.cabinet.request.view.pageDefs"
+                SkipValidation="true">
+  <parameters/>
+  <executables>
+    <iterator Binds="Typetest3View1" RangeSize="25" DataControl="CabinetRequestServiceDataControl"
+              id="Typetest3View1Iterator"/>
+  </executables>
+  <bindings>
+    <action IterBinding="Typetest3View1Iterator" id="CreateWithParams" RequiresUpdateModel="true"
+            Action="createWithParams"/>
+  </bindings>
+</pageDefinition>

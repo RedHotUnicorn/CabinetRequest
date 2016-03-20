@@ -60,7 +60,7 @@
     <action IterBinding="RequestforummessageView3Iterator" id="ForumCreateInsert"
             InstanceName="CabinetRequestServiceDataControl.RequestforummessageView3"
             DataControl="CabinetRequestServiceDataControl" RequiresUpdateModel="true" Action="createWithParams">
-      <NamedData NDName="Text" NDType="java.lang.String"/>
+      <NamedData NDName="Text" NDType="java.lang.String" NDValue="#{requestScope.forumMessage}"/>
     </action>
     <action id="Commit" InstanceName="CabinetRequestServiceDataControl" DataControl="CabinetRequestServiceDataControl"
             RequiresUpdateModel="true" Action="commitTransaction"/>
@@ -73,8 +73,6 @@
           <Item Value="Computername"/>
           <Item Value="Idemployee"/>
           <Item Value="Idrequest"/>
-          <Item Value="Idtypetest3dict"/>
-          <Item Value="Idtypetest3dict1"/>
           <Item Value="Programmname"/>
           <Item Value="Roomnumber"/>
           <Item Value="Secondname"/>
@@ -87,6 +85,11 @@
     <attributeValues IterBinding="RequestView1Iterator" id="TitleOfPage">
       <AttrNames>
         <Item Value="Title"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="RequestView1Iterator" id="Creationdate">
+      <AttrNames>
+        <Item Value="Creationdate"/>
       </AttrNames>
     </attributeValues>
   </bindings>

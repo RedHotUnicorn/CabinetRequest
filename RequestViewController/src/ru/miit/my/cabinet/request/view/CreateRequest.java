@@ -46,8 +46,8 @@ public class CreateRequest {
 
     public CreateRequest() {
         super();
-        // NameOfPC = new TextOnPage("Computername");
-
+         itTest2=new RichInputText();
+        itTest2.setValue("");
     }
     //Обращение к биндингс
 
@@ -181,13 +181,19 @@ public class CreateRequest {
     //Создать объект 2 го типа
 
     public String createTest2Obj() {
-        if (!((String)this.itTest2.getValue()).isEmpty()) {
-            putParameterInBinding("Createwithparameters2", "Addchar", ((String)itTest2.getValue()).substring(0, 2));
-            itTest2.setValue("");
+        System.out.println();
+        System.out.println("-------------------------------------------------->>>>>>>>>>>>>>>>>>>>>>>");
+        System.out.println(itTest2.getValue().toString().length()   );
+        System.out.println("-------------------------------------------------->>>>>>>>>>>>>>>>>>>>>>>");
+        System.out.println();
+       /* if (!((String)this.itTest2.getValue()).isEmpty()) {
+           // putParameterInBinding("Createwithparameters2", "Addchar", ((String)itTest2.getValue()).substring(0, 2));
+            itTest2.setValue(((String)this.itTest2.getValue()).isEmpty());
             setDataOnPageChanged(true);
         } else {
+            System.out.println("EROOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOR");
             addErrorMessageToRichInputText(itTest2, "Поле должно быть заполнено");
-        }
+        }*/
         return "";
     }
     //Создать объект 3 го типа
@@ -196,7 +202,7 @@ public class CreateRequest {
         if (!((String)this.itTest3Roomnumber.getValue()).isEmpty()) {
             putParameterInBinding("Createwithparameters3", "Roomnumber",
                                   Integer.parseInt((String)itTest3Roomnumber.getValue()));
-            itTest3Roomnumber.setValue("");
+            //itTest3Roomnumber.setValue("");
             setDataOnPageChanged(true);
         } else {
             addErrorMessageToRichInputText(itTest3Roomnumber, "Поле должно быть заполнено");

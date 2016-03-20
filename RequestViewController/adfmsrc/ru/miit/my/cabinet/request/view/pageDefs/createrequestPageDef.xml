@@ -14,8 +14,22 @@
               RangeSize="25"/>
     <iterator Binds="Typetest3View1" RangeSize="25" DataControl="CabinetRequestServiceDataControl"
               id="Typetest3View1Iterator"/>
+    <iterator Binds="EmployeeView1" RangeSize="25" DataControl="CabinetRequestServiceDataControl"
+              id="EmployeeView1Iterator" ChangeEventPolicy="none"/>
+    <searchRegion Criteria="EmployeeSearchVC" Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  Binds="EmployeeView1Iterator" id="EmployeeSearchVCQuery"/>
   </executables>
   <bindings>
+    <attributeValues IterBinding="RequestView1Iterator1" id="TitleOfPage">
+      <AttrNames>
+        <Item Value="Title"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="RequestView1Iterator1" id="Creationdate">
+      <AttrNames>
+        <Item Value="Creationdate"/>
+      </AttrNames>
+    </attributeValues>
     <tree IterBinding="RequestforummessageView3Iterator" id="RequestforummessageView3">
       <nodeDefinition DefName="ru.miit.my.cabinet.request.model.RequestforummessageView"
                       Name="RequestforummessageView30">
@@ -53,11 +67,24 @@
         </AttrNames>
       </nodeDefinition>
     </tree>
+    <tree IterBinding="Typetest3View1Iterator" id="Typetest3View1">
+      <nodeDefinition DefName="ru.miit.my.cabinet.request.model.Typetest3View" Name="Typetest3View10">
+        <AttrNames>
+          <Item Value="Idtypetest3"/>
+          <Item Value="Computername"/>
+          <Item Value="Idemployee"/>
+          <Item Value="Idemployee1"/>
+          <Item Value="Idrequest"/>
+          <Item Value="Programmname"/>
+          <Item Value="Roomnumber"/>
+          <Item Value="Secondname"/>
+          <Item Value="IsItNewRow"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
     <action IterBinding="RequestforummessageView3Iterator" id="ForumCreateInsert"
             InstanceName="CabinetRequestServiceDataControl.RequestforummessageView3"
-            DataControl="CabinetRequestServiceDataControl" RequiresUpdateModel="true" Action="createWithParams">
-      <NamedData NDName="Text" NDType="java.lang.String"/>
-    </action>
+            DataControl="CabinetRequestServiceDataControl" RequiresUpdateModel="true" Action="createWithParams"/>
     <action IterBinding="Typetest1View_POCHTA1Iterator" id="Createwithparameters1"
             InstanceName="CabinetRequestServiceDataControl.Typetest1View_POCHTA1"
             DataControl="CabinetRequestServiceDataControl" RequiresUpdateModel="true" Action="createWithParams">
@@ -77,16 +104,14 @@
     <action IterBinding="RequestforummessageView3Iterator" id="DeleteMessage"
             InstanceName="CabinetRequestServiceDataControl.RequestforummessageView3"
             DataControl="CabinetRequestServiceDataControl" RequiresUpdateModel="false" Action="removeCurrentRow"/>
-    <attributeValues IterBinding="RequestView1Iterator1" id="TitleOfPage">
-      <AttrNames>
-        <Item Value="Title"/>
-      </AttrNames>
-    </attributeValues>
     <action IterBinding="Typetest1View_POCHTA1Iterator" id="DeletePochta"
             InstanceName="CabinetRequestServiceDataControl.Typetest1View_POCHTA1"
             DataControl="CabinetRequestServiceDataControl" RequiresUpdateModel="false" Action="removeCurrentRow"/>
     <action IterBinding="Typetest2View2Iterator" id="DeleteInternet"
             InstanceName="CabinetRequestServiceDataControl.Typetest2View2"
+            DataControl="CabinetRequestServiceDataControl" RequiresUpdateModel="false" Action="removeCurrentRow"/>
+    <action IterBinding="Typetest3View1Iterator" id="DeletePO"
+            InstanceName="CabinetRequestServiceDataControl.Typetest3View1"
             DataControl="CabinetRequestServiceDataControl" RequiresUpdateModel="false" Action="removeCurrentRow"/>
     <attributeValues IterBinding="RequestView1Iterator1" id="Idrequesttype">
       <AttrNames>
@@ -108,33 +133,24 @@
         <Item Value="Programmname"/>
       </AttrNames>
     </attributeValues>
-    <attributeValues IterBinding="Typetest3View1Iterator" id="Secondname">
+    <attributeValues IterBinding="EmployeeView1Iterator" id="Idemployee">
       <AttrNames>
-        <Item Value="Secondname"/>
+        <Item Value="Idemployee"/>
       </AttrNames>
     </attributeValues>
-    <tree IterBinding="Typetest3View1Iterator" id="Typetest3View1">
-      <nodeDefinition DefName="ru.miit.my.cabinet.request.model.Typetest3View" Name="Typetest3View10">
+    <tree IterBinding="EmployeeView1Iterator" id="EmployeeView1">
+      <nodeDefinition DefName="ru.miit.my.cabinet.request.model.EmployeeView" Name="EmployeeView10">
         <AttrNames>
-          <Item Value="Idtypetest3"/>
-          <Item Value="Computername"/>
-          <Item Value="Idemployee"/>
-          <Item Value="Idemployee1"/>
-          <Item Value="Idrequest"/>
-          <Item Value="Idtypetest3dict"/>
-          <Item Value="Idtypetest3dict1"/>
-          <Item Value="Programmname"/>
-          <Item Value="Roomnumber"/>
           <Item Value="Secondname"/>
         </AttrNames>
       </nodeDefinition>
     </tree>
-    <action IterBinding="Typetest3View1Iterator" id="Createwithparameters3"
-            InstanceName="CabinetRequestServiceDataControl.Typetest3View1"
-            DataControl="CabinetRequestServiceDataControl" RequiresUpdateModel="true" Action="createWithParams">
-      <NamedData NDValue="2" NDName="Idemployee" NDType="java.lang.Integer"/>
-      <NamedData NDName="Roomnumber" NDType="java.lang.Integer" NDValue="1313"/>
-      <NamedData NDName="Computername" NDType="java.lang.String"/>
-    </action>
+    <action IterBinding="Typetest3View1Iterator" id="CreateWithParams" RequiresUpdateModel="true"
+            Action="createWithParams"/>
+    <attributeValues IterBinding="RequestforummessageView3Iterator" id="Text">
+      <AttrNames>
+        <Item Value="Text"/>
+      </AttrNames>
+    </attributeValues>
   </bindings>
 </pageDefinition>

@@ -1,130 +1,141 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <ui:composition xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
                 xmlns:f="http://java.sun.com/jsf/core" xmlns:h="http://java.sun.com/jsf/html">
-  <af:panelGroupLayout id="pgl4" layout="scroll">
-    <af:outputText value="#{bindings.TitleOfPage}" id="ot4" inlineStyle="font-weight:bolder;"/>
-    <af:outputText value="Строки" id="ot15" inlineStyle="font-weight:normal;"/>
-    <af:switcher id="s1" facetName="#{viewScope.ViewRequest.routerFacet}">
-      <f:facet name="TestType1">
-        <af:group id="g2">
-          <af:panelGroupLayout id="pgl1" inlineStyle="width:150pt;">
-            <af:iterator id="i2" value="#{bindings.Typetest1View_POCHTA1.collectionModel}" var="row" rendered="true">
-              <af:panelFormLayout id="pfl3">
-                <af:panelLabelAndMessage label="Сотрудник" id="plam4">
-                  <af:outputText id="ot10" value="#{row.Idemployee}"/>
-                </af:panelLabelAndMessage>
-                <af:panelLabelAndMessage label="Число" id="plam7">
-                  <af:outputText value="#{row.Chooseint}" id="ot11"/>
-                </af:panelLabelAndMessage>
-              </af:panelFormLayout>
-            </af:iterator>
-            <f:facet name="separator">
-              <af:separator id="s4"/>
-            </f:facet>
-          </af:panelGroupLayout>
-        </af:group>
-      </f:facet>
-      <f:facet name="TestType2">
-        <af:group id="g1">
-          <af:panelGroupLayout id="pgl5" inlineStyle="width:150pt;">
-            <af:iterator id="i3" value="#{bindings.Typetest2View2.collectionModel}" var="row" rendered="true">
-              <af:panelFormLayout id="pfl4">
-                <af:panelLabelAndMessage label="Сотрудник" id="plam9">
-                  <af:outputText value="#{row.Idemployee}" id="ot6"/>
-                </af:panelLabelAndMessage>
-                <af:panelLabelAndMessage label="Сокращенная строка" id="plam8">
-                  <af:outputText value="#{row.Addchar}" id="ot5"/>
-                </af:panelLabelAndMessage>
-              </af:panelFormLayout>
-            </af:iterator>
-            <f:facet name="separator">
-              <af:separator id="s3"/>
-            </f:facet>
-          </af:panelGroupLayout>
-        </af:group>
-      </f:facet>
-      <f:facet name="Default"/>
-      <f:facet name="TestType3">
-        <af:panelGroupLayout id="pgl7" layout="vertical" inlineStyle="width:150pt;">
-          <f:facet name="separator">
-            <af:separator id="s5"/>
-          </f:facet>
-          <af:iterator id="i4" value="#{bindings.Typetest3View1.collectionModel}" var="row">
-            <af:panelFormLayout id="pfl1">
-              <f:facet name="footer"/>
-              <af:panelLabelAndMessage label="Пользователь" id="plam5">
-                <af:outputText value="#{row.Secondname}" id="ot7"/>
-              </af:panelLabelAndMessage>
-              <af:panelLabelAndMessage label="Кабинет " id="plam6">
-                <af:outputText value="#{row.Roomnumber}" id="ot8"/>
-              </af:panelLabelAndMessage>
-              <af:panelLabelAndMessage label="Программа" id="plam11">
-                <af:outputText value="#{row.Programmname}" id="ot13"/>
-              </af:panelLabelAndMessage>
-              <af:panelLabelAndMessage label="Компьютер" id="plam10">
-                <af:outputText value="#{row.Computername} " id="ot12"/>
-              </af:panelLabelAndMessage>
-            </af:panelFormLayout>
-          </af:iterator>
-        </af:panelGroupLayout>
-      </f:facet>
-    </af:switcher>
-    <h:outputText value="Сообщения" id="ot1" style="font-style:inherit; font-weight:bolder;"/>
-    <af:panelGroupLayout id="pgl3" inlineStyle="width:150pt;">
-      <f:facet name="separator">
-        <af:separator id="s2"/>
-      </f:facet>
-      <af:iterator id="i1" value="#{bindings.RequestforummessageView3.collectionModel}" var="row" first="0">
-        <af:panelGridLayout id="pgl2" dimensionsFrom="parent">
-          <af:gridRow marginTop="5px" marginBottom="5px" height="auto" id="gr8">
-            <af:gridCell width="80%" id="gc21" marginStart="5px" marginEnd="5px">
-              <af:panelLabelAndMessage label="ID " id="plam3">
-                <af:outputText value="#{row.Idrequestforummessage}" id="ot9"/>
-              </af:panelLabelAndMessage>
-              <af:panelLabelAndMessage label="Дата сообщения" id="plam1"
-                                       visible="true">
-                <af:outputText value="#{row.Creationdate}" id="ot2"
-                               visible="true">
-                  <af:convertDateTime type="both"/>
-                </af:outputText>
-              </af:panelLabelAndMessage>
-              <af:panelLabelAndMessage label="Текст сообщения" id="plam2">
-                <af:outputText value="#{row.Text}" id="ot3"/>
-              </af:panelLabelAndMessage>
-            </af:gridCell>
-            <af:gridCell width="20%" id="gc22">
-              <af:commandImageLink id="cil5" icon="#{resource['images:delete1.png']}"
-                                   rendered="true"
-                                   visible="#{row.isNewRow}">
-                <af:showPopupBehavior triggerType="action" popupId="p1" align="beforeStart"/>
-              </af:commandImageLink>
-              <af:popup childCreation="deferred" autoCancel="enabled" id="p1">
-                <af:panelGroupLayout id="pgl8" layout="vertical" valign="middle" halign="center">
-                  <af:outputText value="Удалить?" id="ot14"/>
-                  <af:panelGroupLayout id="pgl6" layout="horizontal">
-                    <af:commandImageLink text="OK" id="cil4" action="#{bindings.DeleteMessage.execute}"
-                                         icon="#{resource['images:yes.png']}"/>
-                    <af:spacer width="30" height="10" id="s7"/>
-                    <af:commandImageLink text="Cancel" id="cil6" icon="#{resource['images:no.png']}"
-                                         iconPosition="trailing"/>
-                  </af:panelGroupLayout>
-                </af:panelGroupLayout>
-              </af:popup>
-            </af:gridCell>
-          </af:gridRow>
-        </af:panelGridLayout>
-      </af:iterator>
-    </af:panelGroupLayout>
-    <af:inputText value="#{viewScope.ViewRequest.forumMessage}" id="it2" columns="20" rows="2"
-                  binding="#{viewScope.ViewRequest.itForum}" validator="#{viewScope.ViewRequest.it2_validator}"/>
-    <af:commandImageLink text="Добавить сообщение" id="cil3" icon="#{resource['images:chat1.png']}"
-                         action="#{viewScope.ViewRequest.sendMessage}"/>
-    <af:commandImageLink text="Вернуться" id="cil2" icon="#{resource['images:back1.png']}"
-                         action="back" actionListener="#{bindings.Rollback.execute}"/>
-    <af:commandImageLink text="Сохранить" id="cil1" icon="#{resource['images:save.png']}"
-                         action="back"
-                         rendered="#{viewScope.ViewRequest.dataOnPageChanged}"
-                         actionListener="#{bindings.Commit.execute}"/>
-  </af:panelGroupLayout>
   <!--oracle-jdev-comment:preferred-managed-bean-name:ViewRequest-->
+  <af:panelGroupLayout id="pgl9" layout="horizontal" valign="baseline">
+    <af:panelGroupLayout id="pgl4" layout="scroll">
+      <af:outputText value="Строки" id="ot15" inlineStyle="font-weight:normal;"/>
+      <af:switcher id="s1" facetName="#{viewScope.ViewRequest.routerFacet}">
+        <f:facet name="TestType1">
+          <af:group id="g2">
+            <af:panelGroupLayout id="pgl1" inlineStyle="width:150pt;">
+              <af:iterator id="i2" value="#{bindings.Typetest1View_POCHTA1.collectionModel}" var="row" rendered="true">
+                <af:panelFormLayout id="pfl3">
+                  <af:panelLabelAndMessage label="Сотрудник" id="plam4">
+                    <af:outputText id="ot10" value="#{row.Idemployee}"/>
+                  </af:panelLabelAndMessage>
+                  <af:panelLabelAndMessage label="Число" id="plam7">
+                    <af:outputText value="#{row.Chooseint}" id="ot11"/>
+                  </af:panelLabelAndMessage>
+                </af:panelFormLayout>
+              </af:iterator>
+              <f:facet name="separator">
+                <af:separator id="s4"/>
+              </f:facet>
+            </af:panelGroupLayout>
+          </af:group>
+        </f:facet>
+        <f:facet name="TestType2">
+          <af:group id="g1">
+            <af:panelGroupLayout id="pgl5" inlineStyle="width:150pt;">
+              <af:iterator id="i3" value="#{bindings.Typetest2View2.collectionModel}" var="row" rendered="true">
+                <af:panelFormLayout id="pfl4">
+                  <af:panelLabelAndMessage label="Сотрудник" id="plam9">
+                    <af:outputText value="#{row.Idemployee}" id="ot6"/>
+                  </af:panelLabelAndMessage>
+                  <af:panelLabelAndMessage label="Сокращенная строка" id="plam8">
+                    <af:outputText value="#{row.Addchar}" id="ot5"/>
+                  </af:panelLabelAndMessage>
+                </af:panelFormLayout>
+              </af:iterator>
+              <f:facet name="separator">
+                <af:separator id="s3"/>
+              </f:facet>
+            </af:panelGroupLayout>
+          </af:group>
+        </f:facet>
+        <f:facet name="Default"/>
+        <f:facet name="TestType3">
+          <af:panelGroupLayout id="pgl7" layout="vertical" inlineStyle="width:150pt;">
+            <f:facet name="separator">
+              <af:separator id="s5"/>
+            </f:facet>
+            <af:iterator id="i4" value="#{bindings.Typetest3View1.collectionModel}" var="row">
+              <af:panelFormLayout id="pfl1">
+                <f:facet name="footer"/>
+                <af:panelLabelAndMessage label="Пользователь" id="plam5"/>
+                <af:panelLabelAndMessage label="Номер аудитории" id="plam6">
+                  <af:outputText value="#{row.Roomnumber}" id="ot8"/>
+                </af:panelLabelAndMessage>
+                <af:panelLabelAndMessage label="Наименование проргаммы" id="plam11">
+                  <af:outputText value="#{row.Programmname}" id="ot13"/>
+                </af:panelLabelAndMessage>
+                <af:panelLabelAndMessage label="Имя компьютера" id="plam10">
+                  <af:outputText value="#{row.Computername} " id="ot12"/>
+                </af:panelLabelAndMessage>
+              </af:panelFormLayout>
+            </af:iterator>
+          </af:panelGroupLayout>
+        </f:facet>
+      </af:switcher>
+      <af:outputText value="Сообщения" id="ot4"
+                     inlineStyle="font-style:inherit; font-weight:bolder;"
+                     rendered="#{bindings.RequestforummessageView3Iterator.estimatedRowCount !='0'}"/>
+      <af:panelGroupLayout id="pgl3" inlineStyle="width:150pt;">
+        <f:facet name="separator">
+          <af:separator id="s2"/>
+        </f:facet>
+        <af:iterator id="i1" value="#{bindings.RequestforummessageView3.collectionModel}" var="row" first="0">
+          <af:panelGridLayout id="pgl2" dimensionsFrom="parent">
+            <af:gridRow marginTop="5px" marginBottom="5px" height="auto" id="gr8">
+              <af:gridCell width="80%" id="gc21" marginStart="5px" marginEnd="5px">
+                <af:panelLabelAndMessage label="ID " id="plam3">
+                  <af:outputText value="#{row.Idrequestforummessage}" id="ot9"/>
+                </af:panelLabelAndMessage>
+                <af:panelLabelAndMessage label="Дата сообщения" id="plam1" visible="true">
+                  <af:outputText value="#{row.Creationdate}" id="ot2" visible="true">
+                    <af:convertDateTime type="both"/>
+                  </af:outputText>
+                </af:panelLabelAndMessage>
+                <af:panelLabelAndMessage label="Текст сообщения" id="plam2">
+                  <af:outputText value="#{row.Text}" id="ot3"/>
+                </af:panelLabelAndMessage>
+              </af:gridCell>
+              <af:gridCell width="20%" id="gc22">
+                <af:commandImageLink id="cil5" icon="#{resource['images:delete1.png']}" rendered="true"
+                                     visible="#{row.isNewRow}">
+                  <af:showPopupBehavior triggerType="action" popupId="p1" align="beforeStart"/>
+                </af:commandImageLink>
+                <af:popup childCreation="deferred" autoCancel="enabled" id="p1">
+                  <af:panelGroupLayout id="pgl8" layout="vertical" valign="middle" halign="center">
+                    <af:outputText value="Удалить?" id="ot14"/>
+                    <af:panelGroupLayout id="pgl6" layout="horizontal">
+                      <af:commandImageLink text="OK" id="cil4" action="#{bindings.DeleteMessage.execute}"
+                                           icon="#{resource['images:yes.png']}"/>
+                      <af:spacer width="30" height="10" id="s7"/>
+                      <af:commandImageLink text="Cancel" id="cil6" icon="#{resource['images:no.png']}"
+                                           iconPosition="trailing"/>
+                    </af:panelGroupLayout>
+                  </af:panelGroupLayout>
+                </af:popup>
+              </af:gridCell>
+            </af:gridRow>
+          </af:panelGridLayout>
+        </af:iterator>
+      </af:panelGroupLayout>
+      <af:subform id="s6">
+        <af:outputText value="Форма добавления нового сообщения" id="ot16"
+                       inlineStyle="font-style:inherit; font-weight:bolder;"/>
+        <af:inputText value="#{requestScope.forumMessage}" id="it2" columns="20" rows="2"
+                      binding="#{viewScope.ViewRequest.itForum}" validator="#{viewScope.ViewRequest.it2_validator}"
+                      required="true"/>
+        <af:commandImageLink text="Добавить сообщение" id="cil3" icon="#{resource['images:chat1.png']}"
+                             actionListener="#{bindings.ForumCreateInsert.execute}">
+          <af:setPropertyListener type="action" from="#{requestScope.valName}" to="#{requestScope.forumMessage}"/>
+          <af:setPropertyListener type="action" from="true" to="#{requestScope.isNewRowForForum}"/>
+        </af:commandImageLink>
+      </af:subform>
+      <af:commandImageLink text="Вернуться" id="cil2" icon="#{resource['images:back1.png']}" action="back"
+                           actionListener="#{bindings.Rollback.execute}"/>
+      <af:commandImageLink text="Сохранить" id="cil1" icon="#{resource['images:save.png']}" action="back"
+                           rendered="#{requestScope.isNewRowForForum}"
+                           actionListener="#{bindings.Commit.execute}"/>
+    </af:panelGroupLayout>
+    <af:panelGroupLayout id="pgl10" layout="vertical">
+      <af:outputText value="Тип документа" id="ot7"/>
+      <af:outputText id="ot20" value="#{bindings.TitleOfPage}" inlineStyle="font-weight:bolder;"/>
+      <af:outputText value="Дата создания" id="ot22"/>
+      <af:outputText value="#{bindings.Creationdate}" id="ot23" inlineStyle="font-weight:bolder;"/>
+    </af:panelGroupLayout>
+  </af:panelGroupLayout>
 </ui:composition>

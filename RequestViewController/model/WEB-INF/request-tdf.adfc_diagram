@@ -17,9 +17,9 @@
       <property
          name="y">188.39648</property>
       <property
-         name="pageFragment">true</property>
-      <property
          name="x">510.01758</property>
+      <property
+         name="pageFragment">true</property>
    </View>
    <View
       id="View6">
@@ -34,9 +34,9 @@
       <property
          name="y">262.6953</property>
       <property
-         name="pageFragment">true</property>
-      <property
          name="x">135.01562</property>
+      <property
+         name="pageFragment">true</property>
    </View>
    <ControlFlowCase
       islink="true"
@@ -56,7 +56,7 @@
       <property
          name="fromOutcome">View</property>
       <property
-         name="sdm:polyPoints">L50,469.01758,188.0459,176.01562,262.34473,R50</property>
+         name="sdm:polyPoints">L54,468.224,191.5459,176.01562,258.84473,R46</property>
    </ControlFlowCase>
    <ControlFlowCase
       islink="true"
@@ -66,7 +66,7 @@
       <property
          name="fromOutcome">go</property>
       <property
-         name="sdm:polyPoints">B44,506.51758,246.08434,720.8367,368.5459,L54</property>
+         name="sdm:polyPoints">B56,513.5176,242.0459,722.6885,361.5459,L46</property>
    </ControlFlowCase>
    <View
       id="View16">
@@ -81,9 +81,9 @@
       <property
          name="y">365.39648</property>
       <property
-         name="x">763.6885</property>
-      <property
          name="pageFragment">true</property>
+      <property
+         name="x">763.6885</property>
    </View>
    <ControlFlowCase
       islink="true"
@@ -93,7 +93,7 @@
       <property
          name="fromOutcome">back</property>
       <property
-         name="sdm:polyPoints">L46,722.6885,361.5459,513.5176,242.0459,B56</property>
+         name="sdm:polyPoints">L50,722.6885,365.0459,510.01758,242.0459,B50</property>
    </ControlFlowCase>
    <MethodCall
       id="MethodCall12">
@@ -129,7 +129,7 @@
       <property
          name="fromOutcome">Commit</property>
       <property
-         name="sdm:polyPoints">T44,131.51562,205.73885,229.5,60.695312,B50</property>
+         name="sdm:polyPoints">T44,131.51562,205.20624,229.5,60.695312,B50</property>
    </ControlFlowCase>
    <ControlFlowCase
       islink="true"
@@ -139,7 +139,7 @@
       <property
          name="fromOutcome">Rollback</property>
       <property
-         name="sdm:polyPoints">R50,301.5,164.39648,467.45297,188.0459,L50</property>
+         name="sdm:polyPoints">R50,301.5,164.39648,467.5091,184.5459,L46</property>
    </ControlFlowCase>
    <ControlFlowCase
       islink="true"
@@ -149,7 +149,7 @@
       <property
          name="fromOutcome">Commit</property>
       <property
-         name="sdm:polyPoints">R50,270.5,6.6953125,469.01758,181.0459,L42</property>
+         name="sdm:polyPoints">R50,270.5,6.6953125,469.01758,177.5459,L38</property>
    </ControlFlowCase>
    <ControlFlowCase
       islink="true"
@@ -160,5 +160,47 @@
          name="fromOutcome">back</property>
       <property
          name="sdm:polyPoints">R54,176.81024,265.84473,469.01758,198.5459,L62</property>
+   </ControlFlowCase>
+   <View
+      id="View19">
+      <property
+         name="activityId">view1</property>
+      <property
+         name="page">/delmeview1.jsff</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>view1&lt;/b>&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
+      <property
+         name="exceptionHandler">false</property>
+      <property
+         name="y">123.0918</property>
+      <property
+         name="x">855.0</property>
+      <property
+         name="pageFragment">true</property>
+   </View>
+   <MethodCall
+      id="MethodCall20">
+      <property
+         name="activityId">create-type3</property>
+      <property
+         name="start">false</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>create-type3&lt;/b>&lt;/p>&lt;p>Activity Type:  Method Call&lt;/p></property>
+      <property
+         name="exceptionHandler">false</property>
+      <property
+         name="y">127.390625</property>
+      <property
+         name="x">768.0</property>
+   </MethodCall>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase21"
+      from="MethodCall20"
+      to="View16">
+      <property
+         name="fromOutcome">CreateWithParams</property>
+      <property
+         name="sdm:polyPoints">B50,768.0,181.04004,763.6885,311.0459,T50</property>
    </ControlFlowCase>
 </SDM>

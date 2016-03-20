@@ -48,6 +48,15 @@
         <fixed-outcome>Rollback</fixed-outcome>
       </outcome>
     </method-call>
+    <view id="view1">
+      <page>/delmeview1.jsff</page>
+    </view>
+    <method-call id="create-type3">
+      <method>#{bindings.CreateWithParams.execute}</method>
+      <outcome>
+        <fixed-outcome>CreateWithParams</fixed-outcome>
+      </outcome>
+    </method-call>
     <control-flow-rule id="__6">
       <from-activity-id>viewrequest</from-activity-id>
       <control-flow-case id="__7">
@@ -93,6 +102,13 @@
       <control-flow-case id="__13">
         <from-outcome>Commit</from-outcome>
         <to-activity-id>userequests-list</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__18">
+      <from-activity-id>create-type3</from-activity-id>
+      <control-flow-case id="__19">
+        <from-outcome>CreateWithParams</from-outcome>
+        <to-activity-id>createrequest</to-activity-id>
       </control-flow-case>
     </control-flow-rule>
     <use-page-fragments/>

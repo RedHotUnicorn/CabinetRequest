@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="11.1.2.62.76" id="delmeview1PageDef"
+                Package="ru.miit.my.cabinet.request.view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="Typetest3View1" RangeSize="25" DataControl="CabinetRequestServiceDataControl"
+              id="Typetest3View1Iterator"/>
+  </executables>
+  <bindings>
+    <attributeValues IterBinding="Typetest3View1Iterator" id="Idtypetest3">
+      <AttrNames>
+        <Item Value="Idtypetest3"/>
+      </AttrNames>
+    </attributeValues>
+    <list IterBinding="Typetest3View1Iterator" StaticList="false" Uses="LOV_Idemployee" id="Idemployee"
+          DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
+    <attributeValues IterBinding="Typetest3View1Iterator" id="Idrequest">
+      <AttrNames>
+        <Item Value="Idrequest"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="Typetest3View1Iterator" id="Roomnumber">
+      <AttrNames>
+        <Item Value="Roomnumber"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="Typetest3View1Iterator" id="Computername">
+      <AttrNames>
+        <Item Value="Computername"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="Typetest3View1Iterator" id="Programmname">
+      <AttrNames>
+        <Item Value="Programmname"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="Typetest3View1Iterator" id="Secondname">
+      <AttrNames>
+        <Item Value="Secondname"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="Typetest3View1Iterator" id="Idemployee1">
+      <AttrNames>
+        <Item Value="Idemployee1"/>
+      </AttrNames>
+    </attributeValues>
+    <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction"
+            DataControl="CabinetRequestServiceDataControl"/>
+  </bindings>
+</pageDefinition>

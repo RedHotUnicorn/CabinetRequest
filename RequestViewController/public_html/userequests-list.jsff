@@ -2,10 +2,10 @@
 <ui:composition xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
                 xmlns:f="http://java.sun.com/jsf/core">
   <af:panelGroupLayout id="pgl4" layout="scroll">
-    <af:outputText id="ot1" value="Новый рапорт:  #{bindings.id.inputValue}" inlineStyle="font-weight:bolder;"/>
+    <af:outputText id="ot1" value="Новый рапорт:  #{bindings.id.inputValue}  #{pageFlowScope.IdE}" inlineStyle="font-weight:bolder;"/>
     <af:iterator id="i2" value="#{bindings.RequestTypeView1.collectionModel}" var="row">
       <af:panelLabelAndMessage label="#{row.Title}" id="plam3">
-        <af:commandLink text="Создать" id="cl2" action="go" actionListener="#{UseRequestList.crateReq}"/>
+        <af:commandLink text="Создать" id="cl2" action="go" actionListener="#{bindings.CreateReq.execute}"/>
       </af:panelLabelAndMessage>
     </af:iterator>
     <af:outputText id="ot2" value="Ваши рапорта:" inlineStyle="font-weight:bolder;"/>
@@ -17,7 +17,7 @@
         <af:gridRow marginTop="5px" marginBottom="5px" height="auto" id="gr1">
           <af:gridCell marginStart="5px" width="15%" id="gc1">
             <af:commandImageLink id="cil1" actionListener="#{bindings.ExecuteWithParams.execute}"
-                                 icon="#{resource['images:search.png']}"/>
+                                 icon="#{resource['images:search2.png']}"/>
           </af:gridCell>
           <af:gridCell marginStart="5px" width="50%" id="gc2">
             <af:selectOneChoice value="#{bindings.IdRtype.inputValue}" required="#{bindings.IdRtype.hints.mandatory}"

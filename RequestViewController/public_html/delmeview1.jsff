@@ -1,0 +1,63 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+                xmlns:f="http://java.sun.com/jsf/core">
+  <af:panelFormLayout id="pfl1">
+    <af:inputText value="#{bindings.Idtypetest3.inputValue}" label="#{bindings.Idtypetest3.hints.label}"
+                  required="#{bindings.Idtypetest3.hints.mandatory}"
+                  columns="#{bindings.Idtypetest3.hints.displayWidth}"
+                  maximumLength="#{bindings.Idtypetest3.hints.precision}"
+                  shortDesc="#{bindings.Idtypetest3.hints.tooltip}" id="it1">
+      <f:validator binding="#{bindings.Idtypetest3.validator}"/>
+      <af:convertNumber groupingUsed="false" pattern="#{bindings.Idtypetest3.format}"/>
+    </af:inputText>
+    <af:selectOneChoice value="#{bindings.Idemployee.inputValue}" label="#{bindings.Idemployee.label}"
+                        required="#{bindings.Idemployee.hints.mandatory}"
+                        shortDesc="#{bindings.Idemployee.hints.tooltip}" id="soc1">
+      <f:selectItems value="#{bindings.Idemployee.items}" id="si1"/>
+    </af:selectOneChoice>
+    <af:inputText value="#{bindings.Idrequest.inputValue}" label="#{bindings.Idrequest.hints.label}"
+                  required="#{bindings.Idrequest.hints.mandatory}" columns="#{bindings.Idrequest.hints.displayWidth}"
+                  maximumLength="#{bindings.Idrequest.hints.precision}" shortDesc="#{bindings.Idrequest.hints.tooltip}"
+                  id="it2">
+      <f:validator binding="#{bindings.Idrequest.validator}"/>
+      <af:convertNumber groupingUsed="false" pattern="#{bindings.Idrequest.format}"/>
+    </af:inputText>
+    <af:inputText value="#{bindings.Roomnumber.inputValue}" label="#{bindings.Roomnumber.hints.label}"
+                  required="#{bindings.Roomnumber.hints.mandatory}" columns="#{bindings.Roomnumber.hints.displayWidth}"
+                  maximumLength="#{bindings.Roomnumber.hints.precision}"
+                  shortDesc="#{bindings.Roomnumber.hints.tooltip}" id="it3">
+      <f:validator binding="#{bindings.Roomnumber.validator}"/>
+      <af:convertNumber groupingUsed="false" pattern="#{bindings.Roomnumber.format}"/>
+    </af:inputText>
+    <af:inputText value="#{bindings.Computername.inputValue}" label="#{bindings.Computername.hints.label}"
+                  required="#{bindings.Computername.hints.mandatory}"
+                  columns="#{bindings.Computername.hints.displayWidth}"
+                  maximumLength="#{bindings.Computername.hints.precision}"
+                  shortDesc="#{bindings.Computername.hints.tooltip}" id="it4">
+      <f:validator binding="#{bindings.Computername.validator}"/>
+    </af:inputText>
+    <af:inputText value="#{bindings.Programmname.inputValue}" label="#{bindings.Programmname.hints.label}"
+                  required="#{bindings.Programmname.hints.mandatory}"
+                  columns="#{bindings.Programmname.hints.displayWidth}"
+                  maximumLength="#{bindings.Programmname.hints.precision}"
+                  shortDesc="#{bindings.Programmname.hints.tooltip}" id="it5">
+      <f:validator binding="#{bindings.Programmname.validator}"/>
+    </af:inputText>
+    <af:inputText value="#{bindings.Secondname.inputValue}" label="#{bindings.Secondname.hints.label}"
+                  required="#{bindings.Secondname.hints.mandatory}" columns="#{bindings.Secondname.hints.displayWidth}"
+                  maximumLength="#{bindings.Secondname.hints.precision}"
+                  shortDesc="#{bindings.Secondname.hints.tooltip}" id="it6">
+      <f:validator binding="#{bindings.Secondname.validator}"/>
+    </af:inputText>
+    <af:inputText value="#{bindings.Idemployee1.inputValue}" label="#{bindings.Idemployee1.hints.label}"
+                  required="#{bindings.Idemployee1.hints.mandatory}"
+                  columns="#{bindings.Idemployee1.hints.displayWidth}"
+                  maximumLength="#{bindings.Idemployee1.hints.precision}"
+                  shortDesc="#{bindings.Idemployee1.hints.tooltip}" id="it7">
+      <f:validator binding="#{bindings.Idemployee1.validator}"/>
+      <af:convertNumber groupingUsed="false" pattern="#{bindings.Idemployee1.format}"/>
+    </af:inputText>
+  </af:panelFormLayout>
+  <af:commandButton actionListener="#{bindings.Commit.execute}" text="Commit" disabled="#{!bindings.Commit.enabled}"
+                    id="cb1"/>
+</ui:composition>

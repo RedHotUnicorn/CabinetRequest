@@ -19,7 +19,9 @@
     Type="java.lang.Integer"
     ColumnType="INTEGER"
     TableName="JUNIOR560704.TYPETEST3"
-    PrimaryKey="true">
+    PrimaryKey="true"
+    IsUpdateable="while_insert">
+    <RecalcCondition><![CDATA[true]]></RecalcCondition>
     <TransientExpression><![CDATA[(new oracle.jbo.server.SequenceImpl("REQUESTTYPETEST3V3", adf.object.getDBTransaction())).getSequenceNumber()]]></TransientExpression>
   </Attribute>
   <Attribute
@@ -39,9 +41,9 @@
   <Attribute
     Name="Roomnumber"
     ColumnName="ROOMNUMBER"
-    SQLType="NUMERIC"
-    Type="java.math.BigDecimal"
-    ColumnType="NUMBER"
+    SQLType="INTEGER"
+    Type="java.lang.Integer"
+    ColumnType="INTEGER"
     TableName="JUNIOR560704.TYPETEST3"/>
   <Attribute
     Name="Idtypetest3dict"
@@ -69,7 +71,8 @@
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR2"
-    TableName="JUNIOR560704.TYPETEST3">
+    TableName="JUNIOR560704.TYPETEST3"
+    IsNotNull="true">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="30"/>
     </DesignTime>
@@ -93,8 +96,8 @@
     Association="ru.miit.my.cabinet.request.model.SysC00199793Assoc"
     AssociationEnd="ru.miit.my.cabinet.request.model.SysC00199793Assoc.Typetest3dict"
     AssociationOtherEnd="ru.miit.my.cabinet.request.model.SysC00199793Assoc.Typetest3"
-    Type="ru.miit.my.frameworkext.EntityImpl"
-    IsUpdateable="true"/>
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
   <Key
     Name="SysC00199790"
     PrimaryKey="true">

@@ -15,9 +15,9 @@
     Name="Idemployee"
     IsNotNull="true"
     ColumnName="IDEMPLOYEE"
-    SQLType="NUMERIC"
-    Type="java.math.BigDecimal"
-    ColumnType="NUMBER"
+    SQLType="INTEGER"
+    Type="java.lang.Integer"
+    ColumnType="INTEGER"
     TableName="JUNIOR560704.EMPLOYEE"
     PrimaryKey="true">
     <TransientExpression><![CDATA[(new oracle.jbo.server.SequenceImpl("EMPLOYEEv1", adf.object.getDBTransaction())).getSequenceNumber()]]></TransientExpression>

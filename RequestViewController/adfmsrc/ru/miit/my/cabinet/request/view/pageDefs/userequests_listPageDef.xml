@@ -47,9 +47,9 @@
     <action IterBinding="RequestView1Iterator" id="CreateReq"
             InstanceName="CabinetRequestServiceDataControl.RequestView1" DataControl="CabinetRequestServiceDataControl"
             RequiresUpdateModel="true" Action="createWithParams">
-      <NamedData NDName="Idrequesttype" NDType="java.lang.Integer"/>
-      <NamedData NDValue="#{pageFlowScope.IdWebUser}" NDName="Idemployee" NDType="java.lang.Integer"/>
-      <NamedData NDName="Title" NDType="java.lang.String"/>
+      <NamedData NDName="Idrequesttype" NDType="java.lang.Integer" NDValue="#{row.Idrequesttype}"/>
+      <NamedData NDName="Idemployee" NDType="java.lang.Integer" NDValue="#{pageFlowScope.IdE}"/>
+      <NamedData NDName="Title" NDType="java.lang.String" NDValue="#{row.Title}"/>
     </action>
     <action IterBinding="RequestView1Iterator" id="ExecuteWithParams" RequiresUpdateModel="true"
             Action="executeWithParams">

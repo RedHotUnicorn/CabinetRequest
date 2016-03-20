@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="Typetest3dictView"
+  Version="11.1.2.62.76"
+  SelectList="Typetest3dict.IDTYPETEST3DICT, 
+       Typetest3dict.ADDCHAR"
+  FromList="JUNIOR560704.TYPETEST3DICT Typetest3dict"
+  BindingStyle="OracleName"
+  CustomQuery="false"
+  RowClass="ru.miit.my.frameworkext.ViewRowImpl"
+  ComponentClass="ru.miit.my.frameworkext.ViewObjectImpl"
+  PageIterMode="Full"
+  UseGlueCode="false">
+  <EntityUsage
+    Name="Typetest3dict"
+    Entity="ru.miit.my.cabinet.request.model.Typetest3dict"/>
+  <ViewAttribute
+    Name="Idtypetest3dict"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="Idtypetest3dict"
+    EntityUsage="Typetest3dict"
+    AliasName="IDTYPETEST3DICT"/>
+  <ViewAttribute
+    Name="Addchar"
+    PrecisionRule="true"
+    EntityAttrName="Addchar"
+    EntityUsage="Typetest3dict"
+    AliasName="ADDCHAR"/>
+</ViewObject>

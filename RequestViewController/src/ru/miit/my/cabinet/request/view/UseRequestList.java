@@ -37,9 +37,11 @@ public class UseRequestList {
         
         Integer idkRequest = (Integer)JSFUtils.resolveExpression("#{row.Idrequesttype}");
         String Title = (String)JSFUtils.resolveExpression("#{row.Title}");
+        //Integer idE = (Integer)JSFUtils.resolveExpression("#{pageFlowScope.IdE}");
         OperationBinding createRequestBinding = bindings.getOperationBinding("CreateReq");
         createRequestBinding.getParamsMap().put("Idrequesttype",idkRequest);
         createRequestBinding.getParamsMap().put("Title",Title);
+        //createRequestBinding.getParamsMap().put("Idemployee",idE);
         createRequestBinding.execute();
         if (!createRequestBinding.getErrors().isEmpty()) {
             return null;

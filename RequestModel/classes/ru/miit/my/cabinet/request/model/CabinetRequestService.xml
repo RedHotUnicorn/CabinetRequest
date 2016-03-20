@@ -18,7 +18,11 @@
     ViewObjectName="ru.miit.my.cabinet.request.model.RequestTypeView"/>
   <ViewUsage
     Name="EmployeeView1"
-    ViewObjectName="ru.miit.my.cabinet.request.model.EmployeeView"/>
+    ViewObjectName="ru.miit.my.cabinet.request.model.EmployeeView">
+    <ViewCriteriaUsage
+      Name="EmployeeSearchVC"
+      FullName="ru.miit.my.cabinet.request.model.EmployeeView.EmployeeSearchVC"/>
+  </ViewUsage>
   <ViewUsage
     Name="RequestView2"
     ViewObjectName="ru.miit.my.cabinet.request.model.RequestView"/>
@@ -59,6 +63,9 @@
   <ViewUsage
     Name="Typetest3View1"
     ViewObjectName="ru.miit.my.cabinet.request.model.Typetest3View"/>
+  <ViewUsage
+    Name="Typetest3dictView1"
+    ViewObjectName="ru.miit.my.cabinet.request.model.Typetest3dictView"/>
   <ViewLinkUsage
     Name="ReqEmpLink1"
     ViewLinkObjectName="ru.miit.my.cabinet.request.model.ReqEmpLink"

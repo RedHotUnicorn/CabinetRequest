@@ -9,42 +9,54 @@
        Typetest3.IDEMPLOYEE, 
        Typetest3.IDREQUEST, 
        Typetest3.ROOMNUMBER, 
-       Typetest3.IDTYPETEST3DICT, 
        Typetest3.COMPUTERNAME, 
        Typetest3.PROGRAMMNAME, 
-       Typetest3dict.IDTYPETEST3DICT AS IDTYPETEST3DICT1, 
        Employee.SECONDNAME, 
        Employee.IDEMPLOYEE AS IDEMPLOYEE1"
-  FromList="JUNIOR560704.TYPETEST3 Typetest3, JUNIOR560704.TYPETEST3DICT Typetest3dict, JUNIOR560704.EMPLOYEE Employee"
+  FromList="JUNIOR560704.TYPETEST3 Typetest3, JUNIOR560704.EMPLOYEE Employee"
   BindingStyle="OracleName"
   CustomQuery="false"
-  RowClass="ru.miit.my.frameworkext.ViewRowImpl"
+  RowClass="ru.miit.my.cabinet.request.model.Typetest3ViewRowImpl"
   ComponentClass="ru.miit.my.frameworkext.ViewObjectImpl"
   PageIterMode="Full"
   UseGlueCode="false"
-  Where="(Typetest3.IDTYPETEST3 = Typetest3dict.IDTYPETEST3DICT) AND (Typetest3.IDEMPLOYEE = Employee.IDEMPLOYEE)">
+  Where="Typetest3.IDEMPLOYEE = Employee.IDEMPLOYEE">
+  <DesignTime>
+    <Attr Name="_isCodegen" Value="true"/>
+  </DesignTime>
+  <ViewAccessor
+    Name="EmployeeView1"
+    ViewObjectName="ru.miit.my.cabinet.request.model.EmployeeView">
+    <ParameterMap>
+      <PIMap Variable="Idemployeee">
+        <TransientExpression><![CDATA[Idemployee]]></TransientExpression>
+      </PIMap>
+    </ParameterMap>
+  </ViewAccessor>
+  <ViewAccessor
+    Name="Typetest3dictView1"
+    ViewObjectName="ru.miit.my.cabinet.request.model.Typetest3dictView"
+    RowLevelBinds="true"/>
+  <ListBinding
+    Name="LOV_Idemployee"
+    ListVOName="EmployeeView1"
+    ListRangeSize="-1"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="Idemployee"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="Idemployee"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="Secondname"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
   <EntityUsage
     Name="Typetest3"
     Entity="ru.miit.my.cabinet.request.model.Typetest3"/>
-  <EntityUsage
-    Name="Typetest3dict"
-    Entity="ru.miit.my.cabinet.request.model.Typetest3dict"
-    Association="ru.miit.my.cabinet.request.model.SysC00199793Assoc"
-    AssociationEnd="ru.miit.my.cabinet.request.model.SysC00199793Assoc.Typetest3dict"
-    SourceUsage="ru.miit.my.cabinet.request.model.Typetest3View.Typetest3"
-    ReadOnly="true"
-    Reference="true"
-    DeleteParticipant="false"
-    JoinType="INNER JOIN">
-    <DesignTime>
-      <AttrArray Name="_srcAttributes">
-        <Item Value="ru.miit.my.cabinet.request.model.Typetest3.Idtypetest3"/>
-      </AttrArray>
-      <AttrArray Name="_dstAttributes">
-        <Item Value="ru.miit.my.cabinet.request.model.Typetest3dict.Idtypetest3dict"/>
-      </AttrArray>
-    </DesignTime>
-  </EntityUsage>
   <EntityUsage
     Name="Employee"
     Entity="ru.miit.my.cabinet.request.model.Employee"
@@ -70,13 +82,22 @@
     PrecisionRule="true"
     EntityAttrName="Idtypetest3"
     EntityUsage="Typetest3"
-    AliasName="IDTYPETEST3"/>
+    AliasName="IDTYPETEST3"
+    IsUpdateable="while_insert"/>
   <ViewAttribute
     Name="Idemployee"
     PrecisionRule="true"
     EntityAttrName="Idemployee"
     EntityUsage="Typetest3"
-    AliasName="IDEMPLOYEE"/>
+    AliasName="IDEMPLOYEE"
+    LOVName="LOV_Idemployee">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="combo"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="Idrequest"
     PrecisionRule="true"
@@ -88,13 +109,14 @@
     PrecisionRule="true"
     EntityAttrName="Roomnumber"
     EntityUsage="Typetest3"
-    AliasName="ROOMNUMBER"/>
-  <ViewAttribute
-    Name="Idtypetest3dict"
-    PrecisionRule="true"
-    EntityAttrName="Idtypetest3dict"
-    EntityUsage="Typetest3"
-    AliasName="IDTYPETEST3DICT"/>
+    AliasName="ROOMNUMBER">
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="Computername"
     PrecisionRule="true"
@@ -108,13 +130,6 @@
     EntityUsage="Typetest3"
     AliasName="PROGRAMMNAME"/>
   <ViewAttribute
-    Name="Idtypetest3dict1"
-    IsNotNull="true"
-    PrecisionRule="true"
-    EntityAttrName="Idtypetest3dict"
-    EntityUsage="Typetest3dict"
-    AliasName="IDTYPETEST3DICT1"/>
-  <ViewAttribute
     Name="Secondname"
     PrecisionRule="true"
     EntityAttrName="Secondname"
@@ -127,6 +142,19 @@
     EntityAttrName="Idemployee"
     EntityUsage="Employee"
     AliasName="IDEMPLOYEE1"/>
+  <ViewAttribute
+    Name="IsItNewRow"
+    IsUpdateable="false"
+    IsSelected="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="java.lang.Boolean"
+    ColumnType="NUMBER"
+    AliasName="VIEW_ATTR"
+    SQLType="BIT">
+    <RecalcCondition><![CDATA[true]]></RecalcCondition>
+    <TransientExpression><![CDATA[source.getIsNewRow()]]></TransientExpression>
+  </ViewAttribute>
   <AttrArray Name="KeyAttributes">
     <Item Value="Idtypetest3"/>
   </AttrArray>
